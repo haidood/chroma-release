@@ -6,7 +6,7 @@
   "plugins": {
     "ChromaCore": {
       "version": "2.5.7",
-      "build": 20261010,
+      "build": 2026101002,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaCoreVST.dll",
       "notes": "Chroma Host Shield SEH outer boundary isolation, Ableton Live drag-in/device_remove lifecycle safety, zero-size DC guard, and process callback non-null assignment."
     },
