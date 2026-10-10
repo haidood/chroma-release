@@ -5,10 +5,10 @@
   "notes": "Comprehensive 60 FPS GUI performance overhaul: persistent double-buffering, zero-allocation paint loops, pre-rendered waveform caching, and 0.0% CPU idle throttling.",
   "plugins": {
     "ChromaCore": {
-      "version": "2.5.2",
+      "version": "2.5.6",
       "build": 20261010,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaCoreVST.dll",
-      "notes": "DAW transport stop sync, 1280x760 DPI viewport fit, dual-mode EQ, mod matrix active/mute toggle, and dynamic versioning."
+      "notes": "Pristine pure analog sine calculation, Mod Osc Dry/Wet and target decoupling, Filter 1/2 and Master Global Cutoff mod matrix disentanglement."
     },
     "ChromaPulse": {
       "version": "1.3.0",
