@@ -1,92 +1,92 @@
 {
   "suite_name": "Chroma Audio Suite",
-  "suite_version": "2026.10.1",
-  "release_date": "2026-10-05",
-  "notes": "Comprehensive 60 FPS GUI performance overhaul: persistent double-buffering, zero-allocation paint loops, pre-rendered waveform caching, and 0.0% CPU idle throttling.",
+  "suite_version": "2026.10.2",
+  "release_date": "2026-10-11",
+  "notes": "Comprehensive 60 FPS GUI performance pass: dirty-rect knob invalidation (<0.05ms frame latency), batched vector keybeds, anti-aliased font rendering, and fluid 0.008f knob drag sensitivity across the suite.",
   "plugins": {
     "ChromaCore": {
-      "version": "2.5.7",
-      "build": 2026101002,
+      "version": "2.5.8",
+      "build": 2026101101,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaCoreVST.dll",
-      "notes": "Chroma Host Shield SEH outer boundary isolation, Ableton Live drag-in/device_remove lifecycle safety, zero-size DC guard, and process callback non-null assignment."
+      "notes": "Performance overhaul: sub-millisecond knob dirty-rect invalidation (<0.05ms), 50 FPS fast biquad EQ curves with canvas clipping, batched 81-key piano keybed, and natural 130px knob travel."
     },
     "ChromaPulse": {
-      "version": "1.3.0",
-      "build": 20261005,
+      "version": "1.3.1",
+      "build": 20261011,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaPulse.dll",
-      "notes": "Pre-rendered waveform caching replacing 1,416 vector DrawLines with a single BitBlt."
+      "notes": "Anti-aliased font acceleration, 0.008f fluid knob responsiveness, and pre-rendered waveform caching."
     },
     "ChromaDeep": {
-      "version": "1.2.0",
-      "build": 20261005,
+      "version": "1.2.1",
+      "build": 20261011,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaDeep.dll",
-      "notes": "Zero-allocation persistent backbuffer and idle repaint throttling across all 7 tabs."
+      "notes": "Anti-aliased font acceleration, 0.008f fluid knob responsiveness, and zero-allocation persistent backbuffer."
     },
     "ChromaX": {
-      "version": "1.1.0",
-      "build": 20261005,
+      "version": "1.1.1",
+      "build": 20261011,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaX.dll",
-      "notes": "Flagship wavetable super-synth with 3D keycaps and zero-alloc double buffering."
+      "notes": "Anti-aliased font acceleration, 0.008f fluid knob responsiveness, and 3D tactile keycaps."
     },
     "ChromaComp": {
-      "version": "1.2.0",
-      "build": 20261005,
+      "version": "1.2.1",
+      "build": 20261011,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaComp.dll",
-      "notes": "Sidechain telemetry gating and idle repainting throttling."
+      "notes": "Anti-aliased font acceleration, 0.008f fluid knob responsiveness, and sidechain telemetry gating."
     },
     "ChromaVerb": {
-      "version": "1.1.0",
-      "build": 20261005,
+      "version": "1.1.1",
+      "build": 20261011,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaVerb.dll",
-      "notes": "Wireframe room acoustic visualizer decay gating and persistent backbuffer."
+      "notes": "Anti-aliased font acceleration, 0.008f fluid knob responsiveness, and graph hover over-invalidation fix."
     },
     "ChromaDelay": {
-      "version": "1.1.0",
-      "build": 20261005,
+      "version": "1.1.1",
+      "build": 20261011,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaDelay.dll",
-      "notes": "Tape/BBD visualizer decay gating and zero-alloc paint loop."
+      "notes": "Anti-aliased font acceleration, 0.008f fluid knob responsiveness, and tape/BBD visualizer decay gating."
     },
     "ChromaFhaser": {
-      "version": "1.2.0",
-      "build": 20261005,
+      "version": "1.2.1",
+      "build": 20261011,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaFhaser.dll",
-      "notes": "3D waterfall decay gating and persistent double-buffering."
+      "notes": "Anti-aliased font acceleration, 0.008f fluid knob responsiveness, and 3D waterfall decay gating."
     },
     "ChromaSlice": {
-      "version": "1.1.0",
-      "build": 20261005,
+      "version": "1.1.1",
+      "build": 20261011,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaSlice.dll",
-      "notes": "RMS detector gating and persistent double-buffering."
+      "notes": "Anti-aliased font acceleration, 0.008f fluid knob responsiveness, and RMS detector gating."
     },
     "ChromaTransientShaper": {
-      "version": "1.1.0",
-      "build": 20261005,
+      "version": "1.1.1",
+      "build": 20261011,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaTransientShaper.dll",
-      "notes": "Peak telemetry gating and zero-alloc backbuffer."
+      "notes": "Anti-aliased font acceleration, 0.008f fluid knob responsiveness, and peak telemetry gating."
     },
     "ChromaVoice": {
-      "version": "1.5.0",
-      "build": 20261009,
+      "version": "1.5.1",
+      "build": 20261011,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaVoice.dll",
-      "notes": "Eliminated 5.2 kHz vocal zap, smoothed unvoiced delay, unified dual pitch-grain heads, added universal update chiclet."
+      "notes": "Anti-aliased font acceleration, 0.008f fluid knob responsiveness, and unified dual pitch-grain heads."
     },
     "ChromaWidener": {
-      "version": "1.1.0",
-      "build": 20261005,
+      "version": "1.1.1",
+      "build": 20261011,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaWidener.dll",
-      "notes": "Multiband spatializer with decay-gated idle throttling."
+      "notes": "Anti-aliased font acceleration, 0.008f fluid knob responsiveness, and multiband spatializer."
     },
     "ChromaDesigner": {
-      "version": "1.1.0",
-      "build": 20261005,
+      "version": "1.1.1",
+      "build": 20261011,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaDesigner.dll",
-      "notes": "500-series rack module with persistent backbuffer."
+      "notes": "Anti-aliased font acceleration, 0.008f fluid knob responsiveness, and 500-series rack module."
     },
     "ChromaScramble": {
-      "version": "1.1.0",
-      "build": 20261005,
+      "version": "1.1.1",
+      "build": 20261011,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaScramble.dll",
-      "notes": "10-module MSEG sequencer with phase-difference gating."
+      "notes": "Anti-aliased font acceleration, 0.008f fluid knob responsiveness, and 10-module MSEG sequencer."
     }
   }
 }
