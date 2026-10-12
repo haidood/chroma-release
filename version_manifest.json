@@ -1,14 +1,14 @@
 {
   "suite_name": "Chroma Audio Suite",
-  "suite_version": "2026.10.2",
-  "release_date": "2026-10-11",
-  "notes": "Comprehensive 60 FPS GUI performance pass: dirty-rect knob invalidation (<0.05ms frame latency), batched vector keybeds, anti-aliased font rendering, and fluid 0.008f knob drag sensitivity across the suite.",
+  "suite_version": "2026.10.3",
+  "release_date": "2026-10-12",
+  "notes": "Dynamic UI Zoom & Multi-Resolution Display Scaling (80% to 200%) for 2K/4K monitors in ChromaCore, with real-time DAW container resizing and persistent settings recall.",
   "plugins": {
     "ChromaCore": {
-      "version": "2.5.8",
-      "build": 2026101101,
+      "version": "2.5.9",
+      "build": 2026101201,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaCoreVST.dll",
-      "notes": "Performance overhaul: sub-millisecond knob dirty-rect invalidation (<0.05ms), 50 FPS fast biquad EQ curves with canvas clipping, batched 81-key piano keybed, and natural 130px knob travel."
+      "notes": "Dynamic UI Zoom chiclet (80% to 200%), real-time Ableton Live audioMasterSizeWindow container resizing, vector resolution independence, and persistent scale recall in settings.ini."
     },
     "ChromaPulse": {
       "version": "1.3.1",
