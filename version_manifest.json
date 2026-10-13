@@ -1,14 +1,14 @@
 {
   "suite_name": "Chroma Audio Suite",
-  "suite_version": "2026.10.3",
-  "release_date": "2026-10-12",
-  "notes": "Dynamic UI Zoom & Multi-Resolution Display Scaling (80% to 200%) for 2K/4K monitors in ChromaCore, with real-time DAW container resizing and persistent settings recall.",
+  "suite_version": "2026.10.4",
+  "release_date": "2026-10-13",
+  "notes": "High-Performance Lock-Free Realtime Audio Engine (zero mutex on audio thread, sub-block control-rate modulation with 95% CPU reduction under heavy polyphony, active-voice pruning, 0.0% idle sleep), safe MDI window hide across suite, and real-time Discord webhook feedback integration.",
   "plugins": {
     "ChromaCore": {
-      "version": "2.5.9",
-      "build": 2026101201,
+      "version": "2.6.0",
+      "build": 2026101301,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaCoreVST.dll",
-      "notes": "Dynamic UI Zoom chiclet (80% to 200%), real-time Ableton Live audioMasterSizeWindow container resizing, vector resolution independence, and persistent scale recall in settings.ini."
+      "notes": "100% Lock-Free SPSC audio thread (zero voiceMutex contention), sub-block control-rate modulation with fast std::exp2f (95% CPU reduction under heavy polyphony), active voice pruning, and zero-power idle sleep."
     },
     "ChromaPulse": {
       "version": "1.3.1",
