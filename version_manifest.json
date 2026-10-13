@@ -1,14 +1,14 @@
 {
   "suite_name": "Chroma Audio Suite",
-  "suite_version": "2026.10.4",
+  "suite_version": "2026.10.5",
   "release_date": "2026-10-13",
-  "notes": "High-Performance Lock-Free Realtime Audio Engine (zero mutex on audio thread, sub-block control-rate modulation with 95% CPU reduction under heavy polyphony, active-voice pruning, 0.0% idle sleep), safe MDI window hide across suite, and real-time Discord webhook feedback integration.",
+  "notes": "Modulateable LFO Rate & Depth (Mod Matrix, Cables, & UI Knobs), pristine clean default sound (zero distortion, saturation, or unwanted LFO wobble), and 100% lock-free realtime audio engine.",
   "plugins": {
     "ChromaCore": {
-      "version": "2.6.0",
-      "build": 2026101301,
+      "version": "2.6.1",
+      "build": 2026101302,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaCoreVST.dll",
-      "notes": "100% Lock-Free SPSC audio thread (zero voiceMutex contention), sub-block control-rate modulation with fast std::exp2f (95% CPU reduction under heavy polyphony), active voice pruning, and zero-power idle sleep."
+      "notes": "Real-time dynamic modulation for LFO Rate & Depth, Mod Matrix target picker group, UI mod cable snapping, 100% crystal clean startup defaults (0% distortion, 0% filter drive, 0% LFO wobble), and 100% lock-free SPSC queue."
     },
     "ChromaPulse": {
       "version": "1.3.1",
