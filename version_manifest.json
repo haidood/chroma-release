@@ -66,9 +66,9 @@
     },
     "ChromaVoice": {
       "version": "1.5.1",
-      "build": 20261011,
+      "build": 20261016,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaVoice.dll",
-      "notes": "Anti-aliased font acceleration, 0.008f fluid knob responsiveness, and unified dual pitch-grain heads."
+      "notes": "Dynamic auto-updater shield with UAC elevated staging, on-the-fly updater binary fetching, anti-aliased font acceleration, and unified dual pitch-grain heads."
     },
     "ChromaWidener": {
       "version": "1.1.1",
