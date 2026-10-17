@@ -1,8 +1,8 @@
 {
   "suite_name": "Chroma Audio Suite",
   "suite_version": "2026.10.5",
-  "release_date": "2026-10-13",
-  "notes": "Modulateable LFO Rate & Depth (Mod Matrix, Cables, & UI Knobs), pristine clean default sound (zero distortion, saturation, or unwanted LFO wobble), and 100% lock-free realtime audio engine.",
+  "release_date": "2026-10-17",
+  "notes": "ChromaVoice v2.0.0 Nectar 4 vocal signal chain overhaul, unified version manifest across all 14 plugins, and automatic Dev folder deployment synchronization.",
   "plugins": {
     "ChromaCore": {
       "version": "2.6.1",
@@ -11,80 +11,80 @@
       "notes": "Real-time dynamic modulation for LFO Rate & Depth, Mod Matrix target picker group, UI mod cable snapping, 100% crystal clean startup defaults (0% distortion, 0% filter drive, 0% LFO wobble), and 100% lock-free SPSC queue."
     },
     "ChromaPulse": {
-      "version": "1.3.1",
-      "build": 20261011,
+      "version": "1.3.0",
+      "build": 20261009,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaPulse.dll",
       "notes": "Anti-aliased font acceleration, 0.008f fluid knob responsiveness, and pre-rendered waveform caching."
     },
     "ChromaDeep": {
-      "version": "1.2.1",
-      "build": 20261011,
+      "version": "1.2.0",
+      "build": 20261009,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaDeep.dll",
       "notes": "Anti-aliased font acceleration, 0.008f fluid knob responsiveness, and zero-allocation persistent backbuffer."
     },
     "ChromaX": {
-      "version": "1.1.1",
-      "build": 20261011,
+      "version": "1.2.0",
+      "build": 20261014,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaX.dll",
       "notes": "Anti-aliased font acceleration, 0.008f fluid knob responsiveness, and 3D tactile keycaps."
     },
     "ChromaComp": {
-      "version": "1.2.1",
-      "build": 20261011,
+      "version": "1.2.0",
+      "build": 20261009,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaComp.dll",
       "notes": "Anti-aliased font acceleration, 0.008f fluid knob responsiveness, and sidechain telemetry gating."
     },
     "ChromaVerb": {
-      "version": "1.1.1",
-      "build": 20261011,
+      "version": "1.1.0",
+      "build": 20261009,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaVerb.dll",
       "notes": "Anti-aliased font acceleration, 0.008f fluid knob responsiveness, and graph hover over-invalidation fix."
     },
     "ChromaDelay": {
-      "version": "1.1.1",
-      "build": 20261011,
+      "version": "1.1.0",
+      "build": 20261009,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaDelay.dll",
       "notes": "Anti-aliased font acceleration, 0.008f fluid knob responsiveness, and tape/BBD visualizer decay gating."
     },
     "ChromaFhaser": {
-      "version": "1.2.1",
-      "build": 20261011,
+      "version": "1.2.0",
+      "build": 20261009,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaFhaser.dll",
       "notes": "Anti-aliased font acceleration, 0.008f fluid knob responsiveness, and 3D waterfall decay gating."
     },
     "ChromaSlice": {
-      "version": "1.1.1",
-      "build": 20261011,
+      "version": "1.1.0",
+      "build": 20261009,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaSlice.dll",
       "notes": "Anti-aliased font acceleration, 0.008f fluid knob responsiveness, and RMS detector gating."
     },
     "ChromaTransientShaper": {
-      "version": "1.1.1",
-      "build": 20261011,
+      "version": "1.1.0",
+      "build": 20261009,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaTransientShaper.dll",
       "notes": "Anti-aliased font acceleration, 0.008f fluid knob responsiveness, and peak telemetry gating."
     },
     "ChromaVoice": {
-      "version": "1.5.1",
-      "build": 20261016,
+      "version": "2.0.0",
+      "build": 20261017,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaVoice.dll",
-      "notes": "Dynamic auto-updater shield with UAC elevated staging, on-the-fly updater binary fetching, anti-aliased font acceleration, and unified dual pitch-grain heads."
+      "notes": "Complete Nectar 4 vocal signal chain overhaul: Auto-Level Module (ALM) vocal rider, Scale-Aware pitch correction & key lock, split-band vocal de-esser, dual-mode compressor (LA-2A Opto vs 1176 Punch), backing vocal harmonizer & virtual choir, auto-ducked vocal space plate reverb, and 6 instant Vibe Assistant targets."
     },
     "ChromaWidener": {
-      "version": "1.1.1",
-      "build": 20261011,
+      "version": "1.1.0",
+      "build": 20261009,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaWidener.dll",
       "notes": "Anti-aliased font acceleration, 0.008f fluid knob responsiveness, and multiband spatializer."
     },
     "ChromaDesigner": {
-      "version": "1.1.1",
-      "build": 20261011,
+      "version": "1.1.0",
+      "build": 20261009,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaDesigner.dll",
       "notes": "Anti-aliased font acceleration, 0.008f fluid knob responsiveness, and 500-series rack module."
     },
     "ChromaScramble": {
-      "version": "1.1.1",
-      "build": 20261011,
+      "version": "1.1.0",
+      "build": 20261009,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaScramble.dll",
       "notes": "Anti-aliased font acceleration, 0.008f fluid knob responsiveness, and 10-module MSEG sequencer."
     }
