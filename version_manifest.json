@@ -65,10 +65,10 @@
       "notes": "Anti-aliased font acceleration, 0.008f fluid knob responsiveness, and peak telemetry gating."
     },
     "ChromaVoice": {
-      "version": "2.0.0",
-      "build": 20261017,
+      "version": "2.0.1",
+      "build": 20261018,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaVoice.dll",
-      "notes": "Complete Nectar 4 vocal signal chain overhaul: Auto-Level Module (ALM) vocal rider, Scale-Aware pitch correction & key lock, split-band vocal de-esser, dual-mode compressor (LA-2A Opto vs 1176 Punch), backing vocal harmonizer & virtual choir, auto-ducked vocal space plate reverb, and 6 instant Vibe Assistant targets."
+      "notes": "ChromaVoice v2.0.1: Fluid Center Big Dial tactile interaction with generous hit radius and bidirectional mouse-wheel stepping, responsive stage parameter pills, and elevated auto-updater deployment."
     },
     "ChromaWidener": {
       "version": "1.1.0",
