@@ -47,10 +47,10 @@
       "notes": "Anti-aliased font acceleration, 0.008f fluid knob responsiveness, and tape/BBD visualizer decay gating."
     },
     "ChromaFhaser": {
-      "version": "1.2.0",
-      "build": 20261009,
+      "version": "2.0.0",
+      "build": 20261019,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaFhaser.dll",
-      "notes": "Anti-aliased font acceleration, 0.008f fluid knob responsiveness, and 3D waterfall decay gating."
+      "notes": "ChromaFhaser v2.0.0: ChromaHostShield SEH DAW boundary crash circuit-breaker, safe SW_HIDE window closing without host container destruction, ChromaFeedbackShield native bug report dialog, 0.002f Shift-fine knob & mousewheel precision, and 60 FPS zero-allocation persistent backbuffer."
     },
     "ChromaSlice": {
       "version": "1.1.0",
