@@ -1,14 +1,14 @@
 {
   "suite_name": "Chroma Audio Suite",
-  "suite_version": "2026.10.22",
-  "release_date": "2026-10-22",
-  "notes": "Chroma Audio Suite v2.9.0 Master Architect DSP Overhaul: 8x8 Fast Walsh-Hadamard Unitary Matrix & Orthogonal Taps in ChromaVerb, WARP Granular OLA Transient Preservation & Zero-Transcendental Polynomial Hann Window in ChromaVoice, Universal 8-Style Mod Engine in ChromaCore.",
+  "suite_version": "2026.10.23",
+  "release_date": "2026-10-23",
+  "notes": "Chroma Audio Suite v2.9.1: ChromaCore & ChromaCorePro Studio 24-Band Reverb Parametric EQ coordinate alignment & mouse drag fix, sample-rate synchronized biquads, right-click filter type menu, and FabFilter response curve.",
   "plugins": {
     "ChromaCore": {
-      "version": "2.8.1",
-      "build": 20261022,
+      "version": "2.8.2",
+      "build": 20261023,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaCoreVST.dll",
-      "notes": "ChromaCore v2.8.1: Full 8-Style Mod Oscillator & Universal Routing (RingMod, PhaseFM, WTMorph, ExpoFM, HardSync, Wavefolder, Drive, Tremolo) across 10 modulation targets (Osc1, Osc2, Osc3, AllOsc, Filter1, Filter2, BothFilters, MasterFilter, OutputDrive). Filter 2 audio routing guaranteed, bipolar unity gain ring mod compensation."
+      "notes": "ChromaCore & ChromaCorePro v2.8.2: Fixed Tab 9 Reverb Parametric EQ canvas coordinate alignment (eliminated 376px offset in mousemove/hit-testing), sample-accurate biquad sync, FabFilter-style translucent response curves for active band, right-click topology menu, and full parity between Standard and Pro editions."
     },
     "ChromaPulse": {
       "version": "2.8.0",
