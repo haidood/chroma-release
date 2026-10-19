@@ -5,10 +5,10 @@
   "notes": "Chroma Audio Suite v2.8.0 Architectural & Fleet Performance Overhaul: FabFilter Pro-Q 3 spectrum & EQ standard, zero-lag WM_TIMER dirty-rect invalidation, 0.002f Shift fine precision, universal auto-updater shields, and synchronized distribution across all 14 plugins.",
   "plugins": {
     "ChromaCore": {
-      "version": "2.8.0",
-      "build": 20261021,
+      "version": "2.8.1",
+      "build": 20261022,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaCoreVST.dll",
-      "notes": "ChromaCore v2.8.0: FabFilter Pro-Q 3 acoustic mixing zone backdrop (7 mixing zones), zero-lag stack-allocated polygon spectrum & EQ curves with DrawLines (zero cubic spline stalls), flat 0.0 dB default EQ bands, highpass/lowpass vertical Q resonance dragging, targeted dirty-rect invalidation, 0.002f Shift-fine precision, and Universal Auto-Updater Shield."
+      "notes": "ChromaCore v2.8.1: Full 8-Style Mod Oscillator & Universal Routing (RingMod, PhaseFM, WTMorph, ExpoFM, HardSync, Wavefolder, Drive, Tremolo) across 10 modulation targets (Osc1, Osc2, Osc3, AllOsc, Filter1, Filter2, BothFilters, MasterFilter, OutputDrive). Filter 2 audio routing guaranteed, bipolar unity gain ring mod compensation."
     },
     "ChromaPulse": {
       "version": "2.8.0",
@@ -65,10 +65,10 @@
       "notes": "ChromaTransientShaper v2.8.0: Quantum differential transient engine with targeted dirty-rect timer invalidation, 0.002f Shift fine precision, active knob dirty-rect invalidation, and Universal Auto-Updater Shield."
     },
     "ChromaVoice": {
-      "version": "3.0.0",
-      "build": 20261021,
+      "version": "3.1.0",
+      "build": 20261022,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaVoice.dll",
-      "notes": "ChromaVoice v3.0.0: UI & Usability Overhaul: Zero-dead-zone incremental delta knob & stage dial dragging, synchronous UpdateWindow paint flushing (zero Ableton drag stutter), 3D tactile titanium knob caps with glowing dual-pass arcs, digital readout pills, floating live drag HUD tooltips, and IDC_SIZENS cursor tactile feedback."
+      "notes": "ChromaVoice v3.1.0: Dedicated Tab 7 Vocal Timestretch & Granular Mangler (WARP). Live interactive 4.0-second circular buffer waveform scrubbing, multi-head overlap-add granular engine, pitch shifting, jitter spray, reverse playback, freeze drone pad, and 8 instant one-click timestretch templates."
     },
     "ChromaWidener": {
       "version": "2.8.0",
