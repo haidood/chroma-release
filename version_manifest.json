@@ -1,8 +1,8 @@
 {
   "suite_name": "Chroma Audio Suite",
-  "suite_version": "2026.10.21",
-  "release_date": "2026-10-21",
-  "notes": "Chroma Audio Suite v2.8.0 Architectural & Fleet Performance Overhaul: FabFilter Pro-Q 3 spectrum & EQ standard, zero-lag WM_TIMER dirty-rect invalidation, 0.002f Shift fine precision, universal auto-updater shields, and synchronized distribution across all 14 plugins.",
+  "suite_version": "2026.10.22",
+  "release_date": "2026-10-22",
+  "notes": "Chroma Audio Suite v2.9.0 Master Architect DSP Overhaul: 8x8 Fast Walsh-Hadamard Unitary Matrix & Orthogonal Taps in ChromaVerb, WARP Granular OLA Transient Preservation & Zero-Transcendental Polynomial Hann Window in ChromaVoice, Universal 8-Style Mod Engine in ChromaCore.",
   "plugins": {
     "ChromaCore": {
       "version": "2.8.1",
@@ -35,10 +35,10 @@
       "notes": "ChromaComp v2.0.0: FabFilter Pro-Q 3 acoustic mixing zone backdrop (7 mixing zones), zero-lag stack-allocated polygon spectrum & EQ curves with DrawLines (zero cubic spline stalls), HP/LP vertical Q resonance dragging, double-click node reset to 0 dB, targeted rcEq dirty-rect invalidation, and 0.002f Shift-fine precision."
     },
     "ChromaVerb": {
-      "version": "2.0.0",
-      "build": 20261021,
+      "version": "2.9.0",
+      "build": 20261022,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaVerb.dll",
-      "notes": "ChromaVerb v2.0.0: FabFilter Pro-Q 3 acoustic mixing zone backdrop (7 zones), zero-lag stack-allocated polygon spectrum & EQ curves (zero heap allocations in WM_PAINT), flat 0.0 dB default post-EQ bands with HP/LP vertical Q dragging, Q-readout below node, targeted dirty-rect invalidation, and 0.002f Shift-fine precision."
+      "notes": "ChromaVerb v2.9.0: 8x8 Fast Walsh-Hadamard (FWHT_8) unitary mixing matrix for 100% delay line cross-coupling per pass, alternating sign decorrelation injection (kInSign), orthogonal stereo late taps, forward 2x octave-up shimmer loop with C1 polynomial Hann window, and FabFilter Pro-Q 3 acoustic mixing zone backdrop."
     },
     "ChromaDelay": {
       "version": "2.0.0",
@@ -65,10 +65,10 @@
       "notes": "ChromaTransientShaper v2.8.0: Quantum differential transient engine with targeted dirty-rect timer invalidation, 0.002f Shift fine precision, active knob dirty-rect invalidation, and Universal Auto-Updater Shield."
     },
     "ChromaVoice": {
-      "version": "3.1.0",
+      "version": "3.2.0",
       "build": 20261022,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaVoice.dll",
-      "notes": "ChromaVoice v3.1.0: Dedicated Tab 7 Vocal Timestretch & Granular Mangler (WARP). Live interactive 4.0-second circular buffer waveform scrubbing, multi-head overlap-add granular engine, pitch shifting, jitter spray, reverse playback, freeze drone pad, and 8 instant one-click timestretch templates."
+      "notes": "ChromaVoice v3.2.0: WARP Granular OLA transient preservation with differential envelope follower, sharp consonant plosive micro-window phase locking, direct transient punch crossfade, and zero-transcendental C1 polynomial Hann window."
     },
     "ChromaWidener": {
       "version": "2.8.0",
