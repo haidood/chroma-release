@@ -1,92 +1,92 @@
 {
   "suite_name": "Chroma Audio Suite",
-  "suite_version": "2026.10.5",
-  "release_date": "2026-10-17",
-  "notes": "ChromaVoice v2.0.0 Nectar 4 vocal signal chain overhaul, unified version manifest across all 14 plugins, and automatic Dev folder deployment synchronization.",
+  "suite_version": "2026.10.21",
+  "release_date": "2026-10-21",
+  "notes": "Chroma Audio Suite v2.8.0 Architectural & Fleet Performance Overhaul: FabFilter Pro-Q 3 spectrum & EQ standard, zero-lag WM_TIMER dirty-rect invalidation, 0.002f Shift fine precision, universal auto-updater shields, and synchronized distribution across all 14 plugins.",
   "plugins": {
     "ChromaCore": {
-      "version": "2.7.0",
-      "build": 20261019,
+      "version": "2.8.0",
+      "build": 20261021,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaCoreVST.dll",
-      "notes": "ChromaCore v2.7.0: Zero phantom modulation bug fix on wavetable and tone knobs, flat note pitch stability (zero drift when unrouted), 100% click-free factory presets, static GDI+ font caching eliminating GUI dragging lag, and biquad filter stability clamping."
+      "notes": "ChromaCore v2.8.0: FabFilter Pro-Q 3 acoustic mixing zone backdrop (7 mixing zones), zero-lag stack-allocated polygon spectrum & EQ curves with DrawLines (zero cubic spline stalls), flat 0.0 dB default EQ bands, highpass/lowpass vertical Q resonance dragging, targeted dirty-rect invalidation, 0.002f Shift-fine precision, and Universal Auto-Updater Shield."
     },
     "ChromaPulse": {
-      "version": "1.3.0",
-      "build": 20261009,
+      "version": "2.8.0",
+      "build": 20261021,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaPulse.dll",
-      "notes": "Anti-aliased font acceleration, 0.008f fluid knob responsiveness, and pre-rendered waveform caching."
+      "notes": "ChromaPulse v2.8.0: FabFilter Pro-Q 3 acoustic mixing zone backdrop (7 zones), stack-allocated spectrum bars & EQ curves with DrawLines, cut-filter vertical Q dragging, double-click node reset to 0 dB, Pillar 1 targeted dirty-rect invalidation, and 0.002f Shift-fine precision."
     },
     "ChromaDeep": {
-      "version": "1.2.0",
-      "build": 20261009,
+      "version": "2.8.0",
+      "build": 20261021,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaDeep.dll",
-      "notes": "Anti-aliased font acceleration, 0.008f fluid knob responsiveness, and zero-allocation persistent backbuffer."
+      "notes": "ChromaDeep v2.8.0: 7 Pro-Q 3 acoustic mixing zone backdrops, stack-allocated spectrum and EQ curves with FillPolygon and DrawLines, highpass/lowpass vertical Q dragging, targeted dirty-rect timer invalidation, 0.002f Shift fine precision, and Universal Auto-Updater Shield."
     },
     "ChromaX": {
-      "version": "1.2.0",
-      "build": 20261014,
+      "version": "2.8.1",
+      "build": 20261022,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaX.dll",
-      "notes": "Anti-aliased font acceleration, 0.008f fluid knob responsiveness, and 3D tactile keycaps."
+      "notes": "ChromaX v2.8.1: Resolved 63 VST 2.4 effGetParamName parameter buffer overflows with 8-byte safe naming, integrated ChromaHostShield circuit breaker across dispatcher and audio callbacks, and protected sample rate changes."
     },
     "ChromaComp": {
-      "version": "1.2.0",
-      "build": 20261009,
+      "version": "2.0.0",
+      "build": 20261021,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaComp.dll",
-      "notes": "Anti-aliased font acceleration, 0.008f fluid knob responsiveness, and sidechain telemetry gating."
+      "notes": "ChromaComp v2.0.0: FabFilter Pro-Q 3 acoustic mixing zone backdrop (7 mixing zones), zero-lag stack-allocated polygon spectrum & EQ curves with DrawLines (zero cubic spline stalls), HP/LP vertical Q resonance dragging, double-click node reset to 0 dB, targeted rcEq dirty-rect invalidation, and 0.002f Shift-fine precision."
     },
     "ChromaVerb": {
-      "version": "1.1.0",
-      "build": 20261009,
+      "version": "2.0.1",
+      "build": 20261022,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaVerb.dll",
-      "notes": "Anti-aliased font acceleration, 0.008f fluid knob responsiveness, and graph hover over-invalidation fix."
+      "notes": "ChromaVerb v2.0.1: Resolved critical VST 2.4 effGetParamName 8-byte stack overflow bug, integrated ChromaHostShield crash protection and circuit breaker, non-blocking sample rate handling, and zero-dropout audio processing."
     },
     "ChromaDelay": {
-      "version": "1.1.0",
-      "build": 20261009,
+      "version": "2.0.0",
+      "build": 20261021,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaDelay.dll",
-      "notes": "Anti-aliased font acceleration, 0.008f fluid knob responsiveness, and tape/BBD visualizer decay gating."
+      "notes": "ChromaDelay v2.0.0: FabFilter Pro-Q 3 acoustic mixing zone backdrop (7 mixing zones), zero-lag stack-allocated polygon spectrum & EQ curves (zero heap allocations in WM_PAINT), flat 0.0 dB default EQ bands with Pro-Q 3 HP/LP vertical Q dragging, targeted dirty-rect invalidation, and 0.002f Shift-fine precision."
     },
     "ChromaFhaser": {
-      "version": "2.0.0",
-      "build": 20261019,
+      "version": "2.8.0",
+      "build": 20261021,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaFhaser.dll",
-      "notes": "ChromaFhaser v2.0.0: ChromaHostShield SEH DAW boundary crash circuit-breaker, safe SW_HIDE window closing without host container destruction, ChromaFeedbackShield native bug report dialog, 0.002f Shift-fine knob & mousewheel precision, and 60 FPS zero-allocation persistent backbuffer."
+      "notes": "ChromaFhaser v2.8.0: 7 Pro-Q 3 acoustic mixing zone backdrops, stack-allocated DrawLines on waterfall depth slices and EQ curves, cut-filter vertical Q dragging, targeted dirty-rect timer invalidation, 0.002f Shift fine precision, and Universal Auto-Updater Shield."
     },
     "ChromaSlice": {
-      "version": "1.1.0",
-      "build": 20261009,
+      "version": "2.8.0",
+      "build": 20261021,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaSlice.dll",
-      "notes": "Anti-aliased font acceleration, 0.008f fluid knob responsiveness, and RMS detector gating."
+      "notes": "ChromaSlice v2.8.0: Targeted dirty-rect timer invalidation, 0.002f Shift fine precision, active knob dirty-rect invalidation, zero-allocation filter Bode response, and Universal Auto-Updater Shield."
     },
     "ChromaTransientShaper": {
-      "version": "1.1.0",
-      "build": 20261009,
+      "version": "2.8.0",
+      "build": 20261021,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaTransientShaper.dll",
-      "notes": "Anti-aliased font acceleration, 0.008f fluid knob responsiveness, and peak telemetry gating."
+      "notes": "ChromaTransientShaper v2.8.0: Quantum differential transient engine with targeted dirty-rect timer invalidation, 0.002f Shift fine precision, active knob dirty-rect invalidation, and Universal Auto-Updater Shield."
     },
     "ChromaVoice": {
-      "version": "2.1.0",
-      "build": 20261019,
+      "version": "3.0.0",
+      "build": 20261021,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaVoice.dll",
-      "notes": "ChromaVoice v2.1.0: Zero-Click DSP Architecture: 180-degree locked dual-head pitch grains with identity Hann sum (wA + wB = 1.0), eliminated unvoiced comb-filtering dry bleed, thread-safe audio-boundary parameter updates, continuous smooth formant scaling, and split-band sibilance ducking."
+      "notes": "ChromaVoice v3.0.0: UI & Usability Overhaul: Zero-dead-zone incremental delta knob & stage dial dragging, synchronous UpdateWindow paint flushing (zero Ableton drag stutter), 3D tactile titanium knob caps with glowing dual-pass arcs, digital readout pills, floating live drag HUD tooltips, and IDC_SIZENS cursor tactile feedback."
     },
     "ChromaWidener": {
-      "version": "1.1.0",
-      "build": 20261009,
+      "version": "2.8.0",
+      "build": 20261021,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaWidener.dll",
-      "notes": "Anti-aliased font acceleration, 0.008f fluid knob responsiveness, and multiband spatializer."
+      "notes": "ChromaWidener v2.8.0: Targeted dirty-rect timer invalidation, 0.002f Shift fine precision, active drag dirty-rect invalidation, persistent backbuffer zero-leak rendering, and Universal Auto-Updater Shield."
     },
     "ChromaDesigner": {
-      "version": "1.1.0",
-      "build": 20261009,
+      "version": "2.8.0",
+      "build": 20261021,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaDesigner.dll",
-      "notes": "Anti-aliased font acceleration, 0.008f fluid knob responsiveness, and 500-series rack module."
+      "notes": "ChromaDesigner v2.8.0: Dual 500-series D.E.T. transient processor with targeted dirty-rect invalidation, 0.002f Shift fine precision, active knob dirty-rect invalidation, and Universal Auto-Updater Shield."
     },
     "ChromaScramble": {
-      "version": "1.1.0",
-      "build": 20261009,
+      "version": "2.8.0",
+      "build": 20261021,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaScramble.dll",
-      "notes": "Anti-aliased font acceleration, 0.008f fluid knob responsiveness, and 10-module MSEG sequencer."
+      "notes": "ChromaScramble v2.8.0: Targeted dirty-rect timer invalidation, 0.002f Shift fine precision, active knob dirty-rect invalidation, 10-module MSEG zero-latency engine, and Universal Auto-Updater Shield."
     }
   }
 }
