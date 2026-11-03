@@ -1,20 +1,20 @@
 {
   "suite_name": "Chroma Audio Suite",
-  "suite_version": "2026.11.03",
-  "release_date": "2026-11-03",
-  "notes": "Chroma Audio Suite v2.9.2: ChromaCore & ChromaCorePro v2.8.3 preset library overhaul, zero-ringing Scream/Acid filter limit-cycle protection, stereo pan centering on legacy patches, and 8 new flagship Studio Signature presets.",
+  "suite_version": "2026.11.04",
+  "release_date": "2026-11-04",
+  "notes": "Chroma Audio Suite v2.9.3: ChromaCore & ChromaCorePro v2.8.4 with Spectral-Adaptive Magic Drive (Pultec Sub + Dynamic Mid Focus + Silk Air + OTT Piggyback), True Stereo / True Mono header button, Prophet-6/OB-6 Polyphonic Stereo Voice Spread, 4-point Catmull-Rom cubic wavetable interpolation with Spectral Intensity Tilt, and Inter-Stage Moog/SEM Analog Filter Saturation.",
   "plugins": {
     "ChromaCore": {
-      "version": "2.8.3",
-      "build": 20261103,
+      "version": "2.8.4",
+      "build": 20261104,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaCoreVST.dll",
-      "notes": "ChromaCore & ChromaCorePro v2.8.3: Eliminated perpetual filter limit-cycle self-oscillation on Scream Overdrive (Type 10) and Acid 303 (Type 12) presets, fixed Chroma Vowel II Vocal Lead filter mapping, centered stereo pan on legacy presets, and added 8 new Studio Signature presets (Daft French Touch Talkbox, Afterlife Melodic Techno Lead, Riddim Sub Womper, Prophet-6 Analog Poly Brass, UK Garage Organ Sub Bass, Future Flume Granular Chords, Interstellar Zimmer Cathedral, Hardwave Cyber Reese Lead)."
+      "notes": "ChromaCore v2.8.4: Added Spectral-Adaptive MAGIC Drive knob (0% default, 3-band Pultec sub weight + dynamic midrange sweet-spot focus + silk air de-harsher + 3-Band OTT upward/downward piggyback), True STEREO / MONO button next to Poly/Legato with Prophet-6 polyphonic stereo voice panning and analog twin VCO dispersion, 4-point Catmull-Rom cubic wavetable interpolation with unity-gain Spectral Intensity Tilt, and inter-stage Moog/SEM analog filter saturation."
     },
     "ChromaCorePro": {
-      "version": "2.8.3",
-      "build": 20261103,
+      "version": "2.8.4",
+      "build": 20261104,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaCorePro.dll",
-      "notes": "ChromaCorePro v2.8.3: Eliminated filter limit-cycle self-oscillation on Scream/Acid presets, fixed legacy preset filter indices and stereo pan centering, and added 8 new Studio Signature presets."
+      "notes": "ChromaCorePro v2.8.4: Added Spectral-Adaptive MAGIC Drive knob (0% default), True STEREO / MONO button next to Poly/Legato with Prophet-6 polyphonic stereo voice panning, 4-point Catmull-Rom cubic wavetable interpolation, and inter-stage Moog/SEM analog filter saturation."
     },
     "ChromaPulse": {
       "version": "2.8.0",
