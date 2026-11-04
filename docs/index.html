@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chroma Audio Suite // Release Notes, Version Cards & DSP Guide</title>
+<style>
+  :root {
+    --bg-carbon: #090b0e;
+    --bg-sidebar: #0d1015;
+    --bg-panel: #12161d;
+    --bg-header: #161b24;
+    --border-gunmetal: #28303d;
+    --border-subtle: #1c222b;
+    --text-platinum: #eaeff5;
+    --text-titanium: #b4c0ce;
+    --text-steel: #7c899b;
+    --ice-cyan: #6ec3e4;
+    --ice-dim: rgba(110, 195, 228, 0.14);
+    --emerald: #2db987;
+    --emerald-bg: rgba(45, 185, 135, 0.12);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg-carbon);
+    color: var(--text-platinum);
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+  }
+  /* Top Hardware Ribbon */
+  .top-ribbon {
+    height: 56px;
+    background: var(--bg-header);
+    border-bottom: 1px solid var(--border-gunmetal);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    flex-shrink: 0;
+  }
+  .brand-group { display: flex; align-items: center; gap: 14px; }
+  .brand-title { font-size: 18px; font-weight: 700; letter-spacing: 0.8px; color: var(--text-platinum); }
+  .suite-badge {
+    font-family: Consolas, monospace;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ice-cyan);
+    background: var(--ice-dim);
+    border: 1px solid rgba(110, 195, 228, 0.35);
+    padding: 3px 10px;
+    border-radius: 4px;
+  }
+  .ribbon-actions { display: flex; align-items: center; gap: 10px; }
+  .hw-btn {
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 5px;
+    border: 1px solid var(--border-gunmetal);
+    background: var(--bg-panel);
+    color: var(--text-titanium);
+    cursor: pointer;
+    transition: 0.15s;
+  }
+  .hw-btn:hover { border-color: var(--ice-cyan); color: var(--text-platinum); }
+  .hw-btn-update {
+    border-color: var(--emerald);
+    background: var(--emerald-bg);
+    color: var(--text-platinum);
+  }
+  /* Main Layout: Left Sidebar + Right Content */
+  .workspace {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+  }
+  .sidebar {
+    width: 310px;
+    background: var(--bg-sidebar);
+    border-right: 1px solid var(--border-gunmetal);
+    overflow-y: auto;
+    padding: 16px 12px;
+    flex-shrink: 0;
+  }
+  .cat-header {
+    font-family: Consolas, monospace;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-steel);
+    margin: 16px 8px 6px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .cat-header:first-child { margin-top: 4px; }
+  .plugin-group { margin-bottom: 4px; }
+  .plugin-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    color: var(--text-titanium);
+    font-size: 13.5px;
+    font-weight: 600;
+    border: 1px solid transparent;
+  }
+  .plugin-row:hover { background: rgba(255,255,255,0.03); color: var(--text-platinum); }
+  .plugin-row.active {
+    background: var(--bg-panel);
+    border-color: var(--border-gunmetal);
+    color: var(--text-platinum);
+  }
+  .ver-tag {
+    font-family: Consolas, monospace;
+    font-size: 11px;
+    color: var(--ice-cyan);
+    background: rgba(110, 195, 228, 0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+  .sub-tree {
+    margin-left: 16px;
+    padding-left: 10px;
+    border-left: 1px solid var(--border-gunmetal);
+    margin-top: 4px;
+    margin-bottom: 8px;
+    display: none;
+  }
+  .sub-tree.open { display: block; }
+  .sub-item {
+    padding: 5px 10px;
+    font-size: 12.5px;
+    color: var(--text-steel);
+    cursor: pointer;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .sub-item:hover { color: var(--text-platinum); background: rgba(255,255,255,0.02); }
+  .sub-item.active { color: var(--ice-cyan); font-weight: 600; background: var(--ice-dim); }
+  /* Main Content Area */
+  .content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 32px 44px;
+    max-width: 1180px;
+  }
+  .hero-box {
+    background: var(--bg-panel);
+    border: 1px solid var(--border-gunmetal);
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 24px;
+  }
+  .hero-type {
+    font-family: Consolas, monospace;
+    font-size: 12px;
+    color: var(--ice-cyan);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .hero-title { font-size: 28px; font-weight: 700; margin-bottom: 10px; display: flex; align-items: center; gap: 12px; }
+  .hero-summary { font-size: 15px; line-height: 1.6; color: var(--text-titanium); }
+  .release-card-img {
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid var(--border-gunmetal);
+    margin: 20px 0;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.5);
+  }
+  .section-hdr {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 28px 0 14px 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-gunmetal);
+    color: var(--text-platinum);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .glossary-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .glossary-card {
+    background: var(--bg-panel);
+    border: 1px solid var(--border-gunmetal);
+    border-left: 3px solid var(--ice-cyan);
+    border-radius: 8px;
+    padding: 16px 20px;
+  }
+  .glossary-term { font-size: 15px; font-weight: 700; color: var(--text-platinum); margin-bottom: 6px; }
+  .glossary-simple { font-size: 14px; line-height: 1.6; color: var(--text-titanium); }
+  .version-card {
+    background: var(--bg-panel);
+    border: 1px solid var(--border-gunmetal);
+    border-radius: 8px;
+    margin-bottom: 18px;
+    overflow: hidden;
+  }
+  .version-card-hdr {
+    background: var(--bg-header);
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--border-gunmetal);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .version-card-title { font-size: 16px; font-weight: 700; color: var(--text-platinum); }
+  .version-card-date { font-family: Consolas, monospace; font-size: 12px; color: var(--text-steel); }
+  .version-card-body { padding: 18px 24px; }
+  .version-card-body li {
+    margin-bottom: 10px;
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: var(--text-titanium);
+  }
+  .version-card-body strong { color: var(--text-platinum); }
+  .feedback-box {
+    background: var(--bg-panel);
+    border: 1px solid var(--border-gunmetal);
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  textarea.diag-input {
+    width: 100%;
+    height: 130px;
+    background: #080a0d;
+    border: 1px solid var(--border-gunmetal);
+    border-radius: 6px;
+    color: var(--text-platinum);
+    font-family: Consolas, monospace;
+    font-size: 12.5px;
+    padding: 12px;
+    margin: 12px 0;
+  }
+</style>
+</head>
+<body>
+  <div class="top-ribbon">
+    <div class="brand-group">
+      <div class="brand-title">CHROMA // AUDIO SUITE</div>
+      <div class="suite-badge">RELEASE HUB & PLAIN-ENGLISH DSP GUIDE</div>
+    </div>
+    <div class="ribbon-actions">
+      <button class="hw-btn" onclick="showFeedbackPortal()">[ FEEDBACK / PASTE BUG REPORT ]</button>
+      <a class="hw-btn hw-btn-update" href="https://github.com/haidood/chroma-release" target="_blank">▲ GITHUB REPO & BINARIES</a>
+    </div>
+  </div>
+
+  <div class="workspace">
+    <div class="sidebar" id="sidebar"></div>
+    <div class="content" id="content"></div>
+  </div>
+
+<script>
+const DATA = [
+  {
+    "id": "synthesizers",
+    "folder": "01_Synthesizers",
+    "title": "Synthesizers",
+    "icon": "SYNTH",
+    "plugins": [
+      {
+        "id": "chromacore",
+        "name": "ChromaCore & ChromaCorePro",
+        "latest": "v2.8.5",
+        "type": "32-Voice Hybrid Analog / Wavetable / FM Workstation Synth",
+        "summary": "Our flagship 3-oscillator synthesizer combining warm hardware-modeled analog drift, 4-point cubic wavetables, dual Moog/Oberheim filters, 8-style FM/Mod oscillator, 16-step Performer & Miami Sequencer, 3-band multiband distortion, 12-band studio EQ, OTT dynamics, Magic Fattener, BBD Delay, and Studio Reverb.",
+        "glossary": [
+          {
+            "term": "4-Point Catmull-Rom Cubic Wavetable Interpolation",
+            "simple": "Think of a digital waveform like a connect-the-dots drawing. Basic synths draw straight lines between the dots, which creates sharp corners that sound like harsh, metallic 'digital fizz' on high notes. Cubic interpolation bends a smooth, natural curve through 4 dots at a time\u2014making digital wavetables sound as smooth and liquid as analog tape."
+          },
+          {
+            "term": "Spectral-Adaptive 'MAGIC' Drive & OTT Piggyback",
+            "simple": "Traditional distortion boosts every frequency equally, turning chords into muddy fuzz. The MAGIC knob listens to your sound split into 3 frequency zones (Sub Bass, Musical Mids, and High Air). It gives your sub bass a tight 'Pultec-style' punch, focuses warm tube saturation right where the human ear loves it (the midrange), and gently tames harsh treble above 6 kHz\u2014while sneaking in upward multiband compression (OTT) so quiet details jump forward."
+          },
+          {
+            "term": "Prophet-6 / OB-6 Polyphonic Stereo Spread & VCO Drift",
+            "simple": "On vintage analog polysynths, every voice lives on its own physical circuit board with slightly different capacitors and resistors. In STEREO mode, ChromaCore places each note of your chord at a slightly different stereo pan position and gives the left and right speakers microscopic phase differences\u2014so a dry chord immediately sounds wide and 3D even with zero reverb or chorus."
+          },
+          {
+            "term": "Biquad Filter Poles & The 'Unit Circle' (EQ Stability)",
+            "simple": "Digital EQ filters work by feeding a tiny bit of the output sound back into the input to boost or cut specific frequencies. Mathematically, if the feedback number crosses '1.0' (leaving the 'unit circle'), the filter acts like a microphone held right up to a speaker\u2014instantly screaming to infinity and muting your DAW. In v2.8.5, we locked every EQ shelf inside a mathematical safety cage so it can never overload."
+          },
+          {
+            "term": "Inter-Stage Moog Ladder & SEM Tube Saturation",
+            "simple": "A classic 24dB Moog filter is built like a ladder with 4 rungs (stages). Instead of just distorting the sound before or after the filter, ChromaCore gently saturates the signal between every single rung of the ladder\u2014giving you that thick, creamy, non-whistling analog resonance."
+          }
+        ],
+        "known_issues": [
+          "None currently open in v2.8.5! (Previous v2.8.4 EQ Low-Shelf / High-Shelf / Notch transition audio drop and v2.8.2 Scream Filter 1038 Hz whistle are 100% resolved)."
+        ],
+        "versions": [
+          {
+            "version": "v2.8.5",
+            "date": "2026-11-05",
+            "title": "Studio EQ Shelf Fix, Live 60 FPS MIDI Keybed, [KEYS] Stealth Mode & Clipboard Feedback",
+            "card_image": "assets/ChromaCore_v2.8.5_Release_Card.png",
+            "highlights": [
+              "**Fixed 12-Band Parametric EQ (`L-SH`, `H-SH`, and `NOTCH`)**: Fixed a coefficient sign bug in Low-Shelf (`L-SH`) and High-Shelf (`H-SH`) filters where deep cuts or switching a band from `NOTCH` to `H-SH` could push filter feedback past 100% and mute Ableton Live's audio engine.",
+              "**Vertical Notch Width Dragging**: Dragging a `NOTCH` node up or down on the EQ display now smoothly widens or narrows the notch `Q` (just like `HP` and `LP` cut filters) instead of storing hidden gain values.",
+              "**Self-Healing Audio Engine Protection**: Added automatic `NaN` / `Infinity` circuit-breakers inside every EQ biquad and the Master Analog Console output stage so extreme settings can never drop audio.",
+              "**Real-Time 60 FPS MIDI Keybed Highlighting**: Incoming MIDI notes played from your DAW or MIDI controller now light up the bottom 81-key keyboard in real time at 60 FPS.",
+              "**New `[ KEYS: ON / OFF ]` Stealth Switch**: Added a toggle button right next to `[ STEREO ]` in the top display. Turning `KEYS: OFF` collapses the bright white piano keys into a dark carbon-black **Live MIDI Monitor** bar.",
+              "**1-Click `[ FEEDBACK ]` Clipboard Bug Reporter**: Clicking `[ FEEDBACK ]` in the top-right bar captures your exact synth patch, EQ curve, and UI screenshot, and **copies a formatted diagnostic block straight to your Windows Clipboard** so you can press `Ctrl+V` directly in Discord or open a pre-filled GitHub report."
+            ]
+          },
+          {
+            "version": "v2.8.4",
+            "date": "2026-11-04",
+            "title": "'MAGIC' Spectral Fattener Knob, True Stereo/Mono Mode, Cubic Wavetables & Tube Filters",
+            "card_image": "",
+            "highlights": [
+              "**New `MAGIC` (Fatten) Knob**: Added next to `REVERB` in the `OUTPUT // SPACE` deck (`0%` by default). Combines 3-band spectral-adaptive saturation (Pultec sub weight, dynamic midrange warmth, silk air de-harsher) with automatic 3-Band OTT upward/downward density.",
+              "**New `[ STEREO ]` / `[ MONO ]` Header Switch**: Added right next to `32-POLY / LEGATO`. `STEREO` enables Prophet-6 style polyphonic voice pan spread and analog twin-VCO phase dispersion; `MONO` forces 100% phase-locked dual-mono output.",
+              "**4-Point Cubic Wavetable Interpolation**: Upgraded wavetable lookup from linear to 4-point Catmull-Rom cubic splines, eliminating high-note digital harshness.",
+              "**Unity-Gain `INTENSITY` Brightness Tilt**: Turning `INTENSITY` down now darkens harmonics like a warm analog lowpass roll-off without losing volume; turning it up adds subtle triode tube bloom.",
+              "**Inter-Stage Analog Filter Saturation**: Upgraded Filter 1 & Filter 2 with zero-DC asymmetric tube warmth and inter-stage ladder saturation."
+            ]
+          },
+          {
+            "version": "v2.8.3",
+            "date": "2026-11-03",
+            "title": "Scream/Acid Filter Self-Oscillation Fix & 8 New Flagship Presets",
+            "card_image": "",
+            "highlights": [
+              "**Fixed Filter 1 'Scream Overdrive' & 'Acid 303' Whistle**: Added dynamic input-envelope damping to the filter resonance feedback loop (`ChromaDualFilter`) so high-resonance patches (`Chroma Vowel II Vocal`, `Acid 303 Squelch`) decay to dead silence the moment you release a key instead of ringing at 1038 Hz.",
+              "**8 New Production Presets (Presets 56\u201363)**: Added * Silk Tape Keys*, *Sub Zero 808*, *CyberpunkReese*, *Velvet Chords*, *Pluck Horizon*, *Neuro Bassline*, *Glass Bell Pad*, and *Analog Brass CS80*."
+            ]
+          },
+          {
+            "version": "v2.8.2",
+            "date": "2026-10-23",
+            "title": "8-Style Universal Modulation Oscillator Overhaul & Dual Filter Routing Fix",
+            "card_image": "",
+            "highlights": [
+              "**8 Modulation Oscillator Styles**: Upgraded the `MOD OSC // SHAPER & FM` deck with 8 distinct synthesis modes: *RingMod*, *PhaseFM*, *WTMorph*, *ExpoFM*, *HardSync*, *Wavefolder*, *DriveScream*, and *Tremolo*.",
+              "**10 Modulation Targets**: Route the Mod Osc to *Osc 1*, *Osc 2*, *Osc 1+2*, *Osc 3*, *Filter 1*, *Filter 2*, *Filter 1+2*, *Volume*, *Pan*, or *Pitch*.",
+              "**Filter 2 Parallel Routing Fix**: Fixed a bug where oscillators routed to Filter 2 (`F2`) were attenuated when `FilterMix` was at default."
+            ]
+          },
+          {
+            "version": "v2.8.0",
+            "date": "2026-10-10",
+            "title": "12-Band Studio EQ, Persistent Double-Buffering & Zero-CPU Idle Throttling",
+            "card_image": "",
+            "highlights": [
+              "**12-Band Dynamic Studio EQ**: Full parametric EQ with 7 acoustic mixing zone backdrops, mousewheel `Q` control, and real-time spectrum analyzer.",
+              "**Zero-Allocation 60 FPS GUI**: Persistent GDI+ backbuffer cache and intelligent idle repaint throttling (`0.0%` CPU when stopped in Ableton Live / FL Studio).",
+              "**Universal Update Shield & Crash Vault**: Built-in 1-click updater and automatic session crash recovery."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "chromax",
+        "name": "ChromaX",
+        "latest": "v2.8.0",
+        "type": "Flagship Synthesizer with 3D Keycaps & LED Jewels",
+        "summary": "High-headroom polyphonic synthesizer featuring tactile 3D hardware keycaps, zero-noise clean oscillators, and studio multi-effects.",
+        "glossary": [
+          {
+            "term": "Polyphonic Headroom Scaling",
+            "simple": "When you play a 6-note chord, 6 oscillators add together and can easily clip your master bus. ChromaX automatically balances per-voice gain so single-note leads and big 8-note chords sit at the same clean studio level."
+          }
+        ],
+        "known_issues": [
+          "None currently open in v2.8.0."
+        ],
+        "versions": [
+          {
+            "version": "v2.8.0",
+            "date": "2026-10-21",
+            "title": "Zero Background Noise on Clean Presets, Polyphonic Headroom Scaling & Dirty-Rect UI",
+            "card_image": "",
+            "highlights": [
+              "**Silent Noise Floor on Clean Patches**: Defaulted `kParamNoise1Level = 0.0f` on clean factory presets so pure keys and pads have zero background hiss.",
+              "**Polyphonic Headroom Scaling**: Smooth multi-voice gain compensation prevents chord clipping.",
+              "**60 FPS Dirty-Rect Invalidation & Shift Fine-Tune**: `0.002f` Shift-drag precision and Universal Auto-Updater Shield."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "chromapulse",
+        "name": "ChromaPulse",
+        "latest": "v2.8.0",
+        "type": "Step-Sequenced Ratchet Rhythm Synthesizer",
+        "summary": "Precision rhythmic synthesizer built for modern electronic basslines, ratcheting arpeggios, and tempo-synced filter movement.",
+        "glossary": [
+          {
+            "term": "Sub-Step Ratcheting",
+            "simple": "Instead of playing just one note per 16th-note step, ratcheting rapidly subdivides a single step into 2, 3, or 4 mini-strikes\u2014creating those signature rolling Tangerine Dream / modern techno synth fills."
+          }
+        ],
+        "known_issues": [
+          "None currently open in v2.8.0."
+        ],
+        "versions": [
+          {
+            "version": "v2.8.0",
+            "date": "2026-10-21",
+            "title": "7-Zone Acoustic EQ Backdrop, Stack-Allocated Spectrum & 0.002f Fine Stepping",
+            "card_image": "",
+            "highlights": [
+              "**Pro-Q 3 Style 7-Zone Mixing Backdrop**: Visual frequency guide (Sub, Bass, Low-Mid, Mid, Upper-Mid, Presence, Air).",
+              "**Zero-Lag Spectrum & EQ Rendering**: Stack-allocated `DrawLines` curve rendering with cut-filter vertical `Q` dragging.",
+              "**Universal Auto-Updater Shield**: 1-click in-plugin updates."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "chromadeep",
+        "name": "ChromaDeep",
+        "latest": "v2.8.0",
+        "type": "7-Tab Modular Delay & Sub-Bass Synthesizer",
+        "summary": "Deep sub-bass and dub-techno chord synthesizer with a 7-tab modular delay and filter sculpting rack.",
+        "glossary": [
+          {
+            "term": "Sub-Harmonic Phase Locking",
+            "simple": "Low bass waves are huge and slow. If a synth starts a bass note at a random point in the wave cycle every time you hit a key, some notes punch hard and others sound weak. Phase locking ensures every single bass hit starts at the exact same millisecond."
+          }
+        ],
+        "known_issues": [
+          "None currently open in v2.8.0."
+        ],
+        "versions": [
+          {
+            "version": "v2.8.0",
+            "date": "2026-10-21",
+            "title": "7-Zone Mixing Backdrop, Highpass/Lowpass Vertical Q Drag & Auto-Updater Shield",
+            "card_image": "",
+            "highlights": [
+              "**7 Acoustic Mixing Zones**: Full parametric EQ with vertical `Q` resonance dragging on Highpass and Lowpass filters.",
+              "**Zero-Allocation 60 FPS Paint Loop**: Eliminated GDI heap allocations for zero DAW lag."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "reverb_delay",
+    "folder": "02_Reverb_and_Delay",
+    "title": "Reverb & Delay",
+    "icon": "SPACE",
+    "plugins": [
+      {
+        "id": "chromaverb",
+        "name": "ChromaVerb",
+        "latest": "v2.9.0",
+        "type": "Studio Algorithmic Multi-Room FDN Reverb & Shimmer",
+        "summary": "Lush, zero-metallic algorithmic studio reverb powered by an 8x8 unitary Feedback Delay Network, orthogonal stereo taps, and forward octave-up shimmer.",
+        "glossary": [
+          {
+            "term": "8x8 Fast Walsh-Hadamard Unitary Matrix (FDN)",
+            "simple": "In a real concert hall, sound bounces off thousands of walls and blends into a smooth wash. Cheap digital reverbs only use a few echoes that sound like a ringing metal pipe. An 8x8 Hadamard Matrix takes 8 separate delay lines and cross-mixes every single echo into all 8 rooms simultaneously without losing or gaining a single decibel of energy\u2014creating an endlessly dense, silky reverb tail."
+          },
+          {
+            "term": "C1 Continuous Polynomial Hann Shimmer Window",
+            "simple": "Shimmer reverb pitches your reverb tail up by +12 semitones (one octave) by slicing the audio into tiny overlapping grains. Using a smooth polynomial 'Hann window' fades the edges of every grain in and out seamlessly so the octave-up halo sounds like an angelic choir instead of a glitchy pitch-shifter."
+          }
+        ],
+        "known_issues": [
+          "None currently open in v2.9.0."
+        ],
+        "versions": [
+          {
+            "version": "v2.9.0",
+            "date": "2026-10-22",
+            "title": "8x8 Fast Walsh-Hadamard Unitary Matrix & Forward 2x Octave-Up Shimmer",
+            "card_image": "",
+            "highlights": [
+              "**8x8 Fast Walsh-Hadamard (FWHT_8) Unitary Matrix**: Replaced basic delay feedback with a true 8-channel unitary diffusion network with alternating sign injection and orthogonal stereo taps.",
+              "**Forward 2x Octave-Up Shimmer Loop**: Dual-grain pitch shifter with zero-transcendental C1 polynomial Hann windowing inside the tank.",
+              "**24-Band Parametric Post-EQ**: Sculpt the exact frequency curve of your reverb tail."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "chromadelay",
+        "name": "ChromaDelay",
+        "latest": "v2.8.0",
+        "type": "Bouncing Stereo Ping-Pong Tape & BBD Delay",
+        "summary": "Multi-character stereo delay modeling Panasonic MN3005 Bucket-Brigade chips, 15 IPS Studio Tape, Oil-Can Echo, Vintage 12-Bit Digital, and Shimmer Cascade.",
+        "glossary": [
+          {
+            "term": "BBD (Bucket-Brigade Device) vs. 15 IPS Tape Delay",
+            "simple": "Before digital memory existed, analog pedals passed audio through a chain of thousands of tiny capacitors like firefighters passing buckets of water\u2014each pass slightly darkened the treble and added warm clock warmth (BBD). Tape delay records your sound onto a moving loop of magnetic tape, adding natural compression ('tape bump') and gentle pitch wobble ('wow & flutter')."
+          }
+        ],
+        "known_issues": [
+          "None currently open in v2.8.0."
+        ],
+        "versions": [
+          {
+            "version": "v2.8.0",
+            "date": "2026-10-21",
+            "title": "Flat 0.0 dB Default EQ Bands, 7 Mixing Zones & Zero Heap Allocations",
+            "card_image": "",
+            "highlights": [
+              "**5 Authentic Delay Character Models**: BBD Analog, 15 IPS Studio Tape, Tel-Ray Oil-Can, 12-Bit Vintage PCM, and Shimmer Pitch Cascade.",
+              "**Interactive Feedback EQ & Ducking**: Built-in sidechain ducking keeps echoes out of the way while your lead vocal or synth is playing, then blooms when the phrase stops."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "dynamics_saturation",
+    "folder": "03_Dynamics_and_Transient",
+    "title": "Dynamics & Saturation",
+    "icon": "DYN",
+    "plugins": [
+      {
+        "id": "chromacomp",
+        "name": "ChromaComp",
+        "latest": "v2.8.0",
+        "type": "Analog VCA / Opto Bus & Mastering Compressor with 24-Band EQ",
+        "summary": "Dual-stage studio compressor and 24-band parametric equalizer designed for drum bus glue, vocal leveling, and master bus punch.",
+        "glossary": [
+          {
+            "term": "VCA vs. Opto Compression",
+            "simple": "A VCA compressor uses fast electronic transistors to grab sharp drum peaks within milliseconds\u2014perfect for punchy glue. An Opto (Optical) compressor shines an internal LED onto a light-sensitive resistor; because the light dims slowly, it has a natural, musical release that makes vocals and bass sound effortlessly smooth."
+          }
+        ],
+        "known_issues": [
+          "None currently open in v2.8.0."
+        ],
+        "versions": [
+          {
+            "version": "v2.8.0",
+            "date": "2026-10-21",
+            "title": "7-Zone Mixing Backdrop, Stack-Allocated EQ Curves & Targeted Dirty-Rects",
+            "card_image": "",
+            "highlights": [
+              "**Integrated 24-Band Parametric EQ + Bus Compressor**: Shape tone and dynamics in a single zero-latency window.",
+              "**HP/LP Vertical Q Dragging & 0.002f Shift Precision**: Fast, surgical mastering workflow."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "chromatransientshaper",
+        "name": "ChromaTransientShaper",
+        "latest": "v2.8.0",
+        "type": "Differential Envelope Transient Designer",
+        "summary": "Level-independent transient shaper that lets you boost or tame drum attack snap and room sustain regardless of how loud or quiet the incoming hit is.",
+        "glossary": [
+          {
+            "term": "Differential Envelope Detection",
+            "simple": "Instead of using a fixed volume threshold (which misses quiet ghost notes on a snare), a Differential Envelope compares a fast volume tracker against a slow volume tracker. Whenever the fast tracker jumps above the slow one, it knows a drum stick just hit the skin\u2014letting you add crack to both quiet ghost notes and loud rimshots equally."
+          }
+        ],
+        "known_issues": [
+          "None currently open in v2.8.0."
+        ],
+        "versions": [
+          {
+            "version": "v2.8.0",
+            "date": "2026-10-21",
+            "title": "Differential Transient Engine, Targeted Dirty-Rects & 0.002f Precision",
+            "card_image": "",
+            "highlights": [
+              "**Level-Independent Attack & Sustain Shaping**: Punch up kicks and snares or tighten muddy room mics in seconds.",
+              "**Zero-Lag Real-Time Gain Trace Display**: Watch exact attack and sustain gain changes at 60 FPS."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "chromadesigner",
+        "name": "ChromaDesigner",
+        "latest": "v2.8.0",
+        "type": "Dual 500-Series Modular Analog Saturation & Tone Rack",
+        "summary": "Dual-slot 500-series hardware saturation processor modeling discrete console transformers, triode tubes, and harmonic exciter circuits.",
+        "glossary": [
+          {
+            "term": "Even vs. Odd Harmonic Saturation",
+            "simple": "Tubes and asymmetric transformers generate 'even-order' harmonics (octaves and fifths above the fundamental), which sound warm, round, and musical. Symmetric transistor/tape circuits generate 'odd-order' harmonics, which add grit, edge, and midrange bite."
+          }
+        ],
+        "known_issues": [
+          "None currently open in v2.8.0."
+        ],
+        "versions": [
+          {
+            "version": "v2.8.0",
+            "date": "2026-10-21",
+            "title": "Dual 500-Series D.E.T. Rack UI, Active Knob Dirty-Rects & Auto-Updater Shield",
+            "card_image": "",
+            "highlights": [
+              "**Dual 500-Series Hardware Rack**: Cascade two independent analog coloration stages with fine drive and mix control."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "modulation_rhythm",
+    "folder": "04_Modulation_and_Rhythm",
+    "title": "Modulation & Rhythm",
+    "icon": "MOD",
+    "plugins": [
+      {
+        "id": "chromafhaser",
+        "name": "ChromaFhaser",
+        "latest": "v2.8.0",
+        "type": "40-Stage Dual Harmonic Phase Processor",
+        "summary": "Deep analog-modeled phaser with up to 40 all-pass stages, 3D waterfall spectrum display, and parametric EQ sculpting.",
+        "glossary": [
+          {
+            "term": "All-Pass Phase Cancellation Stages",
+            "simple": "A phaser doesn't delay the whole sound like a flanger; instead, it pushes specific frequencies out of phase using 'all-pass filters'. When mixed back with your dry signal, those frequencies cancel out into deep, sweeping notches. More stages = more notches sweeping across your spectrum at once."
+          }
+        ],
+        "known_issues": [
+          "None currently open in v2.8.0."
+        ],
+        "versions": [
+          {
+            "version": "v2.8.0",
+            "date": "2026-10-21",
+            "title": "7-Zone Mixing Backdrop, DrawLines Waterfall Slices & Auto-Updater Shield",
+            "card_image": "",
+            "highlights": [
+              "**Up to 40 All-Pass Stages**: Go from vintage 4-stage guitar swirl to deep 40-stage sci-fi talking dispersion.",
+              "**Zero-Lag Waterfall Visualizer**: High-speed `DrawLines` 3D spectral waterfall."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "chromascramble",
+        "name": "ChromaScramble",
+        "latest": "v2.8.0",
+        "type": "10-Module MSEG Rhythmic Glitch & Multi-FX Sequencer",
+        "summary": "Zero-latency 10-module multi-segment envelope generator (MSEG) for rhythmic time-manipulation, gating, filtering, and glitch articulation.",
+        "glossary": [
+          {
+            "term": "MSEG (Multi-Segment Envelope Generator)",
+            "simple": "Instead of a simple repeating LFO wave (like a sine or triangle), an MSEG lets you draw your own custom rhythmic curve across a 16-step bar\u2014so your filter, volume, or pitch can bounce, stutter, and ramp in exact lockstep with your drum beat."
+          }
+        ],
+        "known_issues": [
+          "None currently open in v2.8.0."
+        ],
+        "versions": [
+          {
+            "version": "v2.8.0",
+            "date": "2026-10-21",
+            "title": "10-Module Zero-Latency MSEG Engine & Targeted Dirty-Rects",
+            "card_image": "",
+            "highlights": [
+              "**10 Tempo-Synced Articulation Modules**: Transform static loops into evolving rhythmic hooks."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "chromaslice",
+        "name": "ChromaSlice",
+        "latest": "v2.8.0",
+        "type": "Rhythmic Chopper, Transient Gate & Noise Suppressor",
+        "summary": "Precision rhythmic trance-gate, chopper, and smart transient noise suppressor.",
+        "glossary": [
+          {
+            "term": "Hysteresis Lookahead Gating",
+            "simple": "Basic noise gates chatter and click when a sound hovers near the threshold. Hysteresis uses two separate thresholds (a slightly higher one to open the gate, and a lower one to close it) so the gate opens with a clean snap and closes with a smooth musical fade."
+          }
+        ],
+        "known_issues": [
+          "None currently open in v2.8.0."
+        ],
+        "versions": [
+          {
+            "version": "v2.8.0",
+            "date": "2026-10-21",
+            "title": "Targeted Dirty-Rect Timer Invalidation & 0.002f Fine Precision",
+            "card_image": "",
+            "highlights": [
+              "**Click-Free Rhythmic Slicing & Gating**: Tightens messy stems and creates instant rhythmic movement."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "vocal_stereo",
+    "folder": "05_Vocal_and_Stereo_Imaging",
+    "title": "Vocal & Stereo Field",
+    "icon": "VOX",
+    "plugins": [
+      {
+        "id": "chromavoice",
+        "name": "ChromaVoice",
+        "latest": "v3.2.0",
+        "type": "WARP Granular Vocal Pitch, Formant & Harmony Processor",
+        "summary": "Real-time vocal pitch and formant shifter featuring consonant micro-windowing and transient preservation so shifted vocals never sound smeared or robotic (unless you want them to!).",
+        "glossary": [
+          {
+            "term": "Formants vs. Pitch (Why Chipmunk Vocals Happen)",
+            "simple": "When you sing a higher note, your vocal cords vibrate faster (Pitch), rapid-fire, but the size of your throat and mouth stays the same (Formants). Simple pitch shifters shrink the whole recording, making the singer's throat sound 3 inches long (the 'chipmunk' effect). Formant shifting lets you change the note while keeping the singer's natural chest and throat size intact\u2014or morph a male vocal into a female or giant vocal at the same pitch!"
+          },
+          {
+            "term": "Consonant Micro-Windowing (Transient Preservation)",
+            "simple": "Granular pitch shifters smear sharp vocal 'S', 'T', and 'K' sounds across multiple grains, making vocals sound lispy or blurry. ChromaVoice detects sharp consonants in real time and automatically shrinks the grain window so every 'T' and 'K' stays crisp and upfront."
+          }
+        ],
+        "known_issues": [
+          "None currently open in v3.2.0."
+        ],
+        "versions": [
+          {
+            "version": "v3.2.0",
+            "date": "2026-10-22",
+            "title": "WARP Granular OLA Transient Preservation & Consonant Micro-Windowing",
+            "card_image": "",
+            "highlights": [
+              "**WARP Granular OLA Engine**: Fast differential envelope follower preserves vocal consonants and plosives.",
+              "**Zero-Transcendental C1 Polynomial Hann Window**: Ultra-low CPU overhead even when stacking multiple vocal harmony instances."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "chromawidener",
+        "name": "ChromaWidener",
+        "latest": "v2.8.0",
+        "type": "Phase-Safe Multiband Spatializer & Stereo Widener",
+        "summary": "Expands stereo width across mid and high frequencies while keeping sub-bass anchored and 100% mono-compatible.",
+        "glossary": [
+          {
+            "term": "Mid/Side & Decorrelated Stereo Widening (Mono Compatibility)",
+            "simple": "If you widen a track by simply flipping the phase of one speaker, it sounds super wide in headphones\u2014but the moment it's played on a mono club system or phone speaker, the left and right channels cancel each other out and the sound disappears! Decorrelated multiband widening spreads frequencies above the bass without phase-inverting the center, so your mix sounds huge in stereo and still hits hard in mono."
+          }
+        ],
+        "known_issues": [
+          "None currently open in v2.8.0."
+        ],
+        "versions": [
+          {
+            "version": "v2.8.0",
+            "date": "2026-10-21",
+            "title": "Targeted Dirty-Rect Invalidation, 0.002f Precision & Auto-Updater Shield",
+            "card_image": "",
+            "highlights": [
+              "**Sub-Safe Stereo Expansion**: Widens synths, vocals, and overheads while keeping low-end punch centered."
+            ]
+          }
+        ]
+      }
+    ]
+  }
+];
+let activePluginId = "chromacore";
+let activeSubView = "overview"; // "overview" or version string e.g. "v2.8.5"
+
+function formatMarkdownBold(text) {
+  return text
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/`(.*?)`/g, '<code style="background:#090b0f;padding:2px 6px;border-radius:4px;border:1px solid #262e3a;color:#6ec3e4;font-family:Consolas,monospace;font-size:12.5px;">$1</code>');
+}
+
+function renderSidebar() {
+  const sb = document.getElementById("sidebar");
+  let html = "";
+  for (const cat of DATA) {
+    html += `<div class="cat-header"><span>📁 ${cat.title}</span><span>[${cat.icon}]</span></div>`;
+    for (const p of cat.plugins) {
+      const isPlugActive = (p.id === activePluginId);
+      html += `
+        <div class="plugin-group">
+          <div class="plugin-row ${isPlugActive ? 'active' : ''}" onclick="selectPlugin('${p.id}', 'overview')">
+            <span>${p.name}</span>
+            <span class="ver-tag">${p.latest}</span>
+          </div>
+          <div class="sub-tree ${isPlugActive ? 'open' : ''}">
+            <div class="sub-item ${isPlugActive && activeSubView === 'overview' ? 'active' : ''}" onclick="selectPlugin('${p.id}', 'overview')">
+              <span>📖 Overview & Plain-English Guide</span>
+            </div>
+      `;
+      for (const v of p.versions) {
+        const isVerActive = (isPlugActive && activeSubView === v.version);
+        html += `
+            <div class="sub-item ${isVerActive ? 'active' : ''}" onclick="selectPlugin('${p.id}', '${v.version}')">
+              <span>🏷️ ${v.version} (${v.date})</span>
+            </div>
+        `;
+      }
+      html += `</div></div>`;
+    }
+  }
+  sb.innerHTML = html;
+}
+
+function findPlugin(pid) {
+  for (const cat of DATA) {
+    for (const p of cat.plugins) {
+      if (p.id === pid) return { cat, plugin: p };
+    }
+  }
+  return null;
+}
+
+function selectPlugin(pid, subView) {
+  activePluginId = pid;
+  activeSubView = subView;
+  renderSidebar();
+  const found = findPlugin(pid);
+  if (!found) return;
+  const p = found.plugin;
+  const c = document.getElementById("content");
+
+  let html = `
+    <div class="hero-box">
+      <div class="hero-type">${found.cat.title} // ${p.type}</div>
+      <div class="hero-title">
+        <span>${p.name}</span>
+        <span class="suite-badge">${p.latest}</span>
+      </div>
+      <div class="hero-summary">${p.summary}</div>
+    </div>
+  `;
+
+  if (subView === "overview") {
+    if (p.versions.length > 0 && p.versions[0].card_image) {
+      const imgPath = (window.location.pathname.includes("/docs/")) ? p.versions[0].card_image : ("docs/" + p.versions[0].card_image);
+      html += `<img class="release-card-img" src="${imgPath}" alt="${p.name} Release Card">`;
+    }
+
+    html += `<div class="section-hdr">📚 Tech-to-Music Translator (Complex Concepts in Plain English)</div>`;
+    html += `<div class="glossary-grid">`;
+    for (const g of p.glossary) {
+      html += `
+        <div class="glossary-card">
+          <div class="glossary-term">🔹 ${g.term}</div>
+          <div class="glossary-simple">${g.simple}</div>
+        </div>
+      `;
+    }
+    html += `</div>`;
+
+    html += `<div class="section-hdr">🗂️ All Release Notes & Version History</div>`;
+    for (const v of p.versions) {
+      html += renderVersionBlock(p, v, false);
+    }
+
+    html += `<div class="section-hdr">🛠️ Known Issues & Status</div>`;
+    html += `<div class="version-card"><div class="version-card-body"><ul>`;
+    for (const ki of p.known_issues) {
+      html += `<li>${formatMarkdownBold(ki)}</li>`;
+    }
+    html += `</ul></div></div>`;
+  } else {
+    const v = p.versions.find(x => x.version === subView) || p.versions[0];
+    html += `<div style="margin-bottom:16px;"><button class="hw-btn" onclick="selectPlugin('${p.id}', 'overview')">⬅ Back to ${p.name} Full Overview & Glossary</button></div>`;
+    html += renderVersionBlock(p, v, true);
+  }
+
+  c.innerHTML = html;
+  c.scrollTop = 0;
+}
+
+function renderVersionBlock(p, v, showCardImg) {
+  let imgHtml = "";
+  if (showCardImg && v.card_image) {
+    const imgPath = (window.location.pathname.includes("/docs/")) ? v.card_image : ("docs/" + v.card_image);
+    imgHtml = `<img class="release-card-img" src="${imgPath}" alt="${v.version} Release Card">`;
+  }
+  let items = "";
+  for (const hl of v.highlights) {
+    items += `<li>${formatMarkdownBold(hl)}</li>`;
+  }
+  return `
+    ${imgHtml}
+    <div class="version-card">
+      <div class="version-card-hdr">
+        <div class="version-card-title">${p.name} <span class="suite-badge" style="margin-left:6px;">${v.version}</span> — ${v.title}</div>
+        <div class="version-card-date">Released ${v.date}</div>
+      </div>
+      <div class="version-card-body">
+        <ul>${items}</ul>
+      </div>
+    </div>
+  `;
+}
+
+function showFeedbackPortal() {
+  const c = document.getElementById("content");
+  c.innerHTML = `
+    <div class="hero-box">
+      <div class="hero-type">DIAGNOSTICS & TELEMETRY HUB</div>
+      <div class="hero-title">1-Click In-Plugin [FEEDBACK] & Bug Report Portal</div>
+      <div class="hero-summary">
+        When you click the <strong>[ FEEDBACK ]</strong> button in the top-right header of any Chroma plugin, it automatically captures your active synth/effect state, EQ curve, and screenshot, and copies a diagnostic report directly to your Clipboard!
+      </div>
+    </div>
+    <div class="feedback-box">
+      <div style="font-weight:700;margin-bottom:6px;">Paste Your Clipboard Diagnostic Report Here (Ctrl+V):</div>
+      <textarea id="diagBox" class="diag-input" placeholder="Click [FEEDBACK] inside ChromaCore, then press Ctrl+V here (or paste directly into Discord!)..."></textarea>
+      <div style="display:flex;gap:12px;">
+        <button class="hw-btn hw-btn-update" onclick="submitToGitHub()">▲ Open Pre-Filled GitHub Issue</button>
+        <button class="hw-btn" onclick="selectPlugin('chromacore', 'overview')">⬅ Return to Release Notes</button>
+      </div>
+    </div>
+  `;
+}
+
+function submitToGitHub() {
+  const body = document.getElementById("diagBox").value || "Paste your diagnostic report here";
+  const url = "https://github.com/haidood/chroma-release/issues/new?title=" + encodeURIComponent("[Bug Report] Chroma Audio Suite") + "&body=" + encodeURIComponent(body.substring(0, 1800));
+  window.open(url, "_blank");
+}
+
+selectPlugin("chromacore", "overview");
+</script>
+</body>
+</html>
