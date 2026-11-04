@@ -1,20 +1,20 @@
 {
   "suite_name": "Chroma Audio Suite",
-  "suite_version": "2026.11.04",
-  "release_date": "2026-11-04",
-  "notes": "Chroma Audio Suite v2.9.3: ChromaCore & ChromaCorePro v2.8.4 with Spectral-Adaptive Magic Drive (Pultec Sub + Dynamic Mid Focus + Silk Air + OTT Piggyback), True Stereo / True Mono header button, Prophet-6/OB-6 Polyphonic Stereo Voice Spread, 4-point Catmull-Rom cubic wavetable interpolation with Spectral Intensity Tilt, and Inter-Stage Moog/SEM Analog Filter Saturation.",
+  "suite_version": "2026.11.05",
+  "release_date": "2026-11-05",
+  "notes": "Chroma Audio Suite v2.9.4: ChromaCore & ChromaCorePro v2.8.5 fixing EQ Low-Shelf (L-SH) and High-Shelf (H-SH) biquad stability, Notch-to-Shelf transition resets, real-time 60 FPS MIDI note highlighting on the visual keyboard with [KEYS: ON/OFF] stealth mode toggle, and 1-click Clipboard + pre-filled GitHub/Cloudflare diagnostic reporting via the [FEEDBACK] button.",
   "plugins": {
     "ChromaCore": {
-      "version": "2.8.4",
-      "build": 20261104,
+      "version": "2.8.5",
+      "build": 20261105,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaCoreVST.dll",
-      "notes": "ChromaCore v2.8.4: Added Spectral-Adaptive MAGIC Drive knob (0% default, 3-band Pultec sub weight + dynamic midrange sweet-spot focus + silk air de-harsher + 3-Band OTT upward/downward piggyback), True STEREO / MONO button next to Poly/Legato with Prophet-6 polyphonic stereo voice panning and analog twin VCO dispersion, 4-point Catmull-Rom cubic wavetable interpolation with unity-gain Spectral Intensity Tilt, and inter-stage Moog/SEM analog filter saturation."
+      "notes": "ChromaCore v2.8.5: Fixed EQ Low-Shelf (L-SH) and High-Shelf (H-SH) biquad coefficient sign bug & Notch-to-Shelf transition blowout with Jury pole-stability clamping and NaN self-healing; fixed real-time 60 FPS MIDI note highlighting on the visual keyboard and added [KEYS: ON/OFF] stealth mode toggle next to [STEREO]; upgraded [FEEDBACK] button with automatic Clipboard diagnostic summary (Ctrl+V for Discord) and pre-filled GitHub/Cloudflare bug reporting."
     },
     "ChromaCorePro": {
-      "version": "2.8.4",
-      "build": 20261104,
+      "version": "2.8.5",
+      "build": 20261105,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaCorePro.dll",
-      "notes": "ChromaCorePro v2.8.4: Added Spectral-Adaptive MAGIC Drive knob (0% default), True STEREO / MONO button next to Poly/Legato with Prophet-6 polyphonic stereo voice panning, 4-point Catmull-Rom cubic wavetable interpolation, and inter-stage Moog/SEM analog filter saturation."
+      "notes": "ChromaCorePro v2.8.5: Fixed EQ Low-Shelf (L-SH) and High-Shelf (H-SH) biquad coefficient stability & Notch-to-Shelf transition resets; fixed real-time 60 FPS MIDI note highlighting on the visual keyboard with [KEYS: ON/OFF] stealth mode toggle; upgraded [FEEDBACK] button with automatic Clipboard diagnostic summary and pre-filled GitHub/Cloudflare bug reporting."
     },
     "ChromaPulse": {
       "version": "2.8.0",
