@@ -369,19 +369,38 @@ const DATA = [
       {
         "id": "chromax",
         "name": "ChromaX",
-        "latest": "v2.8.0",
+        "latest": "v2.9.0",
         "type": "Flagship Synthesizer with 3D Keycaps & LED Jewels",
-        "summary": "High-headroom polyphonic synthesizer featuring tactile 3D hardware keycaps, zero-noise clean oscillators, and studio multi-effects.",
+        "summary": "High-headroom polyphonic synthesizer featuring tactile 3D hardware keycaps, Prophet-6/OB-6 stereo voice spread, inter-stage tube ladder filtering, and studio multi-effects.",
         "glossary": [
+          {
+            "term": "Prophet-6 / OB-6 Per-Voice Stereo Spread & VCO Thermal Drift",
+            "simple": "On a real analog polysynth like a Prophet-6 or OB-6, every note you play in a chord goes to a separate physical voice card with slightly different analog components and stereo panning. ChromaX v2.9.0 gives each polyphonic voice its own stereo position and a tiny \u00b11.6-cent slow thermal pitch drift\u2014turning flat mono chords into huge, breathing 3D hardware pads."
+          },
+          {
+            "term": "Inter-Stage Zero-DC Tube Ladder Saturation & Input-Envelope Damping",
+            "simple": "Instead of distorting your sound only at the input of the filter, a real Moog or Asimov 4-pole ladder filter gently saturates between all 4 capacitor stages\u2014rounding off harsh digital peaks while keeping deep sub-bass weight. Input-envelope damping automatically tames extreme resonance the moment you release a key so high-resonance acid patches never whistle when stopped."
+          },
           {
             "term": "Polyphonic Headroom Scaling",
             "simple": "When you play a 6-note chord, 6 oscillators add together and can easily clip your master bus. ChromaX automatically balances per-voice gain so single-note leads and big 8-note chords sit at the same clean studio level."
           }
         ],
         "known_issues": [
-          "None currently open in v2.8.0."
+          "None currently open in v2.9.0."
         ],
         "versions": [
+          {
+            "version": "v2.9.0",
+            "date": "2026-11-05",
+            "title": "Prophet-6 Poly Stereo Spread, VCO Thermal Drift, Tube Ladder Stages & Class-A Output",
+            "card_image": "",
+            "highlights": [
+              "**Prophet-6 / OB-6 Polyphonic Stereo Voice Panning & VCO Drift**: Every voice in a chord now occupies its own natural stereo pan position with subtle organic analog pitch drift.",
+              "**Inter-Stage Zero-DC Tube Ladder Saturation & Anti-Whistle Damping**: Upgraded Asimov and BlueMonark 24 dB/oct ladder filters with per-stage tube saturation and input-envelope resonance damping.",
+              "**Class-A AnalogConsoleStage Output & Clipboard [FEEDBACK]**: Added discrete transformer output saturation with 5 Hz DC blocking, `NaN` self-healing, and 1-click Clipboard diagnostic reporting."
+            ]
+          },
           {
             "version": "v2.8.0",
             "date": "2026-10-21",
@@ -398,19 +417,34 @@ const DATA = [
       {
         "id": "chromapulse",
         "name": "ChromaPulse",
-        "latest": "v2.8.0",
+        "latest": "v2.9.0",
         "type": "Step-Sequenced Ratchet Rhythm Synthesizer",
-        "summary": "Precision rhythmic synthesizer built for modern electronic basslines, ratcheting arpeggios, and tempo-synced filter movement.",
+        "summary": "Precision rhythmic drum & bassline synthesizer built for modern electronic production, ratcheting arpeggios, and tempo-synced filter movement.",
         "glossary": [
+          {
+            "term": "Class-A Drum Bus Transformer Saturation",
+            "simple": "Drums have super fast spikes (transients) that can clip digital converters before they even sound loud. Passing the master drum bus through a modeled Class-A analog transformer gently hugs those microsecond drum spikes and adds warm low-end weight\u2014giving kicks and snares instant record-ready punch."
+          },
           {
             "term": "Sub-Step Ratcheting",
             "simple": "Instead of playing just one note per 16th-note step, ratcheting rapidly subdivides a single step into 2, 3, or 4 mini-strikes\u2014creating those signature rolling Tangerine Dream / modern techno synth fills."
           }
         ],
         "known_issues": [
-          "None currently open in v2.8.0."
+          "None currently open in v2.9.0."
         ],
         "versions": [
+          {
+            "version": "v2.9.0",
+            "date": "2026-11-05",
+            "title": "Class-A Transformer Drum Bus Stage, Jury-Stabilized 24-Band EQ & Clipboard [FEEDBACK]",
+            "card_image": "",
+            "highlights": [
+              "**Class-A AnalogConsoleStage Drum Bus Output**: Replaced hard tanh clipping on the master bus with discrete transformer saturation, 5 Hz sub-rumble DC blocking, and automatic `NaN`/`Inf` self-healing.",
+              "**Jury-Stabilized 24-Band Master EQ & SVF Protection**: Added pole-stability clamping across all 24 Master EQ bands and per-pad State-Variable Filters.",
+              "**Upgraded 1-Click Clipboard [FEEDBACK] Shield**: Automatically copies diagnostic reports to your Windows Clipboard (`Ctrl+V` ready for Discord)."
+            ]
+          },
           {
             "version": "v2.8.0",
             "date": "2026-10-21",
@@ -427,19 +461,34 @@ const DATA = [
       {
         "id": "chromadeep",
         "name": "ChromaDeep",
-        "latest": "v2.8.0",
+        "latest": "v2.9.0",
         "type": "7-Tab Modular Delay & Sub-Bass Synthesizer",
-        "summary": "Deep sub-bass and dub-techno chord synthesizer with a 7-tab modular delay and filter sculpting rack.",
+        "summary": "Deep sub-bass, physical resonator, and dub-techno chord synthesizer with a 7-tab modular delay and dual ZDF filter sculpting rack.",
         "glossary": [
+          {
+            "term": "Zero-Delay Feedback (ZDF) Moog Ladder with Inter-Stage Tube Warmth",
+            "simple": "Standard digital filters have a 1-sample delay in their resonance loop that makes high resonance sound pinched and plastic. Zero-Delay Feedback solves the analog circuit instantaneously, and v2.9.0 adds tube saturation between all 4 ladder poles plus automatic resonance damping when notes stop\u2014giving you liquid analog sweeps with zero post-note whistling."
+          },
           {
             "term": "Sub-Harmonic Phase Locking",
             "simple": "Low bass waves are huge and slow. If a synth starts a bass note at a random point in the wave cycle every time you hit a key, some notes punch hard and others sound weak. Phase locking ensures every single bass hit starts at the exact same millisecond."
           }
         ],
         "known_issues": [
-          "None currently open in v2.8.0."
+          "None currently open in v2.9.0."
         ],
         "versions": [
+          {
+            "version": "v2.9.0",
+            "date": "2026-11-05",
+            "title": "ZDF Tube Ladder Saturation, Prophet-6 Stereo Voice Spread & Class-A Transformer Output",
+            "card_image": "",
+            "highlights": [
+              "**Inter-Stage Tube ZDF Moog Ladder & Anti-Whistle Damping**: Added per-stage tube saturation and input-envelope resonance damping to both stereo ZDF filters.",
+              "**Prophet-6 Per-Voice Stereo Spread & VCO Drift**: Single-voice unison patches now spread naturally across the stereo field in polyphonic mode while keeping Mono mode 100% centered.",
+              "**Class-A AnalogConsoleStage & Jury-Clamped Delay EQ**: Self-healing transformer output stage and rock-solid feedback EQ stability."
+            ]
+          },
           {
             "version": "v2.8.0",
             "date": "2026-10-21",
@@ -463,7 +512,7 @@ const DATA = [
       {
         "id": "chromaverb",
         "name": "ChromaVerb",
-        "latest": "v2.9.0",
+        "latest": "v2.9.1",
         "type": "Studio Algorithmic Multi-Room FDN Reverb & Shimmer",
         "summary": "Lush, zero-metallic algorithmic studio reverb powered by an 8x8 unitary Feedback Delay Network, orthogonal stereo taps, and forward octave-up shimmer.",
         "glossary": [
@@ -477,9 +526,20 @@ const DATA = [
           }
         ],
         "known_issues": [
-          "None currently open in v2.9.0."
+          "None currently open in v2.9.1."
         ],
         "versions": [
+          {
+            "version": "v2.9.1",
+            "date": "2026-11-05",
+            "title": "Jury-Stabilized Post-EQ Biquads, NaN Self-Healing & 1-Click Clipboard [FEEDBACK]",
+            "card_image": "",
+            "highlights": [
+              "**Jury Stability Triangle Pole Clamping**: Guaranteed z-plane pole stability across all 12 Post-EQ and Decay Rate EQ bands even under extreme `Q` and shelf sweeps.",
+              "**Automatic NaN/Inf Self-Healing**: Real-time biquad state protection ensures long shimmer/freeze tails never drop audio.",
+              "**Upgraded 1-Click Clipboard [FEEDBACK]**: Instant `Ctrl+V` diagnostic report copy for Discord and GitHub."
+            ]
+          },
           {
             "version": "v2.9.0",
             "date": "2026-10-22",
@@ -496,7 +556,7 @@ const DATA = [
       {
         "id": "chromadelay",
         "name": "ChromaDelay",
-        "latest": "v2.8.0",
+        "latest": "v2.9.0",
         "type": "Bouncing Stereo Ping-Pong Tape & BBD Delay",
         "summary": "Multi-character stereo delay modeling Panasonic MN3005 Bucket-Brigade chips, 15 IPS Studio Tape, Oil-Can Echo, Vintage 12-Bit Digital, and Shimmer Cascade.",
         "glossary": [
@@ -506,9 +566,19 @@ const DATA = [
           }
         ],
         "known_issues": [
-          "None currently open in v2.8.0."
+          "None currently open in v2.9.0."
         ],
         "versions": [
+          {
+            "version": "v2.9.0",
+            "date": "2026-11-05",
+            "title": "Self-Healing Feedback Loop Biquads & Upgraded Clipboard [FEEDBACK]",
+            "card_image": "",
+            "highlights": [
+              "**Self-Healing Feedback EQ Biquads**: Added `std::isfinite` state recovery inside the delay feedback loop so aggressive self-oscillating dub throws never blow up or mute the bus.",
+              "**Upgraded 1-Click Clipboard [FEEDBACK] Shield**: Instant diagnostic snapshot and clipboard copy."
+            ]
+          },
           {
             "version": "v2.8.0",
             "date": "2026-10-21",
@@ -532,19 +602,34 @@ const DATA = [
       {
         "id": "chromacomp",
         "name": "ChromaComp",
-        "latest": "v2.8.0",
+        "latest": "v2.9.0",
         "type": "Analog VCA / Opto Bus & Mastering Compressor with 24-Band EQ",
-        "summary": "Dual-stage studio compressor and 24-band parametric equalizer designed for drum bus glue, vocal leveling, and master bus punch.",
+        "summary": "Dual-stage studio compressor and 20-band parametric equalizer modeling Empirical Labs EL8 Distressor, 1176 FET, LA-2A Opto, and SSL VCA bus glue.",
         "glossary": [
           {
             "term": "VCA vs. Opto Compression",
             "simple": "A VCA compressor uses fast electronic transistors to grab sharp drum peaks within milliseconds\u2014perfect for punchy glue. An Opto (Optical) compressor shines an internal LED onto a light-sensitive resistor; because the light dims slowly, it has a natural, musical release that makes vocals and bass sound effortlessly smooth."
+          },
+          {
+            "term": "High-Shelf (H-SH) Biquad Symmetry & Jury Stability",
+            "simple": "In v2.9.0 we fixed a sign inversion in the High-Shelf EQ formula so boosting or cutting high air above 8 kHz preserves 100% unity gain in the low end and never destabilizes when switching filter shapes."
           }
         ],
         "known_issues": [
-          "None currently open in v2.8.0."
+          "None currently open in v2.9.0."
         ],
         "versions": [
+          {
+            "version": "v2.9.0",
+            "date": "2026-11-05",
+            "title": "High-Shelf (H-SH) Biquad Fix, Jury Pole Clamping & Self-Healing EQ",
+            "card_image": "",
+            "highlights": [
+              "**Fixed High-Shelf (`H-SH`) Biquad `b2` Sign Bug**: Corrected the RBJ Audio EQ Cookbook numerator sign in `setHighShelf` so high-shelf boosts and cuts have accurate DC/low-frequency unity gain.",
+              "**Jury Stability Clamping & `NaN` Self-Healing**: Protected all 20 dynamic EQ and sidechain detector filters against pole blowout.",
+              "**Upgraded 1-Click Clipboard [FEEDBACK]**: Instant diagnostic summary copied to Clipboard."
+            ]
+          },
           {
             "version": "v2.8.0",
             "date": "2026-10-21",
@@ -560,7 +645,7 @@ const DATA = [
       {
         "id": "chromatransientshaper",
         "name": "ChromaTransientShaper",
-        "latest": "v2.8.0",
+        "latest": "v2.9.0",
         "type": "Differential Envelope Transient Designer",
         "summary": "Level-independent transient shaper that lets you boost or tame drum attack snap and room sustain regardless of how loud or quiet the incoming hit is.",
         "glossary": [
@@ -570,9 +655,18 @@ const DATA = [
           }
         ],
         "known_issues": [
-          "None currently open in v2.8.0."
+          "None currently open in v2.9.0."
         ],
         "versions": [
+          {
+            "version": "v2.9.0",
+            "date": "2026-11-05",
+            "title": "ChromaAnalogSuite Stability Integration & 1-Click Clipboard [FEEDBACK]",
+            "card_image": "",
+            "highlights": [
+              "**Upgraded 1-Click Clipboard [FEEDBACK] Shield**: Captures plugin state, screenshot, and `host_shield_log.txt` directly to your Windows Clipboard (`Ctrl+V` ready)."
+            ]
+          },
           {
             "version": "v2.8.0",
             "date": "2026-10-21",
@@ -588,7 +682,7 @@ const DATA = [
       {
         "id": "chromadesigner",
         "name": "ChromaDesigner",
-        "latest": "v2.8.0",
+        "latest": "v2.9.0",
         "type": "Dual 500-Series Modular Analog Saturation & Tone Rack",
         "summary": "Dual-slot 500-series hardware saturation processor modeling discrete console transformers, triode tubes, and harmonic exciter circuits.",
         "glossary": [
@@ -598,9 +692,18 @@ const DATA = [
           }
         ],
         "known_issues": [
-          "None currently open in v2.8.0."
+          "None currently open in v2.9.0."
         ],
         "versions": [
+          {
+            "version": "v2.9.0",
+            "date": "2026-11-05",
+            "title": "ChromaAnalogSuite Stability Integration & 1-Click Clipboard [FEEDBACK]",
+            "card_image": "",
+            "highlights": [
+              "**Upgraded 1-Click Clipboard [FEEDBACK] Shield**: Instant `Ctrl+V` diagnostic report copy and pre-filled GitHub Issue."
+            ]
+          },
           {
             "version": "v2.8.0",
             "date": "2026-10-21",
@@ -623,9 +726,9 @@ const DATA = [
       {
         "id": "chromafhaser",
         "name": "ChromaFhaser",
-        "latest": "v2.8.0",
+        "latest": "v2.9.0",
         "type": "40-Stage Dual Harmonic Phase Processor",
-        "summary": "Deep analog-modeled phaser with up to 40 all-pass stages, 3D waterfall spectrum display, and parametric EQ sculpting.",
+        "summary": "Deep analog-modeled phaser with up to 40 all-pass stages, thru-zero flanger, 3D waterfall spectrum display, and 24-band parametric EQ sculpting.",
         "glossary": [
           {
             "term": "All-Pass Phase Cancellation Stages",
@@ -633,9 +736,20 @@ const DATA = [
           }
         ],
         "known_issues": [
-          "None currently open in v2.8.0."
+          "None currently open in v2.9.0."
         ],
         "versions": [
+          {
+            "version": "v2.9.0",
+            "date": "2026-11-05",
+            "title": "High-Shelf (H-SH) Biquad Fix, Jury Pole Clamping & Clipboard [FEEDBACK]",
+            "card_image": "",
+            "highlights": [
+              "**Fixed High-Shelf (`H-SH`) Biquad `b2` Sign Bug**: Corrected the high-shelf numerator coefficient in `Biquad::Setup` so shelf boosts/cuts maintain accurate low-end unity gain.",
+              "**Jury Stability Triangle Clamping**: Protected all 24 parametric EQ bands against extreme `Q` / shelf transitions.",
+              "**Upgraded 1-Click Clipboard [FEEDBACK]**: Instant `Ctrl+V` diagnostic report copy."
+            ]
+          },
           {
             "version": "v2.8.0",
             "date": "2026-10-21",
@@ -651,7 +765,7 @@ const DATA = [
       {
         "id": "chromascramble",
         "name": "ChromaScramble",
-        "latest": "v2.8.0",
+        "latest": "v2.9.0",
         "type": "10-Module MSEG Rhythmic Glitch & Multi-FX Sequencer",
         "summary": "Zero-latency 10-module multi-segment envelope generator (MSEG) for rhythmic time-manipulation, gating, filtering, and glitch articulation.",
         "glossary": [
@@ -661,9 +775,18 @@ const DATA = [
           }
         ],
         "known_issues": [
-          "None currently open in v2.8.0."
+          "None currently open in v2.9.0."
         ],
         "versions": [
+          {
+            "version": "v2.9.0",
+            "date": "2026-11-05",
+            "title": "ChromaAnalogSuite Stability Integration & 1-Click Clipboard [FEEDBACK]",
+            "card_image": "",
+            "highlights": [
+              "**Upgraded 1-Click Clipboard [FEEDBACK] Shield**: Instant `Ctrl+V` diagnostic report copy and pre-filled GitHub Issue."
+            ]
+          },
           {
             "version": "v2.8.0",
             "date": "2026-10-21",
@@ -678,7 +801,7 @@ const DATA = [
       {
         "id": "chromaslice",
         "name": "ChromaSlice",
-        "latest": "v2.8.0",
+        "latest": "v2.9.0",
         "type": "Rhythmic Chopper, Transient Gate & Noise Suppressor",
         "summary": "Precision rhythmic trance-gate, chopper, and smart transient noise suppressor.",
         "glossary": [
@@ -688,9 +811,18 @@ const DATA = [
           }
         ],
         "known_issues": [
-          "None currently open in v2.8.0."
+          "None currently open in v2.9.0."
         ],
         "versions": [
+          {
+            "version": "v2.9.0",
+            "date": "2026-11-05",
+            "title": "ChromaAnalogSuite Stability Integration & 1-Click Clipboard [FEEDBACK]",
+            "card_image": "",
+            "highlights": [
+              "**Upgraded 1-Click Clipboard [FEEDBACK] Shield**: Instant `Ctrl+V` diagnostic report copy and pre-filled GitHub Issue."
+            ]
+          },
           {
             "version": "v2.8.0",
             "date": "2026-10-21",
@@ -713,7 +845,7 @@ const DATA = [
       {
         "id": "chromavoice",
         "name": "ChromaVoice",
-        "latest": "v3.2.0",
+        "latest": "v3.2.1",
         "type": "WARP Granular Vocal Pitch, Formant & Harmony Processor",
         "summary": "Real-time vocal pitch and formant shifter featuring consonant micro-windowing and transient preservation so shifted vocals never sound smeared or robotic (unless you want them to!).",
         "glossary": [
@@ -727,9 +859,18 @@ const DATA = [
           }
         ],
         "known_issues": [
-          "None currently open in v3.2.0."
+          "None currently open in v3.2.1."
         ],
         "versions": [
+          {
+            "version": "v3.2.1",
+            "date": "2026-11-05",
+            "title": "Upgraded 1-Click Clipboard [FEEDBACK] Diagnostic Reporting",
+            "card_image": "",
+            "highlights": [
+              "**Upgraded 1-Click Clipboard [FEEDBACK] Shield**: Automatically copies vocal engine diagnostics + `host_shield_log.txt` to your Windows Clipboard (`Ctrl+V` ready for Discord)."
+            ]
+          },
           {
             "version": "v3.2.0",
             "date": "2026-10-22",
@@ -745,7 +886,7 @@ const DATA = [
       {
         "id": "chromawidener",
         "name": "ChromaWidener",
-        "latest": "v2.8.0",
+        "latest": "v2.9.0",
         "type": "Phase-Safe Multiband Spatializer & Stereo Widener",
         "summary": "Expands stereo width across mid and high frequencies while keeping sub-bass anchored and 100% mono-compatible.",
         "glossary": [
@@ -755,9 +896,18 @@ const DATA = [
           }
         ],
         "known_issues": [
-          "None currently open in v2.8.0."
+          "None currently open in v2.9.0."
         ],
         "versions": [
+          {
+            "version": "v2.9.0",
+            "date": "2026-11-05",
+            "title": "ChromaAnalogSuite Stability Integration & 1-Click Clipboard [FEEDBACK]",
+            "card_image": "",
+            "highlights": [
+              "**Upgraded 1-Click Clipboard [FEEDBACK] Shield**: Instant `Ctrl+V` diagnostic report copy and pre-filled GitHub Issue."
+            ]
+          },
           {
             "version": "v2.8.0",
             "date": "2026-10-21",

@@ -1,4 +1,4 @@
-# ChromaVerb (`v2.9.0`)
+# ChromaVerb (`v2.9.1`)
 
 > **Studio Algorithmic Multi-Room FDN Reverb & Shimmer**  
 > Lush, zero-metallic algorithmic studio reverb powered by an 8x8 unitary Feedback Delay Network, orthogonal stereo taps, and forward octave-up shimmer.
@@ -17,6 +17,11 @@ Shimmer reverb pitches your reverb tail up by +12 semitones (one octave) by slic
 
 ## 🗂️ Version & Patch History
 
+- **[`v2.9.1` (2026-11-05) — Jury-Stabilized Post-EQ Biquads, NaN Self-Healing & 1-Click Clipboard [FEEDBACK]](./v2.9.1_2026-11-05.md)**
+  - **Jury Stability Triangle Pole Clamping**: Guaranteed z-plane pole stability across all 12 Post-EQ and Decay Rate EQ bands even under extreme `Q` and shelf sweeps.
+  - **Automatic NaN/Inf Self-Healing**: Real-time biquad state protection ensures long shimmer/freeze tails never drop audio.
+  - **Upgraded 1-Click Clipboard [FEEDBACK]**: Instant `Ctrl+V` diagnostic report copy for Discord and GitHub.
+
 - **[`v2.9.0` (2026-10-22) — 8x8 Fast Walsh-Hadamard Unitary Matrix & Forward 2x Octave-Up Shimmer](./v2.9.0_2026-10-22.md)**
   - **8x8 Fast Walsh-Hadamard (FWHT_8) Unitary Matrix**: Replaced basic delay feedback with a true 8-channel unitary diffusion network with alternating sign injection and orthogonal stereo taps.
   - **Forward 2x Octave-Up Shimmer Loop**: Dual-grain pitch shifter with zero-transcendental C1 polynomial Hann windowing inside the tank.
@@ -26,7 +31,7 @@ Shimmer reverb pitches your reverb tail up by +12 semitones (one octave) by slic
 
 ## 🛠️ Known Issues & Bug Reporting
 
-- None currently open in v2.9.0.
+- None currently open in v2.9.1.
 
 **Found a bug or weird preset behavior?**  
 Click the **`[ FEEDBACK ]`** button in the top-right header of the plugin! It automatically snapshots your patch, EQ curve, and screenshot, copies a diagnostic summary to your Clipboard (`Ctrl+V` ready for Discord), or opens a pre-filled [GitHub Bug Report](https://github.com/haidood/chroma-release/issues/new).

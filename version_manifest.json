@@ -2,7 +2,7 @@
   "suite_name": "Chroma Audio Suite",
   "suite_version": "2026.11.05",
   "release_date": "2026-11-05",
-  "notes": "Chroma Audio Suite v2.9.4: ChromaCore & ChromaCorePro v2.8.5 fixing EQ Low-Shelf (L-SH) and High-Shelf (H-SH) biquad stability, Notch-to-Shelf transition resets, real-time 60 FPS MIDI note highlighting on the visual keyboard with [KEYS: ON/OFF] stealth mode toggle, and 1-click Clipboard + pre-filled GitHub/Cloudflare diagnostic reporting via the [FEEDBACK] button.",
+  "notes": "Chroma Audio Suite v2.9.5: Suite-wide Analog Modeling & Biquad EQ Stability Upgrade across all 14 plugins — Prophet-6/OB-6 per-voice stereo spread & VCO thermal drift, inter-stage zero-DC tube ladder saturation, input-envelope resonance damping, Jury-clamped Low/High-Shelf EQ biquads with NaN self-healing, Class-A transformer output stages, and 1-click Clipboard [FEEDBACK] diagnostic reporting.",
   "plugins": {
     "ChromaCore": {
       "version": "2.8.5",
@@ -17,82 +17,82 @@
       "notes": "ChromaCorePro v2.8.5: Fixed EQ Low-Shelf (L-SH) and High-Shelf (H-SH) biquad coefficient stability & Notch-to-Shelf transition resets; fixed real-time 60 FPS MIDI note highlighting on the visual keyboard with [KEYS: ON/OFF] stealth mode toggle; upgraded [FEEDBACK] button with automatic Clipboard diagnostic summary and pre-filled GitHub/Cloudflare bug reporting."
     },
     "ChromaPulse": {
-      "version": "2.8.0",
-      "build": 20261021,
+      "version": "2.9.0",
+      "build": 20261105,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaPulse.dll",
-      "notes": "ChromaPulse v2.8.0: FabFilter Pro-Q 3 acoustic mixing zone backdrop (7 zones), stack-allocated spectrum bars & EQ curves with DrawLines, cut-filter vertical Q dragging, double-click node reset to 0 dB, Pillar 1 targeted dirty-rect invalidation, and 0.002f Shift-fine precision."
+      "notes": "ChromaPulse v2.9.0: Added Class-A AnalogConsoleStage transformer bus saturation with 5 Hz DC blocker & NaN self-healing, Jury-stabilized 24-band Master EQ biquads, SVF drum pad filter stability protection, and upgraded 1-click Clipboard [FEEDBACK] diagnostic reporting."
     },
     "ChromaDeep": {
-      "version": "2.8.0",
-      "build": 20261021,
+      "version": "2.9.0",
+      "build": 20261105,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaDeep.dll",
-      "notes": "ChromaDeep v2.8.0: 7 Pro-Q 3 acoustic mixing zone backdrops, stack-allocated spectrum and EQ curves with FillPolygon and DrawLines, highpass/lowpass vertical Q dragging, targeted dirty-rect timer invalidation, 0.002f Shift fine precision, and Universal Auto-Updater Shield."
+      "notes": "ChromaDeep v2.9.0: Upgraded ZDF Moog Ladder filter with inter-stage zero-DC tube saturation and dynamic input-envelope resonance damping (eliminating high-resonance limit-cycle whistles), added Prophet-6/OB-6 per-voice stereo panning & VCO thermal drift, Class-A AnalogConsoleStage output stage, Jury-stabilized Delay EQ biquads, and Clipboard [FEEDBACK] reporting."
     },
     "ChromaX": {
-      "version": "2.8.0",
-      "build": 20261021,
+      "version": "2.9.0",
+      "build": 20261105,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaX.dll",
-      "notes": "ChromaX v2.8.0: Pillar 1 zero-lag dirty-rect timer invalidation, zero background noise on clean presets (kParamNoise1Level = 0.0f), Pillar 3 polyphonic headroom scaling, 0.002f Shift-fine knob precision, and Universal Auto-Updater Shield."
+      "notes": "ChromaX v2.9.0: Added Prophet-6/OB-6 polyphonic stereo voice panning & per-voice VCO thermal drift, upgraded Asimov/BlueMonark 4-Pole Ladder filters with inter-stage zero-DC tube saturation and input-envelope resonance damping, and added Class-A AnalogConsoleStage master output transformer saturation with NaN self-healing."
     },
     "ChromaComp": {
-      "version": "2.0.0",
-      "build": 20261021,
+      "version": "2.9.0",
+      "build": 20261105,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaComp.dll",
-      "notes": "ChromaComp v2.0.0: FabFilter Pro-Q 3 acoustic mixing zone backdrop (7 mixing zones), zero-lag stack-allocated polygon spectrum & EQ curves with DrawLines (zero cubic spline stalls), HP/LP vertical Q resonance dragging, double-click node reset to 0 dB, targeted rcEq dirty-rect invalidation, and 0.002f Shift-fine precision."
+      "notes": "ChromaComp v2.9.0: Fixed High-Shelf (H-SH) biquad b2 coefficient sign bug, added Jury stability triangle pole clamping (SanitizeBiquadCoefficients) and NaN/Inf self-healing across all 20 dynamic EQ & detector biquads, and upgraded [FEEDBACK] Clipboard diagnostic reporting."
     },
     "ChromaVerb": {
-      "version": "2.9.0",
-      "build": 20261022,
+      "version": "2.9.1",
+      "build": 20261105,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaVerb.dll",
-      "notes": "ChromaVerb v2.9.0: 8x8 Fast Walsh-Hadamard (FWHT_8) unitary mixing matrix for 100% delay line cross-coupling per pass, alternating sign decorrelation injection (kInSign), orthogonal stereo late taps, forward 2x octave-up shimmer loop with C1 polynomial Hann window, and FabFilter Pro-Q 3 acoustic mixing zone backdrop."
+      "notes": "ChromaVerb v2.9.1: Added Jury stability triangle pole clamping (SanitizeBiquadCoefficients) and NaN/Inf self-healing across all Decay Rate & Post-EQ biquad filters, plus upgraded 1-click Clipboard [FEEDBACK] diagnostic reporting."
     },
     "ChromaDelay": {
-      "version": "2.0.0",
-      "build": 20261021,
+      "version": "2.9.0",
+      "build": 20261105,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaDelay.dll",
-      "notes": "ChromaDelay v2.0.0: FabFilter Pro-Q 3 acoustic mixing zone backdrop (7 mixing zones), zero-lag stack-allocated polygon spectrum & EQ curves (zero heap allocations in WM_PAINT), flat 0.0 dB default EQ bands with Pro-Q 3 HP/LP vertical Q dragging, targeted dirty-rect invalidation, and 0.002f Shift-fine precision."
+      "notes": "ChromaDelay v2.9.0: Added NaN/Inf self-healing circuit breaker and Jury pole stability across all feedback loop EQ biquads in BBD MN3005, 15 IPS Tape, Oil-Can, Digital, and Shimmer delay engines, plus upgraded Clipboard [FEEDBACK] reporting."
     },
     "ChromaFhaser": {
-      "version": "2.8.0",
-      "build": 20261021,
+      "version": "2.9.0",
+      "build": 20261105,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaFhaser.dll",
-      "notes": "ChromaFhaser v2.8.0: 7 Pro-Q 3 acoustic mixing zone backdrops, stack-allocated DrawLines on waterfall depth slices and EQ curves, cut-filter vertical Q dragging, targeted dirty-rect timer invalidation, 0.002f Shift fine precision, and Universal Auto-Updater Shield."
+      "notes": "ChromaFhaser v2.9.0: Fixed High-Shelf (H-SH) biquad b2 coefficient sign bug, added Jury stability triangle pole clamping across all 24 parametric EQ bands, and upgraded 1-click Clipboard [FEEDBACK] diagnostic reporting."
     },
     "ChromaSlice": {
-      "version": "2.8.0",
-      "build": 20261021,
+      "version": "2.9.0",
+      "build": 20261105,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaSlice.dll",
-      "notes": "ChromaSlice v2.8.0: Targeted dirty-rect timer invalidation, 0.002f Shift fine precision, active knob dirty-rect invalidation, zero-allocation filter Bode response, and Universal Auto-Updater Shield."
+      "notes": "ChromaSlice v2.9.0: Integrated ChromaAnalogSuite stability protection and upgraded 1-click Clipboard [FEEDBACK] diagnostic reporting."
     },
     "ChromaTransientShaper": {
-      "version": "2.8.0",
-      "build": 20261021,
+      "version": "2.9.0",
+      "build": 20261105,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaTransientShaper.dll",
-      "notes": "ChromaTransientShaper v2.8.0: Quantum differential transient engine with targeted dirty-rect timer invalidation, 0.002f Shift fine precision, active knob dirty-rect invalidation, and Universal Auto-Updater Shield."
+      "notes": "ChromaTransientShaper v2.9.0: Integrated ChromaAnalogSuite stability protection and upgraded 1-click Clipboard [FEEDBACK] diagnostic reporting."
     },
     "ChromaVoice": {
-      "version": "3.2.0",
-      "build": 20261022,
+      "version": "3.2.1",
+      "build": 20261105,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaVoice.dll",
-      "notes": "ChromaVoice v3.2.0: WARP Granular OLA transient preservation with differential envelope follower, sharp consonant plosive micro-window phase locking, direct transient punch crossfade, and zero-transcendental C1 polynomial Hann window."
+      "notes": "ChromaVoice v3.2.1: Integrated ChromaAnalogSuite stability protection and upgraded 1-click Clipboard [FEEDBACK] diagnostic reporting."
     },
     "ChromaWidener": {
-      "version": "2.8.0",
-      "build": 20261021,
+      "version": "2.9.0",
+      "build": 20261105,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaWidener.dll",
-      "notes": "ChromaWidener v2.8.0: Targeted dirty-rect timer invalidation, 0.002f Shift fine precision, active drag dirty-rect invalidation, persistent backbuffer zero-leak rendering, and Universal Auto-Updater Shield."
+      "notes": "ChromaWidener v2.9.0: Integrated ChromaAnalogSuite stability protection and upgraded 1-click Clipboard [FEEDBACK] diagnostic reporting."
     },
     "ChromaDesigner": {
-      "version": "2.8.0",
-      "build": 20261021,
+      "version": "2.9.0",
+      "build": 20261105,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaDesigner.dll",
-      "notes": "ChromaDesigner v2.8.0: Dual 500-series D.E.T. transient processor with targeted dirty-rect invalidation, 0.002f Shift fine precision, active knob dirty-rect invalidation, and Universal Auto-Updater Shield."
+      "notes": "ChromaDesigner v2.9.0: Integrated ChromaAnalogSuite stability protection and upgraded 1-click Clipboard [FEEDBACK] diagnostic reporting."
     },
     "ChromaScramble": {
-      "version": "2.8.0",
-      "build": 20261021,
+      "version": "2.9.0",
+      "build": 20261105,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaScramble.dll",
-      "notes": "ChromaScramble v2.8.0: Targeted dirty-rect timer invalidation, 0.002f Shift fine precision, active knob dirty-rect invalidation, 10-module MSEG zero-latency engine, and Universal Auto-Updater Shield."
+      "notes": "ChromaScramble v2.9.0: Integrated ChromaAnalogSuite stability protection and upgraded 1-click Clipboard [FEEDBACK] diagnostic reporting."
     }
   }
 }

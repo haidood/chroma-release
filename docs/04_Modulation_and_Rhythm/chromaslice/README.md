@@ -1,4 +1,4 @@
-# ChromaSlice (`v2.8.0`)
+# ChromaSlice (`v2.9.0`)
 
 > **Rhythmic Chopper, Transient Gate & Noise Suppressor**  
 > Precision rhythmic trance-gate, chopper, and smart transient noise suppressor.
@@ -14,6 +14,9 @@ Basic noise gates chatter and click when a sound hovers near the threshold. Hyst
 
 ## 🗂️ Version & Patch History
 
+- **[`v2.9.0` (2026-11-05) — ChromaAnalogSuite Stability Integration & 1-Click Clipboard [FEEDBACK]](./v2.9.0_2026-11-05.md)**
+  - **Upgraded 1-Click Clipboard [FEEDBACK] Shield**: Instant `Ctrl+V` diagnostic report copy and pre-filled GitHub Issue.
+
 - **[`v2.8.0` (2026-10-21) — Targeted Dirty-Rect Timer Invalidation & 0.002f Fine Precision](./v2.8.0_2026-10-21.md)**
   - **Click-Free Rhythmic Slicing & Gating**: Tightens messy stems and creates instant rhythmic movement.
 
@@ -21,7 +24,7 @@ Basic noise gates chatter and click when a sound hovers near the threshold. Hyst
 
 ## 🛠️ Known Issues & Bug Reporting
 
-- None currently open in v2.8.0.
+- None currently open in v2.9.0.
 
 **Found a bug or weird preset behavior?**  
 Click the **`[ FEEDBACK ]`** button in the top-right header of the plugin! It automatically snapshots your patch, EQ curve, and screenshot, copies a diagnostic summary to your Clipboard (`Ctrl+V` ready for Discord), or opens a pre-filled [GitHub Bug Report](https://github.com/haidood/chroma-release/issues/new).

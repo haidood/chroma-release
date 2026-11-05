@@ -1,4 +1,4 @@
-# ChromaWidener (`v2.8.0`)
+# ChromaWidener (`v2.9.0`)
 
 > **Phase-Safe Multiband Spatializer & Stereo Widener**  
 > Expands stereo width across mid and high frequencies while keeping sub-bass anchored and 100% mono-compatible.
@@ -14,6 +14,9 @@ If you widen a track by simply flipping the phase of one speaker, it sounds supe
 
 ## 🗂️ Version & Patch History
 
+- **[`v2.9.0` (2026-11-05) — ChromaAnalogSuite Stability Integration & 1-Click Clipboard [FEEDBACK]](./v2.9.0_2026-11-05.md)**
+  - **Upgraded 1-Click Clipboard [FEEDBACK] Shield**: Instant `Ctrl+V` diagnostic report copy and pre-filled GitHub Issue.
+
 - **[`v2.8.0` (2026-10-21) — Targeted Dirty-Rect Invalidation, 0.002f Precision & Auto-Updater Shield](./v2.8.0_2026-10-21.md)**
   - **Sub-Safe Stereo Expansion**: Widens synths, vocals, and overheads while keeping low-end punch centered.
 
@@ -21,7 +24,7 @@ If you widen a track by simply flipping the phase of one speaker, it sounds supe
 
 ## 🛠️ Known Issues & Bug Reporting
 
-- None currently open in v2.8.0.
+- None currently open in v2.9.0.
 
 **Found a bug or weird preset behavior?**  
 Click the **`[ FEEDBACK ]`** button in the top-right header of the plugin! It automatically snapshots your patch, EQ curve, and screenshot, copies a diagnostic summary to your Clipboard (`Ctrl+V` ready for Discord), or opens a pre-filled [GitHub Bug Report](https://github.com/haidood/chroma-release/issues/new).
