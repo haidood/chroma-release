@@ -391,18 +391,6 @@ const DATA = [
         ],
         "versions": [
           {
-            "version": "v3.0.0",
-            "date": "2026-11-06",
-            "title": "Hardware UI Preview, Nerve-Style Sequencer Hotkeys, Magic Drive & Envelope Drawing",
-            "card_image": "assets/ChromaPulse_Preview.png",
-            "highlights": [
-              "**Spectral-Adaptive Magic Drive Master Stage**: Added master bus Magic Drive (derived from ChromaCore) with intelligent sub-bass mono-tightening, 320 Hz boxy-mud scoop, sweet-spot focus excitation, and silk-air shimmer.",
-              "**Nerve-Style Step Sequencer Hotkeys & Gestures**: Added `Ctrl`+Click sub-division cycling (`1x` to `8x` ratchets with visual slice indicators), `Alt`+Click reverse toggle (`\u25c0` badge), `Shift`+Click step muting, `[` and `]` pattern shifting, `Ctrl+C`/`Ctrl+V` bar copying, and `D` for bar duplication.",
-              "**Interactive AHDSR Multi-Segment Envelope Canvas**: Directly drag Attack, Decay, and Sustain nodes on the waveform display for immediate visual and sonic shaping of drum hits.",
-              "**Duo-Tone Gunmetal & Matte Hardware UI**: Upgraded aesthetics to brushed gunmetal and matte obsidian with amber LED indicators and native 60 FPS UI preview capture."
-            ]
-          },
-          {
             "version": "v2.9.0",
             "date": "2026-11-05",
             "title": "Prophet-6 Poly Stereo Spread, VCO Thermal Drift, Tube Ladder Stages & Class-A Output",
@@ -446,6 +434,85 @@ const DATA = [
           "None currently open in v2.9.0."
         ],
         "versions": [
+          {
+            "version": "v3.0.0",
+            "date": "2026-11-06",
+            "title": "Hardware UI Preview, Nerve-Style Sequencer Hotkeys, Magic Drive & Envelope Drawing",
+            "card_image": "assets/ChromaPulse_Preview.png",
+            "highlights": [
+              "**Spectral-Adaptive Magic Drive Master Stage**: Added master bus Magic Drive (derived from ChromaCore) with intelligent sub-bass mono-tightening, 320 Hz boxy-mud scoop, sweet-spot focus excitation, and silk-air shimmer.",
+              "**Interactive AHDSR Multi-Segment Envelope Canvas**: Directly drag Attack, Decay, and Sustain nodes on the waveform display for immediate visual and sonic shaping of drum hits.",
+              "**Duo-Tone Gunmetal & Matte Hardware UI**: Upgraded aesthetics to brushed gunmetal and matte obsidian with amber LED indicators and native 60 FPS UI preview capture.",
+              "**Full Keyboard & Mouse Hotkey Engine**: Nerve-inspired rapid workflow for sequencing, ratcheting, muting, shifting, and duplicating drum patterns."
+            ],
+            "hotkeys": [
+              [
+                "Ctrl + Left Click",
+                "Cycle Step Ratchets",
+                "Cycles sub-divisions (1x -> 2x -> 3x -> 4x -> 5x -> 6x -> 7x -> 8x -> 1x) with active numerical and dot indicators on the step."
+              ],
+              [
+                "Alt + Left Click",
+                "Reverse Step",
+                "Toggles reverse sample playback badge (\u25c0) for that individual step."
+              ],
+              [
+                "Shift + Left Click",
+                "Mute / Unmute Step",
+                "Mutes or un-mutes the step without clearing or overwriting velocity data."
+              ],
+              [
+                "Left Click + Drag (Bars)",
+                "Draw Velocities",
+                "Freehand draw velocity / parameter curves across all 16 steps smoothly."
+              ],
+              [
+                "Left Click + Drag (Nodes)",
+                "Shape Envelope",
+                "Click and drag interactive Attack, Decay, and Sustain handles directly on the waveform display."
+              ],
+              [
+                "[ / ] (Bracket Keys)",
+                "Rotate Pattern Left / Right",
+                "Nudges the entire 16-step sequence earlier or later in time on the active pad."
+              ],
+              [
+                "Ctrl + C / Ctrl + V",
+                "Copy / Paste Bar Pattern",
+                "Copies active 16-step bar data to memory and pastes it into any other pad or bar page."
+              ],
+              [
+                "D",
+                "Duplicate Bar",
+                "Duplicates current bar pattern into the next empty bar page for rapid pattern building."
+              ],
+              [
+                "R",
+                "Quick Reverse Toggle",
+                "Toggles reverse playback state for the step under cursor."
+              ],
+              [
+                "M",
+                "Quick Mute Toggle",
+                "Toggles mute state for the step under cursor."
+              ],
+              [
+                "Delete / Backspace",
+                "Clear Pattern",
+                "Clears all 16 steps on the selected pad."
+              ],
+              [
+                "Spacebar",
+                "Transport Play / Stop",
+                "Starts or stops sequencer audition playback."
+              ],
+              [
+                "1 through 8",
+                "Switch Parameter Mode",
+                "Switches sequencer lane to Velocity (1), Cutoff (2), Res (3), Pitch (4), Pan (5), Gate (6), Late (7), or Delay (8)."
+              ]
+            ]
+          },
           {
             "version": "v2.9.0",
             "date": "2026-11-05",
@@ -1062,6 +1129,22 @@ function renderVersionBlock(p, v, showCardImg) {
       </div>
       <div class="version-card-body">
         <ul>${items}</ul>
+        ${ v.hotkeys && v.hotkeys.length > 0 ? `
+          <div style="margin-top:16px;">
+            <div style="font-size:13.5px;font-weight:700;color:var(--text-platinum);margin-bottom:8px;">⌨️ Sequencer Hotkeys &amp; Gestures Quick Reference:</div>
+            <table style="width:100%;border-collapse:collapse;font-size:12.5px;background:#0d1015;border-radius:6px;overflow:hidden;border:1px solid var(--border-gunmetal);">
+              <thead>
+                <tr style="background:var(--bg-header);color:var(--text-platinum);text-align:left;">
+                  <th style="padding:8px 12px;border:1px solid var(--border-gunmetal);">Key / Gesture</th>
+                  <th style="padding:8px 12px;border:1px solid var(--border-gunmetal);">Action</th>
+                  <th style="padding:8px 12px;border:1px solid var(--border-gunmetal);">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${v.hotkeys.map(hk => `<tr><td style="font-family:Consolas,monospace;color:var(--ice-cyan);padding:7px 12px;border:1px solid var(--border-gunmetal);">${hk[0]}</td><td style="font-weight:700;padding:7px 12px;border:1px solid var(--border-gunmetal);">${hk[1]}</td><td style="padding:7px 12px;border:1px solid var(--border-gunmetal);color:var(--text-titanium);">${hk[2]}</td></tr>`).join('')}
+              </tbody>
+            </table>
+          </div>` : '' }
       </div>
     </div>
   `;

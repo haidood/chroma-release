@@ -3,8 +3,6 @@
 > **Flagship Synthesizer with 3D Keycaps & LED Jewels**  
 > High-headroom polyphonic synthesizer featuring tactile 3D hardware keycaps, Prophet-6/OB-6 stereo voice spread, inter-stage tube ladder filtering, and studio multi-effects.
 
-![ChromaX v2.9.0 Release Card](../../assets/ChromaPulse_Preview.png)
-
 ---
 
 ## 📚 Tech-to-Music Translator (How It Actually Works in Plain English)
@@ -21,12 +19,6 @@ When you play a 6-note chord, 6 oscillators add together and can easily clip you
 ---
 
 ## 🗂️ Version & Patch History
-
-- **[`v3.0.0` (2026-11-06) — Hardware UI Preview, Nerve-Style Sequencer Hotkeys, Magic Drive & Envelope Drawing](./v3.0.0_2026-11-06.md)**
-  - **Spectral-Adaptive Magic Drive Master Stage**: Added master bus Magic Drive (derived from ChromaCore) with intelligent sub-bass mono-tightening, 320 Hz boxy-mud scoop, sweet-spot focus excitation, and silk-air shimmer.
-  - **Nerve-Style Step Sequencer Hotkeys & Gestures**: Added `Ctrl`+Click sub-division cycling (`1x` to `8x` ratchets with visual slice indicators), `Alt`+Click reverse toggle (`◀` badge), `Shift`+Click step muting, `[` and `]` pattern shifting, `Ctrl+C`/`Ctrl+V` bar copying, and `D` for bar duplication.
-  - **Interactive AHDSR Multi-Segment Envelope Canvas**: Directly drag Attack, Decay, and Sustain nodes on the waveform display for immediate visual and sonic shaping of drum hits.
-  - **Duo-Tone Gunmetal & Matte Hardware UI**: Upgraded aesthetics to brushed gunmetal and matte obsidian with amber LED indicators and native 60 FPS UI preview capture.
 
 - **[`v2.9.0` (2026-11-05) — Prophet-6 Poly Stereo Spread, VCO Thermal Drift, Tube Ladder Stages & Class-A Output](./v2.9.0_2026-11-05.md)**
   - **Prophet-6 / OB-6 Polyphonic Stereo Voice Panning & VCO Drift**: Every voice in a chord now occupies its own natural stereo pan position with subtle organic analog pitch drift.
