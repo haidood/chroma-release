@@ -2,7 +2,7 @@
   "suite_name": "Chroma Audio Suite",
   "suite_version": "2026.11.05",
   "release_date": "2026-11-05",
-  "notes": "Chroma Audio Suite v2.9.5: Suite-wide Analog Modeling & Biquad EQ Stability Upgrade across all 14 plugins — Prophet-6/OB-6 per-voice stereo spread & VCO thermal drift, inter-stage zero-DC tube ladder saturation, input-envelope resonance damping, Jury-clamped Low/High-Shelf EQ biquads with NaN self-healing, Class-A transformer output stages, and 1-click Clipboard [FEEDBACK] diagnostic reporting.",
+  "notes": "Chroma Audio Suite v2.9.5: Suite-wide Analog Modeling & Biquad EQ Stability Upgrade across all 14 plugins \u2014 Prophet-6/OB-6 per-voice stereo spread & VCO thermal drift, inter-stage zero-DC tube ladder saturation, input-envelope resonance damping, Jury-clamped Low/High-Shelf EQ biquads with NaN self-healing, Class-A transformer output stages, and 1-click Clipboard [FEEDBACK] diagnostic reporting.",
   "plugins": {
     "ChromaCore": {
       "version": "2.8.5",
@@ -17,10 +17,10 @@
       "notes": "ChromaCorePro v2.8.5: Fixed EQ Low-Shelf (L-SH) and High-Shelf (H-SH) biquad coefficient stability & Notch-to-Shelf transition resets; fixed real-time 60 FPS MIDI note highlighting on the visual keyboard with [KEYS: ON/OFF] stealth mode toggle; upgraded [FEEDBACK] button with automatic Clipboard diagnostic summary and pre-filled GitHub/Cloudflare bug reporting."
     },
     "ChromaPulse": {
-      "version": "2.9.0",
-      "build": 20261105,
+      "version": "3.0.0",
+      "build": 20261106,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaPulse.dll",
-      "notes": "ChromaPulse v2.9.0: Added Class-A AnalogConsoleStage transformer bus saturation with 5 Hz DC blocker & NaN self-healing, Jury-stabilized 24-band Master EQ biquads, SVF drum pad filter stability protection, and upgraded 1-click Clipboard [FEEDBACK] diagnostic reporting."
+      "notes": "ChromaPulse v3.0.0: Nerve-style Step Sequencer Hotkeys (Ctrl+Click sub-divisions 1-8x, Alt+Click reverse with arrow badge, Shift+Click mute, [, ] pattern shifts, Ctrl+C/V bar clipboard, D bar duplicate), Interactive AHDSR Multi-Segment Envelope Canvas on waveform deck, and Master Bus Spectral-Adaptive Magic Drive."
     },
     "ChromaDeep": {
       "version": "2.9.0",

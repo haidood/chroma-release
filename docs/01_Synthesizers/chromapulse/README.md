@@ -1,4 +1,4 @@
-# ChromaPulse (`v2.9.0`)
+# ChromaPulse (`v3.0.0`)
 
 > **Step-Sequenced Ratchet Rhythm Synthesizer**  
 > Precision rhythmic drum & bassline synthesizer built for modern electronic production, ratcheting arpeggios, and tempo-synced filter movement.
