@@ -2,7 +2,9 @@
 
 Welcome to the official **Chroma Audio Suite** release repository, version archive, and plain-English audio guide.
 
-![ChromaCore v2.8.5 Release Card](docs/assets/ChromaCore_v2.8.5_Release_Card.png)
+![ChromaCore v2.9.0 Release Card](docs/assets/ChromaCore_v2.9.0_Release_Card.png)
+
+![ChromaScramble v2.9.0 Release Card](docs/assets/ChromaScramble_v2.9.0_Release_Card.png)
 
 ---
 
@@ -11,7 +13,7 @@ Welcome to the official **Chroma Audio Suite** release repository, version archi
 ### 📁 [Synthesizers](docs/01_Synthesizers/README.md)
 | Plugin | Latest Build | Description | Release Notes & Guide |
 |---|---|---|---|
-| **[ChromaCore & ChromaCorePro](docs/01_Synthesizers/chromacore/README.md)** | `v2.8.5` | 32-Voice Hybrid Analog / Wavetable / FM Workstation Synth | [Overview & Glossary](docs/01_Synthesizers/chromacore/README.md) ([`v2.8.5`](docs/01_Synthesizers/chromacore/v2.8.5_2026-11-05.md) • [`v2.8.4`](docs/01_Synthesizers/chromacore/v2.8.4_2026-11-04.md) • [`v2.8.3`](docs/01_Synthesizers/chromacore/v2.8.3_2026-11-03.md)) |
+| **[ChromaCore VST](docs/01_Synthesizers/chromacore/README.md)** | `v2.9.0` | 32-Voice Hybrid Analog / Wavetable / Resampling Workstation Synth | [Overview & Glossary](docs/01_Synthesizers/chromacore/README.md) ([`v2.9.0`](docs/01_Synthesizers/chromacore/v2.9.0_2026-11-10.md) • [`v2.8.5`](docs/01_Synthesizers/chromacore/v2.8.5_2026-11-05.md) • [`v2.8.4`](docs/01_Synthesizers/chromacore/v2.8.4_2026-11-04.md)) |
 | **[ChromaX](docs/01_Synthesizers/chromax/README.md)** | `v2.9.0` | Flagship Synthesizer with 3D Keycaps & LED Jewels | [Overview & Glossary](docs/01_Synthesizers/chromax/README.md) ([`v2.9.0`](docs/01_Synthesizers/chromax/v2.9.0_2026-11-05.md) • [`v2.8.0`](docs/01_Synthesizers/chromax/v2.8.0_2026-10-21.md)) |
 | **[ChromaPulse](docs/01_Synthesizers/chromapulse/README.md)** | `v3.0.0` | Step-Sequenced Ratchet Rhythm Synthesizer | [Overview & Glossary](docs/01_Synthesizers/chromapulse/README.md) ([`v3.0.0`](docs/01_Synthesizers/chromapulse/v3.0.0_2026-11-06.md) • [`v2.9.0`](docs/01_Synthesizers/chromapulse/v2.9.0_2026-11-05.md) • [`v2.8.0`](docs/01_Synthesizers/chromapulse/v2.8.0_2026-10-21.md)) |
 | **[ChromaDeep](docs/01_Synthesizers/chromadeep/README.md)** | `v2.9.0` | 7-Tab Modular Delay & Sub-Bass Synthesizer | [Overview & Glossary](docs/01_Synthesizers/chromadeep/README.md) ([`v2.9.0`](docs/01_Synthesizers/chromadeep/v2.9.0_2026-11-05.md) • [`v2.8.0`](docs/01_Synthesizers/chromadeep/v2.8.0_2026-10-21.md)) |
@@ -33,7 +35,7 @@ Welcome to the official **Chroma Audio Suite** release repository, version archi
 | Plugin | Latest Build | Description | Release Notes & Guide |
 |---|---|---|---|
 | **[ChromaFhaser](docs/04_Modulation_and_Rhythm/chromafhaser/README.md)** | `v2.9.0` | 40-Stage Dual Harmonic Phase Processor | [Overview & Glossary](docs/04_Modulation_and_Rhythm/chromafhaser/README.md) ([`v2.9.0`](docs/04_Modulation_and_Rhythm/chromafhaser/v2.9.0_2026-11-05.md) • [`v2.8.0`](docs/04_Modulation_and_Rhythm/chromafhaser/v2.8.0_2026-10-21.md)) |
-| **[ChromaScramble](docs/04_Modulation_and_Rhythm/chromascramble/README.md)** | `v2.9.0` | 10-Module MSEG Rhythmic Glitch & Multi-FX Sequencer | [Overview & Glossary](docs/04_Modulation_and_Rhythm/chromascramble/README.md) ([`v2.9.0`](docs/04_Modulation_and_Rhythm/chromascramble/v2.9.0_2026-11-05.md) • [`v2.8.0`](docs/04_Modulation_and_Rhythm/chromascramble/v2.8.0_2026-10-21.md)) |
+| **[ChromaScramble](docs/04_Modulation_and_Rhythm/chromascramble/README.md)** | `v2.9.0` | 10-Module MSEG Rhythmic Glitch & Multi-FX Sequencer | [Overview & Glossary](docs/04_Modulation_and_Rhythm/chromascramble/README.md) ([`v2.9.0`](docs/04_Modulation_and_Rhythm/chromascramble/v2.9.0_2026-11-10.md) • [`v2.8.0`](docs/04_Modulation_and_Rhythm/chromascramble/v2.8.0_2026-10-21.md)) |
 | **[ChromaSlice](docs/04_Modulation_and_Rhythm/chromaslice/README.md)** | `v2.9.0` | Rhythmic Chopper, Transient Gate & Noise Suppressor | [Overview & Glossary](docs/04_Modulation_and_Rhythm/chromaslice/README.md) ([`v2.9.0`](docs/04_Modulation_and_Rhythm/chromaslice/v2.9.0_2026-11-05.md) • [`v2.8.0`](docs/04_Modulation_and_Rhythm/chromaslice/v2.8.0_2026-10-21.md)) |
 
 ### 📁 [Vocal & Stereo Field](docs/05_Vocal_and_Stereo_Imaging/README.md)

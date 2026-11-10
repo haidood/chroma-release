@@ -3,6 +3,8 @@
 > **Rhythmic Chopper, Transient Gate & Noise Suppressor**  
 > Precision rhythmic trance-gate, chopper, and smart transient noise suppressor.
 
+![ChromaSlice v2.9.0 Release Card](../../assets/ChromaSlice_v2.9.0_Release_Card.png)
+
 ---
 
 ## 📚 Tech-to-Music Translator (How It Actually Works in Plain English)
@@ -15,6 +17,7 @@ Basic noise gates chatter and click when a sound hovers near the threshold. Hyst
 ## 🗂️ Version & Patch History
 
 - **[`v2.9.0` (2026-11-05) — ChromaAnalogSuite Stability Integration & 1-Click Clipboard [FEEDBACK]](./v2.9.0_2026-11-05.md)**
+  - **2x Oversampled ADAA Analog Drive Stage**: Adds warm harmonic punch to chopped rhythmic synth and vocal slices.
   - **Upgraded 1-Click Clipboard [FEEDBACK] Shield**: Instant `Ctrl+V` diagnostic report copy and pre-filled GitHub Issue.
 
 - **[`v2.8.0` (2026-10-21) — Targeted Dirty-Rect Timer Invalidation & 0.002f Fine Precision](./v2.8.0_2026-10-21.md)**

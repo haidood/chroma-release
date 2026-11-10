@@ -3,6 +3,8 @@
 > **Bouncing Stereo Ping-Pong Tape & BBD Delay**  
 > Multi-character stereo delay modeling Panasonic MN3005 Bucket-Brigade chips, 15 IPS Studio Tape, Oil-Can Echo, Vintage 12-Bit Digital, and Shimmer Cascade.
 
+![ChromaDelay v2.9.0 Release Card](../../assets/ChromaDelay_v2.9.0_Release_Card.png)
+
 ---
 
 ## 📚 Tech-to-Music Translator (How It Actually Works in Plain English)

@@ -3,6 +3,8 @@
 > **Dual 500-Series Modular Analog Saturation & Tone Rack**  
 > Dual-slot 500-series hardware saturation processor modeling discrete console transformers, triode tubes, and harmonic exciter circuits.
 
+![ChromaDesigner v2.9.0 Release Card](../../assets/ChromaDesigner_v2.9.0_Release_Card.png)
+
 ---
 
 ## 📚 Tech-to-Music Translator (How It Actually Works in Plain English)
@@ -15,6 +17,7 @@ Tubes and asymmetric transformers generate 'even-order' harmonics (octaves and f
 ## 🗂️ Version & Patch History
 
 - **[`v2.9.0` (2026-11-05) — ChromaAnalogSuite Stability Integration & 1-Click Clipboard [FEEDBACK]](./v2.9.0_2026-11-05.md)**
+  - **2x Oversampled ADAA Analog Console Stage**: Eliminates foldback aliasing when cascading Slot A and Slot B harmonic drive stages.
   - **Upgraded 1-Click Clipboard [FEEDBACK] Shield**: Instant `Ctrl+V` diagnostic report copy and pre-filled GitHub Issue.
 
 - **[`v2.8.0` (2026-10-21) — Dual 500-Series D.E.T. Rack UI, Active Knob Dirty-Rects & Auto-Updater Shield](./v2.8.0_2026-10-21.md)**

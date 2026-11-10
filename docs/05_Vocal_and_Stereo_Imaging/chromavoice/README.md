@@ -3,6 +3,8 @@
 > **WARP Granular Vocal Pitch, Formant & Harmony Processor**  
 > Real-time vocal pitch and formant shifter featuring consonant micro-windowing and transient preservation so shifted vocals never sound smeared or robotic (unless you want them to!).
 
+![ChromaVoice v3.2.1 Release Card](../../assets/ChromaVoice_v3.2.1_Release_Card.png)
+
 ---
 
 ## 📚 Tech-to-Music Translator (How It Actually Works in Plain English)
@@ -18,6 +20,7 @@ Granular pitch shifters smear sharp vocal 'S', 'T', and 'K' sounds across multip
 ## 🗂️ Version & Patch History
 
 - **[`v3.2.1` (2026-11-05) — Upgraded 1-Click Clipboard [FEEDBACK] Diagnostic Reporting](./v3.2.1_2026-11-05.md)**
+  - **2x Oversampled ADAA Vocal Tube Warmth Stage**: Smoothly rounds off harsh sibilance peaks while adding intimate analog vocal presence.
   - **Upgraded 1-Click Clipboard [FEEDBACK] Shield**: Automatically copies vocal engine diagnostics + `host_shield_log.txt` to your Windows Clipboard (`Ctrl+V` ready for Discord).
 
 - **[`v3.2.0` (2026-10-22) — WARP Granular OLA Transient Preservation & Consonant Micro-Windowing](./v3.2.0_2026-10-22.md)**

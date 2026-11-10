@@ -3,6 +3,8 @@
 > **Flagship Synthesizer with 3D Keycaps & LED Jewels**  
 > High-headroom polyphonic synthesizer featuring tactile 3D hardware keycaps, Prophet-6/OB-6 stereo voice spread, inter-stage tube ladder filtering, and studio multi-effects.
 
+![ChromaX v2.9.0 Release Card](../../assets/ChromaX_v2.9.0_Release_Card.png)
+
 ---
 
 ## 📚 Tech-to-Music Translator (How It Actually Works in Plain English)

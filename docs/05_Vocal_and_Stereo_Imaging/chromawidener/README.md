@@ -3,6 +3,8 @@
 > **Phase-Safe Multiband Spatializer & Stereo Widener**  
 > Expands stereo width across mid and high frequencies while keeping sub-bass anchored and 100% mono-compatible.
 
+![ChromaWidener v2.9.0 Release Card](../../assets/ChromaWidener_v2.9.0_Release_Card.png)
+
 ---
 
 ## 📚 Tech-to-Music Translator (How It Actually Works in Plain English)
@@ -15,6 +17,7 @@ If you widen a track by simply flipping the phase of one speaker, it sounds supe
 ## 🗂️ Version & Patch History
 
 - **[`v2.9.0` (2026-11-05) — ChromaAnalogSuite Stability Integration & 1-Click Clipboard [FEEDBACK]](./v2.9.0_2026-11-05.md)**
+  - **Per-Channel Analog Tolerance Dispersion & 2x ADAA Stage**: Natural hardware console width with 100% phase-safe mono compatibility.
   - **Upgraded 1-Click Clipboard [FEEDBACK] Shield**: Instant `Ctrl+V` diagnostic report copy and pre-filled GitHub Issue.
 
 - **[`v2.8.0` (2026-10-21) — Targeted Dirty-Rect Invalidation, 0.002f Precision & Auto-Updater Shield](./v2.8.0_2026-10-21.md)**

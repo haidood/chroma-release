@@ -3,7 +3,7 @@
 > **Step-Sequenced Ratchet Rhythm Synthesizer**  
 > Precision rhythmic drum & bassline synthesizer built for modern electronic production, ratcheting arpeggios, and tempo-synced filter movement.
 
-![ChromaPulse v3.0.0 Release Card](../../assets/ChromaPulse_Preview.png)
+![ChromaPulse v3.0.0 Release Card](../../assets/ChromaPulse_v3.0.0_Release_Card.png)
 
 ---
 

@@ -275,11 +275,15 @@ const DATA = [
     "plugins": [
       {
         "id": "chromacore",
-        "name": "ChromaCore & ChromaCorePro",
-        "latest": "v2.8.5",
-        "type": "32-Voice Hybrid Analog / Wavetable / FM Workstation Synth",
-        "summary": "Our flagship 3-oscillator synthesizer combining warm hardware-modeled analog drift, 4-point cubic wavetables, dual Moog/Oberheim filters, 8-style FM/Mod oscillator, 16-step Performer & Miami Sequencer, 3-band multiband distortion, 12-band studio EQ, OTT dynamics, Magic Fattener, BBD Delay, and Studio Reverb.",
+        "name": "ChromaCore VST",
+        "latest": "v2.9.0",
+        "type": "32-Voice Hybrid Analog / Wavetable / Resampling Workstation Synth",
+        "summary": "Our unified flagship 4-oscillator synthesizer combining Osc 1-3 cubic wavetables, Osc 4 Internal Live Resampler & Time-Stretch engine, a 14-source Right-Click Modulation Matrix, Living Organic Wavetable Interference Visualizer, dual Moog/Oberheim filters, 8-style FM/Mod oscillator, 16-step Performer & Miami Sequencer, 3-band multiband distortion, 12-band studio EQ, OTT dynamics, and Magic Fattener.",
         "glossary": [
+          {
+            "term": "Internal Synth Resampling & Time-Stretching (Osc 4)",
+            "simple": "Producers often bounce a synth chord or bassline to audio just so they can time-stretch it, freeze grains, or layer it back underneath itself. Osc 4 ('RESAMPLE') builds that workflow directly inside ChromaCore: click [BOUNCE MIX] or [REC LIVE] to capture your active Osc 1-3 + Filter patch into a high-resolution internal stereo buffer or 64-frame wavetable, freeing up Osc 1-3 to stack even more layers on top!"
+          },
           {
             "term": "4-Point Catmull-Rom Cubic Wavetable Interpolation",
             "simple": "Think of a digital waveform like a connect-the-dots drawing. Basic synths draw straight lines between the dots, which creates sharp corners that sound like harsh, metallic 'digital fizz' on high notes. Cubic interpolation bends a smooth, natural curve through 4 dots at a time\u2014making digital wavetables sound as smooth and liquid as analog tape."
@@ -294,7 +298,7 @@ const DATA = [
           },
           {
             "term": "Biquad Filter Poles & The 'Unit Circle' (EQ Stability)",
-            "simple": "Digital EQ filters work by feeding a tiny bit of the output sound back into the input to boost or cut specific frequencies. Mathematically, if the feedback number crosses '1.0' (leaving the 'unit circle'), the filter acts like a microphone held right up to a speaker\u2014instantly screaming to infinity and muting your DAW. In v2.8.5, we locked every EQ shelf inside a mathematical safety cage so it can never overload."
+            "simple": "Digital EQ filters work by feeding a tiny bit of the output sound back into the input to boost or cut specific frequencies. Mathematically, if the feedback number crosses '1.0' (leaving the 'unit circle'), the filter acts like a microphone held right up to a speaker\u2014instantly screaming to infinity and muting your DAW. We locked every EQ shelf inside a mathematical safety cage so it can never overload."
           },
           {
             "term": "Inter-Stage Moog Ladder & SEM Tube Saturation",
@@ -302,9 +306,23 @@ const DATA = [
           }
         ],
         "known_issues": [
-          "None currently open in v2.8.5! (Previous v2.8.4 EQ Low-Shelf / High-Shelf / Notch transition audio drop and v2.8.2 Scream Filter 1038 Hz whistle are 100% resolved)."
+          "None currently open in v2.9.0! (Legacy ChromaCorePro instances automatically merge into ChromaCoreVST.dll upon clicking Update)."
         ],
         "versions": [
+          {
+            "version": "v2.9.0",
+            "date": "2026-11-10",
+            "title": "Osc 4 Internal Synth Resampler, 14-Source Right-Click Mod Matrix, Organic Interference Display & 3D Titanium UI",
+            "card_image": "assets/ChromaCore_v2.9.0_Release_Card.png",
+            "highlights": [
+              "**New Osc 4 (`RESAMPLE`) Internal Synth Resampler**: Capture your active Osc 1-3 + Dual Filter patch via **`[BOUNCE MIX]`** (instant offline render) or **`[REC LIVE]`** (real-time post-synth capture), then manipulate it with 4 playback engines: *TIME STRETCH*, *WT RESAMPLE* (64-frame wavetable extraction), *GRAIN FREEZE*, and *REV PING-PONG*.",
+              "**Universal Right-Click Modulation Matrix (14 Sources)**: Right-click **any rotary knob** on the synth to assign modulation, toggle Bipolar/Unipolar depth, or clear links across 14 Serum 2-style sources (*LFO 1*, *LFO 2*, *ENV 1\u20133*, *NOTE*, *VEL*, *MODW*, *AT*, *RAND*, *ALT*, *CHAOS*, *S&H*, *MACRO*).",
+              "**Fixed `MOD OSC` Target Routing**: Fixed parameter normalization on the Mod Osc Target selector so FM, Ring Mod, and Phase Mod route cleanly to *Osc 1*, *Osc 2*, *Osc 1+2*, *Osc 3*, *Filter 1/2*, *Vol*, *Pan*, or *Pitch*.",
+              "**Living Organic Wavetable & Modulation Interference Visualizer**: Top display now renders real-time harmonic interference and modulation bloom between active oscillators in cool arctic ice-blue, slate, indigo, and pearl filaments.",
+              "**Raised 3D Synth Deck & Recessed Keybed Overhang**: Raised all three module rows so bottom knobs sit cleanly inside the chassis, adding a 3D machined titanium overhang lip (`y=576..586`), recessed shadow trench, and 16px cast shadow onto the piano keys.",
+              "**Unified `ChromaCoreVST` Consolidation**: Merged `ChromaCorePro` into `ChromaCoreVST.dll` so clicking Update on any legacy instance seamlessly upgrades to the single flagship synth."
+            ]
+          },
           {
             "version": "v2.8.5",
             "date": "2026-11-05",
@@ -394,7 +412,7 @@ const DATA = [
             "version": "v2.9.0",
             "date": "2026-11-05",
             "title": "Prophet-6 Poly Stereo Spread, VCO Thermal Drift, Tube Ladder Stages & Class-A Output",
-            "card_image": "",
+            "card_image": "assets/ChromaX_v2.9.0_Release_Card.png",
             "highlights": [
               "**Prophet-6 / OB-6 Polyphonic Stereo Voice Panning & VCO Drift**: Every voice in a chord now occupies its own natural stereo pan position with subtle organic analog pitch drift.",
               "**Inter-Stage Zero-DC Tube Ladder Saturation & Anti-Whistle Damping**: Upgraded Asimov and BlueMonark 24 dB/oct ladder filters with per-stage tube saturation and input-envelope resonance damping.",
@@ -438,7 +456,7 @@ const DATA = [
             "version": "v3.0.0",
             "date": "2026-11-06",
             "title": "Hardware UI Preview, Nerve-Style Sequencer Hotkeys, Magic Drive & Envelope Drawing",
-            "card_image": "assets/ChromaPulse_Preview.png",
+            "card_image": "assets/ChromaPulse_v3.0.0_Release_Card.png",
             "highlights": [
               "**Spectral-Adaptive Magic Drive Master Stage**: Added master bus Magic Drive (derived from ChromaCore) with intelligent sub-bass mono-tightening, 320 Hz boxy-mud scoop, sweet-spot focus excitation, and silk-air shimmer.",
               "**Interactive AHDSR Multi-Segment Envelope Canvas**: Directly drag Attack, Decay, and Sustain nodes on the waveform display for immediate visual and sonic shaping of drum hits.",
@@ -561,7 +579,7 @@ const DATA = [
             "version": "v2.9.0",
             "date": "2026-11-05",
             "title": "ZDF Tube Ladder Saturation, Prophet-6 Stereo Voice Spread & Class-A Transformer Output",
-            "card_image": "",
+            "card_image": "assets/ChromaDeep_v2.9.0_Release_Card.png",
             "highlights": [
               "**Inter-Stage Tube ZDF Moog Ladder & Anti-Whistle Damping**: Added per-stage tube saturation and input-envelope resonance damping to both stereo ZDF filters.",
               "**Prophet-6 Per-Voice Stereo Spread & VCO Drift**: Single-voice unison patches now spread naturally across the stereo field in polyphonic mode while keeping Mono mode 100% centered.",
@@ -612,7 +630,7 @@ const DATA = [
             "version": "v2.9.1",
             "date": "2026-11-05",
             "title": "Jury-Stabilized Post-EQ Biquads, NaN Self-Healing & 1-Click Clipboard [FEEDBACK]",
-            "card_image": "",
+            "card_image": "assets/ChromaVerb_v2.9.1_Release_Card.png",
             "highlights": [
               "**Jury Stability Triangle Pole Clamping**: Guaranteed z-plane pole stability across all 12 Post-EQ and Decay Rate EQ bands even under extreme `Q` and shelf sweeps.",
               "**Automatic NaN/Inf Self-Healing**: Real-time biquad state protection ensures long shimmer/freeze tails never drop audio.",
@@ -652,7 +670,7 @@ const DATA = [
             "version": "v2.9.0",
             "date": "2026-11-05",
             "title": "Self-Healing Feedback Loop Biquads & Upgraded Clipboard [FEEDBACK]",
-            "card_image": "",
+            "card_image": "assets/ChromaDelay_v2.9.0_Release_Card.png",
             "highlights": [
               "**Self-Healing Feedback EQ Biquads**: Added `std::isfinite` state recovery inside the delay feedback loop so aggressive self-oscillating dub throws never blow up or mute the bus.",
               "**Upgraded 1-Click Clipboard [FEEDBACK] Shield**: Instant diagnostic snapshot and clipboard copy."
@@ -702,7 +720,7 @@ const DATA = [
             "version": "v2.9.0",
             "date": "2026-11-05",
             "title": "High-Shelf (H-SH) Biquad Fix, Jury Pole Clamping & Self-Healing EQ",
-            "card_image": "",
+            "card_image": "assets/ChromaComp_v2.9.0_Release_Card.png",
             "highlights": [
               "**Fixed High-Shelf (`H-SH`) Biquad `b2` Sign Bug**: Corrected the RBJ Audio EQ Cookbook numerator sign in `setHighShelf` so high-shelf boosts and cuts have accurate DC/low-frequency unity gain.",
               "**Jury Stability Clamping & `NaN` Self-Healing**: Protected all 20 dynamic EQ and sidechain detector filters against pole blowout.",
@@ -741,8 +759,9 @@ const DATA = [
             "version": "v2.9.0",
             "date": "2026-11-05",
             "title": "ChromaAnalogSuite Stability Integration & 1-Click Clipboard [FEEDBACK]",
-            "card_image": "",
+            "card_image": "assets/ChromaTransientShaper_v2.9.0_Release_Card.png",
             "highlights": [
+              "**2x Oversampled ADAA Analog Clipper Stage**: Lets you boost drum Attack snap cleanly while smoothly rounding off peak overshoots into warm analog punch.",
               "**Upgraded 1-Click Clipboard [FEEDBACK] Shield**: Captures plugin state, screenshot, and `host_shield_log.txt` directly to your Windows Clipboard (`Ctrl+V` ready)."
             ]
           },
@@ -778,8 +797,9 @@ const DATA = [
             "version": "v2.9.0",
             "date": "2026-11-05",
             "title": "ChromaAnalogSuite Stability Integration & 1-Click Clipboard [FEEDBACK]",
-            "card_image": "",
+            "card_image": "assets/ChromaDesigner_v2.9.0_Release_Card.png",
             "highlights": [
+              "**2x Oversampled ADAA Analog Console Stage**: Eliminates foldback aliasing when cascading Slot A and Slot B harmonic drive stages.",
               "**Upgraded 1-Click Clipboard [FEEDBACK] Shield**: Instant `Ctrl+V` diagnostic report copy and pre-filled GitHub Issue."
             ]
           },
@@ -822,7 +842,7 @@ const DATA = [
             "version": "v2.9.0",
             "date": "2026-11-05",
             "title": "High-Shelf (H-SH) Biquad Fix, Jury Pole Clamping & Clipboard [FEEDBACK]",
-            "card_image": "",
+            "card_image": "assets/ChromaFhaser_v2.9.0_Release_Card.png",
             "highlights": [
               "**Fixed High-Shelf (`H-SH`) Biquad `b2` Sign Bug**: Corrected the high-shelf numerator coefficient in `Biquad::Setup` so shelf boosts/cuts maintain accurate low-end unity gain.",
               "**Jury Stability Triangle Clamping**: Protected all 24 parametric EQ bands against extreme `Q` / shelf transitions.",
@@ -859,11 +879,14 @@ const DATA = [
         "versions": [
           {
             "version": "v2.9.0",
-            "date": "2026-11-05",
-            "title": "ChromaAnalogSuite Stability Integration & 1-Click Clipboard [FEEDBACK]",
-            "card_image": "",
+            "date": "2026-11-10",
+            "title": "Low-Color Hardware Theme, 3D Protruding Titanium Knobs, Bold Typography & [FEEDBACK] Shield",
+            "card_image": "assets/ChromaScramble_v2.9.0_Release_Card.png",
             "highlights": [
-              "**Upgraded 1-Click Clipboard [FEEDBACK] Shield**: Instant `Ctrl+V` diagnostic report copy and pre-filled GitHub Issue."
+              "**Low-Color Slate / Ice-Cyan / Warm Amber Hardware Palette**: Replaced bright rainbow lane colors with a cohesive studio-grade titanium slate, glacier blue, and warm amber aesthetic.",
+              "**3D Protruding Titanium Rotary Knobs**: Upgraded all module rotary controls with multi-layer drop shadows, machined collars, and a clean single-row layout with zero overlapping labels.",
+              "**High-Contrast Bold Typography**: Larger, bolder `Segoe UI Bold` lane headers, step badges, and parameter readouts.",
+              "**2x Oversampled ADAA Analog Stage & 1-Click Clipboard [FEEDBACK]**: Smooth anti-aliased console output stage and instant `Ctrl+V` diagnostic report copy."
             ]
           },
           {
@@ -897,8 +920,9 @@ const DATA = [
             "version": "v2.9.0",
             "date": "2026-11-05",
             "title": "ChromaAnalogSuite Stability Integration & 1-Click Clipboard [FEEDBACK]",
-            "card_image": "",
+            "card_image": "assets/ChromaSlice_v2.9.0_Release_Card.png",
             "highlights": [
+              "**2x Oversampled ADAA Analog Drive Stage**: Adds warm harmonic punch to chopped rhythmic synth and vocal slices.",
               "**Upgraded 1-Click Clipboard [FEEDBACK] Shield**: Instant `Ctrl+V` diagnostic report copy and pre-filled GitHub Issue."
             ]
           },
@@ -945,8 +969,9 @@ const DATA = [
             "version": "v3.2.1",
             "date": "2026-11-05",
             "title": "Upgraded 1-Click Clipboard [FEEDBACK] Diagnostic Reporting",
-            "card_image": "",
+            "card_image": "assets/ChromaVoice_v3.2.1_Release_Card.png",
             "highlights": [
+              "**2x Oversampled ADAA Vocal Tube Warmth Stage**: Smoothly rounds off harsh sibilance peaks while adding intimate analog vocal presence.",
               "**Upgraded 1-Click Clipboard [FEEDBACK] Shield**: Automatically copies vocal engine diagnostics + `host_shield_log.txt` to your Windows Clipboard (`Ctrl+V` ready for Discord)."
             ]
           },
@@ -982,8 +1007,9 @@ const DATA = [
             "version": "v2.9.0",
             "date": "2026-11-05",
             "title": "ChromaAnalogSuite Stability Integration & 1-Click Clipboard [FEEDBACK]",
-            "card_image": "",
+            "card_image": "assets/ChromaWidener_v2.9.0_Release_Card.png",
             "highlights": [
+              "**Per-Channel Analog Tolerance Dispersion & 2x ADAA Stage**: Natural hardware console width with 100% phase-safe mono compatibility.",
               "**Upgraded 1-Click Clipboard [FEEDBACK] Shield**: Instant `Ctrl+V` diagnostic report copy and pre-filled GitHub Issue."
             ]
           },

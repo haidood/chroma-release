@@ -3,6 +3,8 @@
 > **Analog VCA / Opto Bus & Mastering Compressor with 24-Band EQ**  
 > Dual-stage studio compressor and 20-band parametric equalizer modeling Empirical Labs EL8 Distressor, 1176 FET, LA-2A Opto, and SSL VCA bus glue.
 
+![ChromaComp v2.9.0 Release Card](../../assets/ChromaComp_v2.9.0_Release_Card.png)
+
 ---
 
 ## 📚 Tech-to-Music Translator (How It Actually Works in Plain English)

@@ -1,20 +1,20 @@
 {
   "suite_name": "Chroma Audio Suite",
-  "suite_version": "2026.11.05",
-  "release_date": "2026-11-05",
-  "notes": "Chroma Audio Suite v2.9.5: Suite-wide Analog Modeling & Biquad EQ Stability Upgrade across all 14 plugins \u2014 Prophet-6/OB-6 per-voice stereo spread & VCO thermal drift, inter-stage zero-DC tube ladder saturation, input-envelope resonance damping, Jury-clamped Low/High-Shelf EQ biquads with NaN self-healing, Class-A transformer output stages, and 1-click Clipboard [FEEDBACK] diagnostic reporting.",
+  "suite_version": "2026.11.10",
+  "release_date": "2026-11-10",
+  "notes": "Chroma Audio Suite v2.9.0 / 2026.11.10: ChromaCoreVST v2.9.0 with Osc 4 Internal Live Resampler & Time-Stretch Layer, 14-Source Right-Click Modulation Matrix, Living Organic Wavetable Interference Visualizer, Raised 3D Synth Deck & Recessed Keybed; ChromaScramble v2.9.0 Low-Color Hardware Theme, 3D Protruding Titanium Knobs & Bold Typography; and Brushed Gunmetal Patch Note Release Cards across all 14 plugins.",
   "plugins": {
     "ChromaCore": {
-      "version": "2.8.5",
-      "build": 20261105,
+      "version": "2.9.0",
+      "build": 20261110,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaCoreVST.dll",
-      "notes": "ChromaCore v2.8.5: Fixed EQ Low-Shelf (L-SH) and High-Shelf (H-SH) biquad coefficient sign bug & Notch-to-Shelf transition blowout with Jury pole-stability clamping and NaN self-healing; fixed real-time 60 FPS MIDI note highlighting on the visual keyboard and added [KEYS: ON/OFF] stealth mode toggle next to [STEREO]; upgraded [FEEDBACK] button with automatic Clipboard diagnostic summary (Ctrl+V for Discord) and pre-filled GitHub/Cloudflare bug reporting."
+      "notes": "ChromaCoreVST v2.9.0: Added Osc 4 Internal Synth Resampler ([BOUNCE MIX] & [REC LIVE] with 4 playback engines: TIME STRETCH, WT RESAMPLE, GRAIN FREEZE, REV PING-PONG), Universal Right-Click Modulation Matrix across every knob (14 Serum-2 style sources: LFO 1-2, ENV 1-3, NOTE, VEL, MODW, AT, RAND, ALT, CHAOS, S&H, MACRO), fixed MOD OSC target routing to Osc 1/2/3/All, added Living Organic Wavetable Interference Visualizer, raised 3D synth deck with machined titanium overhang & recessed keybed shadow, 3D protruding titanium knobs, bold typography, and unified ChromaCorePro into ChromaCoreVST."
     },
     "ChromaCorePro": {
-      "version": "2.8.5",
-      "build": 20261105,
-      "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaCorePro.dll",
-      "notes": "ChromaCorePro v2.8.5: Fixed EQ Low-Shelf (L-SH) and High-Shelf (H-SH) biquad coefficient stability & Notch-to-Shelf transition resets; fixed real-time 60 FPS MIDI note highlighting on the visual keyboard with [KEYS: ON/OFF] stealth mode toggle; upgraded [FEEDBACK] button with automatic Clipboard diagnostic summary and pre-filled GitHub/Cloudflare bug reporting."
+      "version": "2.9.0",
+      "build": 20261110,
+      "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaCoreVST.dll",
+      "notes": "Unified into ChromaCoreVST v2.9.0: Updating automatically merges legacy ChromaCorePro into ChromaCoreVST.dll with Osc 4 Internal Synth Resampler, 14-source Right-Click Modulation Matrix, Organic Wavetable Interference Visualizer, and 3D Titanium Hardware UI."
     },
     "ChromaPulse": {
       "version": "3.0.0",
@@ -90,9 +90,9 @@
     },
     "ChromaScramble": {
       "version": "2.9.0",
-      "build": 20261105,
+      "build": 20261110,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaScramble.dll",
-      "notes": "ChromaScramble v2.9.0: Integrated ChromaAnalogSuite stability protection and upgraded 1-click Clipboard [FEEDBACK] diagnostic reporting."
+      "notes": "ChromaScramble v2.9.0: Upgraded to Low-Color Slate/Ice-Blue/Amber Hardware Theme, 3D Protruding Titanium Rotary Knobs in a clean single-row layout, High-Contrast Segoe UI Bold Typography across all 10 lanes and tabs, 2x Oversampled ADAA Analog Console Output Stage, and 1-Click Clipboard [FEEDBACK] telemetry."
     }
   }
 }
