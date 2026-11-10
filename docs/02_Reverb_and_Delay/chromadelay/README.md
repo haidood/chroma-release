@@ -1,7 +1,7 @@
 # ChromaDelay (`v2.9.0`)
 
 > **Bouncing Stereo Ping-Pong Tape & BBD Delay**  
-> Multi-character stereo delay modeling Panasonic MN3005 Bucket-Brigade chips, 15 IPS Studio Tape, Oil-Can Echo, Vintage 12-Bit Digital, and Shimmer Cascade.
+> Multi-character stereo delay modeling classic analog Bucket-Brigade chips, 15 IPS Studio Tape, Oil-Can Echo, Vintage 12-Bit Digital, and Shimmer Cascade.
 
 ![ChromaDelay v2.9.0 Release Card](../../assets/ChromaDelay_v2.9.0_Release_Card.png)
 
@@ -21,7 +21,7 @@ Before digital memory existed, analog pedals passed audio through a chain of tho
   - **Upgraded 1-Click Clipboard [FEEDBACK] Shield**: Instant diagnostic snapshot and clipboard copy.
 
 - **[`v2.8.0` (2026-10-21) — Flat 0.0 dB Default EQ Bands, 7 Mixing Zones & Zero Heap Allocations](./v2.8.0_2026-10-21.md)**
-  - **5 Authentic Delay Character Models**: BBD Analog, 15 IPS Studio Tape, Tel-Ray Oil-Can, 12-Bit Vintage PCM, and Shimmer Pitch Cascade.
+  - **5 Authentic Delay Character Models**: BBD Analog, 15 IPS Studio Tape, Vintage Oil-Can, 12-Bit Vintage PCM, and Shimmer Pitch Cascade.
   - **Interactive Feedback EQ & Ducking**: Built-in sidechain ducking keeps echoes out of the way while your lead vocal or synth is playing, then blooms when the phrase stops.
 
 ---

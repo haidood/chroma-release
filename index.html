@@ -278,7 +278,7 @@ const DATA = [
         "name": "ChromaCore VST",
         "latest": "v2.9.0",
         "type": "32-Voice Hybrid Analog / Wavetable / Resampling Workstation Synth",
-        "summary": "Our unified flagship 4-oscillator synthesizer combining Osc 1-3 cubic wavetables, Osc 4 Internal Live Resampler & Time-Stretch engine, a 14-source Right-Click Modulation Matrix, Living Organic Wavetable Interference Visualizer, dual Moog/Oberheim filters, 8-style FM/Mod oscillator, 16-step Performer & Miami Sequencer, 3-band multiband distortion, 12-band studio EQ, OTT dynamics, and Magic Fattener.",
+        "summary": "Our unified flagship 4-oscillator synthesizer combining Osc 1-3 cubic wavetables, Osc 4 Internal Live Resampler & Time-Stretch engine, a 14-source Right-Click Modulation Matrix, Living Organic Wavetable Interference Visualizer, dual 4-pole ladder and state-variable filters, 8-style FM/Mod oscillator, 16-step Performer & Sequencer, 3-band multiband distortion, 12-band studio EQ, Upward/Downward Multiband Dynamics, and Magic Fattener.",
         "glossary": [
           {
             "term": "Internal Synth Resampling & Time-Stretching (Osc 4)",
@@ -289,11 +289,11 @@ const DATA = [
             "simple": "Think of a digital waveform like a connect-the-dots drawing. Basic synths draw straight lines between the dots, which creates sharp corners that sound like harsh, metallic 'digital fizz' on high notes. Cubic interpolation bends a smooth, natural curve through 4 dots at a time\u2014making digital wavetables sound as smooth and liquid as analog tape."
           },
           {
-            "term": "Spectral-Adaptive 'MAGIC' Drive & OTT Piggyback",
-            "simple": "Traditional distortion boosts every frequency equally, turning chords into muddy fuzz. The MAGIC knob listens to your sound split into 3 frequency zones (Sub Bass, Musical Mids, and High Air). It gives your sub bass a tight 'Pultec-style' punch, focuses warm tube saturation right where the human ear loves it (the midrange), and gently tames harsh treble above 6 kHz\u2014while sneaking in upward multiband compression (OTT) so quiet details jump forward."
+            "term": "Spectral-Adaptive 'MAGIC' Drive & Multiband Upward Piggyback",
+            "simple": "Traditional distortion boosts every frequency equally, turning chords into muddy fuzz. The MAGIC knob listens to your sound split into 3 frequency zones (Sub Bass, Musical Mids, and High Air). It gives your sub bass a tight resonant low-end punch, focuses warm tube saturation right where the human ear loves it (the midrange), and gently tames harsh treble above 6 kHz\u2014while sneaking in upward multiband compression so quiet details jump forward."
           },
           {
-            "term": "Prophet-6 / OB-6 Polyphonic Stereo Spread & VCO Drift",
+            "term": "Analog Polyphonic Stereo Spread & VCO Drift",
             "simple": "On vintage analog polysynths, every voice lives on its own physical circuit board with slightly different capacitors and resistors. In STEREO mode, ChromaCore places each note of your chord at a slightly different stereo pan position and gives the left and right speakers microscopic phase differences\u2014so a dry chord immediately sounds wide and 3D even with zero reverb or chorus."
           },
           {
@@ -301,8 +301,8 @@ const DATA = [
             "simple": "Digital EQ filters work by feeding a tiny bit of the output sound back into the input to boost or cut specific frequencies. Mathematically, if the feedback number crosses '1.0' (leaving the 'unit circle'), the filter acts like a microphone held right up to a speaker\u2014instantly screaming to infinity and muting your DAW. We locked every EQ shelf inside a mathematical safety cage so it can never overload."
           },
           {
-            "term": "Inter-Stage Moog Ladder & SEM Tube Saturation",
-            "simple": "A classic 24dB Moog filter is built like a ladder with 4 rungs (stages). Instead of just distorting the sound before or after the filter, ChromaCore gently saturates the signal between every single rung of the ladder\u2014giving you that thick, creamy, non-whistling analog resonance."
+            "term": "Inter-Stage 4-Pole Ladder & 2-Pole State-Variable Tube Saturation",
+            "simple": "A classic 24dB 4-pole filter is built like a ladder with 4 rungs (stages). Instead of just distorting the sound before or after the filter, ChromaCore gently saturates the signal between every single rung of the ladder\u2014giving you that thick, creamy, non-whistling analog resonance."
           }
         ],
         "known_issues": [
@@ -316,7 +316,7 @@ const DATA = [
             "card_image": "assets/ChromaCore_v2.9.0_Release_Card.png",
             "highlights": [
               "**New Osc 4 (`RESAMPLE`) Internal Synth Resampler**: Capture your active Osc 1-3 + Dual Filter patch via **`[BOUNCE MIX]`** (instant offline render) or **`[REC LIVE]`** (real-time post-synth capture), then manipulate it with 4 playback engines: *TIME STRETCH*, *WT RESAMPLE* (64-frame wavetable extraction), *GRAIN FREEZE*, and *REV PING-PONG*.",
-              "**Universal Right-Click Modulation Matrix (14 Sources)**: Right-click **any rotary knob** on the synth to assign modulation, toggle Bipolar/Unipolar depth, or clear links across 14 Serum 2-style sources (*LFO 1*, *LFO 2*, *ENV 1\u20133*, *NOTE*, *VEL*, *MODW*, *AT*, *RAND*, *ALT*, *CHAOS*, *S&H*, *MACRO*).",
+              "**Universal Right-Click Modulation Matrix (14 Sources)**: Right-click **any rotary knob** on the synth to assign modulation, toggle Bipolar/Unipolar depth, or clear links across 14 modulation sources (*LFO 1*, *LFO 2*, *ENV 1\u20133*, *NOTE*, *VEL*, *MODW*, *AT*, *RAND*, *ALT*, *CHAOS*, *S&H*, *MACRO*).",
               "**Fixed `MOD OSC` Target Routing**: Fixed parameter normalization on the Mod Osc Target selector so FM, Ring Mod, and Phase Mod route cleanly to *Osc 1*, *Osc 2*, *Osc 1+2*, *Osc 3*, *Filter 1/2*, *Vol*, *Pan*, or *Pitch*.",
               "**Living Organic Wavetable & Modulation Interference Visualizer**: Top display now renders real-time harmonic interference and modulation bloom between active oscillators in cool arctic ice-blue, slate, indigo, and pearl filaments.",
               "**Raised 3D Synth Deck & Recessed Keybed Overhang**: Raised all three module rows so bottom knobs sit cleanly inside the chassis, adding a 3D machined titanium overhang lip (`y=576..586`), recessed shadow trench, and 16px cast shadow onto the piano keys.",
@@ -329,7 +329,7 @@ const DATA = [
             "title": "Studio EQ Shelf Fix, Live 60 FPS MIDI Keybed, [KEYS] Stealth Mode & Clipboard Feedback",
             "card_image": "assets/ChromaCore_v2.8.5_Release_Card.png",
             "highlights": [
-              "**Fixed 12-Band Parametric EQ (`L-SH`, `H-SH`, and `NOTCH`)**: Fixed a coefficient sign bug in Low-Shelf (`L-SH`) and High-Shelf (`H-SH`) filters where deep cuts or switching a band from `NOTCH` to `H-SH` could push filter feedback past 100% and mute Ableton Live's audio engine.",
+              "**Fixed 12-Band Parametric EQ (`L-SH`, `H-SH`, and `NOTCH`)**: Fixed a coefficient sign bug in Low-Shelf (`L-SH`) and High-Shelf (`H-SH`) filters where deep cuts or switching a band from `NOTCH` to `H-SH` could push filter feedback past 100% and mute the host audio engine.",
               "**Vertical Notch Width Dragging**: Dragging a `NOTCH` node up or down on the EQ display now smoothly widens or narrows the notch `Q` (just like `HP` and `LP` cut filters) instead of storing hidden gain values.",
               "**Self-Healing Audio Engine Protection**: Added automatic `NaN` / `Infinity` circuit-breakers inside every EQ biquad and the Master Analog Console output stage so extreme settings can never drop audio.",
               "**Real-Time 60 FPS MIDI Keybed Highlighting**: Incoming MIDI notes played from your DAW or MIDI controller now light up the bottom 81-key keyboard in real time at 60 FPS.",
@@ -343,8 +343,8 @@ const DATA = [
             "title": "'MAGIC' Spectral Fattener Knob, True Stereo/Mono Mode, Cubic Wavetables & Tube Filters",
             "card_image": "",
             "highlights": [
-              "**New `MAGIC` (Fatten) Knob**: Added next to `REVERB` in the `OUTPUT // SPACE` deck (`0%` by default). Combines 3-band spectral-adaptive saturation (Pultec sub weight, dynamic midrange warmth, silk air de-harsher) with automatic 3-Band OTT upward/downward density.",
-              "**New `[ STEREO ]` / `[ MONO ]` Header Switch**: Added right next to `32-POLY / LEGATO`. `STEREO` enables Prophet-6 style polyphonic voice pan spread and analog twin-VCO phase dispersion; `MONO` forces 100% phase-locked dual-mono output.",
+              "**New `MAGIC` (Fatten) Knob**: Added next to `REVERB` in the `OUTPUT // SPACE` deck (`0%` by default). Combines 3-band spectral-adaptive saturation (sub weight, dynamic midrange warmth, silk air de-harsher) with automatic 3-Band upward/downward multiband density.",
+              "**New `[ STEREO ]` / `[ MONO ]` Header Switch**: Added right next to `32-POLY / LEGATO`. `STEREO` enables analog-modeled polyphonic voice pan spread and twin-VCO phase dispersion; `MONO` forces 100% phase-locked dual-mono output.",
               "**4-Point Cubic Wavetable Interpolation**: Upgraded wavetable lookup from linear to 4-point Catmull-Rom cubic splines, eliminating high-note digital harshness.",
               "**Unity-Gain `INTENSITY` Brightness Tilt**: Turning `INTENSITY` down now darkens harmonics like a warm analog lowpass roll-off without losing volume; turning it up adds subtle triode tube bloom.",
               "**Inter-Stage Analog Filter Saturation**: Upgraded Filter 1 & Filter 2 with zero-DC asymmetric tube warmth and inter-stage ladder saturation."
@@ -356,8 +356,8 @@ const DATA = [
             "title": "Scream/Acid Filter Self-Oscillation Fix & 8 New Flagship Presets",
             "card_image": "",
             "highlights": [
-              "**Fixed Filter 1 'Scream Overdrive' & 'Acid 303' Whistle**: Added dynamic input-envelope damping to the filter resonance feedback loop (`ChromaDualFilter`) so high-resonance patches (`Chroma Vowel II Vocal`, `Acid 303 Squelch`) decay to dead silence the moment you release a key instead of ringing at 1038 Hz.",
-              "**8 New Production Presets (Presets 56\u201363)**: Added * Silk Tape Keys*, *Sub Zero 808*, *CyberpunkReese*, *Velvet Chords*, *Pluck Horizon*, *Neuro Bassline*, *Glass Bell Pad*, and *Analog Brass CS80*."
+              "**Fixed Filter 1 'Scream Overdrive' & 'Acid Diode' Whistle**: Added dynamic input-envelope damping to the filter resonance feedback loop (`ChromaDualFilter`) so high-resonance patches decay to dead silence the moment you release a key instead of ringing at 1038 Hz.",
+              "**8 New Production Presets (Presets 56\u201363)**: Added *Silk Tape Keys*, *Sub Zero Bass*, *Cyberpunk Reese*, *Velvet Chords*, *Pluck Horizon*, *Neuro Bassline*, *Glass Bell Pad*, and *Analog Poly Brass*."
             ]
           },
           {
@@ -378,7 +378,7 @@ const DATA = [
             "card_image": "",
             "highlights": [
               "**12-Band Dynamic Studio EQ**: Full parametric EQ with 7 acoustic mixing zone backdrops, mousewheel `Q` control, and real-time spectrum analyzer.",
-              "**Zero-Allocation 60 FPS GUI**: Persistent GDI+ backbuffer cache and intelligent idle repaint throttling (`0.0%` CPU when stopped in Ableton Live / FL Studio).",
+              "**Zero-Allocation 60 FPS GUI**: Persistent GDI+ backbuffer cache and intelligent idle repaint throttling (`0.0%` CPU when stopped in your DAW).",
               "**Universal Update Shield & Crash Vault**: Built-in 1-click updater and automatic session crash recovery."
             ]
           }
@@ -389,15 +389,15 @@ const DATA = [
         "name": "ChromaX",
         "latest": "v2.9.0",
         "type": "Flagship Synthesizer with 3D Keycaps & LED Jewels",
-        "summary": "High-headroom polyphonic synthesizer featuring tactile 3D hardware keycaps, Prophet-6/OB-6 stereo voice spread, inter-stage tube ladder filtering, and studio multi-effects.",
+        "summary": "High-headroom polyphonic synthesizer featuring tactile 3D hardware keycaps, analog stereo voice spread, inter-stage tube ladder filtering, and studio multi-effects.",
         "glossary": [
           {
-            "term": "Prophet-6 / OB-6 Per-Voice Stereo Spread & VCO Thermal Drift",
-            "simple": "On a real analog polysynth like a Prophet-6 or OB-6, every note you play in a chord goes to a separate physical voice card with slightly different analog components and stereo panning. ChromaX v2.9.0 gives each polyphonic voice its own stereo position and a tiny \u00b11.6-cent slow thermal pitch drift\u2014turning flat mono chords into huge, breathing 3D hardware pads."
+            "term": "Analog Per-Voice Stereo Spread & VCO Thermal Drift",
+            "simple": "On a real hardware analog polysynth, every note you play in a chord goes to a separate physical voice card with slightly different analog components and stereo panning. ChromaX v2.9.0 gives each polyphonic voice its own stereo position and a tiny \u00b11.6-cent slow thermal pitch drift\u2014turning flat mono chords into huge, breathing 3D hardware pads."
           },
           {
             "term": "Inter-Stage Zero-DC Tube Ladder Saturation & Input-Envelope Damping",
-            "simple": "Instead of distorting your sound only at the input of the filter, a real Moog or Asimov 4-pole ladder filter gently saturates between all 4 capacitor stages\u2014rounding off harsh digital peaks while keeping deep sub-bass weight. Input-envelope damping automatically tames extreme resonance the moment you release a key so high-resonance acid patches never whistle when stopped."
+            "simple": "Instead of distorting your sound only at the input of the filter, a real 4-pole transistor ladder filter gently saturates between all 4 capacitor stages\u2014rounding off harsh digital peaks while keeping deep sub-bass weight. Input-envelope damping automatically tames extreme resonance the moment you release a key so high-resonance acid patches never whistle when stopped."
           },
           {
             "term": "Polyphonic Headroom Scaling",
@@ -411,11 +411,11 @@ const DATA = [
           {
             "version": "v2.9.0",
             "date": "2026-11-05",
-            "title": "Prophet-6 Poly Stereo Spread, VCO Thermal Drift, Tube Ladder Stages & Class-A Output",
+            "title": "Analog Poly Stereo Spread, VCO Thermal Drift, Tube Ladder Stages & Class-A Output",
             "card_image": "assets/ChromaX_v2.9.0_Release_Card.png",
             "highlights": [
-              "**Prophet-6 / OB-6 Polyphonic Stereo Voice Panning & VCO Drift**: Every voice in a chord now occupies its own natural stereo pan position with subtle organic analog pitch drift.",
-              "**Inter-Stage Zero-DC Tube Ladder Saturation & Anti-Whistle Damping**: Upgraded Asimov and BlueMonark 24 dB/oct ladder filters with per-stage tube saturation and input-envelope resonance damping.",
+              "**Analog Polyphonic Stereo Voice Panning & VCO Drift**: Every voice in a chord now occupies its own natural stereo pan position with subtle organic analog pitch drift.",
+              "**Inter-Stage Zero-DC Tube Ladder Saturation & Anti-Whistle Damping**: Upgraded Chroma 24 dB/oct transistor and diode ladder filters with per-stage tube saturation and input-envelope resonance damping.",
               "**Class-A AnalogConsoleStage Output & Clipboard [FEEDBACK]**: Added discrete transformer output saturation with 5 Hz DC blocking, `NaN` self-healing, and 1-click Clipboard diagnostic reporting."
             ]
           },
@@ -445,23 +445,23 @@ const DATA = [
           },
           {
             "term": "Sub-Step Ratcheting",
-            "simple": "Instead of playing just one note per 16th-note step, ratcheting rapidly subdivides a single step into 2, 3, or 4 mini-strikes\u2014creating those signature rolling Tangerine Dream / modern techno synth fills."
+            "simple": "Instead of playing just one note per 16th-note step, ratcheting rapidly subdivides a single step into 2, 3, or 4 mini-strikes\u2014creating signature rolling electronic and modern techno synth fills."
           }
         ],
         "known_issues": [
-          "None currently open in v2.9.0."
+          "None currently open in v3.0.0."
         ],
         "versions": [
           {
             "version": "v3.0.0",
             "date": "2026-11-06",
-            "title": "Hardware UI Preview, Nerve-Style Sequencer Hotkeys, Magic Drive & Envelope Drawing",
+            "title": "Hardware UI Preview, Rapid Sequencer Hotkeys, Magic Drive & Envelope Drawing",
             "card_image": "assets/ChromaPulse_v3.0.0_Release_Card.png",
             "highlights": [
               "**Spectral-Adaptive Magic Drive Master Stage**: Added master bus Magic Drive (derived from ChromaCore) with intelligent sub-bass mono-tightening, 320 Hz boxy-mud scoop, sweet-spot focus excitation, and silk-air shimmer.",
               "**Interactive AHDSR Multi-Segment Envelope Canvas**: Directly drag Attack, Decay, and Sustain nodes on the waveform display for immediate visual and sonic shaping of drum hits.",
               "**Duo-Tone Gunmetal & Matte Hardware UI**: Upgraded aesthetics to brushed gunmetal and matte obsidian with amber LED indicators and native 60 FPS UI preview capture.",
-              "**Full Keyboard & Mouse Hotkey Engine**: Nerve-inspired rapid workflow for sequencing, ratcheting, muting, shifting, and duplicating drum patterns."
+              "**Full Keyboard & Mouse Hotkey Engine**: Rapid studio workflow for sequencing, ratcheting, muting, shifting, and duplicating drum patterns."
             ],
             "hotkeys": [
               [
@@ -548,7 +548,7 @@ const DATA = [
             "title": "7-Zone Acoustic EQ Backdrop, Stack-Allocated Spectrum & 0.002f Fine Stepping",
             "card_image": "",
             "highlights": [
-              "**Pro-Q 3 Style 7-Zone Mixing Backdrop**: Visual frequency guide (Sub, Bass, Low-Mid, Mid, Upper-Mid, Presence, Air).",
+              "**7-Zone Studio Mixing Backdrop**: Visual frequency guide (Sub, Bass, Low-Mid, Mid, Upper-Mid, Presence, Air).",
               "**Zero-Lag Spectrum & EQ Rendering**: Stack-allocated `DrawLines` curve rendering with cut-filter vertical `Q` dragging.",
               "**Universal Auto-Updater Shield**: 1-click in-plugin updates."
             ]
@@ -563,7 +563,7 @@ const DATA = [
         "summary": "Deep sub-bass, physical resonator, and dub-techno chord synthesizer with a 7-tab modular delay and dual ZDF filter sculpting rack.",
         "glossary": [
           {
-            "term": "Zero-Delay Feedback (ZDF) Moog Ladder with Inter-Stage Tube Warmth",
+            "term": "Zero-Delay Feedback (ZDF) 4-Pole Ladder with Inter-Stage Tube Warmth",
             "simple": "Standard digital filters have a 1-sample delay in their resonance loop that makes high resonance sound pinched and plastic. Zero-Delay Feedback solves the analog circuit instantaneously, and v2.9.0 adds tube saturation between all 4 ladder poles plus automatic resonance damping when notes stop\u2014giving you liquid analog sweeps with zero post-note whistling."
           },
           {
@@ -578,11 +578,11 @@ const DATA = [
           {
             "version": "v2.9.0",
             "date": "2026-11-05",
-            "title": "ZDF Tube Ladder Saturation, Prophet-6 Stereo Voice Spread & Class-A Transformer Output",
+            "title": "ZDF Tube Ladder Saturation, Analog Stereo Voice Spread & Class-A Transformer Output",
             "card_image": "assets/ChromaDeep_v2.9.0_Release_Card.png",
             "highlights": [
-              "**Inter-Stage Tube ZDF Moog Ladder & Anti-Whistle Damping**: Added per-stage tube saturation and input-envelope resonance damping to both stereo ZDF filters.",
-              "**Prophet-6 Per-Voice Stereo Spread & VCO Drift**: Single-voice unison patches now spread naturally across the stereo field in polyphonic mode while keeping Mono mode 100% centered.",
+              "**Inter-Stage Tube ZDF 4-Pole Ladder & Anti-Whistle Damping**: Added per-stage tube saturation and input-envelope resonance damping to both stereo ZDF filters.",
+              "**Analog Per-Voice Stereo Spread & VCO Drift**: Single-voice unison patches now spread naturally across the stereo field in polyphonic mode while keeping Mono mode 100% centered.",
               "**Class-A AnalogConsoleStage & Jury-Clamped Delay EQ**: Self-healing transformer output stage and rock-solid feedback EQ stability."
             ]
           },
@@ -655,7 +655,7 @@ const DATA = [
         "name": "ChromaDelay",
         "latest": "v2.9.0",
         "type": "Bouncing Stereo Ping-Pong Tape & BBD Delay",
-        "summary": "Multi-character stereo delay modeling Panasonic MN3005 Bucket-Brigade chips, 15 IPS Studio Tape, Oil-Can Echo, Vintage 12-Bit Digital, and Shimmer Cascade.",
+        "summary": "Multi-character stereo delay modeling classic analog Bucket-Brigade chips, 15 IPS Studio Tape, Oil-Can Echo, Vintage 12-Bit Digital, and Shimmer Cascade.",
         "glossary": [
           {
             "term": "BBD (Bucket-Brigade Device) vs. 15 IPS Tape Delay",
@@ -682,7 +682,7 @@ const DATA = [
             "title": "Flat 0.0 dB Default EQ Bands, 7 Mixing Zones & Zero Heap Allocations",
             "card_image": "",
             "highlights": [
-              "**5 Authentic Delay Character Models**: BBD Analog, 15 IPS Studio Tape, Tel-Ray Oil-Can, 12-Bit Vintage PCM, and Shimmer Pitch Cascade.",
+              "**5 Authentic Delay Character Models**: BBD Analog, 15 IPS Studio Tape, Vintage Oil-Can, 12-Bit Vintage PCM, and Shimmer Pitch Cascade.",
               "**Interactive Feedback EQ & Ducking**: Built-in sidechain ducking keeps echoes out of the way while your lead vocal or synth is playing, then blooms when the phrase stops."
             ]
           }
@@ -701,7 +701,7 @@ const DATA = [
         "name": "ChromaComp",
         "latest": "v2.9.0",
         "type": "Analog VCA / Opto Bus & Mastering Compressor with 24-Band EQ",
-        "summary": "Dual-stage studio compressor and 20-band parametric equalizer modeling Empirical Labs EL8 Distressor, 1176 FET, LA-2A Opto, and SSL VCA bus glue.",
+        "summary": "Dual-stage studio compressor and 20-band parametric equalizer modeling Harmonic Knee Compression, Ultra-Fast FET Peak Limiting, Program-Dependent Optical Leveling, and Master Bus VCA Glue.",
         "glossary": [
           {
             "term": "VCA vs. Opto Compression",

@@ -1,7 +1,7 @@
 # ChromaComp (`v2.9.0`)
 
 > **Analog VCA / Opto Bus & Mastering Compressor with 24-Band EQ**  
-> Dual-stage studio compressor and 20-band parametric equalizer modeling Empirical Labs EL8 Distressor, 1176 FET, LA-2A Opto, and SSL VCA bus glue.
+> Dual-stage studio compressor and 20-band parametric equalizer modeling Harmonic Knee Compression, Ultra-Fast FET Peak Limiting, Program-Dependent Optical Leveling, and Master Bus VCA Glue.
 
 ![ChromaComp v2.9.0 Release Card](../../assets/ChromaComp_v2.9.0_Release_Card.png)
 
