@@ -1,9 +1,9 @@
-# ChromaCore VST (`v2.9.1`)
+# ChromaCore VST (`v2.9.2`)
 
 > **32-Voice Hybrid Analog / Wavetable / Resampling Workstation Synth**  
 > Our unified flagship 4-oscillator synthesizer combining Osc 1-3 cubic wavetables, Osc 4 Internal Live Resampler & Time-Stretch engine, a 14-source Right-Click Modulation Matrix, Living Organic Wavetable Interference Visualizer, dual 4-pole ladder and state-variable filters, 8-style FM/Mod oscillator, 16-step Performer & Sequencer, 3-band multiband distortion, 12-band studio EQ, Upward/Downward Multiband Dynamics, and Magic Fattener.
 
-![ChromaCore VST v2.9.1 Release Card](../../assets/ChromaCore_v2.9.1_Fable_Release_Card.png)
+![ChromaCore VST v2.9.2 Release Card](../../assets/ChromaCore_v2.9.2_Fable_Release_Card.png)
 
 ---
 
@@ -24,6 +24,9 @@ On vintage analog polysynths, every voice lives on its own physical circuit boar
 ### 🔹 Biquad Filter Poles & The 'Unit Circle' (EQ Stability)
 Digital EQ filters work by feeding a tiny bit of the output sound back into the input to boost or cut specific frequencies. Mathematically, if the feedback number crosses '1.0' (leaving the 'unit circle'), the filter acts like a microphone held right up to a speaker—instantly screaming to infinity and muting your DAW. We locked every EQ shelf inside a mathematical safety cage so it can never overload.
 
+### 🔹 One-Key Chords (Oscillators Tuned to Chord Tones)
+Normally every oscillator plays the note you press. In the Space Chord presets, the second and third oscillators are tuned a few notes higher, to the other notes of a chord. Press one key and you hear the whole chord; play a simple one-finger melody and the chord follows it around.
+
 ### 🔹 Click-Free Voice Stealing (Warm Re-Trigger)
 A synth can only play so many notes at once. When you play one more, it has to 'steal' a voice that is already sounding. If that voice's volume jumps suddenly, you hear a tiny tick, like a needle skipping. ChromaCore now lets the new note pick up from exactly the volume the old one had, so fast arpeggios and big chords stay perfectly smooth.
 
@@ -39,6 +42,15 @@ A classic 24dB 4-pole filter is built like a ladder with 4 rungs (stages). Inste
 ---
 
 ## 🗂️ Version & Patch History
+
+- **[`v2.9.2` (2026-11-11) — Fable Build: Raised 3D Titanium Knobs, Module Plates & 10 Ambient Pad / Space Chord Presets](./v2.9.2_2026-11-11.md)**
+  - **Raised 3D Titanium Knobs**: Every knob now has a domed cap with an off-centre highlight and specular hotspot, a knurled skirt with lit and shaded edges, a soft cast shadow, and a recessed finger dish. All lighting follows one upper-left light source.
+  - **Recessed Knob Wells**: The well around each knob has a shadowed upper wall and a light-catching lower lip, so controls read as set into the chassis.
+  - **Raised Module Plates**: Panel headers gain a gloss band and a machined groove; panels gain a lit left edge and shaded bottom and right edges. Static pens and brushes only, so no extra per-frame allocations.
+  - **6 New Chill Ambient Pads**: *Slow Tide Pad*, *Glass Horizon Pad*, *Velvet Drift Pad*, *Cloud Choir Pad*, *Deep Field Drone Pad*, *Morning Haze Pad*.
+  - **4 New One-Key Space Chords**: *Orbit Minor Chord*, *Station Major 7 Chord*, *Nebula Sus Chord*, *Starlight Pluck Chord*. Osc 2 and Osc 3 are tuned to chord tones so a single key plays the whole voicing.
+  - **No Layout or Parameter Changes**: Same window size, same control positions, same 146 parameter IDs. New presets are appended to the end of the factory list (73 programs), so existing program numbers are unchanged.
+  - **Side-by-Side `ChromaCoreVST_Fable` Build**: Replaces the v2.9.1 Fable binary and includes all of its engine upgrades. The v2.9.0 `ChromaCoreVST.dll` stays untouched.
 
 - **[`v2.9.1` (2026-11-10) — Fable Build: Click-Free Voice Stealing, Analog Voice-Card Dispersion, Cubic Osc 4 Readout & Titanium Micro-Polish](./v2.9.1_2026-11-10.md)**
   - **Side-by-Side `ChromaCoreVST_Fable` Build**: Ships as `ChromaCoreVST_Fable.dll` / `.vst3` so the v2.9.0 binary stays installed and untouched. Same window size, same knob positions, same 146 parameter IDs and presets.
@@ -91,7 +103,7 @@ A classic 24dB 4-pole filter is built like a ladder with 4 rungs (stages). Inste
 
 ## 🛠️ Known Issues & Bug Reporting
 
-- v2.9.1 ships as a side-by-side build (`ChromaCoreVST_Fable.dll` / `.vst3`); the v2.9.0 `ChromaCoreVST.dll` is unchanged and the in-plugin updater still serves v2.9.0. Install the Fable build manually next to it.
+- v2.9.1 and v2.9.2 ship as a side-by-side build (`ChromaCoreVST_Fable.dll` / `.vst3`); the v2.9.0 `ChromaCoreVST.dll` is unchanged and the in-plugin updater still serves v2.9.0. Install the Fable build manually next to it.
 - v2.9.1 Decay and Release use an exponential curve, so patches with long Decay/Release times feel snappier than in v2.9.0.
 - Legacy ChromaCorePro instances automatically merge into ChromaCoreVST.dll upon clicking Update.
 

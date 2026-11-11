@@ -11,10 +11,10 @@
       "notes": "ChromaCoreVST v2.9.0: Added Osc 4 Internal Synth Resampler ([BOUNCE MIX] & [REC LIVE] with 4 playback engines: TIME STRETCH, WT RESAMPLE, GRAIN FREEZE, REV PING-PONG), Universal Right-Click Modulation Matrix across every knob (14 modulation sources: LFO 1-2, ENV 1-3, NOTE, VEL, MODW, AT, RAND, ALT, CHAOS, S&H, MACRO), fixed MOD OSC target routing to Osc 1/2/3/All, added Living Organic Wavetable Interference Visualizer, raised 3D synth deck with machined titanium overhang & recessed keybed shadow, 3D protruding titanium knobs, bold typography, and unified ChromaCorePro into ChromaCoreVST."
     },
     "ChromaCoreFable": {
-      "version": "2.9.1",
-      "build": 20261110,
+      "version": "2.9.2",
+      "build": 20261111,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaCoreVST_Fable.dll",
-      "notes": "ChromaCoreVST_Fable v2.9.1 (side-by-side build, installs next to ChromaCoreVST v2.9.0 without replacing it): 4-point cubic Hermite readout on all four Osc 4 resampler engines, sub-sample accurate Mod Osc sync pulse, per-voice analog component dispersion (pitch wander and trim, envelope timing, filter cutoff), 4-pole ladder bass compensation with saturated feedback, click-free voice stealing, exponential RC decay and release curves, titanium knob cap glint, ClearType icy-slate value readouts, and two-layer keybed contact shadow. No layout, window size, or parameter ID changes."
+      "notes": "ChromaCoreVST_Fable v2.9.2 (side-by-side build, installs next to ChromaCoreVST v2.9.0 without replacing it): raised 3D titanium knobs (domed cap, specular hotspot, knurled skirt, cast shadow, recessed finger dish), recessed knob wells, raised module plates with header gloss and machined groove, 6 new chill ambient pad presets and 4 new one-key space chord presets (73 factory programs). Includes all v2.9.1 engine upgrades. No layout, window size, or parameter ID changes."
     },
     "ChromaCorePro": {
       "version": "2.9.0",
