@@ -1,9 +1,9 @@
-# ChromaCore VST (`v2.9.0`)
+# ChromaCore VST (`v2.9.1`)
 
 > **32-Voice Hybrid Analog / Wavetable / Resampling Workstation Synth**  
 > Our unified flagship 4-oscillator synthesizer combining Osc 1-3 cubic wavetables, Osc 4 Internal Live Resampler & Time-Stretch engine, a 14-source Right-Click Modulation Matrix, Living Organic Wavetable Interference Visualizer, dual 4-pole ladder and state-variable filters, 8-style FM/Mod oscillator, 16-step Performer & Sequencer, 3-band multiband distortion, 12-band studio EQ, Upward/Downward Multiband Dynamics, and Magic Fattener.
 
-![ChromaCore VST v2.9.0 Release Card](../../assets/ChromaCore_v2.9.0_Release_Card.png)
+![ChromaCore VST v2.9.1 Release Card](../../assets/ChromaCore_v2.9.1_Fable_Release_Card.png)
 
 ---
 
@@ -24,12 +24,31 @@ On vintage analog polysynths, every voice lives on its own physical circuit boar
 ### 🔹 Biquad Filter Poles & The 'Unit Circle' (EQ Stability)
 Digital EQ filters work by feeding a tiny bit of the output sound back into the input to boost or cut specific frequencies. Mathematically, if the feedback number crosses '1.0' (leaving the 'unit circle'), the filter acts like a microphone held right up to a speaker—instantly screaming to infinity and muting your DAW. We locked every EQ shelf inside a mathematical safety cage so it can never overload.
 
+### 🔹 Click-Free Voice Stealing (Warm Re-Trigger)
+A synth can only play so many notes at once. When you play one more, it has to 'steal' a voice that is already sounding. If that voice's volume jumps suddenly, you hear a tiny tick, like a needle skipping. ChromaCore now lets the new note pick up from exactly the volume the old one had, so fast arpeggios and big chords stay perfectly smooth.
+
+### 🔹 Exponential RC Envelope Curves
+In analog synths, the volume envelope is a capacitor draining through a resistor: it drops fast at first, then slows down as it empties. That shape is why hardware plucks and basses sound punchy up front with a long natural tail. A straight-line fade sounds flat by comparison. ChromaCore's Decay and Release now follow the capacitor curve.
+
+### 🔹 Analog Voice-Card Tolerance (Component Dispersion)
+No two resistors or capacitors are exactly alike, so every voice in a hardware polysynth is tuned, filtered and timed very slightly differently. Those tiny differences are what keep a big chord from sounding like one sterile block. ChromaCore gives each voice its own small, fixed offsets in pitch, envelope timing and filter brightness.
+
 ### 🔹 Inter-Stage 4-Pole Ladder & 2-Pole State-Variable Tube Saturation
 A classic 24dB 4-pole filter is built like a ladder with 4 rungs (stages). Instead of just distorting the sound before or after the filter, ChromaCore gently saturates the signal between every single rung of the ladder—giving you that thick, creamy, non-whistling analog resonance.
 
 ---
 
 ## 🗂️ Version & Patch History
+
+- **[`v2.9.1` (2026-11-10) — Fable Build: Click-Free Voice Stealing, Analog Voice-Card Dispersion, Cubic Osc 4 Readout & Titanium Micro-Polish](./v2.9.1_2026-11-10.md)**
+  - **Side-by-Side `ChromaCoreVST_Fable` Build**: Ships as `ChromaCoreVST_Fable.dll` / `.vst3` so the v2.9.0 binary stays installed and untouched. Same window size, same knob positions, same 146 parameter IDs and presets.
+  - **4-Point Cubic Hermite Readout on Osc 4**: All four resampler engines (*TIME STRETCH*, *WT RESAMPLE*, *GRAIN FREEZE*, *REV PING-PONG*) now read the captured audio with cubic interpolation instead of straight-line or whole-sample reads, removing grain and treble loss on pitched layers.
+  - **Sub-Sample Accurate Mod Osc Sync Pulse**: In `SYNC` mode the sync pulse is split across the two samples around the exact wrap instant, removing the timing jitter that aliased on high notes while keeping the v2.9.0 sync tone.
+  - **Per-Voice Analog Component Dispersion**: Each voice has a fixed tolerance: slow thermal pitch wander (about 1.4 cents) plus static trim, 2% decay/release timing variance, and a 1.5% filter cutoff spread that follows whichever voices are sounding.
+  - **4-Pole Ladder Bass Compensation**: Resonance feedback is saturated inside the loop and the passband is level-compensated, so high resonance no longer thins the sub-bass. Cutoff pre-warp clamped below Nyquist.
+  - **Click-Free Voice Stealing**: A stolen voice starts its new attack from its current level and keeps oscillator phase, eliminating the tick on fast arpeggios and dense chords.
+  - **Exponential RC Decay & Release**: Decay and Release now follow a capacitor-discharge curve for punchier plucks and smoother tails.
+  - **Titanium Knob & Keybed Micro-Polish**: 1px overhead glint on every knob cap, ClearType icy-slate value readouts, and a two-layer contact shadow where the front panel overhangs the keys. All new brushes and pens are static (zero per-frame allocations).
 
 - **[`v2.9.0` (2026-11-10) — Osc 4 Internal Synth Resampler, 14-Source Right-Click Mod Matrix, Organic Interference Display & 3D Titanium UI](./v2.9.0_2026-11-10.md)**
   - **New Osc 4 (`RESAMPLE`) Internal Synth Resampler**: Capture your active Osc 1-3 + Dual Filter patch via **`[BOUNCE MIX]`** (instant offline render) or **`[REC LIVE]`** (real-time post-synth capture), then manipulate it with 4 playback engines: *TIME STRETCH*, *WT RESAMPLE* (64-frame wavetable extraction), *GRAIN FREEZE*, and *REV PING-PONG*.
@@ -72,7 +91,9 @@ A classic 24dB 4-pole filter is built like a ladder with 4 rungs (stages). Inste
 
 ## 🛠️ Known Issues & Bug Reporting
 
-- None currently open in v2.9.0! (Legacy ChromaCorePro instances automatically merge into ChromaCoreVST.dll upon clicking Update).
+- v2.9.1 ships as a side-by-side build (`ChromaCoreVST_Fable.dll` / `.vst3`); the v2.9.0 `ChromaCoreVST.dll` is unchanged and the in-plugin updater still serves v2.9.0. Install the Fable build manually next to it.
+- v2.9.1 Decay and Release use an exponential curve, so patches with long Decay/Release times feel snappier than in v2.9.0.
+- Legacy ChromaCorePro instances automatically merge into ChromaCoreVST.dll upon clicking Update.
 
 **Found a bug or weird preset behavior?**  
 Click the **`[ FEEDBACK ]`** button in the top-right header of the plugin! It automatically snapshots your patch, EQ curve, and screenshot, copies a diagnostic summary to your Clipboard (`Ctrl+V` ready for Discord), or opens a pre-filled [GitHub Bug Report](https://github.com/haidood/chroma-release/issues/new).
