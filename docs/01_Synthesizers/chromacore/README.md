@@ -1,9 +1,9 @@
-# ChromaCore VST (`v2.9.2`)
+# ChromaCore VST (`v2.9.3`)
 
 > **32-Voice Hybrid Analog / Wavetable / Resampling Workstation Synth**  
 > Our unified flagship 4-oscillator synthesizer combining Osc 1-3 cubic wavetables, Osc 4 Internal Live Resampler & Time-Stretch engine, a 14-source Right-Click Modulation Matrix, Living Organic Wavetable Interference Visualizer, dual 4-pole ladder and state-variable filters, 8-style FM/Mod oscillator, 16-step Performer & Sequencer, 3-band multiband distortion, 12-band studio EQ, Upward/Downward Multiband Dynamics, and Magic Fattener.
 
-![ChromaCore VST v2.9.2 Release Card](../../assets/ChromaCore_v2.9.2_Fable_Release_Card.png)
+![ChromaCore VST v2.9.3 Release Card](../../assets/ChromaCore_v2.9.3_Fable_Release_Card.png)
 
 ---
 
@@ -43,13 +43,23 @@ A classic 24dB 4-pole filter is built like a ladder with 4 rungs (stages). Inste
 
 ## 🗂️ Version & Patch History
 
+- **[`v2.9.3` (2026-11-11) — Fable Build: Performance Pass, Editor Freeze Fix, Uniform Dark Dials & Full Modulation Routing](./v2.9.3_2026-11-11.md)**
+  - **Editor Freeze Fixed (replaces v2.9.2)**: v2.9.2 could freeze the plugin window shortly after a key on the on-screen keyboard was released. The knob drawing that caused it has been removed. If you installed v2.9.2, replace it with this build.
+  - **Fluid Interface**: Playing a note used to redraw nearly the whole window. Now only the centre display, pressed keys and moving knobs are redrawn, and knob bodies are drawn once and reused. Screen updates while playing are roughly ten times faster.
+  - **Near-Zero Idle CPU**: When no notes are sounding and effect tails have faded, the engine sleeps until the next note, so silent instances in a large session cost almost nothing.
+  - **Voice CPU Leak Fixed**: Finished notes kept using CPU in the background until the plugin was reloaded. Voices now switch off when their sound has ended.
+  - **Uniform Dark Dials**: Every knob on the Synth, Distortion, Delay and Reverb tabs is the same compact raised dial with a lit rim, visible side wall and soft cast shadow, on darker panels. Value boxes are gone and secondary labels appear on hover.
+  - **One-Stop Modulation**: The Mod Matrix **Add Route** menu now lists every source: LFO 1 and 2, envelopes, pluck, velocity, key tracking, aftertouch, random, chaos, noise, amp follower, the Performer, Macros 1-8 and the mod wheel.
+  - **Menus Open Where You Click**: Popup menus were offset at 80% and 125% zoom. Fixed.
+  - **Same Sound, Layout and Parameters**: Factory presets render identically to v2.9.2. Same window size, same control positions, same 146 parameter IDs.
+
 - **[`v2.9.2` (2026-11-11) — Fable Build: Raised 3D Titanium Knobs, Module Plates & 10 Ambient Pad / Space Chord Presets](./v2.9.2_2026-11-11.md)**
   - **Raised 3D Titanium Knobs**: Every knob now has a domed cap with an off-centre highlight and specular hotspot, a knurled skirt with lit and shaded edges, a soft cast shadow, and a recessed finger dish. All lighting follows one upper-left light source.
   - **Recessed Knob Wells**: The well around each knob has a shadowed upper wall and a light-catching lower lip, so controls read as set into the chassis.
   - **Raised Module Plates**: Panel headers gain a gloss band and a machined groove; panels gain a lit left edge and shaded bottom and right edges. Static pens and brushes only, so no extra per-frame allocations.
   - **6 New Chill Ambient Pads**: *Slow Tide Pad*, *Glass Horizon Pad*, *Velvet Drift Pad*, *Cloud Choir Pad*, *Deep Field Drone Pad*, *Morning Haze Pad*.
   - **4 New One-Key Space Chords**: *Orbit Minor Chord*, *Station Major 7 Chord*, *Nebula Sus Chord*, *Starlight Pluck Chord*. Osc 2 and Osc 3 are tuned to chord tones so a single key plays the whole voicing.
-  - **No Layout or Parameter Changes**: Same window size, same control positions, same 146 parameter IDs. New presets are appended to the end of the factory list (73 programs), so existing program numbers are unchanged.
+  - **No Layout or Parameter Changes**: Same window size, same control positions, same 146 parameter IDs. New presets are appended to the end of the factory list (69 programs), so existing program numbers are unchanged.
   - **Side-by-Side `ChromaCoreVST_Fable` Build**: Replaces the v2.9.1 Fable binary and includes all of its engine upgrades. The v2.9.0 `ChromaCoreVST.dll` stays untouched.
 
 - **[`v2.9.1` (2026-11-10) — Fable Build: Click-Free Voice Stealing, Analog Voice-Card Dispersion, Cubic Osc 4 Readout & Titanium Micro-Polish](./v2.9.1_2026-11-10.md)**
@@ -103,7 +113,8 @@ A classic 24dB 4-pole filter is built like a ladder with 4 rungs (stages). Inste
 
 ## 🛠️ Known Issues & Bug Reporting
 
-- v2.9.1 and v2.9.2 ship as a side-by-side build (`ChromaCoreVST_Fable.dll` / `.vst3`); the v2.9.0 `ChromaCoreVST.dll` is unchanged and the in-plugin updater still serves v2.9.0. Install the Fable build manually next to it.
+- v2.9.2 (Fable build) could freeze the plugin window shortly after a key on the on-screen keyboard was released. Fixed in v2.9.3; please replace v2.9.2.
+- v2.9.1 to v2.9.3 ship as a side-by-side build (`ChromaCoreVST_Fable.dll` / `.vst3`); the v2.9.0 `ChromaCoreVST.dll` is unchanged and the in-plugin updater still serves v2.9.0. Install the Fable build manually next to it.
 - v2.9.1 Decay and Release use an exponential curve, so patches with long Decay/Release times feel snappier than in v2.9.0.
 - Legacy ChromaCorePro instances automatically merge into ChromaCoreVST.dll upon clicking Update.
 
