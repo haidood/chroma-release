@@ -3,7 +3,7 @@
 > **32-Voice Hybrid Analog / Wavetable / Resampling Workstation Synth**  
 > Our unified flagship 4-oscillator synthesizer combining Osc 1-3 cubic wavetables, Osc 4 Internal Live Resampler & Time-Stretch engine, a 14-source Right-Click Modulation Matrix, Living Organic Wavetable Interference Visualizer, dual 4-pole ladder and state-variable filters, 8-style FM/Mod oscillator, 16-step Performer & Sequencer, 3-band multiband distortion, 12-band studio EQ, Upward/Downward Multiband Dynamics, and Magic Fattener.
 
-![ChromaCore VST v2.9.3 Release Card](../../assets/ChromaCore_v2.9.3_Fable_Release_Card.png)
+![ChromaCore VST v2.9.3 Release Card](../../assets/ChromaCore_v2.9.3_Release_Card.png)
 
 ---
 
@@ -43,7 +43,8 @@ A classic 24dB 4-pole filter is built like a ladder with 4 rungs (stages). Inste
 
 ## 🗂️ Version & Patch History
 
-- **[`v2.9.3` (2026-11-11) — Fable Build: Performance Pass, Editor Freeze Fix, Uniform Dark Dials & Full Modulation Routing](./v2.9.3_2026-11-11.md)**
+- **[`v2.9.3` (2026-11-11) — Official Main Release: Performance Pass, 10x Faster Screen Updates, Near-Zero Idle CPU & Dark Dial Skin](./v2.9.3_2026-11-11.md)**
+  - **Promoted to Main Release (Canonical ChromaCoreVST)**: All v2.9.1, v2.9.2, and v2.9.3 performance, skin, and DSP improvements are now compiled into the canonical ChromaCoreVST binary (69 factory programs), replacing v2.9.0 with full session backwards compatibility.
   - **Editor Freeze Fixed (replaces v2.9.2)**: v2.9.2 could freeze the plugin window shortly after a key on the on-screen keyboard was released. The knob drawing that caused it has been removed. If you installed v2.9.2, replace it with this build.
   - **Fluid Interface**: Playing a note used to redraw nearly the whole window. Now only the centre display, pressed keys and moving knobs are redrawn, and knob bodies are drawn once and reused. Screen updates while playing are roughly ten times faster.
   - **Near-Zero Idle CPU**: When no notes are sounding and effect tails have faded, the engine sleeps until the next note, so silent instances in a large session cost almost nothing.
@@ -114,7 +115,7 @@ A classic 24dB 4-pole filter is built like a ladder with 4 rungs (stages). Inste
 ## 🛠️ Known Issues & Bug Reporting
 
 - v2.9.2 (Fable build) could freeze the plugin window shortly after a key on the on-screen keyboard was released. Fixed in v2.9.3; please replace v2.9.2.
-- v2.9.1 to v2.9.3 ship as a side-by-side build (`ChromaCoreVST_Fable.dll` / `.vst3`); the v2.9.0 `ChromaCoreVST.dll` is unchanged and the in-plugin updater still serves v2.9.0. Install the Fable build manually next to it.
+- v2.9.3 is promoted to the canonical ChromaCoreVST main release (`ChromaCoreVST.dll` / `.vst3`). The side-by-side `ChromaCoreVST_Fable.dll` remains available during the transition.
 - v2.9.1 Decay and Release use an exponential curve, so patches with long Decay/Release times feel snappier than in v2.9.0.
 - Legacy ChromaCorePro instances automatically merge into ChromaCoreVST.dll upon clicking Update.
 
