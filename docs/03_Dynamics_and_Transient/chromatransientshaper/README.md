@@ -3,6 +3,10 @@
 > **Differential Envelope Transient Designer**  
 > Level-independent transient shaper that lets you boost or tame drum attack snap and room sustain regardless of how loud or quiet the incoming hit is.
 
+### 🎛️ Plugin Interface (`v2.9.0`)
+
+![ChromaTransientShaper Live Interface](../../assets/ChromaTransientShaper_Screen.png)
+
 ![ChromaTransientShaper v2.9.0 Release Card](../../assets/ChromaTransientShaper_v2.9.0_Release_Card.png)
 
 ---

@@ -3,6 +3,10 @@
 > **Bouncing Stereo Ping-Pong Tape & BBD Delay**  
 > Multi-character stereo delay modeling classic analog Bucket-Brigade chips, 15 IPS Studio Tape, Oil-Can Echo, Vintage 12-Bit Digital, and Shimmer Cascade.
 
+### 🎛️ Plugin Interface (`v2.9.0`)
+
+![ChromaDelay Live Interface](../../assets/ChromaDelay_Screen.png)
+
 ![ChromaDelay v2.9.0 Release Card](../../assets/ChromaDelay_v2.9.0_Release_Card.png)
 
 ---

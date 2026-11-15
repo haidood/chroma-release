@@ -3,6 +3,10 @@
 > **Flagship Synthesizer with 3D Keycaps & LED Jewels**  
 > High-headroom polyphonic synthesizer featuring tactile 3D hardware keycaps, analog stereo voice spread, inter-stage tube ladder filtering, and studio multi-effects.
 
+### 🎛️ Plugin Interface (`v2.9.0`)
+
+![ChromaX Live Interface](../../assets/ChromaX_Screen.png)
+
 ![ChromaX v2.9.0 Release Card](../../assets/ChromaX_v2.9.0_Release_Card.png)
 
 ---

@@ -3,6 +3,10 @@
 > **Rhythmic Chopper, Transient Gate & Noise Suppressor**  
 > Precision rhythmic trance-gate, chopper, and smart transient noise suppressor.
 
+### 🎛️ Plugin Interface (`v2.9.0`)
+
+![ChromaSlice Live Interface](../../assets/ChromaSlice_Screen.png)
+
 ![ChromaSlice v2.9.0 Release Card](../../assets/ChromaSlice_v2.9.0_Release_Card.png)
 
 ---

@@ -3,6 +3,10 @@
 > **16-Pad Drum & Step-Sequenced Ratchet Rhythm Workstation**  
 > Precision rhythmic drum & bassline synthesizer built for modern electronic production, sub-millisecond pad triggering, 2x oversampled ADAA bus headroom, ratcheting arpeggios, and tempo-synced filter movement.
 
+### 🎛️ Plugin Interface (`v3.1.0`)
+
+![ChromaPulse Live Interface](../../assets/ChromaPulse_Screen.png)
+
 ![ChromaPulse v3.1.0 Release Card](../../assets/ChromaPulse_v3.1.0_Release_Card.png)
 
 ---

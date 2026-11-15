@@ -3,6 +3,10 @@
 > **Dual 500-Series Modular Analog Saturation & Tone Rack**  
 > Dual-slot 500-series hardware saturation processor modeling discrete console transformers, triode tubes, and harmonic exciter circuits.
 
+### 🎛️ Plugin Interface (`v2.9.0`)
+
+![ChromaDesigner Live Interface](../../assets/ChromaDesigner_Screen.png)
+
 ![ChromaDesigner v2.9.0 Release Card](../../assets/ChromaDesigner_v2.9.0_Release_Card.png)
 
 ---

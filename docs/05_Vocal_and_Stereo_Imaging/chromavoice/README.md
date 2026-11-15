@@ -3,6 +3,10 @@
 > **WARP Granular Vocal Pitch, Formant & Harmony Processor**  
 > Real-time vocal pitch and formant shifter featuring consonant micro-windowing and transient preservation so shifted vocals never sound smeared or robotic (unless you want them to!).
 
+### 🎛️ Plugin Interface (`v3.2.1`)
+
+![ChromaVoice Live Interface](../../assets/ChromaVoice_Screen.png)
+
 ![ChromaVoice v3.2.1 Release Card](../../assets/ChromaVoice_v3.2.1_Release_Card.png)
 
 ---

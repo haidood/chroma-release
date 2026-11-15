@@ -3,6 +3,10 @@
 > **Phase-Safe Multiband Spatializer & Stereo Widener**  
 > Expands stereo width across mid and high frequencies while keeping sub-bass anchored and 100% mono-compatible.
 
+### 🎛️ Plugin Interface (`v2.9.0`)
+
+![ChromaWidener Live Interface](../../assets/ChromaWidener_Screen.png)
+
 ![ChromaWidener v2.9.0 Release Card](../../assets/ChromaWidener_v2.9.0_Release_Card.png)
 
 ---

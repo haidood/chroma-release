@@ -3,6 +3,10 @@
 > **7-Tab Modular Delay & Sub-Bass Synthesizer**  
 > Deep sub-bass, physical resonator, and dub-techno chord synthesizer with a 7-tab modular delay and dual ZDF filter sculpting rack.
 
+### 🎛️ Plugin Interface (`v2.9.0`)
+
+![ChromaDeep Live Interface](../../assets/ChromaDeep_Screen.png)
+
 ![ChromaDeep v2.9.0 Release Card](../../assets/ChromaDeep_v2.9.0_Release_Card.png)
 
 ---

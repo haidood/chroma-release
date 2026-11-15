@@ -3,6 +3,10 @@
 > **40-Stage Dual Harmonic Phase Processor**  
 > Deep analog-modeled phaser with up to 40 all-pass stages, thru-zero flanger, 3D waterfall spectrum display, and 24-band parametric EQ sculpting.
 
+### 🎛️ Plugin Interface (`v2.9.0`)
+
+![ChromaFhaser Live Interface](../../assets/ChromaFhaser_Screen.png)
+
 ![ChromaFhaser v2.9.0 Release Card](../../assets/ChromaFhaser_v2.9.0_Release_Card.png)
 
 ---

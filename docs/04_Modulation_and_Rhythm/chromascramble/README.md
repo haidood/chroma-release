@@ -3,6 +3,10 @@
 > **10-Module MSEG Rhythmic Glitch & Multi-FX Sequencer**  
 > Zero-latency 10-module multi-segment envelope generator (MSEG) for rhythmic time-manipulation, gating, filtering, and glitch articulation.
 
+### 🎛️ Plugin Interface (`v2.9.0`)
+
+![ChromaScramble Live Interface](../../assets/ChromaScramble_Screen.png)
+
 ![ChromaScramble v2.9.0 Release Card](../../assets/ChromaScramble_v2.9.0_Release_Card.png)
 
 ---

@@ -3,6 +3,10 @@
 > **Studio Algorithmic Multi-Room FDN Reverb & Shimmer**  
 > Lush, zero-metallic algorithmic studio reverb powered by an 8x8 unitary Feedback Delay Network, orthogonal stereo taps, and forward octave-up shimmer.
 
+### 🎛️ Plugin Interface (`v2.9.1`)
+
+![ChromaVerb Live Interface](../../assets/ChromaVerb_Screen.png)
+
 ![ChromaVerb v2.9.1 Release Card](../../assets/ChromaVerb_v2.9.1_Release_Card.png)
 
 ---
