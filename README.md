@@ -2,15 +2,36 @@
 
 Welcome to the official **Chroma Audio Suite** release repository, version archive, and plain-English audio guide.
 
+![ChromaPulse v3.1.0 Release Card](docs/assets/ChromaPulse_v3.1.0_Release_Card.png)
+
+![ChromaCore v2.9.3 Release Card](docs/assets/ChromaCore_v2.9.3_Release_Card.png)
+
 ![ChromaCore v2.9.3 Fable Release Card](docs/assets/ChromaCore_v2.9.3_Fable_Release_Card.png)
 
-![ChromaCore v2.9.2 Fable Release Card](docs/assets/ChromaCore_v2.9.2_Fable_Release_Card.png)
-
-![ChromaCore v2.9.1 Fable Release Card](docs/assets/ChromaCore_v2.9.1_Fable_Release_Card.png)
-
-![ChromaCore v2.9.0 Release Card](docs/assets/ChromaCore_v2.9.0_Release_Card.png)
-
 ![ChromaScramble v2.9.0 Release Card](docs/assets/ChromaScramble_v2.9.0_Release_Card.png)
+
+---
+
+## ⚡ Suite-Wide Phase 2 Performance & Audio Polish (`2026-11-15`)
+
+Every plugin across the suite now ships with **32-bit DIB offscreen caches**, **`ChromaFastText`** zero-allocation text rendering, **dirty-rect `GetUpdateRgn` / clip culling**, **`0.0/s` idle repaints** (`<5 ms` live UI frame time), and **tail-aware idle DSP bypass** (`<0.25%` idle CPU), verified bit-exact where applicable.
+
+| Plugin | Idle DSP % | Playing DSP % | Post-Tail % | Live Paint (ms) | Idle Repaints/s | Key 2026-11-15 Update |
+|---|---:|---:|---:|---:|---:|---|
+| **ChromaCore VST** (`v2.9.3`) | `0.02%` | `5.48%` | `0.02%` | `1.77 ms` | `0.0/s` | Cached 3D chassis & keybed, batched display, `ChromaFastText` |
+| **ChromaPulse** (`v3.1.0`) | `0.22%` | `2.88%` | `0.02%` | `1.98 ms` | `0.0/s` | Sub-ms pad strike, 2x ADAA ceiling (`clip=0`), exp AHDSR, crossfade |
+| **ChromaDeep** (`v2.9.0`) | `0.02%` | `23.18%` | `1.02%` | `0.86 ms` | `0.0/s` | Cached `AdditiveEngine` partial table + trig rotation (`diff=0`), DIB caches |
+| **ChromaX** (`v2.9.0`) | `0.13%` | `4.47%` | `0.02%` | `3.05 ms` | `0.0/s` | 32-bit DIB, clip culling, eased meters, tail-aware idle bypass |
+| **ChromaVerb** (`v2.9.1`) | `0.25%` | `2.11%` | `0.02%` | `4.73 ms` | `0.0/s` | 32-bit DIB, eased meters, clip culling, idle bypass |
+| **ChromaDelay** (`v2.9.0`) | `0.13%` | `1.09%` | `0.02%` | `1.87 ms` | `0.0/s` | 32-bit DIB cache, `ChromaFastText`, dirty-rect clip, idle bypass |
+| **ChromaComp** (`v2.9.0`) | `0.15%` | `1.32%` | `0.04%` | `4.83 ms` | `0.0/s` | 32-bit DIB & bkg cache, eased meters, clip culling, idle bypass |
+| **ChromaTransientShaper** (`v2.9.0`) | `0.03%` | `0.17%` | `0.02%` | `4.21 ms` | `0.0/s` | DIB cache, `ChromaFastText`, dirty-rect clipping, idle bypass |
+| **ChromaDesigner** (`v2.9.0`) | `0.03%` | `0.35%` | `0.02%` | `0.29 ms` | `0.0/s` | 32-bit DIB cache, `ChromaFastText`, dirty-rect clipping, idle bypass |
+| **ChromaFhaser** (`v2.9.0`) | `0.16%` | `1.58%` | `0.02%` | `4.81 ms` | `0.0/s` | Fixed linear-RMS timer trap, DIB backbuffer, clip culling |
+| **ChromaScramble** (`v2.9.0`) | `0.02%` | `1.51%` | `1.41%` | `0.00 ms` | `0.0/s` | 32-bit DIB curve cache, `GetUpdateRgn` culling, tail-aware bypass |
+| **ChromaSlice** (`v2.9.0`) | `0.03%` | `0.85%` | `0.03%` | `3.52 ms` | `0.0/s` | DIB cache, `ChromaFastText`, dirty-rect clipping, idle bypass |
+| **ChromaVoice** (`v3.2.1`) | `0.02%` | `4.97%` | `0.45%` | `1.96 ms` | `0.0/s` | 32-bit DIB layers, dirty-rect clip, 2-stage tail idle bypass |
+| **ChromaWidener** (`v2.9.0`) | `0.09%` | `1.36%` | `0.02%` | `2.74 ms` | `0.0/s` | 32-bit DIB cache, `ChromaFastText`, dirty-rect clipping, idle bypass |
 
 ---
 
@@ -21,7 +42,7 @@ Welcome to the official **Chroma Audio Suite** release repository, version archi
 |---|---|---|---|
 | **[ChromaCore VST](docs/01_Synthesizers/chromacore/README.md)** | `v2.9.3` | 32-Voice Hybrid Analog / Wavetable / Resampling Workstation Synth | [Overview & Glossary](docs/01_Synthesizers/chromacore/README.md) ([`v2.9.3`](docs/01_Synthesizers/chromacore/v2.9.3_2026-11-11.md) • [`v2.9.2`](docs/01_Synthesizers/chromacore/v2.9.2_2026-11-11.md) • [`v2.9.1`](docs/01_Synthesizers/chromacore/v2.9.1_2026-11-10.md)) |
 | **[ChromaX](docs/01_Synthesizers/chromax/README.md)** | `v2.9.0` | Flagship Synthesizer with 3D Keycaps & LED Jewels | [Overview & Glossary](docs/01_Synthesizers/chromax/README.md) ([`v2.9.0`](docs/01_Synthesizers/chromax/v2.9.0_2026-11-05.md) • [`v2.8.0`](docs/01_Synthesizers/chromax/v2.8.0_2026-10-21.md)) |
-| **[ChromaPulse](docs/01_Synthesizers/chromapulse/README.md)** | `v3.0.0` | Step-Sequenced Ratchet Rhythm Synthesizer | [Overview & Glossary](docs/01_Synthesizers/chromapulse/README.md) ([`v3.0.0`](docs/01_Synthesizers/chromapulse/v3.0.0_2026-11-06.md) • [`v2.9.0`](docs/01_Synthesizers/chromapulse/v2.9.0_2026-11-05.md) • [`v2.8.0`](docs/01_Synthesizers/chromapulse/v2.8.0_2026-10-21.md)) |
+| **[ChromaPulse](docs/01_Synthesizers/chromapulse/README.md)** | `v3.1.0` | 16-Pad Drum & Step-Sequenced Ratchet Rhythm Workstation | [Overview & Glossary](docs/01_Synthesizers/chromapulse/README.md) ([`v3.1.0`](docs/01_Synthesizers/chromapulse/v3.1.0_2026-11-15.md) • [`v3.0.0`](docs/01_Synthesizers/chromapulse/v3.0.0_2026-11-06.md) • [`v2.9.0`](docs/01_Synthesizers/chromapulse/v2.9.0_2026-11-05.md)) |
 | **[ChromaDeep](docs/01_Synthesizers/chromadeep/README.md)** | `v2.9.0` | 7-Tab Modular Delay & Sub-Bass Synthesizer | [Overview & Glossary](docs/01_Synthesizers/chromadeep/README.md) ([`v2.9.0`](docs/01_Synthesizers/chromadeep/v2.9.0_2026-11-05.md) • [`v2.8.0`](docs/01_Synthesizers/chromadeep/v2.8.0_2026-10-21.md)) |
 
 ### 📁 [Reverb & Delay](docs/02_Reverb_and_Delay/README.md)

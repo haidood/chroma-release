@@ -335,6 +335,7 @@ const DATA = [
             "card_image": "assets/ChromaCore_v2.9.3_Release_Card.png",
             "highlights": [
               "**Promoted to Main Release (Canonical ChromaCoreVST)**: All v2.9.1, v2.9.2, and v2.9.3 performance, skin, and DSP improvements are now compiled into the canonical ChromaCoreVST binary (69 factory programs), replacing v2.9.0 with full session backwards compatibility.",
+              "**Phase 2 Rendering & Idle Polish (2026-11-15)**: Added 32-bit DIB backbuffer, pre-rendered cached chassis and keybed bitmap, batched wavetable/scope display, and `ChromaFastText`\u2014achieving `1.77 ms` live paint, `0.0/s` idle repaints, and `0.02%` idle DSP CPU.",
               "**Editor Freeze Fixed (replaces v2.9.2)**: v2.9.2 could freeze the plugin window shortly after a key on the on-screen keyboard was released. The knob drawing that caused it has been removed. If you installed v2.9.2, replace it with this build.",
               "**Fluid Interface**: Playing a note used to redraw nearly the whole window. Now only the centre display, pressed keys and moving knobs are redrawn, and knob bodies are drawn once and reused. Screen updates while playing are roughly ten times faster.",
               "**Near-Zero Idle CPU**: When no notes are sounding and effect tails have faded, the engine sleeps until the next note, so silent instances in a large session cost almost nothing.",
@@ -483,7 +484,8 @@ const DATA = [
             "highlights": [
               "**Analog Polyphonic Stereo Voice Panning & VCO Drift**: Every voice in a chord now occupies its own natural stereo pan position with subtle organic analog pitch drift.",
               "**Inter-Stage Zero-DC Tube Ladder Saturation & Anti-Whistle Damping**: Upgraded Chroma 24 dB/oct transistor and diode ladder filters with per-stage tube saturation and input-envelope resonance damping.",
-              "**Class-A AnalogConsoleStage Output & Clipboard [FEEDBACK]**: Added discrete transformer output saturation with 5 Hz DC blocking, `NaN` self-healing, and 1-click Clipboard diagnostic reporting."
+              "**Class-A AnalogConsoleStage Output & Clipboard [FEEDBACK]**: Added discrete transformer output saturation with 5 Hz DC blocking, `NaN` self-healing, and 1-click Clipboard diagnostic reporting.",
+              "**Phase 2 Optimization (2026-11-15)**: 32-bit DIB backbuffer, `ChromaFastText`, clip culling, eased meters, and tail-aware idle bypass (`0.13%` idle, `0.02%` post-tail, `3.05 ms` live paint, `0.0/s` idle repaints)."
             ]
           },
           {
@@ -502,10 +504,18 @@ const DATA = [
       {
         "id": "chromapulse",
         "name": "ChromaPulse",
-        "latest": "v3.0.0",
-        "type": "Step-Sequenced Ratchet Rhythm Synthesizer",
-        "summary": "Precision rhythmic drum & bassline synthesizer built for modern electronic production, ratcheting arpeggios, and tempo-synced filter movement.",
+        "latest": "v3.1.0",
+        "type": "16-Pad Drum & Step-Sequenced Ratchet Rhythm Workstation",
+        "summary": "Precision rhythmic drum & bassline synthesizer built for modern electronic production, sub-millisecond pad triggering, 2x oversampled ADAA bus headroom, ratcheting arpeggios, and tempo-synced filter movement.",
         "glossary": [
+          {
+            "term": "2x Oversampled ADAA Master Soft-Clip Ceiling",
+            "simple": "When a heavy kick, layered snare, and ratcheting hi-hats land on the exact same beat, their combined peaks can smash past 0 dBFS into harsh digital clipping. First-order Anti-Derivative Anti-Aliased (ADAA) soft clipping at a 0.985 ceiling smoothly rounds just the extreme peak micro-spikes at 2x sample resolution\u2014wiping out digital clips (0 clips across all 6 factory kits) without squashing drum punch."
+          },
+          {
+            "term": "Capacitor-Discharge Exponential AHDSR & 32-Sample Retrigger Crossfade",
+            "simple": "Analog drum machines decay like a draining capacitor\u2014fast punch up front followed by a smooth natural tail\u2014whereas rapid machine-gun drum rolls on a single voice can click if the previous hit is chopped mid-cycle. ChromaPulse v3.1.0 pairs exponential RC decay/release slopes with a 32-sample onset crossfade so rolls and finger-drumming stay dead smooth."
+          },
           {
             "term": "Class-A Drum Bus Transformer Saturation",
             "simple": "Drums have super fast spikes (transients) that can clip digital converters before they even sound loud. Passing the master drum bus through a modeled Class-A analog transformer gently hugs those microsecond drum spikes and adds warm low-end weight\u2014giving kicks and snares instant record-ready punch."
@@ -516,9 +526,23 @@ const DATA = [
           }
         ],
         "known_issues": [
-          "None currently open in v3.0.0."
+          "None currently open in v3.1.0."
         ],
         "versions": [
+          {
+            "version": "v3.1.0",
+            "date": "2026-11-15",
+            "title": "Sub-ms Pad Strike Response, 2x ADAA Master Ceiling, Exp AHDSR & Phase 2 Engine",
+            "card_image": "assets/ChromaPulse_v3.1.0_Release_Card.png",
+            "highlights": [
+              "**Promoted to Main Release**: Promoted `ChromaPulse v3.1.0` from side-by-side Fable testing into canonical `ChromaPulse.dll` / `.vst3` (while keeping `ChromaPulse_Fable.dll` matching).",
+              "**Sub-Millisecond Visual Pad Strike (`TriggerPadVisualAndUpdate`)**: Both pad clicks and 4x4 keyboard drum triggers snap pad glow immediately (`vel * 0.80f`) with tight per-pad `InvalidateRect` + `UpdateWindow`, alongside section and pad `g.IsVisible` culls in `PaintPulseGUI` (`1.98 ms` live paint, `0.0/s` idle repaints).",
+              "**2x Oversampled ADAA Master Soft-Clip Ceiling (`0.985f`)**: Replaced hard master clipping with first-order anti-derivative anti-aliased soft-clipping, eliminating `peak=1.200` / multi-hundred-clip overloads down to `clip=0` (`peak=0.827`) across all 6 factory kits.",
+              "**Exponential RC AHDSR & 32-Sample Retrigger Crossfade**: Switched AHDSR decay/release stages to exponential capacitor discharge (`exp(-4.6/samples)`), added 32-sample smooth retrigger crossfades in `DrumVoice`, and added 4-sample onset micro-tapers to kick/snare transients.",
+              "**50-Block Idle Audio Bypass & 32-Bit DIB UI**: Drops silent post-tail DSP load to `0.02%` (`0.22%` idle) with zero-allocation `ChromaFastText` rendering.",
+              "**Expanded Keyboard Production Workflow**: Added `Tab` audition/edit mode switch, 4x4 keyboard pads (`Z..V`, `A..F`, `Q..R`), `F` step flip, `I` reverse, `N` note gate, `Delete` clear, and `H` / `?` / `Shift+F1` help overlay."
+            ]
+          },
           {
             "version": "v3.0.0",
             "date": "2026-11-06",
@@ -649,6 +673,7 @@ const DATA = [
             "card_image": "assets/ChromaDeep_v2.9.0_Release_Card.png",
             "highlights": [
               "**Inter-Stage Tube ZDF 4-Pole Ladder & Anti-Whistle Damping**: Added per-stage tube saturation and input-envelope resonance damping to both stereo ZDF filters.",
+              "**Phase 2 AdditiveEngine & DIB Optimization (2026-11-15)**: Cached `AdditiveEngine` partial amplitude table with trigonometric rotation recurrence (`max_sample_diff == 0` bit-exact), paired with 32-bit DIB deck/wave caches, `ChromaFastText`, `GetUpdateRgn` culling (`0.86 ms` live paint, `0.0/s` idle), and tail-aware idle DSP bypass (`0.02%` idle CPU).",
               "**Analog Per-Voice Stereo Spread & VCO Drift**: Single-voice unison patches now spread naturally across the stereo field in polyphonic mode while keeping Mono mode 100% centered.",
               "**Class-A AnalogConsoleStage & Jury-Clamped Delay EQ**: Self-healing transformer output stage and rock-solid feedback EQ stability."
             ]
@@ -701,7 +726,8 @@ const DATA = [
             "highlights": [
               "**Jury Stability Triangle Pole Clamping**: Guaranteed z-plane pole stability across all 12 Post-EQ and Decay Rate EQ bands even under extreme `Q` and shelf sweeps.",
               "**Automatic NaN/Inf Self-Healing**: Real-time biquad state protection ensures long shimmer/freeze tails never drop audio.",
-              "**Upgraded 1-Click Clipboard [FEEDBACK]**: Instant `Ctrl+V` diagnostic report copy for Discord and GitHub."
+              "**Upgraded 1-Click Clipboard [FEEDBACK]**: Instant `Ctrl+V` diagnostic report copy for Discord and GitHub.",
+              "**Phase 2 Optimization (2026-11-15)**: 32-bit DIB backbuffer, `ChromaFastText`, clip culling, eased meters, and audio idle bypass (`0.25%` idle, `0.02%` post-tail, `4.73 ms` live paint, `0.0/s` idle repaints)."
             ]
           },
           {
@@ -740,7 +766,8 @@ const DATA = [
             "card_image": "assets/ChromaDelay_v2.9.0_Release_Card.png",
             "highlights": [
               "**Self-Healing Feedback EQ Biquads**: Added `std::isfinite` state recovery inside the delay feedback loop so aggressive self-oscillating dub throws never blow up or mute the bus.",
-              "**Upgraded 1-Click Clipboard [FEEDBACK] Shield**: Instant diagnostic snapshot and clipboard copy."
+              "**Upgraded 1-Click Clipboard [FEEDBACK] Shield**: Instant diagnostic snapshot and clipboard copy.",
+              "**Phase 2 Optimization (2026-11-15)**: 32-bit DIB cache, `ChromaFastText`, dirty-rect clipping, and idle audio bypass (`0.13%` idle, `0.02%` post-tail, `1.87 ms` live paint, `0.0/s` idle repaints)."
             ]
           },
           {
@@ -791,7 +818,8 @@ const DATA = [
             "highlights": [
               "**Fixed High-Shelf (`H-SH`) Biquad `b2` Sign Bug**: Corrected the RBJ Audio EQ Cookbook numerator sign in `setHighShelf` so high-shelf boosts and cuts have accurate DC/low-frequency unity gain.",
               "**Jury Stability Clamping & `NaN` Self-Healing**: Protected all 20 dynamic EQ and sidechain detector filters against pole blowout.",
-              "**Upgraded 1-Click Clipboard [FEEDBACK]**: Instant diagnostic summary copied to Clipboard."
+              "**Upgraded 1-Click Clipboard [FEEDBACK]**: Instant diagnostic summary copied to Clipboard.",
+              "**Phase 2 Optimization (2026-11-15)**: 32-bit DIB backbuffer & bkg cache, `ChromaFastText`, clip culling, eased meters, and idle bypass (`0.15%` idle, `4.83 ms` live paint, `0.0/s` idle repaints)."
             ]
           },
           {
@@ -829,7 +857,8 @@ const DATA = [
             "card_image": "assets/ChromaTransientShaper_v2.9.0_Release_Card.png",
             "highlights": [
               "**2x Oversampled ADAA Analog Clipper Stage**: Lets you boost drum Attack snap cleanly while smoothly rounding off peak overshoots into warm analog punch.",
-              "**Upgraded 1-Click Clipboard [FEEDBACK] Shield**: Captures plugin state, screenshot, and `host_shield_log.txt` directly to your Windows Clipboard (`Ctrl+V` ready)."
+              "**Upgraded 1-Click Clipboard [FEEDBACK] Shield**: Captures plugin state, screenshot, and `host_shield_log.txt` directly to your Windows Clipboard (`Ctrl+V` ready).",
+              "**Phase 2 Optimization (2026-11-15)**: DIB cache, `ChromaFastText`, dirty-rect clipping, and idle audio bypass (`0.03%` idle, `0.17%` active, `4.21 ms` live paint, `0.0/s` idle repaints)."
             ]
           },
           {
@@ -867,7 +896,8 @@ const DATA = [
             "card_image": "assets/ChromaDesigner_v2.9.0_Release_Card.png",
             "highlights": [
               "**2x Oversampled ADAA Analog Console Stage**: Eliminates foldback aliasing when cascading Slot A and Slot B harmonic drive stages.",
-              "**Upgraded 1-Click Clipboard [FEEDBACK] Shield**: Instant `Ctrl+V` diagnostic report copy and pre-filled GitHub Issue."
+              "**Upgraded 1-Click Clipboard [FEEDBACK] Shield**: Instant `Ctrl+V` diagnostic report copy and pre-filled GitHub Issue.",
+              "**Phase 2 Optimization (2026-11-15)**: 32-bit DIB cache, `ChromaFastText`, dirty-rect clipping, and idle audio bypass (`0.03%` idle, `0.29 ms` live paint, `0.0/s` idle repaints)."
             ]
           },
           {
@@ -913,7 +943,8 @@ const DATA = [
             "highlights": [
               "**Fixed High-Shelf (`H-SH`) Biquad `b2` Sign Bug**: Corrected the high-shelf numerator coefficient in `Biquad::Setup` so shelf boosts/cuts maintain accurate low-end unity gain.",
               "**Jury Stability Triangle Clamping**: Protected all 24 parametric EQ bands against extreme `Q` / shelf transitions.",
-              "**Upgraded 1-Click Clipboard [FEEDBACK]**: Instant `Ctrl+V` diagnostic report copy."
+              "**Upgraded 1-Click Clipboard [FEEDBACK]**: Instant `Ctrl+V` diagnostic report copy.",
+              "**Phase 2 Optimization (2026-11-15)**: Fixed linear-RMS timer trap, added 32-bit DIB backbuffer, `ChromaFastText`, clip culling, and idle audio bypass (`0.16%` idle, `0.02%` post-tail, `4.81 ms` live paint, `0.0/s` idle repaints)."
             ]
           },
           {
@@ -953,7 +984,8 @@ const DATA = [
               "**Low-Color Slate / Ice-Cyan / Warm Amber Hardware Palette**: Replaced bright rainbow lane colors with a cohesive studio-grade titanium slate, glacier blue, and warm amber aesthetic.",
               "**3D Protruding Titanium Rotary Knobs**: Upgraded all module rotary controls with multi-layer drop shadows, machined collars, and a clean single-row layout with zero overlapping labels.",
               "**High-Contrast Bold Typography**: Larger, bolder `Segoe UI Bold` lane headers, step badges, and parameter readouts.",
-              "**2x Oversampled ADAA Analog Stage & 1-Click Clipboard [FEEDBACK]**: Smooth anti-aliased console output stage and instant `Ctrl+V` diagnostic report copy."
+              "**2x Oversampled ADAA Analog Stage & 1-Click Clipboard [FEEDBACK]**: Smooth anti-aliased console output stage and instant `Ctrl+V` diagnostic report copy.",
+              "**Phase 2 Optimization (2026-11-15)**: 32-bit DIB curve cache, `ChromaFastText`, `GetUpdateRgn` culling, and tail-aware idle bypass (`0.02%` idle, `2.8 ms` full repaint, `0.0/s` idle repaints)."
             ]
           },
           {
@@ -990,6 +1022,7 @@ const DATA = [
             "card_image": "assets/ChromaSlice_v2.9.0_Release_Card.png",
             "highlights": [
               "**2x Oversampled ADAA Analog Drive Stage**: Adds warm harmonic punch to chopped rhythmic synth and vocal slices.",
+              "**Phase 2 Optimization (2026-11-15)**: DIB cache, `ChromaFastText`, dirty-rect clipping, and idle audio bypass (`0.03%` idle, `3.52 ms` live paint, `0.0/s` idle repaints).",
               "**Upgraded 1-Click Clipboard [FEEDBACK] Shield**: Instant `Ctrl+V` diagnostic report copy and pre-filled GitHub Issue."
             ]
           },
@@ -1039,7 +1072,8 @@ const DATA = [
             "card_image": "assets/ChromaVoice_v3.2.1_Release_Card.png",
             "highlights": [
               "**2x Oversampled ADAA Vocal Tube Warmth Stage**: Smoothly rounds off harsh sibilance peaks while adding intimate analog vocal presence.",
-              "**Upgraded 1-Click Clipboard [FEEDBACK] Shield**: Automatically copies vocal engine diagnostics + `host_shield_log.txt` to your Windows Clipboard (`Ctrl+V` ready for Discord)."
+              "**Upgraded 1-Click Clipboard [FEEDBACK] Shield**: Automatically copies vocal engine diagnostics + `host_shield_log.txt` to your Windows Clipboard (`Ctrl+V` ready for Discord).",
+              "**Phase 2 Optimization (2026-11-15)**: 32-bit DIB layers, `ChromaFastText`, dirty-rect clip, and 2-stage tail idle bypass (`0.02%` idle, `1.96 ms` live paint, `0.0/s` idle repaints)."
             ]
           },
           {
@@ -1077,6 +1111,7 @@ const DATA = [
             "card_image": "assets/ChromaWidener_v2.9.0_Release_Card.png",
             "highlights": [
               "**Per-Channel Analog Tolerance Dispersion & 2x ADAA Stage**: Natural hardware console width with 100% phase-safe mono compatibility.",
+              "**Phase 2 Optimization (2026-11-15)**: 32-bit DIB cache, `ChromaFastText`, dirty-rect clipping, and idle audio bypass (`0.09%` idle, `2.74 ms` live paint, `0.0/s` idle repaints).",
               "**Upgraded 1-Click Clipboard [FEEDBACK] Shield**: Instant `Ctrl+V` diagnostic report copy and pre-filled GitHub Issue."
             ]
           },

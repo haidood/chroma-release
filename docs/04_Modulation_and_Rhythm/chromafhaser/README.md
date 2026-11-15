@@ -20,6 +20,7 @@ A phaser doesn't delay the whole sound like a flanger; instead, it pushes specif
   - **Fixed High-Shelf (`H-SH`) Biquad `b2` Sign Bug**: Corrected the high-shelf numerator coefficient in `Biquad::Setup` so shelf boosts/cuts maintain accurate low-end unity gain.
   - **Jury Stability Triangle Clamping**: Protected all 24 parametric EQ bands against extreme `Q` / shelf transitions.
   - **Upgraded 1-Click Clipboard [FEEDBACK]**: Instant `Ctrl+V` diagnostic report copy.
+  - **Phase 2 Optimization (2026-11-15)**: Fixed linear-RMS timer trap, added 32-bit DIB backbuffer, `ChromaFastText`, clip culling, and idle audio bypass (`0.16%` idle, `0.02%` post-tail, `4.81 ms` live paint, `0.0/s` idle repaints).
 
 - **[`v2.8.0` (2026-10-21) — 7-Zone Mixing Backdrop, DrawLines Waterfall Slices & Auto-Updater Shield](./v2.8.0_2026-10-21.md)**
   - **Up to 40 All-Pass Stages**: Go from vintage 4-stage guitar swirl to deep 40-stage sci-fi talking dispersion.

@@ -45,6 +45,7 @@ A classic 24dB 4-pole filter is built like a ladder with 4 rungs (stages). Inste
 
 - **[`v2.9.3` (2026-11-11) — Official Main Release: Performance Pass, 10x Faster Screen Updates, Near-Zero Idle CPU & Dark Dial Skin](./v2.9.3_2026-11-11.md)**
   - **Promoted to Main Release (Canonical ChromaCoreVST)**: All v2.9.1, v2.9.2, and v2.9.3 performance, skin, and DSP improvements are now compiled into the canonical ChromaCoreVST binary (69 factory programs), replacing v2.9.0 with full session backwards compatibility.
+  - **Phase 2 Rendering & Idle Polish (2026-11-15)**: Added 32-bit DIB backbuffer, pre-rendered cached chassis and keybed bitmap, batched wavetable/scope display, and `ChromaFastText`—achieving `1.77 ms` live paint, `0.0/s` idle repaints, and `0.02%` idle DSP CPU.
   - **Editor Freeze Fixed (replaces v2.9.2)**: v2.9.2 could freeze the plugin window shortly after a key on the on-screen keyboard was released. The knob drawing that caused it has been removed. If you installed v2.9.2, replace it with this build.
   - **Fluid Interface**: Playing a note used to redraw nearly the whole window. Now only the centre display, pressed keys and moving knobs are redrawn, and knob bodies are drawn once and reused. Screen updates while playing are roughly ten times faster.
   - **Near-Zero Idle CPU**: When no notes are sounding and effect tails have faded, the engine sleeps until the next note, so silent instances in a large session cost almost nothing.

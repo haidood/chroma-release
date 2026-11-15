@@ -18,6 +18,7 @@ If you widen a track by simply flipping the phase of one speaker, it sounds supe
 
 - **[`v2.9.0` (2026-11-05) — ChromaAnalogSuite Stability Integration & 1-Click Clipboard [FEEDBACK]](./v2.9.0_2026-11-05.md)**
   - **Per-Channel Analog Tolerance Dispersion & 2x ADAA Stage**: Natural hardware console width with 100% phase-safe mono compatibility.
+  - **Phase 2 Optimization (2026-11-15)**: 32-bit DIB cache, `ChromaFastText`, dirty-rect clipping, and idle audio bypass (`0.09%` idle, `2.74 ms` live paint, `0.0/s` idle repaints).
   - **Upgraded 1-Click Clipboard [FEEDBACK] Shield**: Instant `Ctrl+V` diagnostic report copy and pre-filled GitHub Issue.
 
 - **[`v2.8.0` (2026-10-21) — Targeted Dirty-Rect Invalidation, 0.002f Precision & Auto-Updater Shield](./v2.8.0_2026-10-21.md)**

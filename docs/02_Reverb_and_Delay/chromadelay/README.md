@@ -19,6 +19,7 @@ Before digital memory existed, analog pedals passed audio through a chain of tho
 - **[`v2.9.0` (2026-11-05) — Self-Healing Feedback Loop Biquads & Upgraded Clipboard [FEEDBACK]](./v2.9.0_2026-11-05.md)**
   - **Self-Healing Feedback EQ Biquads**: Added `std::isfinite` state recovery inside the delay feedback loop so aggressive self-oscillating dub throws never blow up or mute the bus.
   - **Upgraded 1-Click Clipboard [FEEDBACK] Shield**: Instant diagnostic snapshot and clipboard copy.
+  - **Phase 2 Optimization (2026-11-15)**: 32-bit DIB cache, `ChromaFastText`, dirty-rect clipping, and idle audio bypass (`0.13%` idle, `0.02%` post-tail, `1.87 ms` live paint, `0.0/s` idle repaints).
 
 - **[`v2.8.0` (2026-10-21) — Flat 0.0 dB Default EQ Bands, 7 Mixing Zones & Zero Heap Allocations](./v2.8.0_2026-10-21.md)**
   - **5 Authentic Delay Character Models**: BBD Analog, 15 IPS Studio Tape, Vintage Oil-Can, 12-Bit Vintage PCM, and Shimmer Pitch Cascade.

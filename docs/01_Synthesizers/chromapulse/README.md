@@ -1,13 +1,19 @@
-# ChromaPulse (`v3.0.0`)
+# ChromaPulse (`v3.1.0`)
 
-> **Step-Sequenced Ratchet Rhythm Synthesizer**  
-> Precision rhythmic drum & bassline synthesizer built for modern electronic production, ratcheting arpeggios, and tempo-synced filter movement.
+> **16-Pad Drum & Step-Sequenced Ratchet Rhythm Workstation**  
+> Precision rhythmic drum & bassline synthesizer built for modern electronic production, sub-millisecond pad triggering, 2x oversampled ADAA bus headroom, ratcheting arpeggios, and tempo-synced filter movement.
 
-![ChromaPulse v3.0.0 Release Card](../../assets/ChromaPulse_v3.0.0_Release_Card.png)
+![ChromaPulse v3.1.0 Release Card](../../assets/ChromaPulse_v3.1.0_Release_Card.png)
 
 ---
 
 ## 📚 Tech-to-Music Translator (How It Actually Works in Plain English)
+
+### 🔹 2x Oversampled ADAA Master Soft-Clip Ceiling
+When a heavy kick, layered snare, and ratcheting hi-hats land on the exact same beat, their combined peaks can smash past 0 dBFS into harsh digital clipping. First-order Anti-Derivative Anti-Aliased (ADAA) soft clipping at a 0.985 ceiling smoothly rounds just the extreme peak micro-spikes at 2x sample resolution—wiping out digital clips (0 clips across all 6 factory kits) without squashing drum punch.
+
+### 🔹 Capacitor-Discharge Exponential AHDSR & 32-Sample Retrigger Crossfade
+Analog drum machines decay like a draining capacitor—fast punch up front followed by a smooth natural tail—whereas rapid machine-gun drum rolls on a single voice can click if the previous hit is chopped mid-cycle. ChromaPulse v3.1.0 pairs exponential RC decay/release slopes with a 32-sample onset crossfade so rolls and finger-drumming stay dead smooth.
 
 ### 🔹 Class-A Drum Bus Transformer Saturation
 Drums have super fast spikes (transients) that can clip digital converters before they even sound loud. Passing the master drum bus through a modeled Class-A analog transformer gently hugs those microsecond drum spikes and adds warm low-end weight—giving kicks and snares instant record-ready punch.
@@ -18,6 +24,14 @@ Instead of playing just one note per 16th-note step, ratcheting rapidly subdivid
 ---
 
 ## 🗂️ Version & Patch History
+
+- **[`v3.1.0` (2026-11-15) — Sub-ms Pad Strike Response, 2x ADAA Master Ceiling, Exp AHDSR & Phase 2 Engine](./v3.1.0_2026-11-15.md)**
+  - **Promoted to Main Release**: Promoted `ChromaPulse v3.1.0` from side-by-side Fable testing into canonical `ChromaPulse.dll` / `.vst3` (while keeping `ChromaPulse_Fable.dll` matching).
+  - **Sub-Millisecond Visual Pad Strike (`TriggerPadVisualAndUpdate`)**: Both pad clicks and 4x4 keyboard drum triggers snap pad glow immediately (`vel * 0.80f`) with tight per-pad `InvalidateRect` + `UpdateWindow`, alongside section and pad `g.IsVisible` culls in `PaintPulseGUI` (`1.98 ms` live paint, `0.0/s` idle repaints).
+  - **2x Oversampled ADAA Master Soft-Clip Ceiling (`0.985f`)**: Replaced hard master clipping with first-order anti-derivative anti-aliased soft-clipping, eliminating `peak=1.200` / multi-hundred-clip overloads down to `clip=0` (`peak=0.827`) across all 6 factory kits.
+  - **Exponential RC AHDSR & 32-Sample Retrigger Crossfade**: Switched AHDSR decay/release stages to exponential capacitor discharge (`exp(-4.6/samples)`), added 32-sample smooth retrigger crossfades in `DrumVoice`, and added 4-sample onset micro-tapers to kick/snare transients.
+  - **50-Block Idle Audio Bypass & 32-Bit DIB UI**: Drops silent post-tail DSP load to `0.02%` (`0.22%` idle) with zero-allocation `ChromaFastText` rendering.
+  - **Expanded Keyboard Production Workflow**: Added `Tab` audition/edit mode switch, 4x4 keyboard pads (`Z..V`, `A..F`, `Q..R`), `F` step flip, `I` reverse, `N` note gate, `Delete` clear, and `H` / `?` / `Shift+F1` help overlay.
 
 - **[`v3.0.0` (2026-11-06) — Hardware UI Preview, Rapid Sequencer Hotkeys, Magic Drive & Envelope Drawing](./v3.0.0_2026-11-06.md)**
   - **Spectral-Adaptive Magic Drive Master Stage**: Added master bus Magic Drive (derived from ChromaCore) with intelligent sub-bass mono-tightening, 320 Hz boxy-mud scoop, sweet-spot focus excitation, and silk-air shimmer.
@@ -58,7 +72,7 @@ Instead of playing just one note per 16th-note step, ratcheting rapidly subdivid
 
 ## 🛠️ Known Issues & Bug Reporting
 
-- None currently open in v3.0.0.
+- None currently open in v3.1.0.
 
 **Found a bug or weird preset behavior?**  
 Click the **`[ FEEDBACK ]`** button in the top-right header of the plugin! It automatically snapshots your patch, EQ curve, and screenshot, copies a diagnostic summary to your Clipboard (`Ctrl+V` ready for Discord), or opens a pre-filled [GitHub Bug Report](https://github.com/haidood/chroma-release/issues/new).

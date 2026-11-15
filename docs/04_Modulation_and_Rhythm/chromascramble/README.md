@@ -21,6 +21,7 @@ Instead of a simple repeating LFO wave (like a sine or triangle), an MSEG lets y
   - **3D Protruding Titanium Rotary Knobs**: Upgraded all module rotary controls with multi-layer drop shadows, machined collars, and a clean single-row layout with zero overlapping labels.
   - **High-Contrast Bold Typography**: Larger, bolder `Segoe UI Bold` lane headers, step badges, and parameter readouts.
   - **2x Oversampled ADAA Analog Stage & 1-Click Clipboard [FEEDBACK]**: Smooth anti-aliased console output stage and instant `Ctrl+V` diagnostic report copy.
+  - **Phase 2 Optimization (2026-11-15)**: 32-bit DIB curve cache, `ChromaFastText`, `GetUpdateRgn` culling, and tail-aware idle bypass (`0.02%` idle, `2.8 ms` full repaint, `0.0/s` idle repaints).
 
 - **[`v2.8.0` (2026-10-21) — 10-Module Zero-Latency MSEG Engine & Targeted Dirty-Rects](./v2.8.0_2026-10-21.md)**
   - **10 Tempo-Synced Articulation Modules**: Transform static loops into evolving rhythmic hooks.

@@ -19,6 +19,7 @@ Instead of using a fixed volume threshold (which misses quiet ghost notes on a s
 - **[`v2.9.0` (2026-11-05) — ChromaAnalogSuite Stability Integration & 1-Click Clipboard [FEEDBACK]](./v2.9.0_2026-11-05.md)**
   - **2x Oversampled ADAA Analog Clipper Stage**: Lets you boost drum Attack snap cleanly while smoothly rounding off peak overshoots into warm analog punch.
   - **Upgraded 1-Click Clipboard [FEEDBACK] Shield**: Captures plugin state, screenshot, and `host_shield_log.txt` directly to your Windows Clipboard (`Ctrl+V` ready).
+  - **Phase 2 Optimization (2026-11-15)**: DIB cache, `ChromaFastText`, dirty-rect clipping, and idle audio bypass (`0.03%` idle, `0.17%` active, `4.21 ms` live paint, `0.0/s` idle repaints).
 
 - **[`v2.8.0` (2026-10-21) — Differential Transient Engine, Targeted Dirty-Rects & 0.002f Precision](./v2.8.0_2026-10-21.md)**
   - **Level-Independent Attack & Sustain Shaping**: Punch up kicks and snares or tighten muddy room mics in seconds.

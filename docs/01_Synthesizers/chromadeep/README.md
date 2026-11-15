@@ -21,6 +21,7 @@ Low bass waves are huge and slow. If a synth starts a bass note at a random poin
 
 - **[`v2.9.0` (2026-11-05) — ZDF Tube Ladder Saturation, Analog Stereo Voice Spread & Class-A Transformer Output](./v2.9.0_2026-11-05.md)**
   - **Inter-Stage Tube ZDF 4-Pole Ladder & Anti-Whistle Damping**: Added per-stage tube saturation and input-envelope resonance damping to both stereo ZDF filters.
+  - **Phase 2 AdditiveEngine & DIB Optimization (2026-11-15)**: Cached `AdditiveEngine` partial amplitude table with trigonometric rotation recurrence (`max_sample_diff == 0` bit-exact), paired with 32-bit DIB deck/wave caches, `ChromaFastText`, `GetUpdateRgn` culling (`0.86 ms` live paint, `0.0/s` idle), and tail-aware idle DSP bypass (`0.02%` idle CPU).
   - **Analog Per-Voice Stereo Spread & VCO Drift**: Single-voice unison patches now spread naturally across the stereo field in polyphonic mode while keeping Mono mode 100% centered.
   - **Class-A AnalogConsoleStage & Jury-Clamped Delay EQ**: Self-healing transformer output stage and rock-solid feedback EQ stability.
 

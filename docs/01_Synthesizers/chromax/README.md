@@ -26,6 +26,7 @@ When you play a 6-note chord, 6 oscillators add together and can easily clip you
   - **Analog Polyphonic Stereo Voice Panning & VCO Drift**: Every voice in a chord now occupies its own natural stereo pan position with subtle organic analog pitch drift.
   - **Inter-Stage Zero-DC Tube Ladder Saturation & Anti-Whistle Damping**: Upgraded Chroma 24 dB/oct transistor and diode ladder filters with per-stage tube saturation and input-envelope resonance damping.
   - **Class-A AnalogConsoleStage Output & Clipboard [FEEDBACK]**: Added discrete transformer output saturation with 5 Hz DC blocking, `NaN` self-healing, and 1-click Clipboard diagnostic reporting.
+  - **Phase 2 Optimization (2026-11-15)**: 32-bit DIB backbuffer, `ChromaFastText`, clip culling, eased meters, and tail-aware idle bypass (`0.13%` idle, `0.02%` post-tail, `3.05 ms` live paint, `0.0/s` idle repaints).
 
 - **[`v2.8.0` (2026-10-21) — Zero Background Noise on Clean Presets, Polyphonic Headroom Scaling & Dirty-Rect UI](./v2.8.0_2026-10-21.md)**
   - **Silent Noise Floor on Clean Patches**: Defaulted `kParamNoise1Level = 0.0f` on clean factory presets so pure keys and pads have zero background hiss.

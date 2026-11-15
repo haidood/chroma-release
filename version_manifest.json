@@ -1,104 +1,110 @@
 {
   "suite_name": "Chroma Audio Suite",
-  "suite_version": "2026.11.10",
-  "release_date": "2026-11-10",
-  "notes": "Chroma Audio Suite v2.9.0 / 2026.11.10: ChromaCoreVST v2.9.0 with Osc 4 Internal Live Resampler & Time-Stretch Layer, 14-Source Right-Click Modulation Matrix, Living Organic Wavetable Interference Visualizer, Raised 3D Synth Deck & Recessed Keybed; ChromaScramble v2.9.0 Low-Color Hardware Theme, 3D Protruding Titanium Knobs & Bold Typography; and Brushed Gunmetal Patch Note Release Cards across all 14 plugins.",
+  "suite_version": "2026.11.15",
+  "release_date": "2026-11-15",
+  "notes": "Chroma Audio Suite 2026.11.15 (Phase 2 Performance & Audio Polish): ChromaPulse v3.1.0 (sub-ms pad visual strike, 2x oversampled ADAA master ceiling clip=0, capacitor-discharge exponential AHDSR, 32-sample retrigger crossfade, full Nervestyle hotkeys); ChromaCore v2.9.3 (32-bit DIB, cached chassis & keybed, batched display, 0.02% idle CPU); ChromaDeep cached AdditiveEngine partial table + trig rotation (max_sample_diff=0); and suite-wide 32-bit DIB backbuffers, ChromaFastText, dirty-rect clipping, 0.0/s idle repaints, and tail-aware idle DSP bypass across all 14 plugins.",
   "plugins": {
     "ChromaCore": {
       "version": "2.9.3",
       "build": 20261111,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaCoreVST.dll",
-      "notes": "ChromaCoreVST v2.9.3 (official main release): complete performance and skin overhaul. Fixes an editor freeze in v2.9.2, roughly 10x faster screen updates via pre-rendered dial sprites and dirty-rect invalidation, near-zero CPU when silent (0.02%), voice CPU leak fixed, uniform dark raised dials on all tabs, 69 factory presets (including 10 ambient pads & space chords), all 14 modulation sources in Mod Matrix Add Route menu, and zoom-aware popup menus. Layout, window size, and 146 parameter IDs remain 100% unchanged."
+      "notes": "ChromaCoreVST v2.9.3 (Phase 2 update 2026.11.15): 32-bit DIB cached chassis & keybed, batched wavetable display, ChromaFastText, 0.0/s idle repaints, 1.77ms live paint, near-zero CPU when silent (0.02%), uniform dark raised dials, 69 factory presets, and all 14 modulation sources in Mod Matrix."
     },
     "ChromaCoreFable": {
       "version": "2.9.3",
       "build": 20261111,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaCoreVST_Fable.dll",
-      "notes": "ChromaCoreVST_Fable v2.9.3 (side-by-side build, installs next to ChromaCoreVST v2.9.0 without replacing it): fixes an editor freeze in v2.9.2, roughly ten times faster screen updates while playing, near-zero CPU when silent, voice CPU leak fixed, uniform dark raised dials on every tab, and every modulation source available from the Mod Matrix Add Route menu. Sound, layout, window size and parameter IDs are unchanged."
+      "notes": "ChromaCoreVST_Fable v2.9.3 (Phase 2 side-by-side build): 32-bit DIB cached chassis & keybed, batched display, ChromaFastText, 1.73ms live paint, 0.0/s idle repaints, 0.02% idle CPU, uniform dark raised dials, and full modulation routing."
     },
     "ChromaCorePro": {
       "version": "2.9.3",
       "build": 20261111,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaCoreVST.dll",
-      "notes": "Unified into ChromaCoreVST v2.9.3: Updating automatically merges legacy ChromaCorePro into ChromaCoreVST.dll with full v2.9.3 3D hardware skin, 10x faster rendering, near-zero idle CPU, Osc 4 Resampler, 14-source Mod Matrix, and 69 presets."
+      "notes": "Unified into ChromaCoreVST v2.9.3: Updating automatically merges legacy ChromaCorePro into ChromaCoreVST.dll with Phase 2 32-bit DIB rendering, 0.02% idle CPU, Osc 4 Resampler, 14-source Mod Matrix, and 69 presets."
     },
     "ChromaPulse": {
-      "version": "3.0.0",
-      "build": 20261110,
+      "version": "3.1.0",
+      "build": 20261114,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaPulse.dll",
-      "notes": "ChromaPulse v3.0.0: Rapid Step Sequencer Hotkeys (Ctrl+Click sub-divisions 1-8x, Alt+Click reverse with arrow badge, Shift+Click mute, [, ] pattern shifts, Ctrl+C/V bar clipboard, D bar duplicate), Interactive AHDSR Multi-Segment Envelope Canvas on waveform deck, and Master Bus Spectral-Adaptive Magic Drive."
+      "notes": "ChromaPulse v3.1.0 (promoted to main release): sub-ms pad visual strike via tight dirty-rect InvalidateRect + UpdateWindow and section/pad culling (1.98ms live paint, 0.0/s idle), 2x oversampled ADAA master bus soft-clip ceiling (0.985f, clip=0 across factory kits), exponential RC AHDSR decay/release curves, 32-sample retrigger anti-click crossfade, 50-block idle bypass (0.02% post-tail CPU), and full keyboard workflow (Tab, F, I, N, [, ], Delete, H help)."
+    },
+    "ChromaPulseFable": {
+      "version": "3.1.0",
+      "build": 20261114,
+      "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaPulse_Fable.dll",
+      "notes": "ChromaPulse_Fable v3.1.0 (side-by-side build matching main ChromaPulse v3.1.0): sub-ms pad visual strike, PaintPulseGUI section/pad culls, 2x ADAA master ceiling (clip=0), exponential AHDSR, 32-sample retrigger crossfade, and 50-block idle bypass."
     },
     "ChromaDeep": {
       "version": "2.9.0",
       "build": 20261110,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaDeep.dll",
-      "notes": "ChromaDeep v2.9.0: Upgraded Zero-Delay Feedback (ZDF) 4-Pole Ladder filter with inter-stage zero-DC tube saturation and dynamic input-envelope resonance damping (eliminating high-resonance limit-cycle whistles), added analog per-voice stereo panning & VCO thermal drift, Class-A AnalogConsoleStage output stage, Jury-stabilized Delay EQ biquads, and Clipboard [FEEDBACK] reporting."
+      "notes": "ChromaDeep v2.9.0 (Phase 2 update 2026.11.15): Cached AdditiveEngine partial amplitude table & trig rotation recurrence (bit-exact max_sample_diff=0), 32-bit DIB deck/wave caches, ChromaFastText, GetUpdateRgn culling (0.86ms live paint, 0.0/s idle), tail-aware idle bypass (0.02% idle CPU), ZDF 4-Pole Tube Ladder, and analog per-voice stereo spread."
     },
     "ChromaX": {
       "version": "2.9.0",
       "build": 20261110,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaX.dll",
-      "notes": "ChromaX v2.9.0: Added analog polyphonic stereo voice panning & per-voice VCO thermal drift, upgraded Chroma 4-Pole Transistor & Diode Ladder filters with inter-stage zero-DC tube saturation and input-envelope resonance damping, and added Class-A AnalogConsoleStage master output transformer saturation with NaN self-healing."
+      "notes": "ChromaX v2.9.0 (Phase 2 update 2026.11.15): Added 32-bit DIB backbuffer, ChromaFastText, clip culling, eased meters, and tail-aware idle bypass (0.13% idle CPU, 3.05ms live paint, 0.0/s idle repaints), plus analog polyphonic stereo voice panning, VCO thermal drift, inter-stage tube ladder filters, and Class-A AnalogConsoleStage output."
     },
     "ChromaComp": {
       "version": "2.9.0",
       "build": 20261110,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaComp.dll",
-      "notes": "ChromaComp v2.9.0: Fixed High-Shelf (H-SH) biquad b2 coefficient sign bug, added Jury stability triangle pole clamping (SanitizeBiquadCoefficients) and NaN/Inf self-healing across all 20 dynamic EQ & detector biquads, and upgraded [FEEDBACK] Clipboard diagnostic reporting."
+      "notes": "ChromaComp v2.9.0 (Phase 2 update 2026.11.15): Added 32-bit DIB backbuffer & bkg cache, ChromaFastText, clip culling, eased meters, and audio idle bypass (0.15% idle CPU, 4.83ms live paint, 0.0/s idle repaints), plus Jury-clamped 20-band EQ & detector biquads and [FEEDBACK] diagnostics."
     },
     "ChromaVerb": {
       "version": "2.9.1",
       "build": 20261110,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaVerb.dll",
-      "notes": "ChromaVerb v2.9.1: Added Jury stability triangle pole clamping (SanitizeBiquadCoefficients) and NaN/Inf self-healing across all Decay Rate & Post-EQ biquad filters, plus upgraded 1-click Clipboard [FEEDBACK] diagnostic reporting."
+      "notes": "ChromaVerb v2.9.1 (Phase 2 update 2026.11.15): Added 32-bit DIB backbuffer, ChromaFastText, clip culling, eased meters, and audio idle bypass (0.25% idle CPU, 0.02% post-tail, 4.73ms live paint, 0.0/s idle repaints), plus FWHT 8x8 matrix, octave-up shimmer, and Jury-stabilized biquads."
     },
     "ChromaDelay": {
       "version": "2.9.0",
       "build": 20261110,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaDelay.dll",
-      "notes": "ChromaDelay v2.9.0: Added NaN/Inf self-healing circuit breaker and Jury pole stability across all feedback loop EQ biquads in Bucket-Brigade (BBD), 15 IPS Tape, Oil-Can, 12-Bit Digital, and Shimmer delay engines, plus upgraded Clipboard [FEEDBACK] reporting."
+      "notes": "ChromaDelay v2.9.0 (Phase 2 update 2026.11.15): Added 32-bit DIB cache, ChromaFastText, dirty-rect clipping, and idle audio bypass (0.13% idle CPU, 1.87ms live paint, 0.0/s idle repaints), plus NaN/Inf self-healing and Jury pole stability across BBD, Tape, Oil-Can, Digital, and Shimmer engines."
     },
     "ChromaFhaser": {
       "version": "2.9.0",
       "build": 20261105,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaFhaser.dll",
-      "notes": "ChromaFhaser v2.9.0: Fixed High-Shelf (H-SH) biquad b2 coefficient sign bug, added Jury stability triangle pole clamping across all 24 parametric EQ bands, and upgraded 1-click Clipboard [FEEDBACK] diagnostic reporting."
+      "notes": "ChromaFhaser v2.9.0 (Phase 2 update 2026.11.15): Fixed linear-RMS timer trap, added 32-bit DIB backbuffer, ChromaFastText, clip culling, and idle audio bypass (0.16% idle CPU, 4.81ms live paint, 0.0/s idle repaints), plus Jury-stabilized 24-band EQ and analog all-pass dispersion."
     },
     "ChromaSlice": {
       "version": "2.9.0",
       "build": 20261105,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaSlice.dll",
-      "notes": "ChromaSlice v2.9.0: Integrated ChromaAnalogSuite stability protection and upgraded 1-click Clipboard [FEEDBACK] diagnostic reporting."
+      "notes": "ChromaSlice v2.9.0 (Phase 2 update 2026.11.15): Added 32-bit DIB cache, ChromaFastText, dirty-rect clipping, and idle audio bypass (0.03% idle CPU, 3.52ms live paint, 0.0/s idle repaints), plus 2x ADAA analog warmth and Clipboard [FEEDBACK] diagnostics."
     },
     "ChromaTransientShaper": {
       "version": "2.9.0",
       "build": 20261105,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaTransientShaper.dll",
-      "notes": "ChromaTransientShaper v2.9.0: Integrated ChromaAnalogSuite stability protection and upgraded 1-click Clipboard [FEEDBACK] diagnostic reporting."
+      "notes": "ChromaTransientShaper v2.9.0 (Phase 2 update 2026.11.15): Added 32-bit DIB cache, ChromaFastText, dirty-rect clipping, and idle audio bypass (0.03% idle CPU, 0.17% active DSP, 4.21ms live paint, 0.0/s idle repaints), plus 2x ADAA clipper stage and Clipboard [FEEDBACK] diagnostics."
     },
     "ChromaVoice": {
       "version": "3.2.1",
       "build": 20261105,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaVoice.dll",
-      "notes": "ChromaVoice v3.2.1: Integrated ChromaAnalogSuite stability protection and upgraded 1-click Clipboard [FEEDBACK] diagnostic reporting."
+      "notes": "ChromaVoice v3.2.1 (Phase 2 update 2026.11.15): Added 32-bit DIB layers, ChromaFastText, dirty-rect clip, and 2-stage tail idle bypass (0.02% idle CPU, 1.96ms live paint, 0.0/s idle repaints), plus WARP Granular OLA transient preservation and 2x ADAA tube warmth."
     },
     "ChromaWidener": {
       "version": "2.9.0",
       "build": 20261105,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaWidener.dll",
-      "notes": "ChromaWidener v2.9.0: Integrated ChromaAnalogSuite stability protection and upgraded 1-click Clipboard [FEEDBACK] diagnostic reporting."
+      "notes": "ChromaWidener v2.9.0 (Phase 2 update 2026.11.15): Added 32-bit DIB cache, ChromaFastText, dirty-rect clipping, and idle audio bypass (0.09% idle CPU, 2.74ms live paint, 0.0/s idle repaints), plus per-channel analog dispersion and 2x ADAA output stage."
     },
     "ChromaDesigner": {
       "version": "2.9.0",
       "build": 20261105,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaDesigner.dll",
-      "notes": "ChromaDesigner v2.9.0: Integrated ChromaAnalogSuite stability protection and upgraded 1-click Clipboard [FEEDBACK] diagnostic reporting."
+      "notes": "ChromaDesigner v2.9.0 (Phase 2 update 2026.11.15): Added 32-bit DIB cache, ChromaFastText, dirty-rect clipping, and idle audio bypass (0.03% idle CPU, 0.35% active DSP, 0.29ms live paint, 0.0/s idle repaints), plus Dual 500-Series D.E.T. rack UI and 2x ADAA console bus stage."
     },
     "ChromaScramble": {
       "version": "2.9.0",
       "build": 20261110,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaScramble.dll",
-      "notes": "ChromaScramble v2.9.0: Upgraded to Low-Color Slate/Ice-Blue/Amber Hardware Theme, 3D Protruding Titanium Rotary Knobs in a clean single-row layout, High-Contrast Segoe UI Bold Typography across all 10 lanes and tabs, 2x Oversampled ADAA Analog Console Output Stage, and 1-Click Clipboard [FEEDBACK] telemetry."
+      "notes": "ChromaScramble v2.9.0 (Phase 2 update 2026.11.15): Added 32-bit DIB curve cache, ChromaFastText, GetUpdateRgn culling, and tail-aware idle bypass (0.02% idle CPU, 2.8ms full repaint, 0.0/s idle repaints), plus Low-Color Hardware Theme, 3D protruding titanium knobs, 10-module MSEG engine, and 2x ADAA warmth."
     }
   }
 }

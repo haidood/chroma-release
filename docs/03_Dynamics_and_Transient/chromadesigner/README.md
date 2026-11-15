@@ -19,6 +19,7 @@ Tubes and asymmetric transformers generate 'even-order' harmonics (octaves and f
 - **[`v2.9.0` (2026-11-05) — ChromaAnalogSuite Stability Integration & 1-Click Clipboard [FEEDBACK]](./v2.9.0_2026-11-05.md)**
   - **2x Oversampled ADAA Analog Console Stage**: Eliminates foldback aliasing when cascading Slot A and Slot B harmonic drive stages.
   - **Upgraded 1-Click Clipboard [FEEDBACK] Shield**: Instant `Ctrl+V` diagnostic report copy and pre-filled GitHub Issue.
+  - **Phase 2 Optimization (2026-11-15)**: 32-bit DIB cache, `ChromaFastText`, dirty-rect clipping, and idle audio bypass (`0.03%` idle, `0.29 ms` live paint, `0.0/s` idle repaints).
 
 - **[`v2.8.0` (2026-10-21) — Dual 500-Series D.E.T. Rack UI, Active Knob Dirty-Rects & Auto-Updater Shield](./v2.8.0_2026-10-21.md)**
   - **Dual 500-Series Hardware Rack**: Cascade two independent analog coloration stages with fine drive and mix control.

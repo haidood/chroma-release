@@ -18,6 +18,7 @@ Basic noise gates chatter and click when a sound hovers near the threshold. Hyst
 
 - **[`v2.9.0` (2026-11-05) — ChromaAnalogSuite Stability Integration & 1-Click Clipboard [FEEDBACK]](./v2.9.0_2026-11-05.md)**
   - **2x Oversampled ADAA Analog Drive Stage**: Adds warm harmonic punch to chopped rhythmic synth and vocal slices.
+  - **Phase 2 Optimization (2026-11-15)**: DIB cache, `ChromaFastText`, dirty-rect clipping, and idle audio bypass (`0.03%` idle, `3.52 ms` live paint, `0.0/s` idle repaints).
   - **Upgraded 1-Click Clipboard [FEEDBACK] Shield**: Instant `Ctrl+V` diagnostic report copy and pre-filled GitHub Issue.
 
 - **[`v2.8.0` (2026-10-21) — Targeted Dirty-Rect Timer Invalidation & 0.002f Fine Precision](./v2.8.0_2026-10-21.md)**

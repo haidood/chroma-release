@@ -23,6 +23,7 @@ In v2.9.0 we fixed a sign inversion in the High-Shelf EQ formula so boosting or 
   - **Fixed High-Shelf (`H-SH`) Biquad `b2` Sign Bug**: Corrected the RBJ Audio EQ Cookbook numerator sign in `setHighShelf` so high-shelf boosts and cuts have accurate DC/low-frequency unity gain.
   - **Jury Stability Clamping & `NaN` Self-Healing**: Protected all 20 dynamic EQ and sidechain detector filters against pole blowout.
   - **Upgraded 1-Click Clipboard [FEEDBACK]**: Instant diagnostic summary copied to Clipboard.
+  - **Phase 2 Optimization (2026-11-15)**: 32-bit DIB backbuffer & bkg cache, `ChromaFastText`, clip culling, eased meters, and idle bypass (`0.15%` idle, `4.83 ms` live paint, `0.0/s` idle repaints).
 
 - **[`v2.8.0` (2026-10-21) — 7-Zone Mixing Backdrop, Stack-Allocated EQ Curves & Targeted Dirty-Rects](./v2.8.0_2026-10-21.md)**
   - **Integrated 24-Band Parametric EQ + Bus Compressor**: Shape tone and dynamics in a single zero-latency window.
