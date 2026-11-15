@@ -30,7 +30,7 @@ Instead of playing just one note per 16th-note step, ratcheting rapidly subdivid
 ## 🗂️ Version & Patch History
 
 - **[`v3.1.0` (2026-11-15) — Sub-ms Pad Strike Response, 2x ADAA Master Ceiling, Exp AHDSR & Phase 2 Engine](./v3.1.0_2026-11-15.md)**
-  - **Promoted to Main Release**: Promoted `ChromaPulse v3.1.0` from side-by-side Fable testing into canonical `ChromaPulse.dll` / `.vst3` (while keeping `ChromaPulse_Fable.dll` matching).
+  - **Promoted to Unified Main Release**: Merged all `ChromaPulse v3.1.0` upgrades directly into canonical `ChromaPulse.dll` / `.vst3` (retired separate `_Fable` side-by-side binary) and cleaned top-ribbon badge/knob clearances.
   - **Sub-Millisecond Visual Pad Strike (`TriggerPadVisualAndUpdate`)**: Both pad clicks and 4x4 keyboard drum triggers snap pad glow immediately (`vel * 0.80f`) with tight per-pad `InvalidateRect` + `UpdateWindow`, alongside section and pad `g.IsVisible` culls in `PaintPulseGUI` (`1.98 ms` live paint, `0.0/s` idle repaints).
   - **2x Oversampled ADAA Master Soft-Clip Ceiling (`0.985f`)**: Replaced hard master clipping with first-order anti-derivative anti-aliased soft-clipping, eliminating `peak=1.200` / multi-hundred-clip overloads down to `clip=0` (`peak=0.827`) across all 6 factory kits.
   - **Exponential RC AHDSR & 32-Sample Retrigger Crossfade**: Switched AHDSR decay/release stages to exponential capacitor discharge (`exp(-4.6/samples)`), added 32-sample smooth retrigger crossfades in `DrumVoice`, and added 4-sample onset micro-tapers to kick/snare transients.

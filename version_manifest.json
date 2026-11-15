@@ -10,12 +10,6 @@
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaCoreVST.dll",
       "notes": "ChromaCoreVST v2.9.3 (Phase 2 update 2026.11.15): 32-bit DIB cached chassis & keybed, batched wavetable display, ChromaFastText, 0.0/s idle repaints, 1.77ms live paint, near-zero CPU when silent (0.02%), uniform dark raised dials, 69 factory presets, and all 14 modulation sources in Mod Matrix."
     },
-    "ChromaCoreFable": {
-      "version": "2.9.3",
-      "build": 20261111,
-      "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaCoreVST_Fable.dll",
-      "notes": "ChromaCoreVST_Fable v2.9.3 (Phase 2 side-by-side build): 32-bit DIB cached chassis & keybed, batched display, ChromaFastText, 1.73ms live paint, 0.0/s idle repaints, 0.02% idle CPU, uniform dark raised dials, and full modulation routing."
-    },
     "ChromaCorePro": {
       "version": "2.9.3",
       "build": 20261111,
@@ -26,13 +20,7 @@
       "version": "3.1.0",
       "build": 20261114,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaPulse.dll",
-      "notes": "ChromaPulse v3.1.0 (promoted to main release): sub-ms pad visual strike via tight dirty-rect InvalidateRect + UpdateWindow and section/pad culling (1.98ms live paint, 0.0/s idle), 2x oversampled ADAA master bus soft-clip ceiling (0.985f, clip=0 across factory kits), exponential RC AHDSR decay/release curves, 32-sample retrigger anti-click crossfade, 50-block idle bypass (0.02% post-tail CPU), and full keyboard workflow (Tab, F, I, N, [, ], Delete, H help)."
-    },
-    "ChromaPulseFable": {
-      "version": "3.1.0",
-      "build": 20261114,
-      "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaPulse_Fable.dll",
-      "notes": "ChromaPulse_Fable v3.1.0 (side-by-side build matching main ChromaPulse v3.1.0): sub-ms pad visual strike, PaintPulseGUI section/pad culls, 2x ADAA master ceiling (clip=0), exponential AHDSR, 32-sample retrigger crossfade, and 50-block idle bypass."
+      "notes": "ChromaPulse v3.1.0 (canonical unified release): sub-ms pad visual strike via tight dirty-rect InvalidateRect + UpdateWindow and section/pad culling (1.98ms live paint, 0.0/s idle), 2x oversampled ADAA master bus soft-clip ceiling (0.985f, clip=0 across factory kits), exponential RC AHDSR decay/release curves, 32-sample retrigger anti-click crossfade, 50-block idle bypass (0.02% post-tail CPU), clean header ribbon layout, and full keyboard workflow (Tab, F, I, N, [, ], Delete, H help)."
     },
     "ChromaDeep": {
       "version": "2.9.0",

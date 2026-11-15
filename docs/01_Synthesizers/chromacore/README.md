@@ -120,7 +120,7 @@ A classic 24dB 4-pole filter is built like a ladder with 4 rungs (stages). Inste
 ## 🛠️ Known Issues & Bug Reporting
 
 - v2.9.2 (Fable build) could freeze the plugin window shortly after a key on the on-screen keyboard was released. Fixed in v2.9.3; please replace v2.9.2.
-- v2.9.3 is promoted to the canonical ChromaCoreVST main release (`ChromaCoreVST.dll` / `.vst3`). The side-by-side `ChromaCoreVST_Fable.dll` remains available during the transition.
+- v2.9.3 unifies all upgrades directly into the single canonical ChromaCoreVST main release (`ChromaCoreVST.dll` / `.vst3`). Legacy `_Fable` side-by-side builds are retired.
 - v2.9.1 Decay and Release use an exponential curve, so patches with long Decay/Release times feel snappier than in v2.9.0.
 - Legacy ChromaCorePro instances automatically merge into ChromaCoreVST.dll upon clicking Update.
 

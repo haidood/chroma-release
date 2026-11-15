@@ -324,7 +324,7 @@ const DATA = [
         ],
         "known_issues": [
           "v2.9.2 (Fable build) could freeze the plugin window shortly after a key on the on-screen keyboard was released. Fixed in v2.9.3; please replace v2.9.2.",
-          "v2.9.3 is promoted to the canonical ChromaCoreVST main release (`ChromaCoreVST.dll` / `.vst3`). The side-by-side `ChromaCoreVST_Fable.dll` remains available during the transition.",
+          "v2.9.3 unifies all upgrades directly into the single canonical ChromaCoreVST main release (`ChromaCoreVST.dll` / `.vst3`). Legacy `_Fable` side-by-side builds are retired.",
           "v2.9.1 Decay and Release use an exponential curve, so patches with long Decay/Release times feel snappier than in v2.9.0.",
           "Legacy ChromaCorePro instances automatically merge into ChromaCoreVST.dll upon clicking Update."
         ],
@@ -538,7 +538,7 @@ const DATA = [
             "title": "Sub-ms Pad Strike Response, 2x ADAA Master Ceiling, Exp AHDSR & Phase 2 Engine",
             "card_image": "assets/ChromaPulse_v3.1.0_Release_Card.png",
             "highlights": [
-              "**Promoted to Main Release**: Promoted `ChromaPulse v3.1.0` from side-by-side Fable testing into canonical `ChromaPulse.dll` / `.vst3` (while keeping `ChromaPulse_Fable.dll` matching).",
+              "**Promoted to Unified Main Release**: Merged all `ChromaPulse v3.1.0` upgrades directly into canonical `ChromaPulse.dll` / `.vst3` (retired separate `_Fable` side-by-side binary) and cleaned top-ribbon badge/knob clearances.",
               "**Sub-Millisecond Visual Pad Strike (`TriggerPadVisualAndUpdate`)**: Both pad clicks and 4x4 keyboard drum triggers snap pad glow immediately (`vel * 0.80f`) with tight per-pad `InvalidateRect` + `UpdateWindow`, alongside section and pad `g.IsVisible` culls in `PaintPulseGUI` (`1.98 ms` live paint, `0.0/s` idle repaints).",
               "**2x Oversampled ADAA Master Soft-Clip Ceiling (`0.985f`)**: Replaced hard master clipping with first-order anti-derivative anti-aliased soft-clipping, eliminating `peak=1.200` / multi-hundred-clip overloads down to `clip=0` (`peak=0.827`) across all 6 factory kits.",
               "**Exponential RC AHDSR & 32-Sample Retrigger Crossfade**: Switched AHDSR decay/release stages to exponential capacitor discharge (`exp(-4.6/samples)`), added 32-sample smooth retrigger crossfades in `DrumVoice`, and added 4-sample onset micro-tapers to kick/snare transients.",
