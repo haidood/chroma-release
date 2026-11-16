@@ -1,8 +1,8 @@
 {
   "suite_name": "Chroma Audio Suite",
-  "suite_version": "2026.11.15",
-  "release_date": "2026-11-15",
-  "notes": "Chroma Audio Suite 2026.11.15 (Phase 2 Performance & Audio Polish): ChromaPulse v3.1.0 (sub-ms pad visual strike, 2x oversampled ADAA master ceiling clip=0, capacitor-discharge exponential AHDSR, 32-sample retrigger crossfade, full Nervestyle hotkeys); ChromaCore v2.9.3 (32-bit DIB, cached chassis & keybed, batched display, 0.02% idle CPU); ChromaDeep cached AdditiveEngine partial table + trig rotation (max_sample_diff=0); and suite-wide 32-bit DIB backbuffers, ChromaFastText, dirty-rect clipping, 0.0/s idle repaints, and tail-aware idle DSP bypass across all 14 plugins.",
+  "suite_version": "2026.11.16",
+  "release_date": "2026-11-16",
+  "notes": "Chroma Audio Suite 2026.11.16: Introduces ChromaMaster v1.0.0 — Whole-Song Mastering Workstation (193-tap Kaiser Linear-Phase / Minimum-Phase Sculpt EQ, 4-Band Leveler, 24-Band Bark Spectral Tamer, 2x ADAA ChromaMagicMaster exciter/width stage, 4x True-Peak Lookahead Maximizer with 4 styles, 5th-order Psychoacoustic Dither, ITU-R BS.1770 LUFS & Horizon/Spectrum visualizer), joining all 14 Phase 2 plugins (32-bit DIB offscreen caches, ChromaFastText, 0.0/s idle repaints).",
   "plugins": {
     "ChromaCore": {
       "version": "2.9.3",
@@ -93,6 +93,12 @@
       "build": 20261110,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaScramble.dll",
       "notes": "ChromaScramble v2.9.0 (Phase 2 update 2026.11.15): Added 32-bit DIB curve cache, ChromaFastText, GetUpdateRgn culling, and tail-aware idle bypass (0.02% idle CPU, 2.8ms full repaint, 0.0/s idle repaints), plus Low-Color Hardware Theme, 3D protruding titanium knobs, 10-module MSEG engine, and 2x ADAA warmth."
+    },
+    "ChromaMaster": {
+      "version": "1.0.0",
+      "build": 20261116,
+      "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaMaster.dll",
+      "notes": "ChromaMaster v1.0.0 (2026.11.16 Release): Complete whole-song mastering workstation featuring 193-tap Kaiser Linear-Phase / Minimum-Phase Sculpt EQ (fixed 198-sample PDC across live toggles), 4-Band Leveler, ENBW-normalized 24-Band Bark Spectral Tamer, 2x ADAA ChromaMagicMaster analog air/sub exciter with RMS-matched unity gain, 4x True-Peak Lookahead Maximizer (Trans/Crisp/Tube/4-Bnd), 5th-order Psychoacoustic Dither with auto-blanking, Master Assist scanner, Gain-Matched A/B, and calibrated Cosmic Void meters + Spectrum/Horizon views."
     }
   }
 }

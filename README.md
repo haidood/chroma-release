@@ -4,6 +4,10 @@
 
 **Harmonic Color. Hardware Soul. Native Speed.** — Pure native 64-bit C++ synthesizers and studio effects built for analog weight, sub-2 ms UI responsiveness, and near-zero idle CPU.
 
+![ChromaMaster Live Interface](docs/assets/ChromaMaster_Screen.png)
+
+![ChromaMaster v1.0.0 Release Card](docs/assets/ChromaMaster_v1.0.0_Release_Card.png)
+
 ![ChromaCore Live Interface](docs/assets/ChromaCore_Screen.png)
 
 ![ChromaPulse Live Interface](docs/assets/ChromaPulse_Screen.png)
@@ -36,6 +40,7 @@ Every plugin across the suite now ships with **32-bit DIB offscreen caches**, **
 | **ChromaSlice** (`v2.9.0`) | `0.03%` | `0.85%` | `0.03%` | `3.52 ms` | `0.0/s` | DIB cache, `ChromaFastText`, dirty-rect clipping, idle bypass |
 | **ChromaVoice** (`v3.2.1`) | `0.02%` | `4.97%` | `0.45%` | `1.96 ms` | `0.0/s` | 32-bit DIB layers, dirty-rect clip, 2-stage tail idle bypass |
 | **ChromaWidener** (`v2.9.0`) | `0.09%` | `1.36%` | `0.02%` | `2.74 ms` | `0.0/s` | 32-bit DIB cache, `ChromaFastText`, dirty-rect clipping, idle bypass |
+| **ChromaMaster** (`v1.0.0`) | `—` | `—` | `—` | `16ms/60fps` | `0.0/s` | Whole-song mastering console: 193-tap Kaiser LIN FIR, 24-band Bark Tamer, 2x ADAA Magic, 4x TP Limiter, Psycho Dither |
 
 ---
 
@@ -75,12 +80,17 @@ Every plugin across the suite now ships with **32-bit DIB offscreen caches**, **
 | **[ChromaVoice](docs/05_Vocal_and_Stereo_Imaging/chromavoice/README.md)** | `v3.2.1` | [Screen](docs/assets/ChromaVoice_Screen.png) | WARP Granular Vocal Pitch, Formant & Harmony Processor | [Overview & Glossary](docs/05_Vocal_and_Stereo_Imaging/chromavoice/README.md) ([`v3.2.1`](docs/05_Vocal_and_Stereo_Imaging/chromavoice/v3.2.1_2026-11-05.md) • [`v3.2.0`](docs/05_Vocal_and_Stereo_Imaging/chromavoice/v3.2.0_2026-10-22.md)) |
 | **[ChromaWidener](docs/05_Vocal_and_Stereo_Imaging/chromawidener/README.md)** | `v2.9.0` | [Screen](docs/assets/ChromaWidener_Screen.png) | Phase-Safe Multiband Spatializer & Stereo Widener | [Overview & Glossary](docs/05_Vocal_and_Stereo_Imaging/chromawidener/README.md) ([`v2.9.0`](docs/05_Vocal_and_Stereo_Imaging/chromawidener/v2.9.0_2026-11-05.md) • [`v2.8.0`](docs/05_Vocal_and_Stereo_Imaging/chromawidener/v2.8.0_2026-10-21.md)) |
 
+### 📁 [Mastering](docs/06_Mastering/README.md)
+| Plugin | Latest Build | UI Screen | Description | Release Notes & Guide |
+|---|---|---|---|---|
+| **[ChromaMaster](docs/06_Mastering/chromamaster/README.md)** | `v1.0.0` | [Screen](docs/assets/ChromaMaster_Screen.png) | Whole-Song Mastering Workstation (Lin-Phase EQ, Bark Tamer, 4x TP Limiter & Psycho Dither) | [Overview & Glossary](docs/06_Mastering/chromamaster/README.md) ([`v1.0.0`](docs/06_Mastering/chromamaster/v1.0.0_2026-11-16.md)) |
+
 ---
 
 ## ⚡ How to Update Any Plugin (Takes 10 Seconds)
 1. Look at the **top-right header bar** inside any Chroma plugin and click the **`[ v2.8.x / CHECK ]`** update button.
 2. Save your project, close your DAW, and click **`[ YES ]`** to launch `ChromaUpdater.exe`.
-3. Re-open your DAW — all 14 plugins are now synchronized to the latest release!
+3. Re-open your DAW — all 15 plugins are now synchronized to the latest release!
 
 ## 🛠️ How to Send a Bug Report or Feedback in 1 Click
 1. Click the **`[ FEEDBACK ]`** button in the top-right header bar of the plugin.
