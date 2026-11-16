@@ -1,6 +1,8 @@
 # Chroma Audio Suite — Official Release Hub, Version History & Audio Guide
 
-Welcome to the official **Chroma Audio Suite** release repository, version archive, and plain-English audio guide.
+![Chroma Audio Suite Overview](docs/assets/ChromaAudio_Suite_Hero.png)
+
+**Harmonic Color. Hardware Soul. Native Speed.** — Pure native 64-bit C++ synthesizers and studio effects built for analog weight, sub-2 ms UI responsiveness, and near-zero idle CPU.
 
 ![ChromaCore VST Live Interface](docs/assets/ChromaCore_Screen.png)
 

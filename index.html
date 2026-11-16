@@ -1202,7 +1202,10 @@ function selectPlugin(pid, subView) {
   const p = found.plugin;
   const c = document.getElementById("content");
 
+  const suiteHeroPath = (window.location.pathname.includes("/docs/")) ? "assets/ChromaAudio_Suite_Hero.png" : "docs/assets/ChromaAudio_Suite_Hero.png";
+  const showSuiteHero = (pid === "chromacore" && subView === "overview");
   let html = `
+    ${showSuiteHero ? `<img class="release-card-img" style="margin-top:0;" src="${suiteHeroPath}" alt="Chroma Audio Suite Overview">` : ""}
     <div class="hero-box">
       <div class="hero-type">${found.cat.title} // ${p.type}</div>
       <div class="hero-title">
