@@ -1,33 +1,64 @@
-# ChromaPulse (`v3.1.0`)
+# ChromaPulse (`v3.2.0`)
 
 > **16-Pad Drum & Step-Sequenced Ratchet Rhythm Workstation**  
-> Precision rhythmic drum & bassline synthesizer built for modern electronic production, sub-millisecond pad triggering, 2x oversampled ADAA bus headroom, ratcheting arpeggios, and tempo-synced filter movement.
+> Precision 16-pad drum & rhythm workstation with Per-Pad & Master Parametric EQ, 3D depth-blended step bars, wider smooth ribbon waveforms, residual ADAA headroom, and rapid held-key + Left-Click sequencer note modifiers.
 
-### 🎛️ Plugin Interface (`v3.1.0`)
+### 🎛️ Plugin Interface (`v3.2.0`)
 
 ![ChromaPulse Live Interface](../../assets/ChromaPulse_Screen.png)
 
-![ChromaPulse v3.1.0 Release Card](../../assets/ChromaPulse_v3.1.0_Release_Card.png)
+![ChromaPulse v3.2.0 Release Card](../../assets/ChromaPulse_v3.2.0_Release_Card.png)
 
 ---
 
 ## 📚 Tech-to-Music Translator (How It Actually Works in Plain English)
 
-### 🔹 2x Oversampled ADAA Master Soft-Clip Ceiling
-When a heavy kick, layered snare, and ratcheting hi-hats land on the exact same beat, their combined peaks can smash past 0 dBFS into harsh digital clipping. First-order Anti-Derivative Anti-Aliased (ADAA) soft clipping at a 0.985 ceiling smoothly rounds just the extreme peak micro-spikes at 2x sample resolution—wiping out digital clips (0 clips across all 6 factory kits) without squashing drum punch.
+### 🔹 Residual-Only ADAA Soft-Clip Ceiling & ChromaMagicMaster
+Traditional oversampled clippers can roll off delicate cymbal air even when you aren't clipping. Residual-only ADAA only anti-aliases the nonlinear distortion over the ceiling while leaving the linear path dead flat at 44.1, 48, 88.2, 96, and 192 kHz—preserving crisp transient snap with zero added latency.
+
+### 🔹 Per-Pad 24-Band Parametric EQ + Master Bus EQ
+Carving rumble out of your hi-hat shouldn't thin out your 808 kick. Each of the 16 pads now carries its own 24-band parametric EQ straight into isolated DAW stem outputs, paired with a switchable Master EQ for final kit glue.
+
+### 🔹 Left-Click Sequencer Note Modifiers (Split, Reverse, Triplet)
+Instead of opening sub-menus for trap hi-hat rolls or reverse snares, hold a key (`2`, `3`, `4`, `6`, `8`, `R`, `T`, `M`, `A`, `G`) and Left-Click any step to split, flip backwards, pocket into triplet timing, accent, or ghost it on the fly.
 
 ### 🔹 Capacitor-Discharge Exponential AHDSR & 32-Sample Retrigger Crossfade
-Analog drum machines decay like a draining capacitor—fast punch up front followed by a smooth natural tail—whereas rapid machine-gun drum rolls on a single voice can click if the previous hit is chopped mid-cycle. ChromaPulse v3.1.0 pairs exponential RC decay/release slopes with a 32-sample onset crossfade so rolls and finger-drumming stay dead smooth.
-
-### 🔹 Class-A Drum Bus Transformer Saturation
-Drums have super fast spikes (transients) that can clip digital converters before they even sound loud. Passing the master drum bus through a modeled Class-A analog transformer gently hugs those microsecond drum spikes and adds warm low-end weight—giving kicks and snares instant record-ready punch.
-
-### 🔹 Sub-Step Ratcheting
-Instead of playing just one note per 16th-note step, ratcheting rapidly subdivides a single step into 2, 3, or 4 mini-strikes—creating signature rolling electronic and modern techno synth fills.
+Analog drum machines decay like a draining capacitor—fast punch up front followed by a smooth natural tail—whereas rapid machine-gun drum rolls on a single voice can click if the previous hit is chopped mid-cycle. ChromaPulse pairs exponential RC decay/release slopes with a 32-sample onset crossfade so rolls and finger-drumming stay dead smooth.
 
 ---
 
 ## 🗂️ Version & Patch History
+
+- **[`v3.2.0` (2026-11-16) — Per-Pad & Master EQ, 3D Blended Bars, Smooth Waveforms & Left-Click Note Modifiers](./v3.2.0_2026-11-16.md)**
+  - **Per-Pad 24-Band Parametric EQ + Master EQ**: Added independent 24-band parametric EQ on every one of the 16 drum voices (feeding both Master mix & isolated 32-channel stem outputs) alongside the global Master EQ, switched cleanly via top-right **`[ PAD XX EQ ]` / `[ MASTER EQ ]` / `[ RST ]`** chiclets and persisted inside DAW project chunks.
+  - **3D Blended Sequencer Bars & Softened Luminance**: Upgraded left-to-right sequencer step bars, All-Pads velocity pills, and Mixer faders with recessed 3D channel wells, soft multi-layer drop shadows, brushed vertical gradients, carved split grooves, and eye-friendly diffused top caps.
+  - **Wider, Smoother Anti-Aliased Waveforms & Curves**: Rebuilt the dual waveform slice display with true min/max contour ribbon fills, soft outer glow traces, and wider `2.2–2.5 px` smooth curves across waveforms, AHDSR envelopes, and EQ response splines.
+  - **Residual-Only ADAA Audio Fidelity**: Replaced the ceiling clipper with zero-latency residual-only 1st-order ADAA (`0.000 dB` flat linear top end across all sample rates) and upgraded Magic Drive to `ChromaMagicMaster` with NaN-safe RMS loudness trim and true Jury-stabilized RBJ shelf slopes.
+  - **Full Held-Key + Left-Click Note Modulation Workflow**: Hold modifier keys while Left-Clicking any programmed sequencer step to instantaneously split notes (`2..8`), reverse (`R`), shift into triplet pocket (`T`), accent (`A`), ghost (`G`), mute (`M`), quantize (`Q`), vary pitch/pan (`E`), or reset (`0`).
+
+  **⌨️ Sequencer Hotkeys & Gestures:**
+
+  | Key / Gesture | Action | Description |
+  |---|---|---|
+  | `2 + Left Click` | **Split Note 2x** | Subdivides the clicked sequencer step into 2 fast 32nd-note hits (displays `2x` + carved bar groove). |
+  | `3 + Left Click` | **Split Note 3x (Triplet)** | Subdivides the clicked step into a 3-hit triplet roll (`3x`) across the step duration. |
+  | `4 + Left Click` | **Split Note 4x** | Subdivides the clicked step into a 4-hit 64th-note burst (`4x`). |
+  | `6 + Left Click` | **Split Note 6x (Sextuplet)** | Subdivides the clicked step into a 6-hit sextuplet roll (`6x`). |
+  | `8 + Left Click` | **Split Note 8x** | Subdivides the clicked step into a rapid 8-hit 128th-note roll (`8x`). |
+  | `5 / 7 + Left Click` | **Odd Tuplet Splits (5x / 7x)** | Subdivides the clicked step into 5 or 7 evenly spaced odd-tuplet strikes. |
+  | `1 + Left Click` | **Reset Split to 1x** | Returns a subdivided step to a single clean hit (`1x`) without clearing velocity or reverse. |
+  | `0 + Left Click` | **Reset All Step Modifiers** | Resets splits (`1x`), Reverse, Triplet pocket, micro-timing, and step mute back to default. |
+  | `R + Left Click (or Alt + Click)` | **Toggle Reverse (◀)** | Flips the sample backwards on that individual step (`◀` rose badge); arms empty steps if clicked. |
+  | `T + Left Click` | **Toggle Triplet Pocket (T)** | Shifts single hits into a 16th-triplet groove pocket (+1/3 step) or compresses ratchets into triplet spacing (`T` / `3xT` badge). |
+  | `M + Left Click (or Shift + Click)` | **Toggle Step Mute** | Mutes or unmutes the step non-destructively while keeping its velocity and split edits intact. |
+  | `A + Left Click` | **Accent Toggle (100% / 72%)** | Snaps the clicked step to full `100%` accent velocity (or toggles back to `72%`). |
+  | `G + Left Click` | **Ghost Note (35%)** | Sets the clicked step to a subtle `35%` ghost-note hit (ideal for snares & percussive hats). |
+  | `Q + Left Click` | **Quantize Step Timing** | Clears per-step micro-late offset and triplet pocket shift back onto the hard grid. |
+  | `E + Left Click` | **Humanize Pitch & Pan** | Applies organic micro-variation to step pitch (`-6..+6 st`) and stereo pan placement. |
+  | `Ctrl + Left Click` | **Cycle Splits (1x..8x)** | Steps sequentially through subdivisions `1x -> 2x -> 3x -> 4x -> 5x -> 6x -> 7x -> 8x -> 1x`. |
+  | `Scroll Wheel (Over Step)` | **Step Split Count ±** | Scroll up/down directly over any step column to double or halve repeat subdivisions. |
+  | `[ / ] / Ctrl+Z / Ctrl+C / Ctrl+V` | **Shift, Undo, Copy & Paste Bar** | Rotate the 16-step pattern left/right, undo edits, or copy/paste entire bar pages across pads. |
+
 
 - **[`v3.1.0` (2026-11-15) — Sub-ms Pad Strike Response, 2x ADAA Master Ceiling, Exp AHDSR & Phase 2 Engine](./v3.1.0_2026-11-15.md)**
   - **Promoted to Unified Main Release**: Merged all `ChromaPulse v3.1.0` upgrades directly into canonical `ChromaPulse.dll` / `.vst3` (retired separate `_Fable` side-by-side binary) and cleaned top-ribbon badge/knob clearances.
@@ -76,7 +107,7 @@ Instead of playing just one note per 16th-note step, ratcheting rapidly subdivid
 
 ## 🛠️ Known Issues & Bug Reporting
 
-- None currently open in v3.1.0.
+- None currently open in v3.2.0.
 
 **Found a bug or weird preset behavior?**  
 Click the **`[ FEEDBACK ]`** button in the top-right header of the plugin! It automatically snapshots your patch, EQ curve, and screenshot, copies a diagnostic summary to your Clipboard (`Ctrl+V` ready for Discord), or opens a pre-filled [GitHub Bug Report](https://github.com/haidood/chroma-release/issues/new).

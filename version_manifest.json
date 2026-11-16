@@ -17,10 +17,10 @@
       "notes": "Unified into ChromaCoreVST v2.9.3: Updating automatically merges legacy ChromaCorePro into ChromaCoreVST.dll with Phase 2 32-bit DIB rendering, 0.02% idle CPU, Osc 4 Resampler, 14-source Mod Matrix, and 69 presets."
     },
     "ChromaPulse": {
-      "version": "3.1.0",
-      "build": 20261114,
+      "version": "3.2.0",
+      "build": 20261116,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaPulse.dll",
-      "notes": "ChromaPulse v3.1.0 (canonical unified release): sub-ms pad visual strike via tight dirty-rect InvalidateRect + UpdateWindow and section/pad culling (1.98ms live paint, 0.0/s idle), 2x oversampled ADAA master bus soft-clip ceiling (0.985f, clip=0 across factory kits), exponential RC AHDSR decay/release curves, 32-sample retrigger anti-click crossfade, 50-block idle bypass (0.02% post-tail CPU), clean header ribbon layout, and full keyboard workflow (Tab, F, I, N, [, ], Delete, H help)."
+      "notes": "ChromaPulse v3.2.0: 3D beveled soft-blended sequencer bars with drop shadows and carved split grooves; wider silky-smooth ribbon waveforms and smoothed curves; independent Per-Pad Parametric EQ (all 16 pads) plus selectable Master EQ; residual-only 1st-order ADAA zero-droop/zero-latency ceiling & ChromaMagicMaster bus warmth; and full held-key + Left-Click sequencer note modifiers (split 2/3/4/5/6/7/8, R reverse, T triplet pocket, M mute, A accent, G ghost, Q quantize, E vary, 0 reset)."
     },
     "ChromaDeep": {
       "version": "2.9.0",

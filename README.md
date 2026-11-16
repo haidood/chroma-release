@@ -12,7 +12,7 @@
 
 ![ChromaPulse Live Interface](docs/assets/ChromaPulse_Screen.png)
 
-![ChromaPulse v3.1.0 Release Card](docs/assets/ChromaPulse_v3.1.0_Release_Card.png)
+![ChromaPulse v3.2.0 Release Card](docs/assets/ChromaPulse_v3.2.0_Release_Card.png)
 
 ![ChromaCore v2.9.3 Release Card](docs/assets/ChromaCore_v2.9.3_Release_Card.png)
 
@@ -27,7 +27,7 @@ Every plugin across the suite now ships with **32-bit DIB offscreen caches**, **
 | Plugin | Idle DSP % | Playing DSP % | Post-Tail % | Live Paint (ms) | Idle Repaints/s | Key 2026-11-15 Update |
 |---|---:|---:|---:|---:|---:|---|
 | **ChromaCore** (`v2.9.3`) | `0.02%` | `5.48%` | `0.02%` | `1.77 ms` | `0.0/s` | Cached 3D chassis & keybed, batched display, `ChromaFastText` |
-| **ChromaPulse** (`v3.1.0`) | `0.22%` | `2.88%` | `0.02%` | `1.98 ms` | `0.0/s` | Sub-ms pad strike, 2x ADAA ceiling (`clip=0`), exp AHDSR, crossfade |
+| **ChromaPulse** (`v3.2.0`) | `0.22%` | `2.88%` | `0.02%` | `1.98 ms` | `0.0/s` | Per-Pad + Master EQ, 3D blended bars, smooth waveforms, residual ADAA, left-click modifiers |
 | **ChromaDeep** (`v2.9.0`) | `0.02%` | `23.18%` | `1.02%` | `0.86 ms` | `0.0/s` | Cached `AdditiveEngine` partial table + trig rotation (`diff=0`), DIB caches |
 | **ChromaX** (`v2.9.0`) | `0.13%` | `4.47%` | `0.02%` | `3.05 ms` | `0.0/s` | 32-bit DIB, clip culling, eased meters, tail-aware idle bypass |
 | **ChromaVerb** (`v2.9.1`) | `0.25%` | `2.11%` | `0.02%` | `4.73 ms` | `0.0/s` | 32-bit DIB, eased meters, clip culling, idle bypass |
@@ -51,7 +51,7 @@ Every plugin across the suite now ships with **32-bit DIB offscreen caches**, **
 |---|---|---|---|---|
 | **[ChromaCore](docs/01_Synthesizers/chromacore/README.md)** | `v2.9.3` | [Screen](docs/assets/ChromaCore_Screen.png) | 32-Voice Hybrid Analog / Wavetable / Resampling Workstation Synth | [Overview & Glossary](docs/01_Synthesizers/chromacore/README.md) ([`v2.9.3`](docs/01_Synthesizers/chromacore/v2.9.3_2026-11-11.md) • [`v2.9.2`](docs/01_Synthesizers/chromacore/v2.9.2_2026-11-11.md) • [`v2.9.1`](docs/01_Synthesizers/chromacore/v2.9.1_2026-11-10.md)) |
 | **[ChromaX](docs/01_Synthesizers/chromax/README.md)** | `v2.9.0` | [Screen](docs/assets/ChromaX_Screen.png) | Flagship Synthesizer with 3D Keycaps & LED Jewels | [Overview & Glossary](docs/01_Synthesizers/chromax/README.md) ([`v2.9.0`](docs/01_Synthesizers/chromax/v2.9.0_2026-11-05.md) • [`v2.8.0`](docs/01_Synthesizers/chromax/v2.8.0_2026-10-21.md)) |
-| **[ChromaPulse](docs/01_Synthesizers/chromapulse/README.md)** | `v3.1.0` | [Screen](docs/assets/ChromaPulse_Screen.png) | 16-Pad Drum & Step-Sequenced Ratchet Rhythm Workstation | [Overview & Glossary](docs/01_Synthesizers/chromapulse/README.md) ([`v3.1.0`](docs/01_Synthesizers/chromapulse/v3.1.0_2026-11-15.md) • [`v3.0.0`](docs/01_Synthesizers/chromapulse/v3.0.0_2026-11-06.md) • [`v2.9.0`](docs/01_Synthesizers/chromapulse/v2.9.0_2026-11-05.md)) |
+| **[ChromaPulse](docs/01_Synthesizers/chromapulse/README.md)** | `v3.2.0` | [Screen](docs/assets/ChromaPulse_Screen.png) | 16-Pad Drum & Step-Sequenced Ratchet Rhythm Workstation | [Overview & Glossary](docs/01_Synthesizers/chromapulse/README.md) ([`v3.2.0`](docs/01_Synthesizers/chromapulse/v3.2.0_2026-11-16.md) • [`v3.1.0`](docs/01_Synthesizers/chromapulse/v3.1.0_2026-11-15.md) • [`v3.0.0`](docs/01_Synthesizers/chromapulse/v3.0.0_2026-11-06.md)) |
 | **[ChromaDeep](docs/01_Synthesizers/chromadeep/README.md)** | `v2.9.0` | [Screen](docs/assets/ChromaDeep_Screen.png) | 7-Tab Modular Delay & Sub-Bass Synthesizer | [Overview & Glossary](docs/01_Synthesizers/chromadeep/README.md) ([`v2.9.0`](docs/01_Synthesizers/chromadeep/v2.9.0_2026-11-05.md) • [`v2.8.0`](docs/01_Synthesizers/chromadeep/v2.8.0_2026-10-21.md)) |
 
 ### 📁 [Reverb & Delay](docs/02_Reverb_and_Delay/README.md)
