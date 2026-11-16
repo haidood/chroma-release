@@ -275,7 +275,7 @@ const DATA = [
     "plugins": [
       {
         "id": "chromacore",
-        "name": "ChromaCore VST",
+        "name": "ChromaCore",
         "latest": "v2.9.3",
         "screen_image": "assets/ChromaCore_Screen.png",
         "type": "32-Voice Hybrid Analog / Wavetable / Resampling Workstation Synth",
@@ -1143,7 +1143,7 @@ const DATA = [
     ]
   }
 ];
-let activePluginId = "chromacore";
+let activePluginId = "suite_overview";
 let activeSubView = "overview"; // "overview" or version string e.g. "v2.8.5"
 
 function formatMarkdownBold(text) {
@@ -1154,7 +1154,15 @@ function formatMarkdownBold(text) {
 
 function renderSidebar() {
   const sb = document.getElementById("sidebar");
-  let html = "";
+  let html = `
+    <div class="cat-header"><span>SUITE OVERVIEW</span><span>[14]</span></div>
+    <div class="plugin-group">
+      <div class="plugin-row ${activePluginId === 'suite_overview' ? 'active' : ''}" onclick="showSuiteOverview()">
+        <span>◆ Chroma // Audio Overview</span>
+        <span class="ver-tag">SUITE</span>
+      </div>
+    </div>
+  `;
   for (const cat of DATA) {
     html += `<div class="cat-header"><span>📁 ${cat.title}</span><span>[${cat.icon}]</span></div>`;
     for (const p of cat.plugins) {
@@ -1202,10 +1210,7 @@ function selectPlugin(pid, subView) {
   const p = found.plugin;
   const c = document.getElementById("content");
 
-  const suiteHeroPath = (window.location.pathname.includes("/docs/")) ? "assets/ChromaAudio_Suite_Hero.png" : "docs/assets/ChromaAudio_Suite_Hero.png";
-  const showSuiteHero = (pid === "chromacore" && subView === "overview");
   let html = `
-    ${showSuiteHero ? `<img class="release-card-img" style="margin-top:0;" src="${suiteHeroPath}" alt="Chroma Audio Suite Overview">` : ""}
     <div class="hero-box">
       <div class="hero-type">${found.cat.title} // ${p.type}</div>
       <div class="hero-title">
@@ -1328,7 +1333,44 @@ function submitToGitHub() {
   window.open(url, "_blank");
 }
 
-selectPlugin("chromacore", "overview");
+function showSuiteOverview() {
+  activePluginId = "suite_overview";
+  activeSubView = "overview";
+  renderSidebar();
+  const c = document.getElementById("content");
+  const heroPath = (window.location.pathname.includes("/docs/")) ? "assets/ChromaAudio_Suite_Hero.png" : "docs/assets/ChromaAudio_Suite_Hero.png";
+  let gridHtml = `<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-top:16px;">`;
+  for (const cat of DATA) {
+    for (const p of cat.plugins) {
+      gridHtml += `
+        <div class="glossary-card" style="cursor:pointer;border-left-color:var(--ice-cyan);" onclick="selectPlugin('${p.id}','overview')">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+            <span class="glossary-term" style="margin:0;">${p.name}</span>
+            <span class="ver-tag">${p.latest}</span>
+          </div>
+          <div class="glossary-simple" style="font-size:12.5px;">${p.type}</div>
+        </div>
+      `;
+    }
+  }
+  gridHtml += `</div>`;
+
+  c.innerHTML = `
+    <img class="release-card-img" style="margin-top:0;" src="${heroPath}" alt="Chroma Audio Suite Overview">
+    <div class="hero-box">
+      <div class="hero-type">OVERVIEW // CHROMA // AUDIO SUITE</div>
+      <div class="hero-title"><span>Harmonic Color. Hardware Soul. Native Speed.</span></div>
+      <div class="hero-summary">
+        "Chroma" comes from <em>khrōma</em> — tonal richness and harmonic color. Explore all 14 synthesizers and studio effects below to view live interfaces, release cards, and plain-English Tech-to-Music DSP guides.
+      </div>
+    </div>
+    <div class="section-hdr">◆ All 14 Instruments &amp; Studio Effects</div>
+    ${gridHtml}
+  `;
+  c.scrollTop = 0;
+}
+
+showSuiteOverview();
 </script>
 </body>
 </html>

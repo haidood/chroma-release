@@ -1,13 +1,13 @@
-# ChromaCore VST (`v2.9.3`)
+# ChromaCore (`v2.9.3`)
 
 > **32-Voice Hybrid Analog / Wavetable / Resampling Workstation Synth**  
 > Our unified flagship 4-oscillator synthesizer combining Osc 1-3 cubic wavetables, Osc 4 Internal Live Resampler & Time-Stretch engine, a 14-source Right-Click Modulation Matrix, Living Organic Wavetable Interference Visualizer, dual 4-pole ladder and state-variable filters, 8-style FM/Mod oscillator, 16-step Performer & Sequencer, 3-band multiband distortion, 12-band studio EQ, Upward/Downward Multiband Dynamics, and Magic Fattener.
 
 ### 🎛️ Plugin Interface (`v2.9.3`)
 
-![ChromaCore VST Live Interface](../../assets/ChromaCore_Screen.png)
+![ChromaCore Live Interface](../../assets/ChromaCore_Screen.png)
 
-![ChromaCore VST v2.9.3 Release Card](../../assets/ChromaCore_v2.9.3_Release_Card.png)
+![ChromaCore v2.9.3 Release Card](../../assets/ChromaCore_v2.9.3_Release_Card.png)
 
 ---
 
