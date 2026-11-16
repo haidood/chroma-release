@@ -155,12 +155,12 @@ $total = $plugins.Count
 for ($i = 0; $i -lt $total; $i++) {
     $p = $plugins[$i]
     Write-Host ("[{0,2}/{1}] Installing {2}..." -f ($i + 1), $total, $p) -ForegroundColor White
-    Download-WithRetry "$RepoRawBase/$p.dll?t=$CacheBust" (Join-Path $vst2Dir "$p.dll") $false | Out-Null
-    Download-WithRetry "$RepoRawBase/$p.vst3?t=$CacheBust" (Join-Path $vst3Dir "$p.vst3") $false | Out-Null
+    Download-WithRetry "$RepoRawBase/${p}.dll?t=$CacheBust" (Join-Path $vst2Dir "${p}.dll") $false | Out-Null
+    Download-WithRetry "$RepoRawBase/${p}.vst3?t=$CacheBust" (Join-Path $vst3Dir "${p}.vst3") $false | Out-Null
 }
 foreach ($sup in $supportDlls) {
     Write-Host "  [+] Runtime: $sup" -ForegroundColor Gray
-    Download-WithRetry "$RepoRawBase/$sup?t=$CacheBust" (Join-Path $vst2Dir $sup) $true | Out-Null
+    Download-WithRetry "$RepoRawBase/${sup}?t=$CacheBust" (Join-Path $vst2Dir $sup) $true | Out-Null
 }
 
 Write-Host ''
