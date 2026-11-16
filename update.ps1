@@ -17,7 +17,7 @@ $isAdmin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIden
 if (-not $isAdmin -and -not $env:CHROMA_TARGET_OVERRIDE) {
     Write-Host '[*] Requesting Administrator permission for VST folder access...' -ForegroundColor Yellow
     $cmd = "[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; irm $RepoRootRaw/update.ps1?t=$CacheBust | iex"
-    Start-Process powershell -Verb RunAs -ArgumentList @('-NoExit', '-NoProfile', '-ExecutionPolicy', 'Bypass', '-Command', $cmd)
+    Start-Process powershell -Verb RunAs -ArgumentList @('-STA', '-NoExit', '-NoProfile', '-ExecutionPolicy', 'Bypass', '-Command', $cmd)
     return
 }
 
@@ -52,7 +52,12 @@ function Get-IniSetting([string]$key, [string]$defaultVal) {
 }
 
 function Set-IniSetting([string]$section, [string]$key, [string]$val) {
-    $lines = if (Test-Path $iniPath) { [System.Collections.Generic.List[string]](Get-Content $iniPath) } else { New-Object System.Collections.Generic.List[string] }
+    $lines = New-Object 'System.Collections.Generic.List[string]'
+    if (Test-Path $iniPath) {
+        foreach ($rawLine in @(Get-Content $iniPath -ErrorAction SilentlyContinue)) {
+            if ($null -ne $rawLine) { [void]$lines.Add([string]$rawLine) }
+        }
+    }
     $inSec = $false; $secIdx = -1; $found = $false
     for ($i = 0; $i -lt $lines.Count; $i++) {
         $t = $lines[$i].Trim()
@@ -66,10 +71,14 @@ function Set-IniSetting([string]$section, [string]$key, [string]$val) {
         }
     }
     if (-not $found) {
-        if ($secIdx -lt 0) { $lines.Add("[$section]"); $lines.Add("$key=$val") }
-        else { $lines.Insert($secIdx + 1, "$key=$val") }
+        if ($secIdx -lt 0) {
+            [void]$lines.Add("[$section]")
+            [void]$lines.Add("$key=$val")
+        } else {
+            $lines.Insert($secIdx + 1, "$key=$val")
+        }
     }
-    Set-Content -Path $iniPath -Value $lines -Encoding ASCII
+    Set-Content -Path $iniPath -Value $lines.ToArray() -Encoding ASCII
 }
 
 # 1. Fetch live CI/CD manifest to inspect versions and know what the user needs
@@ -157,16 +166,31 @@ if (-not $env:CHROMA_TARGET_OVERRIDE) {
     $selectedIndices = 0..($plugins.Count - 1)
 
     if ($choice -match '[cC]') {
-        Add-Type -AssemblyName System.Windows.Forms | Out-Null
-        $dlg2 = New-Object System.Windows.Forms.FolderBrowserDialog
-        $dlg2.Description = 'Select your VST2 (.dll) install folder'
-        $dlg2.SelectedPath = $defaultVst2
-        if ($dlg2.ShowDialog() -eq 'OK' -and $dlg2.SelectedPath) { $vst2Dir = $dlg2.SelectedPath }
+        $canGuiDlg = ([System.Threading.Thread]::CurrentThread.ApartmentState -eq 'STA')
+        if ($canGuiDlg) {
+            try {
+                Add-Type -AssemblyName System.Windows.Forms | Out-Null
+                $dlg2 = New-Object System.Windows.Forms.FolderBrowserDialog
+                $dlg2.Description = 'Select your VST2 (.dll) install folder'
+                $dlg2.SelectedPath = $defaultVst2
+                if ($dlg2.ShowDialog() -eq 'OK' -and $dlg2.SelectedPath) { $vst2Dir = $dlg2.SelectedPath }
 
-        $dlg3 = New-Object System.Windows.Forms.FolderBrowserDialog
-        $dlg3.Description = 'Select your VST3 (.vst3) install folder'
-        $dlg3.SelectedPath = $defaultVst3
-        if ($dlg3.ShowDialog() -eq 'OK' -and $dlg3.SelectedPath) { $vst3Dir = $dlg3.SelectedPath }
+                $dlg3 = New-Object System.Windows.Forms.FolderBrowserDialog
+                $dlg3.Description = 'Select your VST3 (.vst3) install folder'
+                $dlg3.SelectedPath = $defaultVst3
+                if ($dlg3.ShowDialog() -eq 'OK' -and $dlg3.SelectedPath) { $vst3Dir = $dlg3.SelectedPath }
+            } catch {
+                $canGuiDlg = $false
+            }
+        }
+        if (-not $canGuiDlg) {
+            $in2 = Read-Host "Enter VST2 (.dll) folder [Enter keeps $vst2Dir]"
+            if ($in2) { $vst2Dir = $in2.Trim().Trim('"') }
+            $in3 = Read-Host "Enter VST3 (.vst3) folder [Enter keeps $vst3Dir]"
+            if ($in3) { $vst3Dir = $in3.Trim().Trim('"') }
+        }
+        Write-Host "  New VST2 folder: $vst2Dir" -ForegroundColor Green
+        Write-Host "  New VST3 folder: $vst3Dir" -ForegroundColor Green
     }
 
     if ($choice -match '[pP]' -or ($choice -match '[cC]' -and (Read-Host 'Install ALL 15 [Enter] or pick specific numbers [P]') -match '^[pP]')) {
