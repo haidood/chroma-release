@@ -20,13 +20,13 @@ if (-not $isAdmin -and -not $env:CHROMA_TARGET_OVERRIDE) {
     return
 }
 
-# Warn if any DAW is open
+# Warn if any DAW is open (exact process names so unrelated apps like f.lux don't match)
 $daws = @('Ableton Live 10 Suite', 'Ableton Live 11 Suite', 'Ableton Live 12 Suite', 'Live', 'FL64', 'FL', 'reaper', 'Bitwig Studio', 'Cubase', 'Studio One')
 $runningDaws = Get-Process -ErrorAction SilentlyContinue | Where-Object {
     $n = $_.ProcessName
-    ($daws | Where-Object { $n -like "*$_*" }).Count -gt 0
+    ($daws | Where-Object { $n -ieq $_ }).Count -gt 0
 } | Select-Object -ExpandProperty ProcessName -Unique
-if ($runningDaws) {
+if ($runningDaws -and -not $env:CHROMA_TARGET_OVERRIDE) {
     Write-Host "[!] Running DAW detected: $($runningDaws -join ', ')" -ForegroundColor Yellow
     Write-Host '    Close your DAW first so VST files are not locked, then press Enter to continue (or Ctrl+C to cancel)...' -ForegroundColor Yellow
     Read-Host | Out-Null
