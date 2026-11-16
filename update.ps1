@@ -4,7 +4,7 @@ $ErrorActionPreference = 'Stop'
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
 $RepoRawBase = 'https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled'
-$CacheBust = [int][double]::Parse((Get-Date -UFormat %s))
+$CacheBust = [DateTimeOffset]::UtcNow.ToUnixTimeSeconds()
 
 Write-Host ''
 Write-Host '================================================================' -ForegroundColor Cyan
@@ -135,19 +135,32 @@ $plugins = @(
     'ChromaVerb', 'ChromaPulse', 'ChromaSlice', 'ChromaComp', 'ChromaTransientShaper',
     'ChromaDesigner', 'ChromaFhaser', 'ChromaVoice', 'ChromaX', 'ChromaMaster'
 )
-$supportDlls = @('onnxruntime.dll', 'onnxruntime_providers_shared.dll', 'ChromaUpdater.exe')
+$supportDlls = @('onnxruntime.dll', 'onnxruntime_providers_shared.dll')
 
 $wc = New-Object System.Net.WebClient
+function Download-WithRetry([string]$url, [string]$dest, [bool]$optional = $false) {
+    for ($attempt = 1; $attempt -le 2; $attempt++) {
+        try {
+            $wc.DownloadFile($url, $dest)
+            return $true
+        } catch {
+            if ($attempt -eq 1) { Start-Sleep -Milliseconds 900 }
+            elseif (-not $optional) { throw }
+        }
+    }
+    return $false
+}
+
 $total = $plugins.Count
 for ($i = 0; $i -lt $total; $i++) {
     $p = $plugins[$i]
     Write-Host ("[{0,2}/{1}] Installing {2}..." -f ($i + 1), $total, $p) -ForegroundColor White
-    $wc.DownloadFile("$RepoRawBase/$p.dll?t=$CacheBust", (Join-Path $vst2Dir "$p.dll"))
-    $wc.DownloadFile("$RepoRawBase/$p.vst3?t=$CacheBust", (Join-Path $vst3Dir "$p.vst3"))
+    Download-WithRetry "$RepoRawBase/$p.dll?t=$CacheBust" (Join-Path $vst2Dir "$p.dll") $false | Out-Null
+    Download-WithRetry "$RepoRawBase/$p.vst3?t=$CacheBust" (Join-Path $vst3Dir "$p.vst3") $false | Out-Null
 }
 foreach ($sup in $supportDlls) {
-    Write-Host "  [+] Runtime / Updater: $sup" -ForegroundColor Gray
-    $wc.DownloadFile("$RepoRawBase/$sup?t=$CacheBust", (Join-Path $vst2Dir $sup))
+    Write-Host "  [+] Runtime: $sup" -ForegroundColor Gray
+    Download-WithRetry "$RepoRawBase/$sup?t=$CacheBust" (Join-Path $vst2Dir $sup) $true | Out-Null
 }
 
 Write-Host ''
