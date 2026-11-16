@@ -6,7 +6,7 @@
 
 ![ChromaMaster Live Interface](docs/assets/ChromaMaster_Screen.png)
 
-![ChromaMaster v1.0.0 Release Card](docs/assets/ChromaMaster_v1.0.0_Release_Card.png)
+![ChromaMaster v1.1.0 Release Card](docs/assets/ChromaMaster_v1.1.0_Release_Card.png)
 
 ![ChromaCore Live Interface](docs/assets/ChromaCore_Screen.png)
 
@@ -83,7 +83,7 @@ Every plugin across the suite now ships with **32-bit DIB offscreen caches**, **
 ### 📁 [Mastering](docs/06_Mastering/README.md)
 | Plugin | Latest Build | UI Screen | Description | Release Notes & Guide |
 |---|---|---|---|---|
-| **[ChromaMaster](docs/06_Mastering/chromamaster/README.md)** | `v1.0.0` | [Screen](docs/assets/ChromaMaster_Screen.png) | Whole-Song Mastering Workstation (Lin-Phase EQ, Bark Tamer, 4x TP Limiter & Psycho Dither) | [Overview & Glossary](docs/06_Mastering/chromamaster/README.md) ([`v1.0.0`](docs/06_Mastering/chromamaster/v1.0.0_2026-11-16.md)) |
+| **[ChromaMaster](docs/06_Mastering/chromamaster/README.md)** | `v1.1.0` | [Screen](docs/assets/ChromaMaster_Screen.png) | Whole-Song Mastering Workstation (Reorderable 6-Slot Chain, Custom Ref Match, Lin-Phase EQ, Bark Tamer & 4x TP) | [Overview & Glossary](docs/06_Mastering/chromamaster/README.md) ([`v1.1.0`](docs/06_Mastering/chromamaster/v1.1.0_2026-11-16.md) • [`v1.0.0`](docs/06_Mastering/chromamaster/v1.0.0_2026-11-16.md)) |
 
 ---
 

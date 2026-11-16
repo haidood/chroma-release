@@ -1,26 +1,27 @@
-# Chroma Audio Suite - One-Line Zero-EXE Installer & Updater
+# Chroma Audio Suite - One-Line Cross-Legacy CI/CD App Slug
 # Hosted at: https://raw.githubusercontent.com/haidood/chroma-release/main/update.ps1
 $ErrorActionPreference = 'Stop'
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
-$RepoRawBase = 'https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled'
+$RepoRootRaw = 'https://raw.githubusercontent.com/haidood/chroma-release/main'
+$RepoRawBase = "$RepoRootRaw/precompiled"
 $CacheBust = [DateTimeOffset]::UtcNow.ToUnixTimeSeconds()
 
 Write-Host ''
 Write-Host '================================================================' -ForegroundColor Cyan
-Write-Host '  CHROMA AUDIO SUITE // ZERO-EXE INSTALLER & UPDATER (ALL 15)' -ForegroundColor Cyan
+Write-Host '  CHROMA AUDIO SUITE // CI/CD AUTO-DISCOVERY & UPDATER (ALL 15)' -ForegroundColor Cyan
 Write-Host '================================================================' -ForegroundColor Cyan
 
-# Check if running as Administrator; self-elevate if needed for C:\Program Files access
+# Self-elevate with TLS 1.2 so Program Files VST2/VST3 folders are writable
 $isAdmin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
 if (-not $isAdmin -and -not $env:CHROMA_TARGET_OVERRIDE) {
-    Write-Host '[*] Requesting Administrator permission for Program Files access...' -ForegroundColor Yellow
-    $cmd = "[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; irm https://raw.githubusercontent.com/haidood/chroma-release/main/update.ps1?t=$CacheBust | iex"
+    Write-Host '[*] Requesting Administrator permission for VST folder access...' -ForegroundColor Yellow
+    $cmd = "[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; irm $RepoRootRaw/update.ps1?t=$CacheBust | iex"
     Start-Process powershell -Verb RunAs -ArgumentList @('-NoExit', '-NoProfile', '-ExecutionPolicy', 'Bypass', '-Command', $cmd)
     return
 }
 
-# Warn if any DAW is open (exact process names so unrelated apps like f.lux don't match)
+# Warn if a DAW holds plugin DLLs open
 $daws = @('Ableton Live 10 Suite', 'Ableton Live 11 Suite', 'Ableton Live 12 Suite', 'Live', 'FL64', 'FL', 'reaper', 'Bitwig Studio', 'Cubase', 'Studio One')
 $runningDaws = Get-Process -ErrorAction SilentlyContinue | Where-Object {
     $n = $_.ProcessName
@@ -28,11 +29,11 @@ $runningDaws = Get-Process -ErrorAction SilentlyContinue | Where-Object {
 } | Select-Object -ExpandProperty ProcessName -Unique
 if ($runningDaws -and -not $env:CHROMA_TARGET_OVERRIDE) {
     Write-Host "[!] Running DAW detected: $($runningDaws -join ', ')" -ForegroundColor Yellow
-    Write-Host '    Close your DAW first so VST files are not locked, then press Enter to continue (or Ctrl+C to cancel)...' -ForegroundColor Yellow
+    Write-Host '    Close your DAW first so VST files are not locked, then press Enter to continue...' -ForegroundColor Yellow
     Read-Host | Out-Null
 }
 
-# Read saved folder prefs from %APPDATA%\ChromaAudio\settings.ini
+# Settings helpers (%APPDATA%\ChromaAudio\settings.ini)
 $chromaAppDir = Join-Path $env:APPDATA 'ChromaAudio'
 New-Item -ItemType Directory -Force -Path $chromaAppDir | Out-Null
 $iniPath = Join-Path $chromaAppDir 'settings.ini'
@@ -71,43 +72,129 @@ function Set-IniSetting([string]$section, [string]$key, [string]$val) {
     Set-Content -Path $iniPath -Value $lines -Encoding ASCII
 }
 
-$defaultVst2 = Get-IniSetting 'VstDir' 'C:\Program Files\VstPlugins'
-$defaultVst3 = Get-IniSetting 'Vst3Dir' 'C:\Program Files\Common Files\VST3'
+# 1. Fetch live CI/CD manifest to inspect versions and know what the user needs
+$wc = New-Object System.Net.WebClient
+$manifest = $null
+try {
+    $manifestJson = $wc.DownloadString("$RepoRootRaw/version_manifest.json?t=$CacheBust")
+    $manifest = $manifestJson | ConvertFrom-Json
+    Write-Host "[CI/CD] Connected: Chroma Audio Suite v$($manifest.suite_version)" -ForegroundColor Green
+} catch {
+    Write-Host '[!] Could not read version_manifest.json (continuing with direct precompiled sync)...' -ForegroundColor Yellow
+}
 
-if ($env:CHROMA_TARGET_OVERRIDE) {
-    $vst2Dir = Join-Path $env:CHROMA_TARGET_OVERRIDE 'VST2'
-    $vst3Dir = Join-Path $env:CHROMA_TARGET_OVERRIDE 'VST3'
-} else {
-    Add-Type -AssemblyName System.Windows.Forms | Out-Null
+# 2. Scan system for saved/common/super-legacy VST2 & VST3 locations
+$savedVst2 = Get-IniSetting 'VstDir' ''
+$savedVst3 = Get-IniSetting 'Vst3Dir' ''
+
+$probeVst2 = @($savedVst2, 'C:\Program Files\VstPlugins', 'C:\Program Files\Steinberg\VstPlugins', 'C:\Program Files\Common Files\VST2') | Where-Object { $_ } | Select-Object -Unique
+$detectedVst2 = ''
+foreach ($cand in $probeVst2) {
+    if ((Test-Path $cand) -and ((Get-ChildItem $cand -Filter 'Chroma*.dll' -ErrorAction SilentlyContinue).Count -gt 0)) {
+        $detectedVst2 = $cand
+        break
+    }
+}
+$defaultVst2 = if ($savedVst2) { $savedVst2 } elseif ($detectedVst2) { $detectedVst2 } else { 'C:\Program Files\VstPlugins' }
+$defaultVst3 = if ($savedVst3) { $savedVst3 } else { 'C:\Program Files\Common Files\VST3' }
+
+$plugins = @(
+    @{ bin='ChromaCoreVST';        key='ChromaCore' },
+    @{ bin='ChromaDeep';           key='ChromaDeep' },
+    @{ bin='ChromaDelay';          key='ChromaDelay' },
+    @{ bin='ChromaScramble';       key='ChromaScramble' },
+    @{ bin='ChromaWidener';        key='ChromaWidener' },
+    @{ bin='ChromaVerb';           key='ChromaVerb' },
+    @{ bin='ChromaPulse';          key='ChromaPulse' },
+    @{ bin='ChromaSlice';          key='ChromaSlice' },
+    @{ bin='ChromaComp';           key='ChromaComp' },
+    @{ bin='ChromaTransientShaper';key='ChromaTransientShaper' },
+    @{ bin='ChromaDesigner';       key='ChromaDesigner' },
+    @{ bin='ChromaFhaser';         key='ChromaFhaser' },
+    @{ bin='ChromaVoice';          key='ChromaVoice' },
+    @{ bin='ChromaX';              key='ChromaX' },
+    @{ bin='ChromaMaster';         key='ChromaMaster' }
+)
+
+# Check license.dat and legacy folders cleanly
+$licPath = Join-Path $chromaAppDir 'Licenses\license.dat'
+$legacyDev = 'C:\Program Files\VstPlugins\Dev'
+$legacyX64 = Join-Path $defaultVst2 'x64'
+
+if (-not $env:CHROMA_TARGET_OVERRIDE) {
     Write-Host ''
-    Write-Host "Current VST2 folder: $defaultVst2" -ForegroundColor Gray
-    Write-Host "Current VST3 folder: $defaultVst3" -ForegroundColor Gray
-    $pick = Read-Host 'Press ENTER to install to those folders, or type C to choose custom folders'
-    if ($pick -match '^[cC]') {
+    Write-Host '--- SYSTEM AUDIT & CI/CD CHECK ---' -ForegroundColor Cyan
+    Write-Host ("  License file : {0}" -f ($(if (Test-Path $licPath) { "FOUND ($licPath)" } else { "NOT FOUND (enter 30-day key after install)" })))
+    if (Test-Path $legacyDev) { Write-Host "  Legacy folder: FOUND $legacyDev (will migrate cleanly)" -ForegroundColor Yellow }
+    if (Test-Path (Join-Path $defaultVst2 'ChromaCorePro.dll')) { Write-Host '  Legacy plugin: FOUND ChromaCorePro (will upgrade -> ChromaCoreVST)' -ForegroundColor Yellow }
+    if ((Test-Path $legacyX64) -and ((Get-ChildItem $legacyX64 -Filter 'Chroma*.dll' -ErrorAction SilentlyContinue).Count -gt 0)) {
+        Write-Host "  Nested dupes : FOUND $legacyX64\Chroma* (will clean stale duplicates)" -ForegroundColor Yellow
+    }
+
+    $missingCount = 0
+    Write-Host ''
+    for ($i = 0; $i -lt $plugins.Count; $i++) {
+        $p = $plugins[$i]
+        $latestVer = if ($manifest -and $manifest.plugins.($p.key)) { "v$($manifest.plugins.($p.key).version)" } else { 'latest' }
+        $hasV2 = Test-Path (Join-Path $defaultVst2 "$($p.bin).dll")
+        $hasV3 = Test-Path (Join-Path $defaultVst3 "$($p.bin).vst3")
+        $state = if ($hasV2 -and $hasV3) { 'UPDATE READY' } elseif ($hasV2 -or $hasV3) { 'PARTIAL -> SYNC' } else { $missingCount++; 'MISSING -> INSTALL' }
+        $col = if ($hasV2 -and $hasV3) { 'Gray' } else { 'Yellow' }
+        Write-Host ("  [{0,2}] {1,-22} CI={2,-7} ({3})" -f ($i + 1), $p.bin, $latestVer, $state) -ForegroundColor $col
+    }
+    Write-Host ''
+    Write-Host "  Target VST2 folder : $defaultVst2" -ForegroundColor White
+    Write-Host "  Target VST3 folder : $defaultVst3" -ForegroundColor White
+    Write-Host ''
+    Write-Host 'Options:' -ForegroundColor Cyan
+    Write-Host '  [Enter] Install / Update ALL 15 plugins to the folders above'
+    Write-Host '  [C]     Change VST2 / VST3 target folders first'
+    Write-Host '  [P]     Pick specific plugins (comma numbers, e.g. 1,15)'
+    $choice = Read-Host 'Select action [Enter / C / P]'
+
+    $vst2Dir = $defaultVst2
+    $vst3Dir = $defaultVst3
+    $selectedIndices = 0..($plugins.Count - 1)
+
+    if ($choice -match '[cC]') {
+        Add-Type -AssemblyName System.Windows.Forms | Out-Null
         $dlg2 = New-Object System.Windows.Forms.FolderBrowserDialog
         $dlg2.Description = 'Select your VST2 (.dll) install folder'
         $dlg2.SelectedPath = $defaultVst2
-        $vst2Dir = if ($dlg2.ShowDialog() -eq 'OK' -and $dlg2.SelectedPath) { $dlg2.SelectedPath } else { $defaultVst2 }
+        if ($dlg2.ShowDialog() -eq 'OK' -and $dlg2.SelectedPath) { $vst2Dir = $dlg2.SelectedPath }
 
         $dlg3 = New-Object System.Windows.Forms.FolderBrowserDialog
         $dlg3.Description = 'Select your VST3 (.vst3) install folder'
         $dlg3.SelectedPath = $defaultVst3
-        $vst3Dir = if ($dlg3.ShowDialog() -eq 'OK' -and $dlg3.SelectedPath) { $dlg3.SelectedPath } else { $defaultVst3 }
-    } else {
-        $vst2Dir = $defaultVst2
-        $vst3Dir = $defaultVst3
+        if ($dlg3.ShowDialog() -eq 'OK' -and $dlg3.SelectedPath) { $vst3Dir = $dlg3.SelectedPath }
     }
+
+    if ($choice -match '[pP]' -or ($choice -match '[cC]' -and (Read-Host 'Install ALL 15 [Enter] or pick specific numbers [P]') -match '^[pP]')) {
+        $rawPick = Read-Host 'Enter plugin numbers separated by commas (e.g. 1,9,15)'
+        $parsed = @()
+        foreach ($tok in ($rawPick -split '[,\s]+')) {
+            $num = 0
+            if ([int]::TryParse($tok, [ref]$num) -and $num -ge 1 -and $num -le $plugins.Count) {
+                $parsed += ($num - 1)
+            }
+        }
+        if ($parsed.Count -gt 0) { $selectedIndices = $parsed | Select-Object -Unique }
+    }
+
     Set-IniSetting 'Updates' 'VstDir' $vst2Dir
     Set-IniSetting 'Updates' 'Vst3Dir' $vst3Dir
+} else {
+    $vst2Dir = Join-Path $env:CHROMA_TARGET_OVERRIDE 'VST2'
+    $vst3Dir = Join-Path $env:CHROMA_TARGET_OVERRIDE 'VST3'
+    $selectedIndices = 0..($plugins.Count - 1)
 }
 
 New-Item -ItemType Directory -Force -Path $vst2Dir | Out-Null
 New-Item -ItemType Directory -Force -Path $vst3Dir | Out-Null
 
 # Migrate & clean up legacy C:\Program Files\VstPlugins\Dev folder if present
-$legacyDev = 'C:\Program Files\VstPlugins\Dev'
 if (-not $env:CHROMA_TARGET_OVERRIDE -and (Test-Path $legacyDev)) {
-    Write-Host "[*] Legacy VstPlugins\Dev detected -- moving files out and removing Dev folder..." -ForegroundColor Yellow
+    Write-Host "[*] Legacy VstPlugins\Dev detected -- migrating out and removing Dev folder..." -ForegroundColor Yellow
     Get-ChildItem $legacyDev -File -ErrorAction SilentlyContinue | ForEach-Object {
         $ext = $_.Extension.ToLower()
         if ($ext -eq '.dll') {
@@ -132,19 +219,12 @@ foreach ($d in @($vst2Dir, $vst3Dir, $nestedX64)) {
         Remove-Item (Join-Path $d 'ChromaCorePro.*') -Force -ErrorAction SilentlyContinue
     }
 }
-if (Test-Path $nestedX64) {
+if (-not $env:CHROMA_TARGET_OVERRIDE -and (Test-Path $nestedX64)) {
     Remove-Item (Join-Path $nestedX64 'Chroma*.dll') -Force -ErrorAction SilentlyContinue
     Remove-Item (Join-Path $nestedX64 'Chroma*.vst3') -Force -ErrorAction SilentlyContinue
 }
 
-$plugins = @(
-    'ChromaCoreVST', 'ChromaDeep', 'ChromaDelay', 'ChromaScramble', 'ChromaWidener',
-    'ChromaVerb', 'ChromaPulse', 'ChromaSlice', 'ChromaComp', 'ChromaTransientShaper',
-    'ChromaDesigner', 'ChromaFhaser', 'ChromaVoice', 'ChromaX', 'ChromaMaster'
-)
 $supportDlls = @('onnxruntime.dll', 'onnxruntime_providers_shared.dll')
-
-$wc = New-Object System.Net.WebClient
 function Download-WithRetry([string]$url, [string]$dest, [bool]$optional = $false) {
     for ($attempt = 1; $attempt -le 2; $attempt++) {
         try {
@@ -164,10 +244,10 @@ function Download-WithRetry([string]$url, [string]$dest, [bool]$optional = $fals
     return $false
 }
 
-$total = $plugins.Count
-for ($i = 0; $i -lt $total; $i++) {
-    $p = $plugins[$i]
-    Write-Host ("[{0,2}/{1}] Installing {2}..." -f ($i + 1), $total, $p) -ForegroundColor White
+$selTotal = $selectedIndices.Count
+for ($idx = 0; $idx -lt $selTotal; $idx++) {
+    $p = $plugins[$selectedIndices[$idx]].bin
+    Write-Host ("[{0,2}/{1}] Syncing {2}..." -f ($idx + 1), $selTotal, $p) -ForegroundColor White
     Download-WithRetry "$RepoRawBase/${p}.dll?t=$CacheBust" (Join-Path $vst2Dir "${p}.dll") $false | Out-Null
     Download-WithRetry "$RepoRawBase/${p}.vst3?t=$CacheBust" (Join-Path $vst3Dir "${p}.vst3") $false | Out-Null
 }
@@ -178,8 +258,8 @@ foreach ($sup in $supportDlls) {
 
 Write-Host ''
 Write-Host '================================================================' -ForegroundColor Green
-Write-Host '  [SUCCESS] All 15 Chroma Audio Suite plugins updated cleanly!' -ForegroundColor Green
+Write-Host "  [SUCCESS] Synced $selTotal plugin(s) cleanly from CI/CD!" -ForegroundColor Green
 Write-Host "  VST2: $vst2Dir" -ForegroundColor Green
 Write-Host "  VST3: $vst3Dir" -ForegroundColor Green
-Write-Host '  Tip: If Ableton points to ...\VstPlugins\Dev, switch it to your VST2 folder above & Rescan.' -ForegroundColor Gray
+Write-Host '  Presets & License preserved in %APPDATA%\ChromaAudio.' -ForegroundColor Gray
 Write-Host '================================================================' -ForegroundColor Green
