@@ -15,7 +15,7 @@ Write-Host '================================================================' -F
 $isAdmin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
 if (-not $isAdmin -and -not $env:CHROMA_TARGET_OVERRIDE) {
     Write-Host '[*] Requesting Administrator permission for Program Files access...' -ForegroundColor Yellow
-    $cmd = "irm https://raw.githubusercontent.com/haidood/chroma-release/main/update.ps1 | iex"
+    $cmd = "[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; irm https://raw.githubusercontent.com/haidood/chroma-release/main/update.ps1?t=$CacheBust | iex"
     Start-Process powershell -Verb RunAs -ArgumentList @('-NoExit', '-NoProfile', '-ExecutionPolicy', 'Bypass', '-Command', $cmd)
     return
 }
@@ -125,9 +125,16 @@ if (-not $env:CHROMA_TARGET_OVERRIDE -and (Test-Path $legacyDev)) {
     Remove-Item $legacyDev -Recurse -Force -ErrorAction SilentlyContinue
 }
 
-# Remove legacy duplicate ChromaCorePro
-foreach ($d in @($vst2Dir, $vst3Dir)) {
-    Remove-Item (Join-Path $d 'ChromaCorePro.*') -Force -ErrorAction SilentlyContinue
+# Remove legacy duplicate ChromaCorePro and stale nested x64 copies
+$nestedX64 = Join-Path $vst2Dir 'x64'
+foreach ($d in @($vst2Dir, $vst3Dir, $nestedX64)) {
+    if (Test-Path $d) {
+        Remove-Item (Join-Path $d 'ChromaCorePro.*') -Force -ErrorAction SilentlyContinue
+    }
+}
+if (Test-Path $nestedX64) {
+    Remove-Item (Join-Path $nestedX64 'Chroma*.dll') -Force -ErrorAction SilentlyContinue
+    Remove-Item (Join-Path $nestedX64 'Chroma*.vst3') -Force -ErrorAction SilentlyContinue
 }
 
 $plugins = @(
@@ -141,9 +148,15 @@ $wc = New-Object System.Net.WebClient
 function Download-WithRetry([string]$url, [string]$dest, [bool]$optional = $false) {
     for ($attempt = 1; $attempt -le 2; $attempt++) {
         try {
-            $wc.DownloadFile($url, $dest)
+            $tmp = "$dest.download"
+            $wc.DownloadFile($url, $tmp)
+            if ((Get-Item $tmp).Length -lt 50000) {
+                throw "Downloaded file too small: $dest"
+            }
+            Move-Item -Force $tmp $dest
             return $true
         } catch {
+            Remove-Item "$dest.download" -Force -ErrorAction SilentlyContinue
             if ($attempt -eq 1) { Start-Sleep -Milliseconds 900 }
             elseif (-not $optional) { throw }
         }
