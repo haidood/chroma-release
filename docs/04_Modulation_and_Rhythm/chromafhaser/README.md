@@ -1,13 +1,13 @@
-# ChromaFhaser (`v2.9.0`)
+# ChromaFhaser (`v2.9.1`)
 
 > **40-Stage Dual Harmonic Phase Processor**  
 > Deep analog-modeled phaser with up to 40 all-pass stages, thru-zero flanger, 3D waterfall spectrum display, and 24-band parametric EQ sculpting.
 
-### 🎛️ Plugin Interface (`v2.9.0`)
+### 🎛️ Plugin Interface (`v2.9.1`)
 
 ![ChromaFhaser Live Interface](../../assets/ChromaFhaser_Screen.png)
 
-![ChromaFhaser v2.9.0 Release Card](../../assets/ChromaFhaser_v2.9.0_Release_Card.png)
+![ChromaFhaser v2.9.1 Release Card](../../assets/ChromaFhaser_v2.9.1_Release_Card.png)
 
 ---
 
@@ -19,6 +19,10 @@ A phaser doesn't delay the whole sound like a flanger; instead, it pushes specif
 ---
 
 ## 🗂️ Version & Patch History
+
+- **[`v2.9.1` (2026-11-17) — LifeGuard Startup Update Check, Module-Pinned Diagnostics & 3-State Biquad Guard](./v2.9.1_2026-11-17.md)**
+  - **`LifeGuard`-Protected Startup Update Check**: Secures `CheckForUpdateAsync()` on editor open with mutex-guarded lifetime checks so closing or removing the plugin mid-request never touches freed memory.
+  - **3-State `BiquadSanitizeStatus` & Module-Pinned Feedback Shield**: Upgraded biquad coefficient sanitization and pinned background diagnostic threads against `FreeLibrary` unload races.
 
 - **[`v2.9.0` (2026-11-05) — High-Shelf (H-SH) Biquad Fix, Jury Pole Clamping & Clipboard [FEEDBACK]](./v2.9.0_2026-11-05.md)**
   - **Fixed High-Shelf (`H-SH`) Biquad `b2` Sign Bug**: Corrected the high-shelf numerator coefficient in `Biquad::Setup` so shelf boosts/cuts maintain accurate low-end unity gain.
@@ -34,7 +38,7 @@ A phaser doesn't delay the whole sound like a flanger; instead, it pushes specif
 
 ## 🛠️ Known Issues & Bug Reporting
 
-- None currently open in v2.9.0.
+- ChromaFhaser currently uses the float biquad sanitizer overload and still nudges very low boosted shelves (e.g. 20 Hz +18 dB) at high sample rates (96–192 kHz); moving to the double overload is queued next.
 
 **Found a bug or weird preset behavior?**  
 Click the **`[ FEEDBACK ]`** button in the top-right header of the plugin! It automatically snapshots your patch, EQ curve, and screenshot, copies a diagnostic summary to your Clipboard (`Ctrl+V` ready for Discord), or opens a pre-filled [GitHub Bug Report](https://github.com/haidood/chroma-release/issues/new).

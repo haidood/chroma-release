@@ -1,13 +1,13 @@
-# ChromaWidener (`v2.9.0`)
+# ChromaWidener (`v2.9.1`)
 
 > **Phase-Safe Multiband Spatializer & Stereo Widener**  
 > Expands stereo width across mid and high frequencies while keeping sub-bass anchored and 100% mono-compatible.
 
-### 🎛️ Plugin Interface (`v2.9.0`)
+### 🎛️ Plugin Interface (`v2.9.1`)
 
 ![ChromaWidener Live Interface](../../assets/ChromaWidener_Screen.png)
 
-![ChromaWidener v2.9.0 Release Card](../../assets/ChromaWidener_v2.9.0_Release_Card.png)
+![ChromaWidener v2.9.1 Release Card](../../assets/ChromaWidener_v2.9.1_Release_Card.png)
 
 ---
 
@@ -19,6 +19,10 @@ If you widen a track by simply flipping the phase of one speaker, it sounds supe
 ---
 
 ## 🗂️ Version & Patch History
+
+- **[`v2.9.1` (2026-11-17) — Eliminated 30 Static GDI+ Unload Objects & Added 250ms Sample-Rate Guard](./v2.9.1_2026-11-17.md)**
+  - **Eliminated All 30 Static GDI+ Objects on Unload**: Replaced every static `Gdiplus::Font`, `StringFormat`, `SolidBrush`, `Pen`, and `LinearGradientBrush` with stack objects so `FreeLibrary` (`device_remove`) never runs GDI+ destructors inside `DllMain(DLL_PROCESS_DETACH)` under the Windows loader lock.
+  - **250ms Time-Bounded `effSetSampleRate` Guard + Deferred Resume**: Waits up to `250 ms` for `audioBusy` to drain, defers `widener.Init` on timeout into `pendingSampleRate`, and applies it on the next `effMainsChanged` resume (`seq_cst` synchronized).
 
 - **[`v2.9.0` (2026-11-05) — ChromaAnalogSuite Stability Integration & 1-Click Clipboard [FEEDBACK]](./v2.9.0_2026-11-05.md)**
   - **Per-Channel Analog Tolerance Dispersion & 2x ADAA Stage**: Natural hardware console width with 100% phase-safe mono compatibility.
@@ -32,7 +36,7 @@ If you widen a track by simply flipping the phase of one speaker, it sounds supe
 
 ## 🛠️ Known Issues & Bug Reporting
 
-- None currently open in v2.9.0.
+- A host crash reported by a tester after removing ChromaWidener and ChromaMaster is not yet confirmed by a crash dump.
 
 **Found a bug or weird preset behavior?**  
 Click the **`[ FEEDBACK ]`** button in the top-right header of the plugin! It automatically snapshots your patch, EQ curve, and screenshot, copies a diagnostic summary to your Clipboard (`Ctrl+V` ready for Discord), or opens a pre-filled [GitHub Bug Report](https://github.com/haidood/chroma-release/issues/new).

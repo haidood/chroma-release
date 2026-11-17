@@ -276,7 +276,7 @@ const DATA = [
       {
         "id": "chromacore",
         "name": "ChromaCore",
-        "latest": "v2.9.3",
+        "latest": "v2.9.4",
         "screen_image": "assets/ChromaCore_Screen.png",
         "type": "32-Voice Hybrid Analog / Wavetable / Resampling Workstation Synth",
         "summary": "Our unified flagship 4-oscillator synthesizer combining Osc 1-3 cubic wavetables, Osc 4 Internal Live Resampler & Time-Stretch engine, a 14-source Right-Click Modulation Matrix, Living Organic Wavetable Interference Visualizer, dual 4-pole ladder and state-variable filters, 8-style FM/Mod oscillator, 16-step Performer & Sequencer, 3-band multiband distortion, 12-band studio EQ, Upward/Downward Multiband Dynamics, and Magic Fattener.",
@@ -323,12 +323,24 @@ const DATA = [
           }
         ],
         "known_issues": [
-          "v2.9.2 (Fable build) could freeze the plugin window shortly after a key on the on-screen keyboard was released. Fixed in v2.9.3; please replace v2.9.2.",
-          "v2.9.3 unifies all upgrades directly into the single canonical ChromaCoreVST main release (`ChromaCoreVST.dll` / `.vst3`). Legacy `_Fable` side-by-side builds are retired.",
-          "v2.9.1 Decay and Release use an exponential curve, so patches with long Decay/Release times feel snappier than in v2.9.0.",
+          "A host crash reported by a tester is not yet confirmed by a crash dump, so this release may not fix it; if it recurs, please send %APPDATA%\\ChromaAudio\\CrashReports\\host_shield_log.txt.",
+          "v2.9.2 (Fable build) could freeze the plugin window shortly after a key on the on-screen keyboard was released. Fixed in v2.9.3+; please replace v2.9.2.",
+          "v2.9.4 unifies all upgrades directly into the single canonical ChromaCoreVST main release (`ChromaCoreVST.dll` / `.vst3`). Legacy `_Fable` side-by-side builds are retired.",
+          "v2.9.1+ Decay and Release use an exponential curve, so patches with long Decay/Release times feel snappier than in v2.9.0.",
           "Legacy ChromaCorePro instances automatically merge into ChromaCoreVST.dll upon clicking Update."
         ],
         "versions": [
+          {
+            "version": "v2.9.4",
+            "date": "2026-11-17",
+            "title": "NeuralLifeGuard Thread Safety, 192 kHz Double Biquad Guard & Module-Pinned Shields",
+            "card_image": "assets/ChromaCore_v2.9.4_Release_Card.png",
+            "highlights": [
+              "**`NeuralLifeGuard` Mutex-Protected AI Worker**: `RunNeuralGenerationWorker` now acquires `NeuralLifeGuard::mtx` and verifies `alive` before writing decoded audio, generated synthesis parameters, `isGeneratingAI`, or `aiStatusMsg` onto `PluginState`, and pins the DLL via `CreateThread` + `GetModuleHandleExA` + `FreeLibraryAndExitThread`.",
+              "**192 kHz Double-Precision Biquad Unit-Circle Guard**: Upgraded `ChromaAnalogSuite::SanitizeBiquadCoefficients` double tolerance (`m = 1e-10`, `clampTol = 1e-8`) with 3-state `BiquadSanitizeStatus` (`Ok`, `Nudged`, `Rejected`), preserving `20 Hz +18 dB` shelves at `176.4/192 kHz` without pole nudging.",
+              "**`ChromaUpdateShield` & `ChromaFeedbackShield` Hardening**: Added mutex-guarded `LifeGuard` to background update checks/downloads and module-pinned feedback HTTP workers against `FreeLibrary` unload races."
+            ]
+          },
           {
             "version": "v2.9.3",
             "date": "2026-11-11",
@@ -506,7 +518,7 @@ const DATA = [
       {
         "id": "chromapulse",
         "name": "ChromaPulse",
-        "latest": "v3.2.0",
+        "latest": "v3.2.1",
         "screen_image": "assets/ChromaPulse_Screen.png",
         "type": "16-Pad Drum & Step-Sequenced Ratchet Rhythm Workstation",
         "summary": "Precision 16-pad drum & rhythm workstation with Per-Pad & Master Parametric EQ, 3D depth-blended step bars, wider smooth ribbon waveforms, residual ADAA headroom, and rapid held-key + Left-Click sequencer note modifiers.",
@@ -529,9 +541,21 @@ const DATA = [
           }
         ],
         "known_issues": [
-          "None currently open in v3.2.0."
+          "A host crash reported by a tester is not yet confirmed by a crash dump."
         ],
         "versions": [
+          {
+            "version": "v3.2.1",
+            "date": "2026-11-17",
+            "title": "Lock-Free Sample Swap Handshake, Strict [-0.985] ADAA Ceiling & S=1.0 Shelf Invariance",
+            "card_image": "assets/ChromaPulse_v3.2.1_Release_Card.png",
+            "highlights": [
+              "**Lock-Free Live Sample Swap Handshake**: Added symmetric `seq_cst` `std::atomic<int> audioBusy` counter around `ProcessReplacing` and `effProcessEvents` (with SEH reset), `std::mutex sampleWriteMutex` acquired before `ScopedSampleLock` (`200 ms` timeout), and atomic `sampleGen` mismatch voice cutoff\u2014verified across 4,000 C++ and 1,200 live DLL swaps against 92,622 audio blocks with zero faults.",
+              "**Strict `[-0.985, 0.985]` Residual ADAA Ceiling**: Updated `SoftClipCeilingADAA` so step, hot-kit, and `15 kHz +3 dBFS` signals never exceed `0.985`, paired with `~5 ms` `-std::expm1f` zipper smoothers (`< 1e-6f` snap) on master volume, pad volume, and pad pan.",
+              "**`TriggerPadFromGui` & Slice Safety Guards**: Unified `TriggerPadFromGui` across all 6 GUI pad click sites and `LoadAdjacentSampleInFolder`, and added `.empty()`, `min`, and zero-length slice guards for reverse playback.",
+              "**Fixed `S = 1.0` Shelf Slope & Finite Notch Readout**: Enforced fixed `S = 1.0` shelf Q-invariance across wheel/HUD/ring UI and floored `EvalMagnitudeDb` numerator/denominator at `1e-12` (`-64.57 dB` finite Notch readout)."
+            ]
+          },
           {
             "version": "v3.2.0",
             "date": "2026-11-16",
@@ -810,7 +834,7 @@ const DATA = [
       {
         "id": "chromaverb",
         "name": "ChromaVerb",
-        "latest": "v2.9.1",
+        "latest": "v2.9.2",
         "screen_image": "assets/ChromaVerb_Screen.png",
         "type": "Studio Algorithmic Multi-Room FDN Reverb & Shimmer",
         "summary": "Lush, zero-metallic algorithmic studio reverb powered by an 8x8 unitary Feedback Delay Network, orthogonal stereo taps, and forward octave-up shimmer.",
@@ -825,9 +849,21 @@ const DATA = [
           }
         ],
         "known_issues": [
-          "None currently open in v2.9.1."
+          "A host crash reported by a tester after loading ChromaVerb is not yet confirmed by a crash dump; if it recurs, please send %APPDATA%\\ChromaAudio\\CrashReports\\host_shield_log.txt.",
+          "ChromaVerb currently uses the float biquad sanitizer overload and still nudges very low boosted shelves (e.g. 20 Hz +18 dB) at high sample rates (96\u2013192 kHz); moving to the double overload is queued next."
         ],
         "versions": [
+          {
+            "version": "v2.9.2",
+            "date": "2026-11-17",
+            "title": "250ms Time-Bounded Sample-Rate Reset Guard, Deferred Resume & Static GDI+ Teardown Fix",
+            "card_image": "assets/ChromaVerb_v2.9.2_Release_Card.png",
+            "highlights": [
+              "**250ms Time-Bounded `effSetSampleRate` Guard + Deferred Resume**: `TryApplySampleRate` waits up to `250 ms` (`GetTickCount64`) for `audioBusy` to drain, aborts the reset on timeout so delay lines are never reallocated while `Process` is active, stores `pendingSampleRate`, and applies it on the next `effMainsChanged` resume (`seq_cst` synchronized).",
+              "**Eliminated Static GDI+ Fonts & Leaked `HRGN` on Unload**: Replaced all 9 function-local `static Gdiplus::Font` objects and replaced the global `static HRGN s_updateRgn` in `HandleVerbPaint` with a stack `HRGN` + `DeleteObject`.",
+              "**Shield Hardening**: Rebuilt with `ChromaUpdateShield` `LifeGuard` mutex protection, module-pinned `ChromaFeedbackShield` threads, and non-static `ChromaFastText` matrices."
+            ]
+          },
           {
             "version": "v2.9.1",
             "date": "2026-11-05",
@@ -904,7 +940,7 @@ const DATA = [
       {
         "id": "chromacomp",
         "name": "ChromaComp",
-        "latest": "v2.9.0",
+        "latest": "v2.9.1",
         "screen_image": "assets/ChromaComp_Screen.png",
         "type": "Analog VCA / Opto Bus & Mastering Compressor with 24-Band EQ",
         "summary": "Dual-stage studio compressor and 20-band parametric equalizer modeling Harmonic Knee Compression, Ultra-Fast FET Peak Limiting, Program-Dependent Optical Leveling, and Master Bus VCA Glue.",
@@ -919,9 +955,19 @@ const DATA = [
           }
         ],
         "known_issues": [
-          "None currently open in v2.9.0."
+          "ChromaComp currently uses the float biquad sanitizer overload and still nudges very low boosted shelves (e.g. 20 Hz +18 dB) at high sample rates (96\u2013192 kHz); moving to the double overload is queued next."
         ],
         "versions": [
+          {
+            "version": "v2.9.1",
+            "date": "2026-11-17",
+            "title": "3-State BiquadSanitizeStatus Guard, LifeGuard Updater & Module-Pinned Diagnostics",
+            "card_image": "assets/ChromaComp_v2.9.1_Release_Card.png",
+            "highlights": [
+              "**3-State `BiquadSanitizeStatus` Coefficient Guard**: Upgraded `ChromaAnalogSuite::SanitizeBiquadCoefficients` with upfront non-finite (`NaN`/`Inf`) rejection to unity pass-through.",
+              "**`LifeGuard` Auto-Updater & Module-Pinned Feedback Shield**: Rebuilt with mutex-guarded `ChromaUpdateShield`, module-pinned `ChromaFeedbackShield` threads, and stack-only GDI+ fonts/matrices in `ChromaFastText`."
+            ]
+          },
           {
             "version": "v2.9.0",
             "date": "2026-11-05",
@@ -1036,7 +1082,7 @@ const DATA = [
       {
         "id": "chromafhaser",
         "name": "ChromaFhaser",
-        "latest": "v2.9.0",
+        "latest": "v2.9.1",
         "screen_image": "assets/ChromaFhaser_Screen.png",
         "type": "40-Stage Dual Harmonic Phase Processor",
         "summary": "Deep analog-modeled phaser with up to 40 all-pass stages, thru-zero flanger, 3D waterfall spectrum display, and 24-band parametric EQ sculpting.",
@@ -1047,9 +1093,19 @@ const DATA = [
           }
         ],
         "known_issues": [
-          "None currently open in v2.9.0."
+          "ChromaFhaser currently uses the float biquad sanitizer overload and still nudges very low boosted shelves (e.g. 20 Hz +18 dB) at high sample rates (96\u2013192 kHz); moving to the double overload is queued next."
         ],
         "versions": [
+          {
+            "version": "v2.9.1",
+            "date": "2026-11-17",
+            "title": "LifeGuard Startup Update Check, Module-Pinned Diagnostics & 3-State Biquad Guard",
+            "card_image": "assets/ChromaFhaser_v2.9.1_Release_Card.png",
+            "highlights": [
+              "**`LifeGuard`-Protected Startup Update Check**: Secures `CheckForUpdateAsync()` on editor open with mutex-guarded lifetime checks so closing or removing the plugin mid-request never touches freed memory.",
+              "**3-State `BiquadSanitizeStatus` & Module-Pinned Feedback Shield**: Upgraded biquad coefficient sanitization and pinned background diagnostic threads against `FreeLibrary` unload races."
+            ]
+          },
           {
             "version": "v2.9.0",
             "date": "2026-11-05",
@@ -1209,7 +1265,7 @@ const DATA = [
       {
         "id": "chromawidener",
         "name": "ChromaWidener",
-        "latest": "v2.9.0",
+        "latest": "v2.9.1",
         "screen_image": "assets/ChromaWidener_Screen.png",
         "type": "Phase-Safe Multiband Spatializer & Stereo Widener",
         "summary": "Expands stereo width across mid and high frequencies while keeping sub-bass anchored and 100% mono-compatible.",
@@ -1220,9 +1276,19 @@ const DATA = [
           }
         ],
         "known_issues": [
-          "None currently open in v2.9.0."
+          "A host crash reported by a tester after removing ChromaWidener and ChromaMaster is not yet confirmed by a crash dump."
         ],
         "versions": [
+          {
+            "version": "v2.9.1",
+            "date": "2026-11-17",
+            "title": "Eliminated 30 Static GDI+ Unload Objects & Added 250ms Sample-Rate Guard",
+            "card_image": "assets/ChromaWidener_v2.9.1_Release_Card.png",
+            "highlights": [
+              "**Eliminated All 30 Static GDI+ Objects on Unload**: Replaced every static `Gdiplus::Font`, `StringFormat`, `SolidBrush`, `Pen`, and `LinearGradientBrush` with stack objects so `FreeLibrary` (`device_remove`) never runs GDI+ destructors inside `DllMain(DLL_PROCESS_DETACH)` under the Windows loader lock.",
+              "**250ms Time-Bounded `effSetSampleRate` Guard + Deferred Resume**: Waits up to `250 ms` for `audioBusy` to drain, defers `widener.Init` on timeout into `pendingSampleRate`, and applies it on the next `effMainsChanged` resume (`seq_cst` synchronized)."
+            ]
+          },
           {
             "version": "v2.9.0",
             "date": "2026-11-05",
@@ -1256,7 +1322,7 @@ const DATA = [
       {
         "id": "chromamaster",
         "name": "ChromaMaster",
-        "latest": "v1.1.0",
+        "latest": "v1.1.1",
         "screen_image": "assets/ChromaMaster_Screen.png",
         "type": "Whole-Song Mastering Workstation (Reorderable 6-Slot Chain, Custom Ref Match, Lin-Phase EQ, Bark Tamer & 4x TP)",
         "summary": "Complete mastering console with reorderable 6-slot chain (Sculpt EQ, Bark Tamer, 4-Band Leveler, 2x ADAA Magic, Space/Sub, anchored 4x TP Maximizer), live & .WAV Custom Reference Track Match, 193/385-tap Kaiser Linear-Phase EQ, and 5th-order Psychoacoustic Dither.",
@@ -1275,9 +1341,21 @@ const DATA = [
           }
         ],
         "known_issues": [
-          "None currently open in v1.1.0."
+          "Live paint (~16.96 ms/frame) and idle audio CPU (~5.32%) are currently over the <5 ms / ~0% target budget and are scheduled for the dedicated ChromaMaster performance pass immediately following this release.",
+          "A host crash reported by a tester is not yet confirmed by a crash dump."
         ],
         "versions": [
+          {
+            "version": "v1.1.1",
+            "date": "2026-11-17",
+            "title": "Keep-Running Bypass Crossfade, Dimmed Bypass Meters & Classic Tube Unity Gain Trim",
+            "card_image": "assets/ChromaMaster_v1.1.1_Release_Card.png",
+            "highlights": [
+              "**Keep-Running Wet Chain During Bypass + `2 ms` Crossfade**: The wet mastering chain continues processing while bypassed so FIR, leveler, and limiter histories remain warm, crossfading smoothly over `2 ms` (`bypassMix_`) with zero clicks and bit-exact two-instance parity once settled.",
+              "**Dimmed/Zeroed Bypass Metering**: Gain reduction, Bark Tamer, and trim meters dim and zero cleanly while bypassed, and `FlushWetState()` runs strictly inside `ResetState()`.",
+              "**Calibrated `MODE_CLASSIC_TUBE` Unity Gain**: Normalized small-signal clean gain by `1 / (1 + 0.081 * fbDrive)`, matching unity within `-0.0025 dB` at `1 kHz` and `-0.0001 dB` at `19 kHz`."
+            ]
+          },
           {
             "version": "v1.1.0",
             "date": "2026-11-16",

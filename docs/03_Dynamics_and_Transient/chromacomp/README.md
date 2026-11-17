@@ -1,13 +1,13 @@
-# ChromaComp (`v2.9.0`)
+# ChromaComp (`v2.9.1`)
 
 > **Analog VCA / Opto Bus & Mastering Compressor with 24-Band EQ**  
 > Dual-stage studio compressor and 20-band parametric equalizer modeling Harmonic Knee Compression, Ultra-Fast FET Peak Limiting, Program-Dependent Optical Leveling, and Master Bus VCA Glue.
 
-### 🎛️ Plugin Interface (`v2.9.0`)
+### 🎛️ Plugin Interface (`v2.9.1`)
 
 ![ChromaComp Live Interface](../../assets/ChromaComp_Screen.png)
 
-![ChromaComp v2.9.0 Release Card](../../assets/ChromaComp_v2.9.0_Release_Card.png)
+![ChromaComp v2.9.1 Release Card](../../assets/ChromaComp_v2.9.1_Release_Card.png)
 
 ---
 
@@ -23,6 +23,10 @@ In v2.9.0 we fixed a sign inversion in the High-Shelf EQ formula so boosting or 
 
 ## 🗂️ Version & Patch History
 
+- **[`v2.9.1` (2026-11-17) — 3-State BiquadSanitizeStatus Guard, LifeGuard Updater & Module-Pinned Diagnostics](./v2.9.1_2026-11-17.md)**
+  - **3-State `BiquadSanitizeStatus` Coefficient Guard**: Upgraded `ChromaAnalogSuite::SanitizeBiquadCoefficients` with upfront non-finite (`NaN`/`Inf`) rejection to unity pass-through.
+  - **`LifeGuard` Auto-Updater & Module-Pinned Feedback Shield**: Rebuilt with mutex-guarded `ChromaUpdateShield`, module-pinned `ChromaFeedbackShield` threads, and stack-only GDI+ fonts/matrices in `ChromaFastText`.
+
 - **[`v2.9.0` (2026-11-05) — High-Shelf (H-SH) Biquad Fix, Jury Pole Clamping & Self-Healing EQ](./v2.9.0_2026-11-05.md)**
   - **Fixed High-Shelf (`H-SH`) Biquad `b2` Sign Bug**: Corrected the RBJ Audio EQ Cookbook numerator sign in `setHighShelf` so high-shelf boosts and cuts have accurate DC/low-frequency unity gain.
   - **Jury Stability Clamping & `NaN` Self-Healing**: Protected all 20 dynamic EQ and sidechain detector filters against pole blowout.
@@ -37,7 +41,7 @@ In v2.9.0 we fixed a sign inversion in the High-Shelf EQ formula so boosting or 
 
 ## 🛠️ Known Issues & Bug Reporting
 
-- None currently open in v2.9.0.
+- ChromaComp currently uses the float biquad sanitizer overload and still nudges very low boosted shelves (e.g. 20 Hz +18 dB) at high sample rates (96–192 kHz); moving to the double overload is queued next.
 
 **Found a bug or weird preset behavior?**  
 Click the **`[ FEEDBACK ]`** button in the top-right header of the plugin! It automatically snapshots your patch, EQ curve, and screenshot, copies a diagnostic summary to your Clipboard (`Ctrl+V` ready for Discord), or opens a pre-filled [GitHub Bug Report](https://github.com/haidood/chroma-release/issues/new).

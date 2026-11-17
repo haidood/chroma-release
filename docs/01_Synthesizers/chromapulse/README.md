@@ -1,13 +1,13 @@
-# ChromaPulse (`v3.2.0`)
+# ChromaPulse (`v3.2.1`)
 
 > **16-Pad Drum & Step-Sequenced Ratchet Rhythm Workstation**  
 > Precision 16-pad drum & rhythm workstation with Per-Pad & Master Parametric EQ, 3D depth-blended step bars, wider smooth ribbon waveforms, residual ADAA headroom, and rapid held-key + Left-Click sequencer note modifiers.
 
-### 🎛️ Plugin Interface (`v3.2.0`)
+### 🎛️ Plugin Interface (`v3.2.1`)
 
 ![ChromaPulse Live Interface](../../assets/ChromaPulse_Screen.png)
 
-![ChromaPulse v3.2.0 Release Card](../../assets/ChromaPulse_v3.2.0_Release_Card.png)
+![ChromaPulse v3.2.1 Release Card](../../assets/ChromaPulse_v3.2.1_Release_Card.png)
 
 ---
 
@@ -28,6 +28,12 @@ Analog drum machines decay like a draining capacitor—fast punch up front follo
 ---
 
 ## 🗂️ Version & Patch History
+
+- **[`v3.2.1` (2026-11-17) — Lock-Free Sample Swap Handshake, Strict [-0.985] ADAA Ceiling & S=1.0 Shelf Invariance](./v3.2.1_2026-11-17.md)**
+  - **Lock-Free Live Sample Swap Handshake**: Added symmetric `seq_cst` `std::atomic<int> audioBusy` counter around `ProcessReplacing` and `effProcessEvents` (with SEH reset), `std::mutex sampleWriteMutex` acquired before `ScopedSampleLock` (`200 ms` timeout), and atomic `sampleGen` mismatch voice cutoff—verified across 4,000 C++ and 1,200 live DLL swaps against 92,622 audio blocks with zero faults.
+  - **Strict `[-0.985, 0.985]` Residual ADAA Ceiling**: Updated `SoftClipCeilingADAA` so step, hot-kit, and `15 kHz +3 dBFS` signals never exceed `0.985`, paired with `~5 ms` `-std::expm1f` zipper smoothers (`< 1e-6f` snap) on master volume, pad volume, and pad pan.
+  - **`TriggerPadFromGui` & Slice Safety Guards**: Unified `TriggerPadFromGui` across all 6 GUI pad click sites and `LoadAdjacentSampleInFolder`, and added `.empty()`, `min`, and zero-length slice guards for reverse playback.
+  - **Fixed `S = 1.0` Shelf Slope & Finite Notch Readout**: Enforced fixed `S = 1.0` shelf Q-invariance across wheel/HUD/ring UI and floored `EvalMagnitudeDb` numerator/denominator at `1e-12` (`-64.57 dB` finite Notch readout).
 
 - **[`v3.2.0` (2026-11-16) — Per-Pad & Master EQ, 3D Blended Bars, Smooth Waveforms & Left-Click Note Modifiers](./v3.2.0_2026-11-16.md)**
   - **Per-Pad 24-Band Parametric EQ + Master EQ**: Added independent 24-band parametric EQ on every one of the 16 drum voices (feeding both Master mix & isolated 32-channel stem outputs) alongside the global Master EQ, switched cleanly via top-right **`[ PAD XX EQ ]` / `[ MASTER EQ ]` / `[ RST ]`** chiclets and persisted inside DAW project chunks.
@@ -107,7 +113,7 @@ Analog drum machines decay like a draining capacitor—fast punch up front follo
 
 ## 🛠️ Known Issues & Bug Reporting
 
-- None currently open in v3.2.0.
+- A host crash reported by a tester is not yet confirmed by a crash dump.
 
 **Found a bug or weird preset behavior?**  
 Click the **`[ FEEDBACK ]`** button in the top-right header of the plugin! It automatically snapshots your patch, EQ curve, and screenshot, copies a diagnostic summary to your Clipboard (`Ctrl+V` ready for Discord), or opens a pre-filled [GitHub Bug Report](https://github.com/haidood/chroma-release/issues/new).

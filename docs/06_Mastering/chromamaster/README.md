@@ -1,13 +1,13 @@
-# ChromaMaster (`v1.1.0`)
+# ChromaMaster (`v1.1.1`)
 
 > **Whole-Song Mastering Workstation (Reorderable 6-Slot Chain, Custom Ref Match, Lin-Phase EQ, Bark Tamer & 4x TP)**  
 > Complete mastering console with reorderable 6-slot chain (Sculpt EQ, Bark Tamer, 4-Band Leveler, 2x ADAA Magic, Space/Sub, anchored 4x TP Maximizer), live & .WAV Custom Reference Track Match, 193/385-tap Kaiser Linear-Phase EQ, and 5th-order Psychoacoustic Dither.
 
-### 🎛️ Plugin Interface (`v1.1.0`)
+### 🎛️ Plugin Interface (`v1.1.1`)
 
 ![ChromaMaster Live Interface](../../assets/ChromaMaster_Screen.png)
 
-![ChromaMaster v1.1.0 Release Card](../../assets/ChromaMaster_v1.1.0_Release_Card.png)
+![ChromaMaster v1.1.1 Release Card](../../assets/ChromaMaster_v1.1.1_Release_Card.png)
 
 ---
 
@@ -26,6 +26,11 @@ Standard limiters miss intersample peaks that clip between digital samples once 
 
 ## 🗂️ Version & Patch History
 
+- **[`v1.1.1` (2026-11-17) — Keep-Running Bypass Crossfade, Dimmed Bypass Meters & Classic Tube Unity Gain Trim](./v1.1.1_2026-11-17.md)**
+  - **Keep-Running Wet Chain During Bypass + `2 ms` Crossfade**: The wet mastering chain continues processing while bypassed so FIR, leveler, and limiter histories remain warm, crossfading smoothly over `2 ms` (`bypassMix_`) with zero clicks and bit-exact two-instance parity once settled.
+  - **Dimmed/Zeroed Bypass Metering**: Gain reduction, Bark Tamer, and trim meters dim and zero cleanly while bypassed, and `FlushWetState()` runs strictly inside `ResetState()`.
+  - **Calibrated `MODE_CLASSIC_TUBE` Unity Gain**: Normalized small-signal clean gain by `1 / (1 + 0.081 * fbDrive)`, matching unity within `-0.0025 dB` at `1 kHz` and `-0.0001 dB` at `19 kHz`.
+
 - **[`v1.1.0` (2026-11-16) — Phase 4: Reorderable 6-Slot Master Chain, Custom Reference Capture (.WAV + Live) & High-SR Adaptive PDC](./v1.1.0_2026-11-16.md)**
   - **Reorderable 6-Slot Signal Chain**: Drag or right-click slots in the bottom Cosmic Void rack bar to reorder `SCULPT EQ`, `BARK TAMER`, `4-BND DYN`, `ADAA MAGIC`, and `SPACE / SUB` freely ahead of the anchored `MAXIMIZER (TP)` brickwall (`CHROMAMASTER_V2:` chunk-saved).
   - **Custom Reference Track Capture**: `[ CAP REF/WAV ]` supports both a lock-free 3s live mix capture (`L-Click`) and an offline `.WAV` analyzer (`R-Click`), projecting your custom corridor in purple so `[ ASSIST ]` dials your master toward any reference song.
@@ -40,7 +45,8 @@ Standard limiters miss intersample peaks that clip between digital samples once 
 
 ## 🛠️ Known Issues & Bug Reporting
 
-- None currently open in v1.1.0.
+- Live paint (~16.96 ms/frame) and idle audio CPU (~5.32%) are currently over the <5 ms / ~0% target budget and are scheduled for the dedicated ChromaMaster performance pass immediately following this release.
+- A host crash reported by a tester is not yet confirmed by a crash dump.
 
 **Found a bug or weird preset behavior?**  
 Click the **`[ FEEDBACK ]`** button in the top-right header of the plugin! It automatically snapshots your patch, EQ curve, and screenshot, copies a diagnostic summary to your Clipboard (`Ctrl+V` ready for Discord), or opens a pre-filled [GitHub Bug Report](https://github.com/haidood/chroma-release/issues/new).

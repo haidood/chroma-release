@@ -1,13 +1,13 @@
-# ChromaVerb (`v2.9.1`)
+# ChromaVerb (`v2.9.2`)
 
 > **Studio Algorithmic Multi-Room FDN Reverb & Shimmer**  
 > Lush, zero-metallic algorithmic studio reverb powered by an 8x8 unitary Feedback Delay Network, orthogonal stereo taps, and forward octave-up shimmer.
 
-### 🎛️ Plugin Interface (`v2.9.1`)
+### 🎛️ Plugin Interface (`v2.9.2`)
 
 ![ChromaVerb Live Interface](../../assets/ChromaVerb_Screen.png)
 
-![ChromaVerb v2.9.1 Release Card](../../assets/ChromaVerb_v2.9.1_Release_Card.png)
+![ChromaVerb v2.9.2 Release Card](../../assets/ChromaVerb_v2.9.2_Release_Card.png)
 
 ---
 
@@ -22,6 +22,11 @@ Shimmer reverb pitches your reverb tail up by +12 semitones (one octave) by slic
 ---
 
 ## 🗂️ Version & Patch History
+
+- **[`v2.9.2` (2026-11-17) — 250ms Time-Bounded Sample-Rate Reset Guard, Deferred Resume & Static GDI+ Teardown Fix](./v2.9.2_2026-11-17.md)**
+  - **250ms Time-Bounded `effSetSampleRate` Guard + Deferred Resume**: `TryApplySampleRate` waits up to `250 ms` (`GetTickCount64`) for `audioBusy` to drain, aborts the reset on timeout so delay lines are never reallocated while `Process` is active, stores `pendingSampleRate`, and applies it on the next `effMainsChanged` resume (`seq_cst` synchronized).
+  - **Eliminated Static GDI+ Fonts & Leaked `HRGN` on Unload**: Replaced all 9 function-local `static Gdiplus::Font` objects and replaced the global `static HRGN s_updateRgn` in `HandleVerbPaint` with a stack `HRGN` + `DeleteObject`.
+  - **Shield Hardening**: Rebuilt with `ChromaUpdateShield` `LifeGuard` mutex protection, module-pinned `ChromaFeedbackShield` threads, and non-static `ChromaFastText` matrices.
 
 - **[`v2.9.1` (2026-11-05) — Jury-Stabilized Post-EQ Biquads, NaN Self-Healing & 1-Click Clipboard [FEEDBACK]](./v2.9.1_2026-11-05.md)**
   - **Jury Stability Triangle Pole Clamping**: Guaranteed z-plane pole stability across all 12 Post-EQ and Decay Rate EQ bands even under extreme `Q` and shelf sweeps.
@@ -38,7 +43,8 @@ Shimmer reverb pitches your reverb tail up by +12 semitones (one octave) by slic
 
 ## 🛠️ Known Issues & Bug Reporting
 
-- None currently open in v2.9.1.
+- A host crash reported by a tester after loading ChromaVerb is not yet confirmed by a crash dump; if it recurs, please send %APPDATA%\ChromaAudio\CrashReports\host_shield_log.txt.
+- ChromaVerb currently uses the float biquad sanitizer overload and still nudges very low boosted shelves (e.g. 20 Hz +18 dB) at high sample rates (96–192 kHz); moving to the double overload is queued next.
 
 **Found a bug or weird preset behavior?**  
 Click the **`[ FEEDBACK ]`** button in the top-right header of the plugin! It automatically snapshots your patch, EQ curve, and screenshot, copies a diagnostic summary to your Clipboard (`Ctrl+V` ready for Discord), or opens a pre-filled [GitHub Bug Report](https://github.com/haidood/chroma-release/issues/new).

@@ -1,13 +1,13 @@
-# ChromaCore (`v2.9.3`)
+# ChromaCore (`v2.9.4`)
 
 > **32-Voice Hybrid Analog / Wavetable / Resampling Workstation Synth**  
 > Our unified flagship 4-oscillator synthesizer combining Osc 1-3 cubic wavetables, Osc 4 Internal Live Resampler & Time-Stretch engine, a 14-source Right-Click Modulation Matrix, Living Organic Wavetable Interference Visualizer, dual 4-pole ladder and state-variable filters, 8-style FM/Mod oscillator, 16-step Performer & Sequencer, 3-band multiband distortion, 12-band studio EQ, Upward/Downward Multiband Dynamics, and Magic Fattener.
 
-### 🎛️ Plugin Interface (`v2.9.3`)
+### 🎛️ Plugin Interface (`v2.9.4`)
 
 ![ChromaCore Live Interface](../../assets/ChromaCore_Screen.png)
 
-![ChromaCore v2.9.3 Release Card](../../assets/ChromaCore_v2.9.3_Release_Card.png)
+![ChromaCore v2.9.4 Release Card](../../assets/ChromaCore_v2.9.4_Release_Card.png)
 
 ---
 
@@ -46,6 +46,11 @@ A classic 24dB 4-pole filter is built like a ladder with 4 rungs (stages). Inste
 ---
 
 ## 🗂️ Version & Patch History
+
+- **[`v2.9.4` (2026-11-17) — NeuralLifeGuard Thread Safety, 192 kHz Double Biquad Guard & Module-Pinned Shields](./v2.9.4_2026-11-17.md)**
+  - **`NeuralLifeGuard` Mutex-Protected AI Worker**: `RunNeuralGenerationWorker` now acquires `NeuralLifeGuard::mtx` and verifies `alive` before writing decoded audio, generated synthesis parameters, `isGeneratingAI`, or `aiStatusMsg` onto `PluginState`, and pins the DLL via `CreateThread` + `GetModuleHandleExA` + `FreeLibraryAndExitThread`.
+  - **192 kHz Double-Precision Biquad Unit-Circle Guard**: Upgraded `ChromaAnalogSuite::SanitizeBiquadCoefficients` double tolerance (`m = 1e-10`, `clampTol = 1e-8`) with 3-state `BiquadSanitizeStatus` (`Ok`, `Nudged`, `Rejected`), preserving `20 Hz +18 dB` shelves at `176.4/192 kHz` without pole nudging.
+  - **`ChromaUpdateShield` & `ChromaFeedbackShield` Hardening**: Added mutex-guarded `LifeGuard` to background update checks/downloads and module-pinned feedback HTTP workers against `FreeLibrary` unload races.
 
 - **[`v2.9.3` (2026-11-11) — Official Main Release: Performance Pass, 10x Faster Screen Updates, Near-Zero Idle CPU & Dark Dial Skin](./v2.9.3_2026-11-11.md)**
   - **Promoted to Main Release (Canonical ChromaCoreVST)**: All v2.9.1, v2.9.2, and v2.9.3 performance, skin, and DSP improvements are now compiled into the canonical ChromaCoreVST binary (69 factory programs), replacing v2.9.0 with full session backwards compatibility.
@@ -119,9 +124,10 @@ A classic 24dB 4-pole filter is built like a ladder with 4 rungs (stages). Inste
 
 ## 🛠️ Known Issues & Bug Reporting
 
-- v2.9.2 (Fable build) could freeze the plugin window shortly after a key on the on-screen keyboard was released. Fixed in v2.9.3; please replace v2.9.2.
-- v2.9.3 unifies all upgrades directly into the single canonical ChromaCoreVST main release (`ChromaCoreVST.dll` / `.vst3`). Legacy `_Fable` side-by-side builds are retired.
-- v2.9.1 Decay and Release use an exponential curve, so patches with long Decay/Release times feel snappier than in v2.9.0.
+- A host crash reported by a tester is not yet confirmed by a crash dump, so this release may not fix it; if it recurs, please send %APPDATA%\ChromaAudio\CrashReports\host_shield_log.txt.
+- v2.9.2 (Fable build) could freeze the plugin window shortly after a key on the on-screen keyboard was released. Fixed in v2.9.3+; please replace v2.9.2.
+- v2.9.4 unifies all upgrades directly into the single canonical ChromaCoreVST main release (`ChromaCoreVST.dll` / `.vst3`). Legacy `_Fable` side-by-side builds are retired.
+- v2.9.1+ Decay and Release use an exponential curve, so patches with long Decay/Release times feel snappier than in v2.9.0.
 - Legacy ChromaCorePro instances automatically merge into ChromaCoreVST.dll upon clicking Update.
 
 **Found a bug or weird preset behavior?**  
