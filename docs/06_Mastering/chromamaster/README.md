@@ -1,13 +1,13 @@
-# ChromaMaster (`v1.1.1`)
+# ChromaMaster (`v1.1.2`)
 
 > **Whole-Song Mastering Workstation (Reorderable 6-Slot Chain, Custom Ref Match, Lin-Phase EQ, Bark Tamer & 4x TP)**  
 > Complete mastering console with reorderable 6-slot chain (Sculpt EQ, Bark Tamer, 4-Band Leveler, 2x ADAA Magic, Space/Sub, anchored 4x TP Maximizer), live & .WAV Custom Reference Track Match, 193/385-tap Kaiser Linear-Phase EQ, and 5th-order Psychoacoustic Dither.
 
-### 🎛️ Plugin Interface (`v1.1.1`)
+### 🎛️ Plugin Interface (`v1.1.2`)
 
 ![ChromaMaster Live Interface](../../assets/ChromaMaster_Screen.png)
 
-![ChromaMaster v1.1.1 Release Card](../../assets/ChromaMaster_v1.1.1_Release_Card.png)
+![ChromaMaster v1.1.2 Release Card](../../assets/ChromaMaster_v1.1.2_Release_Card.png)
 
 ---
 
@@ -25,6 +25,11 @@ Standard limiters miss intersample peaks that clip between digital samples once 
 ---
 
 ## 🗂️ Version & Patch History
+
+- **[`v1.1.2` (2026-11-17) — Performance Pass: Static Chrome DIB Cache (2.2 ms Paint), 0.05% Idle CPU & SSE2 True-Peak](./v1.1.2_2026-11-17.md)**
+  - **Plain-English Speedup**: The mastering interface now redraws over 7x faster (`2.18–2.41 ms/frame` vs `16.98 ms`), and stopped/silent tracks use virtually zero CPU (`0.05%` vs `5.56%`) while keeping live mastering 28% lighter.
+  - **Static 32-Bit DIB Chrome Cache**: Caches the cosmic void gradient, nebula glow, starfield backdrop, all 18 knobs, ticks, and chain rack into a persistent 32-bit DIB (`memcpy` per frame), eliminates per-frame `std::vector` heap allocations and `HasSession` disk stats, and caches the 64-point EQ curve.
+  - **SSE2 4x True-Peak, `O(1)` Lookahead & Gated 32-Band Spectrum**: Replaced 12-tap scalar shifts with a mirrored ring + 3-phase SSE2 dot product, replaced the 24-iteration lookahead scan with an exact `O(1)` monotonic deque, eliminated per-sample `log10` and per-block `exp` calls, gated the loop-interchanged 32-band spectrum to active Spectrum/Assist views, and added SSE2 `SymConv` + flat-band bypass in `SymmetricLinearPhaseEq193`.
 
 - **[`v1.1.1` (2026-11-17) — Keep-Running Bypass Crossfade, Dimmed Bypass Meters & Classic Tube Unity Gain Trim](./v1.1.1_2026-11-17.md)**
   - **Keep-Running Wet Chain During Bypass + `2 ms` Crossfade**: The wet mastering chain continues processing while bypassed so FIR, leveler, and limiter histories remain warm, crossfading smoothly over `2 ms` (`bypassMix_`) with zero clicks and bit-exact two-instance parity once settled.
@@ -45,7 +50,6 @@ Standard limiters miss intersample peaks that clip between digital samples once 
 
 ## 🛠️ Known Issues & Bug Reporting
 
-- Live paint (~16.96 ms/frame) and idle audio CPU (~5.32%) are currently over the <5 ms / ~0% target budget and are scheduled for the dedicated ChromaMaster performance pass immediately following this release.
 - A host crash reported by a tester is not yet confirmed by a crash dump.
 
 **Found a bug or weird preset behavior?**  

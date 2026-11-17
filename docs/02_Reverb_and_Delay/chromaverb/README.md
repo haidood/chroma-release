@@ -1,13 +1,13 @@
-# ChromaVerb (`v2.9.2`)
+# ChromaVerb (`v2.9.3`)
 
 > **Studio Algorithmic Multi-Room FDN Reverb & Shimmer**  
 > Lush, zero-metallic algorithmic studio reverb powered by an 8x8 unitary Feedback Delay Network, orthogonal stereo taps, and forward octave-up shimmer.
 
-### 🎛️ Plugin Interface (`v2.9.2`)
+### 🎛️ Plugin Interface (`v2.9.3`)
 
 ![ChromaVerb Live Interface](../../assets/ChromaVerb_Screen.png)
 
-![ChromaVerb v2.9.2 Release Card](../../assets/ChromaVerb_v2.9.2_Release_Card.png)
+![ChromaVerb v2.9.3 Release Card](../../assets/ChromaVerb_v2.9.3_Release_Card.png)
 
 ---
 
@@ -22,6 +22,11 @@ Shimmer reverb pitches your reverb tail up by +12 semitones (one octave) by slic
 ---
 
 ## 🗂️ Version & Patch History
+
+- **[`v2.9.3` (2026-11-17) — Double-Precision EQ Biquads Across 44.1–192 kHz (Zero Low-Shelf Shift)](./v2.9.3_2026-11-17.md)**
+  - **Plain-English DSP Summary**: Very low boosted shelves and low cuts now land exactly where you set them at 88.2 to 192 kHz sessions; at 44.1 and 48 kHz the sound is unchanged.
+  - **Double-Precision EQ Biquad Engine**: Upgraded EQ coefficients, filter state, design math, and magnitude display to `double` using the `1e-8` unit-circle sanitizer (`54,432/54,432` designs `Ok`, `0` nudged, `0` rejected; `20 Hz +18 dB` shelf settles at `0.0000 dB` error at `176.4/192 kHz`).
+  - **Unchanged CPU & Verified Guard**: Active/idle CPU unchanged (`~1.85%` playing / `0.2%` idle), header version readout now displays `v2.9.3`, and the `250 ms` `TryApplySampleRate` guard remains verified.
 
 - **[`v2.9.2` (2026-11-17) — 250ms Time-Bounded Sample-Rate Reset Guard, Deferred Resume & Static GDI+ Teardown Fix](./v2.9.2_2026-11-17.md)**
   - **250ms Time-Bounded `effSetSampleRate` Guard + Deferred Resume**: `TryApplySampleRate` waits up to `250 ms` (`GetTickCount64`) for `audioBusy` to drain, aborts the reset on timeout so delay lines are never reallocated while `Process` is active, stores `pendingSampleRate`, and applies it on the next `effMainsChanged` resume (`seq_cst` synchronized).
@@ -44,7 +49,6 @@ Shimmer reverb pitches your reverb tail up by +12 semitones (one octave) by slic
 ## 🛠️ Known Issues & Bug Reporting
 
 - A host crash reported by a tester after loading ChromaVerb is not yet confirmed by a crash dump; if it recurs, please send %APPDATA%\ChromaAudio\CrashReports\host_shield_log.txt.
-- ChromaVerb currently uses the float biquad sanitizer overload and still nudges very low boosted shelves (e.g. 20 Hz +18 dB) at high sample rates (96–192 kHz); moving to the double overload is queued next.
 
 **Found a bug or weird preset behavior?**  
 Click the **`[ FEEDBACK ]`** button in the top-right header of the plugin! It automatically snapshots your patch, EQ curve, and screenshot, copies a diagnostic summary to your Clipboard (`Ctrl+V` ready for Discord), or opens a pre-filled [GitHub Bug Report](https://github.com/haidood/chroma-release/issues/new).

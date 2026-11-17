@@ -1,13 +1,13 @@
-# ChromaComp (`v2.9.1`)
+# ChromaComp (`v2.9.2`)
 
 > **Analog VCA / Opto Bus & Mastering Compressor with 24-Band EQ**  
 > Dual-stage studio compressor and 20-band parametric equalizer modeling Harmonic Knee Compression, Ultra-Fast FET Peak Limiting, Program-Dependent Optical Leveling, and Master Bus VCA Glue.
 
-### 🎛️ Plugin Interface (`v2.9.1`)
+### 🎛️ Plugin Interface (`v2.9.2`)
 
 ![ChromaComp Live Interface](../../assets/ChromaComp_Screen.png)
 
-![ChromaComp v2.9.1 Release Card](../../assets/ChromaComp_v2.9.1_Release_Card.png)
+![ChromaComp v2.9.2 Release Card](../../assets/ChromaComp_v2.9.2_Release_Card.png)
 
 ---
 
@@ -22,6 +22,11 @@ In v2.9.0 we fixed a sign inversion in the High-Shelf EQ formula so boosting or 
 ---
 
 ## 🗂️ Version & Patch History
+
+- **[`v2.9.2` (2026-11-17) — Double-Precision EQ Biquads Across All 7 Filter Shapes & 44.1–192 kHz](./v2.9.2_2026-11-17.md)**
+  - **Plain-English DSP Summary**: Very low boosted shelves and low cuts now land exactly where you set them at 88.2 to 192 kHz sessions; at 44.1 and 48 kHz the sound is unchanged.
+  - **Double-Precision `PrecisionBiquad`**: Moved coefficients, filter state, design math, and magnitude display to `double`, with all 7 filter setters routed through the `1e-8` unit-circle sanitizer (`63,504/63,504` designs `Ok`, `0` nudged, `0` rejected).
+  - **Verified Preset Parity & Header Version**: All 24 factory presets verified across 48/96 kHz renders (`<= 0.03 dB` RMS delta) and in-plugin version badge now displays `v2.9.2`.
 
 - **[`v2.9.1` (2026-11-17) — 3-State BiquadSanitizeStatus Guard, LifeGuard Updater & Module-Pinned Diagnostics](./v2.9.1_2026-11-17.md)**
   - **3-State `BiquadSanitizeStatus` Coefficient Guard**: Upgraded `ChromaAnalogSuite::SanitizeBiquadCoefficients` with upfront non-finite (`NaN`/`Inf`) rejection to unity pass-through.
@@ -41,7 +46,7 @@ In v2.9.0 we fixed a sign inversion in the High-Shelf EQ formula so boosting or 
 
 ## 🛠️ Known Issues & Bug Reporting
 
-- ChromaComp currently uses the float biquad sanitizer overload and still nudges very low boosted shelves (e.g. 20 Hz +18 dB) at high sample rates (96–192 kHz); moving to the double overload is queued next.
+- None currently open in v2.9.2.
 
 **Found a bug or weird preset behavior?**  
 Click the **`[ FEEDBACK ]`** button in the top-right header of the plugin! It automatically snapshots your patch, EQ curve, and screenshot, copies a diagnostic summary to your Clipboard (`Ctrl+V` ready for Discord), or opens a pre-filled [GitHub Bug Report](https://github.com/haidood/chroma-release/issues/new).

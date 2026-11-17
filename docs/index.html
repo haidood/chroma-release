@@ -834,7 +834,7 @@ const DATA = [
       {
         "id": "chromaverb",
         "name": "ChromaVerb",
-        "latest": "v2.9.2",
+        "latest": "v2.9.3",
         "screen_image": "assets/ChromaVerb_Screen.png",
         "type": "Studio Algorithmic Multi-Room FDN Reverb & Shimmer",
         "summary": "Lush, zero-metallic algorithmic studio reverb powered by an 8x8 unitary Feedback Delay Network, orthogonal stereo taps, and forward octave-up shimmer.",
@@ -849,10 +849,20 @@ const DATA = [
           }
         ],
         "known_issues": [
-          "A host crash reported by a tester after loading ChromaVerb is not yet confirmed by a crash dump; if it recurs, please send %APPDATA%\\ChromaAudio\\CrashReports\\host_shield_log.txt.",
-          "ChromaVerb currently uses the float biquad sanitizer overload and still nudges very low boosted shelves (e.g. 20 Hz +18 dB) at high sample rates (96\u2013192 kHz); moving to the double overload is queued next."
+          "A host crash reported by a tester after loading ChromaVerb is not yet confirmed by a crash dump; if it recurs, please send %APPDATA%\\ChromaAudio\\CrashReports\\host_shield_log.txt."
         ],
         "versions": [
+          {
+            "version": "v2.9.3",
+            "date": "2026-11-17",
+            "title": "Double-Precision EQ Biquads Across 44.1\u2013192 kHz (Zero Low-Shelf Shift)",
+            "card_image": "assets/ChromaVerb_v2.9.3_Release_Card.png",
+            "highlights": [
+              "**Plain-English DSP Summary**: Very low boosted shelves and low cuts now land exactly where you set them at 88.2 to 192 kHz sessions; at 44.1 and 48 kHz the sound is unchanged.",
+              "**Double-Precision EQ Biquad Engine**: Upgraded EQ coefficients, filter state, design math, and magnitude display to `double` using the `1e-8` unit-circle sanitizer (`54,432/54,432` designs `Ok`, `0` nudged, `0` rejected; `20 Hz +18 dB` shelf settles at `0.0000 dB` error at `176.4/192 kHz`).",
+              "**Unchanged CPU & Verified Guard**: Active/idle CPU unchanged (`~1.85%` playing / `0.2%` idle), header version readout now displays `v2.9.3`, and the `250 ms` `TryApplySampleRate` guard remains verified."
+            ]
+          },
           {
             "version": "v2.9.2",
             "date": "2026-11-17",
@@ -940,7 +950,7 @@ const DATA = [
       {
         "id": "chromacomp",
         "name": "ChromaComp",
-        "latest": "v2.9.1",
+        "latest": "v2.9.2",
         "screen_image": "assets/ChromaComp_Screen.png",
         "type": "Analog VCA / Opto Bus & Mastering Compressor with 24-Band EQ",
         "summary": "Dual-stage studio compressor and 20-band parametric equalizer modeling Harmonic Knee Compression, Ultra-Fast FET Peak Limiting, Program-Dependent Optical Leveling, and Master Bus VCA Glue.",
@@ -955,9 +965,20 @@ const DATA = [
           }
         ],
         "known_issues": [
-          "ChromaComp currently uses the float biquad sanitizer overload and still nudges very low boosted shelves (e.g. 20 Hz +18 dB) at high sample rates (96\u2013192 kHz); moving to the double overload is queued next."
+          "None currently open in v2.9.2."
         ],
         "versions": [
+          {
+            "version": "v2.9.2",
+            "date": "2026-11-17",
+            "title": "Double-Precision EQ Biquads Across All 7 Filter Shapes & 44.1\u2013192 kHz",
+            "card_image": "assets/ChromaComp_v2.9.2_Release_Card.png",
+            "highlights": [
+              "**Plain-English DSP Summary**: Very low boosted shelves and low cuts now land exactly where you set them at 88.2 to 192 kHz sessions; at 44.1 and 48 kHz the sound is unchanged.",
+              "**Double-Precision `PrecisionBiquad`**: Moved coefficients, filter state, design math, and magnitude display to `double`, with all 7 filter setters routed through the `1e-8` unit-circle sanitizer (`63,504/63,504` designs `Ok`, `0` nudged, `0` rejected).",
+              "**Verified Preset Parity & Header Version**: All 24 factory presets verified across 48/96 kHz renders (`<= 0.03 dB` RMS delta) and in-plugin version badge now displays `v2.9.2`."
+            ]
+          },
           {
             "version": "v2.9.1",
             "date": "2026-11-17",
@@ -1082,7 +1103,7 @@ const DATA = [
       {
         "id": "chromafhaser",
         "name": "ChromaFhaser",
-        "latest": "v2.9.1",
+        "latest": "v2.9.2",
         "screen_image": "assets/ChromaFhaser_Screen.png",
         "type": "40-Stage Dual Harmonic Phase Processor",
         "summary": "Deep analog-modeled phaser with up to 40 all-pass stages, thru-zero flanger, 3D waterfall spectrum display, and 24-band parametric EQ sculpting.",
@@ -1093,9 +1114,20 @@ const DATA = [
           }
         ],
         "known_issues": [
-          "ChromaFhaser currently uses the float biquad sanitizer overload and still nudges very low boosted shelves (e.g. 20 Hz +18 dB) at high sample rates (96\u2013192 kHz); moving to the double overload is queued next."
+          "None currently open in v2.9.2."
         ],
         "versions": [
+          {
+            "version": "v2.9.2",
+            "date": "2026-11-17",
+            "title": "Double-Precision 24-Band EQ Biquads Across 44.1\u2013192 kHz",
+            "card_image": "assets/ChromaFhaser_v2.9.2_Release_Card.png",
+            "highlights": [
+              "**Plain-English DSP Summary**: Very low boosted shelves and low cuts now land exactly where you set them at 88.2 to 192 kHz sessions; at 44.1 and 48 kHz the sound is unchanged.",
+              "**Double-Precision EQ `Biquad`**: Moved coefficients, filter state, design math, and magnitude display to `double` with `1e-8` unit-circle sanitization (`54,432/54,432` designs `Ok`, `0` nudged, `0` rejected).",
+              "**Verified 50-Preset Null & Header Version**: All 50 factory presets null to `-84 dBFS` (`48 kHz`) and `-90 dBFS` (`96 kHz`), and the in-plugin header now renders `v2.9.2`."
+            ]
+          },
           {
             "version": "v2.9.1",
             "date": "2026-11-17",
@@ -1322,7 +1354,7 @@ const DATA = [
       {
         "id": "chromamaster",
         "name": "ChromaMaster",
-        "latest": "v1.1.1",
+        "latest": "v1.1.2",
         "screen_image": "assets/ChromaMaster_Screen.png",
         "type": "Whole-Song Mastering Workstation (Reorderable 6-Slot Chain, Custom Ref Match, Lin-Phase EQ, Bark Tamer & 4x TP)",
         "summary": "Complete mastering console with reorderable 6-slot chain (Sculpt EQ, Bark Tamer, 4-Band Leveler, 2x ADAA Magic, Space/Sub, anchored 4x TP Maximizer), live & .WAV Custom Reference Track Match, 193/385-tap Kaiser Linear-Phase EQ, and 5th-order Psychoacoustic Dither.",
@@ -1341,10 +1373,20 @@ const DATA = [
           }
         ],
         "known_issues": [
-          "Live paint (~16.96 ms/frame) and idle audio CPU (~5.32%) are currently over the <5 ms / ~0% target budget and are scheduled for the dedicated ChromaMaster performance pass immediately following this release.",
           "A host crash reported by a tester is not yet confirmed by a crash dump."
         ],
         "versions": [
+          {
+            "version": "v1.1.2",
+            "date": "2026-11-17",
+            "title": "Performance Pass: Static Chrome DIB Cache (2.2 ms Paint), 0.05% Idle CPU & SSE2 True-Peak",
+            "card_image": "assets/ChromaMaster_v1.1.2_Release_Card.png",
+            "highlights": [
+              "**Plain-English Speedup**: The mastering interface now redraws over 7x faster (`2.18\u20132.41 ms/frame` vs `16.98 ms`), and stopped/silent tracks use virtually zero CPU (`0.05%` vs `5.56%`) while keeping live mastering 28% lighter.",
+              "**Static 32-Bit DIB Chrome Cache**: Caches the cosmic void gradient, nebula glow, starfield backdrop, all 18 knobs, ticks, and chain rack into a persistent 32-bit DIB (`memcpy` per frame), eliminates per-frame `std::vector` heap allocations and `HasSession` disk stats, and caches the 64-point EQ curve.",
+              "**SSE2 4x True-Peak, `O(1)` Lookahead & Gated 32-Band Spectrum**: Replaced 12-tap scalar shifts with a mirrored ring + 3-phase SSE2 dot product, replaced the 24-iteration lookahead scan with an exact `O(1)` monotonic deque, eliminated per-sample `log10` and per-block `exp` calls, gated the loop-interchanged 32-band spectrum to active Spectrum/Assist views, and added SSE2 `SymConv` + flat-band bypass in `SymmetricLinearPhaseEq193`."
+            ]
+          },
           {
             "version": "v1.1.1",
             "date": "2026-11-17",
