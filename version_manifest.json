@@ -95,10 +95,10 @@
       "notes": "ChromaScramble v2.9.0 (Phase 2 update 2026.11.15): Added 32-bit DIB curve cache, ChromaFastText, GetUpdateRgn culling, and tail-aware idle bypass (0.02% idle CPU, 2.8ms full repaint, 0.0/s idle repaints), plus Low-Color Hardware Theme, 3D protruding titanium knobs, 10-module MSEG engine, and 2x ADAA warmth."
     },
     "ChromaMaster": {
-      "version": "1.1.2",
+      "version": "1.2.0",
       "build": 20261117,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaMaster.dll",
-      "notes": "ChromaMaster v1.1.2 (2026.11.17): Dedicated performance pass cutting live GUI paint from 16.98 ms to 2.18–2.41 ms/frame via a static 32-bit DIB chrome cache, cached EQ curve, and zero per-frame allocations; idle audio CPU dropped from 5.56% to 0.05% (44.1/48k) and 12.34% to 0.12% (96k), with SSE2 4x True-Peak FIR, O(1) monotonic lookahead max, gated/loop-interchanged 32-band spectrum, and identity-skipping Linear-Phase EQ cutting live CPU by 28%."
+      "notes": "ChromaMaster v1.2.0 (2026.11.17): Added Categorized 2-Pane Preset Browser with 64 purpose-built mastering and mix-bus presets across 8 categories (Master, Whole Mix, Drums, Vocals, Synths, Bass, Space & Width, Mid Scoops), per-preset optimal 6-slot chain ordering, live Engineer's Note tips, zero-dither 32F mix-bus defaults, and Min-Phase zero-pre-ring drum/bass chains."
     }
   }
 }

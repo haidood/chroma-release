@@ -1,13 +1,13 @@
-# ChromaMaster (`v1.1.2`)
+# ChromaMaster (`v1.2.0`)
 
-> **Whole-Song Mastering Workstation (Reorderable 6-Slot Chain, Custom Ref Match, Lin-Phase EQ, Bark Tamer & 4x TP)**  
-> Complete mastering console with reorderable 6-slot chain (Sculpt EQ, Bark Tamer, 4-Band Leveler, 2x ADAA Magic, Space/Sub, anchored 4x TP Maximizer), live & .WAV Custom Reference Track Match, 193/385-tap Kaiser Linear-Phase EQ, and 5th-order Psychoacoustic Dither.
+> **Whole-Song Mastering Workstation (64 Categorized Presets, Reorderable 6-Slot Chain, Custom Ref Match, Lin-Phase EQ, Bark Tamer & 4x TP)**  
+> Complete mastering & mix-bus console with a categorized 2-pane browser (64 purpose-built presets across Master, Whole Mix, Drums, Vocals, Synths, Bass, Space & Width, and Mid Scoops), reorderable 6-slot chain, live & .WAV Custom Reference Track Match, 193/385-tap Kaiser Linear-Phase EQ, and 5th-order Psychoacoustic Dither.
 
-### 🎛️ Plugin Interface (`v1.1.2`)
+### 🎛️ Plugin Interface (`v1.2.0`)
 
 ![ChromaMaster Live Interface](../../assets/ChromaMaster_Screen.png)
 
-![ChromaMaster v1.1.2 Release Card](../../assets/ChromaMaster_v1.1.2_Release_Card.png)
+![ChromaMaster v1.2.0 Release Card](../../assets/ChromaMaster_v1.2.0_Release_Card.png)
 
 ---
 
@@ -25,6 +25,11 @@ Standard limiters miss intersample peaks that clip between digital samples once 
 ---
 
 ## 🗂️ Version & Patch History
+
+- **[`v1.2.0` (2026-11-17) — Categorized 2-Pane Preset Browser & 64 Purpose-Built Mastering / Mix-Bus Presets](./v1.2.0_2026-11-17.md)**
+  - **8 Categorized Banks (64 Studio Presets)**: Added a 2-pane Cosmic Obsidian dropdown browser organized into `MASTER`, `WHOLE MIX`, `DRUMS`, `VOCALS`, `SYNTHS`, `BASS`, `SPACE & WIDTH`, and `MID SCOOPS` (8 purpose-built presets each) with a live bottom `ENGINEER'S NOTE` bar explaining the exact mastering theory behind every preset.
+  - **Real Mix-Bus & Mastering Theory**: Mix-bus presets default to `32F` (dither off) so bus inserts never add noise; Drum & Bass presets use Minimum-Phase EQ (zero kick/snare pre-ringing); Streaming Clean sets a strict `-1.0 dBTP` True Peak ceiling; and dedicated presets cover Passive Sub-Dip, Warm/Bright Tilts, Mix Widen/Tighten, Tight Low / Wide High, 340Hz Mud Cut, 2.4kHz Harshness Scoop, Vocal-Pocket Carve, Deep V-Shape, and Anti-Scoop Mid Forward.
+  - **Per-Preset Optimal 6-Slot Chain Ordering**: Selecting any preset also configures its ideal signal flow (e.g., `Tamer -> EQ -> Dyn` on Vocals, `EQ -> Magic -> Dyn` on Drums, `Dyn -> EQ -> Magic` on Analog Console, `Space -> EQ -> Magic` on Wide Reese & Side-Mud Cleanup) and updates the live chain rack bar.
 
 - **[`v1.1.2` (2026-11-17) — Performance Pass: Static Chrome DIB Cache (2.2 ms Paint), 0.05% Idle CPU & SSE2 True-Peak](./v1.1.2_2026-11-17.md)**
   - **Plain-English Speedup**: The mastering interface now redraws over 7x faster (`2.18–2.41 ms/frame` vs `16.98 ms`), and stopped/silent tracks use virtually zero CPU (`0.05%` vs `5.56%`) while keeping live mastering 28% lighter.
