@@ -1,7 +1,7 @@
 {
   "suite_name": "Chroma Audio Suite",
-  "suite_version": "2026.11.17",
-  "release_date": "2026-11-17",
+  "suite_version": "2026.11.18",
+  "release_date": "2026-11-18",
   "notes": "Chroma Audio Suite 2026.11.17: ChromaMaster v1.1.2 performance pass (2.18–2.41 ms cached paint, 0.05% idle CPU, SSE2 4x True-Peak & O(1) lookahead), double-precision EQ biquads across ChromaComp v2.9.2, ChromaFhaser v2.9.2, and ChromaVerb v2.9.3 (0 nudged / 0 rejected across 44.1–192 kHz), plus P0-P2 thread-safety shields across ChromaCoreVST v2.9.4, ChromaPulse v3.2.1, and ChromaWidener v2.9.1.",
   "plugins": {
     "ChromaCore": {
@@ -96,9 +96,9 @@
     },
     "ChromaMaster": {
       "version": "1.2.0",
-      "build": 20261117,
+      "build": 20261118,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaMaster.dll",
-      "notes": "ChromaMaster v1.2.0 (2026.11.17): Added Categorized 2-Pane Preset Browser with 64 purpose-built mastering and mix-bus presets across 8 categories (Master, Whole Mix, Drums, Vocals, Synths, Bass, Space & Width, Mid Scoops), per-preset optimal 6-slot chain ordering, live Engineer's Note tips, zero-dither 32F mix-bus defaults, and Min-Phase zero-pre-ring drum/bass chains."
+      "notes": "ChromaMaster v1.2.0 (2026.11.18): Added Categorized 2-Pane Preset Browser with 64 purpose-built mastering and mix-bus presets across 8 categories (Master, Whole Mix, Drums, Vocals, Synths, Bass, Space & Width, Mid Scoops), per-preset optimal 6-slot chain ordering, live Engineer's Note tips, zero-dither 32F mix-bus defaults, Min-Phase zero-pre-ring drum/bass chains, and semantic-version comparison in ChromaUpdateShield."
     }
   }
 }
