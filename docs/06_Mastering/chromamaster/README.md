@@ -1,13 +1,13 @@
-# ChromaMaster (`v1.2.0`)
+# ChromaMaster (`v1.3.0`)
 
 > **Whole-Song Mastering Workstation (64 Categorized Presets, Reorderable 6-Slot Chain, Custom Ref Match, Lin-Phase EQ, Bark Tamer & 4x TP)**  
 > Complete mastering & mix-bus console with a categorized 2-pane browser (64 purpose-built presets across Master, Whole Mix, Drums, Vocals, Synths, Bass, Space & Width, and Mid Scoops), reorderable 6-slot chain, live & .WAV Custom Reference Track Match, 193/385-tap Kaiser Linear-Phase EQ, and 5th-order Psychoacoustic Dither.
 
-### 🎛️ Plugin Interface (`v1.2.0`)
+### 🎛️ Plugin Interface (`v1.3.0`)
 
 ![ChromaMaster Live Interface](../../assets/ChromaMaster_Screen.png)
 
-![ChromaMaster v1.2.0 Release Card](../../assets/ChromaMaster_v1.2.0_Release_Card.png)
+![ChromaMaster v1.3.0 Release Card](../../assets/ChromaMaster_v1.3.0_Release_Card.png)
 
 ---
 
@@ -25,6 +25,11 @@ Standard limiters miss intersample peaks that clip between digital samples once 
 ---
 
 ## 🗂️ Version & Patch History
+
+- **[`v1.3.0` (2026-11-18) — Maximizer IM Overhaul, ADSR, Moveable 5-Band EQ, Mono-Safe Space & Cached GPU Spectrum](./v1.3.0_2026-11-18.md)**
+  - **Maximizer Limiter Overhaul (-24.9 dB IM Reduction, -20% CPU)**: Eliminated bass intermodulation chop under heavy limiting while adding a full **Maximizer ADSR Envelope** (`Attack`, `Decay`, `Sustain`, `Release`).
+  - **Moveable 5-Band Parametric EQ & Mono-Safe Space Panel**: Added draggable frequency, gain, and Q controls across all 5 bands with a docked `EQ/SPACE` panel and a mono-compatible stereo space delay (`7.45e-09` mono-sum invariance).
+  - **Cached Direct2D GPU Spectrum & Batched 3D Waterfall**: Upgraded spectrum rendering to `shared/ChromaD2DEngine.h` with cached gradient brush, FNV-cached 64-point EQ curve, batched `ID2D1PathGeometry` traces, and IEEE-754-safe `/Oi /Ot /GL /LTCG` optimization.
 
 - **[`v1.2.0` (2026-11-17) — Categorized 2-Pane Preset Browser & 64 Purpose-Built Mastering / Mix-Bus Presets](./v1.2.0_2026-11-17.md)**
   - **8 Categorized Banks (64 Studio Presets)**: Added a 2-pane Cosmic Obsidian dropdown browser organized into `MASTER`, `WHOLE MIX`, `DRUMS`, `VOCALS`, `SYNTHS`, `BASS`, `SPACE & WIDTH`, and `MID SCOOPS` (8 purpose-built presets each) with a live bottom `ENGINEER'S NOTE` bar explaining the exact mastering theory behind every preset.

@@ -1,13 +1,13 @@
-# ChromaVoice (`v3.2.1`)
+# ChromaVoice (`v3.3.0`)
 
 > **WARP Granular Vocal Pitch, Formant & Harmony Processor**  
 > Real-time vocal pitch and formant shifter featuring consonant micro-windowing and transient preservation so shifted vocals never sound smeared or robotic (unless you want them to!).
 
-### 🎛️ Plugin Interface (`v3.2.1`)
+### 🎛️ Plugin Interface (`v3.3.0`)
 
 ![ChromaVoice Live Interface](../../assets/ChromaVoice_Screen.png)
 
-![ChromaVoice v3.2.1 Release Card](../../assets/ChromaVoice_v3.2.1_Release_Card.png)
+![ChromaVoice v3.3.0 Release Card](../../assets/ChromaVoice_v3.3.0_Release_Card.png)
 
 ---
 
@@ -23,6 +23,11 @@ Granular pitch shifters smear sharp vocal 'S', 'T', and 'K' sounds across multip
 
 ## 🗂️ Version & Patch History
 
+- **[`v3.3.0` (2026-11-18) — Vocal Presence Sensor, Circle-of-5ths Harmonic Layering & Buffer Crackle Hardening](./v3.3.0_2026-11-18.md)**
+  - **Intelligent Vocal Presence Sensor**: Tracks voiced vocal energy in real time to keep harmony and formant layers tight between sung phrases.
+  - **Circle-of-5ths Harmonic Doubler & Tripler**: Instant fifth and octave harmonic stacking paired with formant preservation for natural wide vocal ensembles.
+  - **Non-ASIO Buffer Crackle Hardening**: Hardened granular overlap-add block framing for glitch-free playback on variable-buffer consumer drivers.
+
 - **[`v3.2.1` (2026-11-05) — Upgraded 1-Click Clipboard [FEEDBACK] Diagnostic Reporting](./v3.2.1_2026-11-05.md)**
   - **2x Oversampled ADAA Vocal Tube Warmth Stage**: Smoothly rounds off harsh sibilance peaks while adding intimate analog vocal presence.
   - **Upgraded 1-Click Clipboard [FEEDBACK] Shield**: Automatically copies vocal engine diagnostics + `host_shield_log.txt` to your Windows Clipboard (`Ctrl+V` ready for Discord).
@@ -36,7 +41,7 @@ Granular pitch shifters smear sharp vocal 'S', 'T', and 'K' sounds across multip
 
 ## 🛠️ Known Issues & Bug Reporting
 
-- None currently open in v3.2.1.
+- None currently open in v3.3.0.
 
 **Found a bug or weird preset behavior?**  
 Click the **`[ FEEDBACK ]`** button in the top-right header of the plugin! It automatically snapshots your patch, EQ curve, and screenshot, copies a diagnostic summary to your Clipboard (`Ctrl+V` ready for Discord), or opens a pre-filled [GitHub Bug Report](https://github.com/haidood/chroma-release/issues/new).

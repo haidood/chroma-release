@@ -1,13 +1,13 @@
-# ChromaPulse (`v3.2.1`)
+# ChromaPulse (`v3.3.0`)
 
 > **16-Pad Drum & Step-Sequenced Ratchet Rhythm Workstation**  
 > Precision 16-pad drum & rhythm workstation with Per-Pad & Master Parametric EQ, 3D depth-blended step bars, wider smooth ribbon waveforms, residual ADAA headroom, and rapid held-key + Left-Click sequencer note modifiers.
 
-### 🎛️ Plugin Interface (`v3.2.1`)
+### 🎛️ Plugin Interface (`v3.3.0`)
 
 ![ChromaPulse Live Interface](../../assets/ChromaPulse_Screen.png)
 
-![ChromaPulse v3.2.1 Release Card](../../assets/ChromaPulse_v3.2.1_Release_Card.png)
+![ChromaPulse v3.3.0 Release Card](../../assets/ChromaPulse_v3.3.0_Release_Card.png)
 
 ---
 
@@ -28,6 +28,11 @@ Analog drum machines decay like a draining capacitor—fast punch up front follo
 ---
 
 ## 🗂️ Version & Patch History
+
+- **[`v3.3.0` (2026-11-18) — Streaming 16-Pad WAV Auto-Slicer with Click-Free Fades & Section Cycling](./v3.3.0_2026-11-18.md)**
+  - **Streaming 16-Pad Auto-Slicer (`LoadAndAutoSliceWav`)**: Drop any breakbeat or full song WAV to stream and auto-slice the loudest 16-second window cleanly across all 16 pads.
+  - **2 ms Anti-Click Fades & Automatic Choke Group 1**: Every slice receives smooth 2 ms onset/tail fades and automatic Choke Group 1 assignment so chops play cleanly right away.
+  - **`[NEXT SEC >]` Section Cycle Control**: Jump straight to the next 16-second window of a long WAV file without interrupting playback.
 
 - **[`v3.2.1` (2026-11-17) — Lock-Free Sample Swap Handshake, Strict [-0.985] ADAA Ceiling & S=1.0 Shelf Invariance](./v3.2.1_2026-11-17.md)**
   - **Lock-Free Live Sample Swap Handshake**: Added symmetric `seq_cst` `std::atomic<int> audioBusy` counter around `ProcessReplacing` and `effProcessEvents` (with SEH reset), `std::mutex sampleWriteMutex` acquired before `ScopedSampleLock` (`200 ms` timeout), and atomic `sampleGen` mismatch voice cutoff—verified across 4,000 C++ and 1,200 live DLL swaps against 92,622 audio blocks with zero faults.

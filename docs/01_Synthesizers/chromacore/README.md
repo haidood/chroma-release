@@ -1,13 +1,13 @@
-# ChromaCore (`v2.9.4`)
+# ChromaCore (`v2.9.6`)
 
 > **32-Voice Hybrid Analog / Wavetable / Resampling Workstation Synth**  
 > Our unified flagship 4-oscillator synthesizer combining Osc 1-3 cubic wavetables, Osc 4 Internal Live Resampler & Time-Stretch engine, a 14-source Right-Click Modulation Matrix, Living Organic Wavetable Interference Visualizer, dual 4-pole ladder and state-variable filters, 8-style FM/Mod oscillator, 16-step Performer & Sequencer, 3-band multiband distortion, 12-band studio EQ, Upward/Downward Multiband Dynamics, and Magic Fattener.
 
-### 🎛️ Plugin Interface (`v2.9.4`)
+### 🎛️ Plugin Interface (`v2.9.6`)
 
 ![ChromaCore Live Interface](../../assets/ChromaCore_Screen.png)
 
-![ChromaCore v2.9.4 Release Card](../../assets/ChromaCore_v2.9.4_Release_Card.png)
+![ChromaCore v2.9.6 Release Card](../../assets/ChromaCore_v2.9.6_Release_Card.png)
 
 ---
 
@@ -46,6 +46,11 @@ A classic 24dB 4-pole filter is built like a ladder with 4 rungs (stages). Inste
 ---
 
 ## 🗂️ Version & Patch History
+
+- **[`v2.9.6` (2026-11-18) — 10 Calm Organic Pads/Plucks/Hybrids (88 Presets), Live FX Tab LEDs & -35% Audio CPU](./v2.9.6_2026-11-18.md)**
+  - **88 Factory Presets (+15 New Calm, Dry & Organic Patches)**: Added 10 purpose-built calm presets exploiting independent per-oscillator envelopes, parallel dual filters (`LP12`, `HP12`, `Allpass`, `Comb+`), soft Phase FM, and ducked 15 IPS tape BBD echoes (`Staggered Dawn Pad`, `Silk Phaser Pad`, `Under-Vocal Pillow Pad`, `Wooden Breath Flute`, `Warm Rosewood Marimba`, `Nylon Harp & Comb`, `Midnight Electric Tine`, `Soft Felt Bass Pluck`, `Dewdrop Pluck into Pad`, and `Raindrop Celesta Echoes`) alongside 5 clean dry essentials.
+  - **Top FX Tab Active LEDs & 1-Click Bypass**: `DISTORT`, `EQ 12-B`, `BBD DELAY`, `MIAMI SEQ`, `MB DYN`, and `REVERB` tabs now illuminate with a raised light-blue bevel and glowing red LED dot when active and support instant push-down/dot bypass.
+  - **Audio-Thread CPU Overhaul (Up to -35% CPU) + LTCG**: Moved per-voice VCO thermal drift `std::sin()` to 16-sample control rate, gated Mod Osc `sin`/`exp2f` behind active target and depth, skipped wavetable lookups for muted/silent Osc 1–3, and enabled IEEE-754-safe `/Oi /Ot /GL /LTCG` compilation (`Clean Init`: `14.1% -> 9.6%`, `Marimba`: `6.3% -> 4.1%` on 8-voice 48 kHz chords).
 
 - **[`v2.9.4` (2026-11-17) — NeuralLifeGuard Thread Safety, 192 kHz Double Biquad Guard & Module-Pinned Shields](./v2.9.4_2026-11-17.md)**
   - **`NeuralLifeGuard` Mutex-Protected AI Worker**: `RunNeuralGenerationWorker` now acquires `NeuralLifeGuard::mtx` and verifies `alive` before writing decoded audio, generated synthesis parameters, `isGeneratingAI`, or `aiStatusMsg` onto `PluginState`, and pins the DLL via `CreateThread` + `GetModuleHandleExA` + `FreeLibraryAndExitThread`.

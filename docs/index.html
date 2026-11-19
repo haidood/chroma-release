@@ -276,7 +276,7 @@ const DATA = [
       {
         "id": "chromacore",
         "name": "ChromaCore",
-        "latest": "v2.9.4",
+        "latest": "v2.9.6",
         "screen_image": "assets/ChromaCore_Screen.png",
         "type": "32-Voice Hybrid Analog / Wavetable / Resampling Workstation Synth",
         "summary": "Our unified flagship 4-oscillator synthesizer combining Osc 1-3 cubic wavetables, Osc 4 Internal Live Resampler & Time-Stretch engine, a 14-source Right-Click Modulation Matrix, Living Organic Wavetable Interference Visualizer, dual 4-pole ladder and state-variable filters, 8-style FM/Mod oscillator, 16-step Performer & Sequencer, 3-band multiband distortion, 12-band studio EQ, Upward/Downward Multiband Dynamics, and Magic Fattener.",
@@ -330,6 +330,17 @@ const DATA = [
           "Legacy ChromaCorePro instances automatically merge into ChromaCoreVST.dll upon clicking Update."
         ],
         "versions": [
+          {
+            "version": "v2.9.6",
+            "date": "2026-11-18",
+            "title": "10 Calm Organic Pads/Plucks/Hybrids (88 Presets), Live FX Tab LEDs & -35% Audio CPU",
+            "card_image": "assets/ChromaCore_v2.9.6_Release_Card.png",
+            "highlights": [
+              "**88 Factory Presets (+15 New Calm, Dry & Organic Patches)**: Added 10 purpose-built calm presets exploiting independent per-oscillator envelopes, parallel dual filters (`LP12`, `HP12`, `Allpass`, `Comb+`), soft Phase FM, and ducked 15 IPS tape BBD echoes (`Staggered Dawn Pad`, `Silk Phaser Pad`, `Under-Vocal Pillow Pad`, `Wooden Breath Flute`, `Warm Rosewood Marimba`, `Nylon Harp & Comb`, `Midnight Electric Tine`, `Soft Felt Bass Pluck`, `Dewdrop Pluck into Pad`, and `Raindrop Celesta Echoes`) alongside 5 clean dry essentials.",
+              "**Top FX Tab Active LEDs & 1-Click Bypass**: `DISTORT`, `EQ 12-B`, `BBD DELAY`, `MIAMI SEQ`, `MB DYN`, and `REVERB` tabs now illuminate with a raised light-blue bevel and glowing red LED dot when active and support instant push-down/dot bypass.",
+              "**Audio-Thread CPU Overhaul (Up to -35% CPU) + LTCG**: Moved per-voice VCO thermal drift `std::sin()` to 16-sample control rate, gated Mod Osc `sin`/`exp2f` behind active target and depth, skipped wavetable lookups for muted/silent Osc 1\u20133, and enabled IEEE-754-safe `/Oi /Ot /GL /LTCG` compilation (`Clean Init`: `14.1% -> 9.6%`, `Marimba`: `6.3% -> 4.1%` on 8-voice 48 kHz chords)."
+            ]
+          },
           {
             "version": "v2.9.4",
             "date": "2026-11-17",
@@ -518,7 +529,7 @@ const DATA = [
       {
         "id": "chromapulse",
         "name": "ChromaPulse",
-        "latest": "v3.2.1",
+        "latest": "v3.3.0",
         "screen_image": "assets/ChromaPulse_Screen.png",
         "type": "16-Pad Drum & Step-Sequenced Ratchet Rhythm Workstation",
         "summary": "Precision 16-pad drum & rhythm workstation with Per-Pad & Master Parametric EQ, 3D depth-blended step bars, wider smooth ribbon waveforms, residual ADAA headroom, and rapid held-key + Left-Click sequencer note modifiers.",
@@ -544,6 +555,17 @@ const DATA = [
           "A host crash reported by a tester is not yet confirmed by a crash dump."
         ],
         "versions": [
+          {
+            "version": "v3.3.0",
+            "date": "2026-11-18",
+            "title": "Streaming 16-Pad WAV Auto-Slicer with Click-Free Fades & Section Cycling",
+            "card_image": "assets/ChromaPulse_v3.3.0_Release_Card.png",
+            "highlights": [
+              "**Streaming 16-Pad Auto-Slicer (`LoadAndAutoSliceWav`)**: Drop any breakbeat or full song WAV to stream and auto-slice the loudest 16-second window cleanly across all 16 pads.",
+              "**2 ms Anti-Click Fades & Automatic Choke Group 1**: Every slice receives smooth 2 ms onset/tail fades and automatic Choke Group 1 assignment so chops play cleanly right away.",
+              "**`[NEXT SEC >]` Section Cycle Control**: Jump straight to the next 16-second window of a long WAV file without interrupting playback."
+            ]
+          },
           {
             "version": "v3.2.1",
             "date": "2026-11-17",
@@ -834,7 +856,7 @@ const DATA = [
       {
         "id": "chromaverb",
         "name": "ChromaVerb",
-        "latest": "v2.9.3",
+        "latest": "v3.1.0",
         "screen_image": "assets/ChromaVerb_Screen.png",
         "type": "Studio Algorithmic Multi-Room FDN Reverb & Shimmer",
         "summary": "Lush, zero-metallic algorithmic studio reverb powered by an 8x8 unitary Feedback Delay Network, orthogonal stereo taps, and forward octave-up shimmer.",
@@ -852,6 +874,17 @@ const DATA = [
           "A host crash reported by a tester after loading ChromaVerb is not yet confirmed by a crash dump; if it recurs, please send %APPDATA%\\ChromaAudio\\CrashReports\\host_shield_log.txt."
         ],
         "versions": [
+          {
+            "version": "v3.1.0",
+            "date": "2026-11-18",
+            "title": "Full Direct2D GPU UI (175.5 FPS), 256-Bin Persistence Cloud & Keystroke Crash Fix",
+            "card_image": "assets/ChromaVerb_v3.1.0_Release_Card.png",
+            "highlights": [
+              "**Full Direct2D + DirectWrite Hardware-Accelerated UI**: Powered by `shared/ChromaD2DEngine.h` (**175.5 FPS / 5.7 ms frame time**) with a silky 256-bin spectral persistence cloud and interactive Decay + Post EQ canvas.",
+              "**Host Keystroke Stack-Overflow Fix (`0xC00000FD`)**: Eliminated recursive parent message routing via direct `effEditKeyDown/KeyUp` dispatch and added automatic `_resetstkoflw` guard-page recovery inside `ChromaHostShield.h`.",
+              "**Preserved High-Sample-Rate Accuracy**: Retains double-precision EQ biquads (`54,432/54,432` Ok across `44.1\u2013192 kHz`) and the `250 ms` time-bounded sample-rate reset guard."
+            ]
+          },
           {
             "version": "v2.9.3",
             "date": "2026-11-17",
@@ -1253,7 +1286,7 @@ const DATA = [
       {
         "id": "chromavoice",
         "name": "ChromaVoice",
-        "latest": "v3.2.1",
+        "latest": "v3.3.0",
         "screen_image": "assets/ChromaVoice_Screen.png",
         "type": "WARP Granular Vocal Pitch, Formant & Harmony Processor",
         "summary": "Real-time vocal pitch and formant shifter featuring consonant micro-windowing and transient preservation so shifted vocals never sound smeared or robotic (unless you want them to!).",
@@ -1268,9 +1301,20 @@ const DATA = [
           }
         ],
         "known_issues": [
-          "None currently open in v3.2.1."
+          "None currently open in v3.3.0."
         ],
         "versions": [
+          {
+            "version": "v3.3.0",
+            "date": "2026-11-18",
+            "title": "Vocal Presence Sensor, Circle-of-5ths Harmonic Layering & Buffer Crackle Hardening",
+            "card_image": "assets/ChromaVoice_v3.3.0_Release_Card.png",
+            "highlights": [
+              "**Intelligent Vocal Presence Sensor**: Tracks voiced vocal energy in real time to keep harmony and formant layers tight between sung phrases.",
+              "**Circle-of-5ths Harmonic Doubler & Tripler**: Instant fifth and octave harmonic stacking paired with formant preservation for natural wide vocal ensembles.",
+              "**Non-ASIO Buffer Crackle Hardening**: Hardened granular overlap-add block framing for glitch-free playback on variable-buffer consumer drivers."
+            ]
+          },
           {
             "version": "v3.2.1",
             "date": "2026-11-05",
@@ -1354,7 +1398,7 @@ const DATA = [
       {
         "id": "chromamaster",
         "name": "ChromaMaster",
-        "latest": "v1.2.0",
+        "latest": "v1.3.0",
         "screen_image": "assets/ChromaMaster_Screen.png",
         "type": "Whole-Song Mastering Workstation (64 Categorized Presets, Reorderable 6-Slot Chain, Custom Ref Match, Lin-Phase EQ, Bark Tamer & 4x TP)",
         "summary": "Complete mastering & mix-bus console with a categorized 2-pane browser (64 purpose-built presets across Master, Whole Mix, Drums, Vocals, Synths, Bass, Space & Width, and Mid Scoops), reorderable 6-slot chain, live & .WAV Custom Reference Track Match, 193/385-tap Kaiser Linear-Phase EQ, and 5th-order Psychoacoustic Dither.",
@@ -1376,6 +1420,17 @@ const DATA = [
           "A host crash reported by a tester is not yet confirmed by a crash dump."
         ],
         "versions": [
+          {
+            "version": "v1.3.0",
+            "date": "2026-11-18",
+            "title": "Maximizer IM Overhaul, ADSR, Moveable 5-Band EQ, Mono-Safe Space & Cached GPU Spectrum",
+            "card_image": "assets/ChromaMaster_v1.3.0_Release_Card.png",
+            "highlights": [
+              "**Maximizer Limiter Overhaul (-24.9 dB IM Reduction, -20% CPU)**: Eliminated bass intermodulation chop under heavy limiting while adding a full **Maximizer ADSR Envelope** (`Attack`, `Decay`, `Sustain`, `Release`).",
+              "**Moveable 5-Band Parametric EQ & Mono-Safe Space Panel**: Added draggable frequency, gain, and Q controls across all 5 bands with a docked `EQ/SPACE` panel and a mono-compatible stereo space delay (`7.45e-09` mono-sum invariance).",
+              "**Cached Direct2D GPU Spectrum & Batched 3D Waterfall**: Upgraded spectrum rendering to `shared/ChromaD2DEngine.h` with cached gradient brush, FNV-cached 64-point EQ curve, batched `ID2D1PathGeometry` traces, and IEEE-754-safe `/Oi /Ot /GL /LTCG` optimization."
+            ]
+          },
           {
             "version": "v1.2.0",
             "date": "2026-11-17",

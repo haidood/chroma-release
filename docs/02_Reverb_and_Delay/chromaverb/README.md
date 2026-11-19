@@ -1,13 +1,13 @@
-# ChromaVerb (`v2.9.3`)
+# ChromaVerb (`v3.1.0`)
 
 > **Studio Algorithmic Multi-Room FDN Reverb & Shimmer**  
 > Lush, zero-metallic algorithmic studio reverb powered by an 8x8 unitary Feedback Delay Network, orthogonal stereo taps, and forward octave-up shimmer.
 
-### 🎛️ Plugin Interface (`v2.9.3`)
+### 🎛️ Plugin Interface (`v3.1.0`)
 
 ![ChromaVerb Live Interface](../../assets/ChromaVerb_Screen.png)
 
-![ChromaVerb v2.9.3 Release Card](../../assets/ChromaVerb_v2.9.3_Release_Card.png)
+![ChromaVerb v3.1.0 Release Card](../../assets/ChromaVerb_v3.1.0_Release_Card.png)
 
 ---
 
@@ -22,6 +22,11 @@ Shimmer reverb pitches your reverb tail up by +12 semitones (one octave) by slic
 ---
 
 ## 🗂️ Version & Patch History
+
+- **[`v3.1.0` (2026-11-18) — Full Direct2D GPU UI (175.5 FPS), 256-Bin Persistence Cloud & Keystroke Crash Fix](./v3.1.0_2026-11-18.md)**
+  - **Full Direct2D + DirectWrite Hardware-Accelerated UI**: Powered by `shared/ChromaD2DEngine.h` (**175.5 FPS / 5.7 ms frame time**) with a silky 256-bin spectral persistence cloud and interactive Decay + Post EQ canvas.
+  - **Host Keystroke Stack-Overflow Fix (`0xC00000FD`)**: Eliminated recursive parent message routing via direct `effEditKeyDown/KeyUp` dispatch and added automatic `_resetstkoflw` guard-page recovery inside `ChromaHostShield.h`.
+  - **Preserved High-Sample-Rate Accuracy**: Retains double-precision EQ biquads (`54,432/54,432` Ok across `44.1–192 kHz`) and the `250 ms` time-bounded sample-rate reset guard.
 
 - **[`v2.9.3` (2026-11-17) — Double-Precision EQ Biquads Across 44.1–192 kHz (Zero Low-Shelf Shift)](./v2.9.3_2026-11-17.md)**
   - **Plain-English DSP Summary**: Very low boosted shelves and low cuts now land exactly where you set them at 88.2 to 192 kHz sessions; at 44.1 and 48 kHz the sound is unchanged.
