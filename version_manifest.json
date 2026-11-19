@@ -1,8 +1,8 @@
 {
   "suite_name": "Chroma Audio Suite",
-  "suite_version": "2026.11.20",
+  "suite_version": "2026.11.21",
   "release_date": "2026-11-19",
-  "notes": "Chroma Audio Suite 2026.11.20: ChromaCore v2.9.7 (2027 4x AA knobs & Retina typography, 4-mode real synthesis visualizer, collapsible 4/8 macro deck + live ADSR curve, real Circle-of-5ths polyphonic HARM SEQ pattern painter, Pilot B recessed cyan LED keybed, click-to-type knob entry, bare osc transformer weight & persistent FX tab workflow bypass); ChromaVerb v3.2.0 (Eclipse Sonar Event Horizon stereo wavefronts, 0-100% knob clamp fix, lush cascaded Jot studio DSP overhaul with 16x velvet output diffusion & constant-power mix, click-to-type entry); ChromaVoice v3.3.1 (eliminated WARP unsigned wrap hang, non-ASIO DirectSound/WASAPI anti-crackle hardening & 10x quieter preset switching); plus suite-wide 12-hour rate-limited private Feedback Shield.",
+  "notes": "Chroma Audio Suite 2026.11.21: ChromaVoice v4.0.0 Solar Monolith Orbit (complete 1180x680 Solar Gold on Black Infinity reskin with 4x supersampled obsidian-gold dials, clickable Circle of 5ths Live Target-Note Steering + 6 scales, live scrolling Pitch Ribbon, draggable 3D Stereo Harmonic Soundstage Orbit, full-height 4-channel Vertical Harmonic & L/R Doubler Console with scale-true +5/+9/Octave stacks, +3.2 dB Weak-Vocal Body Enhancer, Click-to-Type numeric knobs & CHROMAVOICE_V4 chunk recall); ChromaCore v2.9.7 (2027 4x AA UI, 4-mode visualizer, collapsible 4/8 macros + live ADSR, Circle-of-5ths HARM SEQ); ChromaVerb v3.2.0 (Eclipse Sonar Event Horizon + cascaded Jot studio DSP overhaul); plus live bit-exact plugin audio demos on the portal.",
   "plugins": {
     "ChromaCore": {
       "version": "2.9.7",
@@ -71,10 +71,10 @@
       "notes": "ChromaTransientShaper v2.9.0 (Phase 2 update 2026.11.15): Added 32-bit DIB cache, ChromaFastText, dirty-rect clipping, and idle audio bypass (0.03% idle CPU, 0.17% active DSP, 4.21ms live paint, 0.0/s idle repaints), plus 2x ADAA clipper stage and Clipboard [FEEDBACK] diagnostics."
     },
     "ChromaVoice": {
-      "version": "3.3.1",
-      "build": 20261120,
+      "version": "4.0.0",
+      "build": 20261121,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaVoice.dll",
-      "notes": "ChromaVoice v3.3.1 (2026.11.19): Eliminated critical WARP unsigned buffer wrap infinite audio-thread hang via O(1) modular wrapping; hardened non-ASIO DirectSound/WASAPI playback with 16-sample harmony control rate (-40% unison CPU) and smooth semitone slewing; eliminated full-scale hot preset-switch pops via 4 ms micro-fades; guarded mid-stream sample-rate resets; and upgraded to 12h rate-limited Feedback Shield."
+      "notes": "ChromaVoice v4.0.0 — Solar Monolith Orbit (2026.11.19): Complete 1180x680 Solar Gold on Black Infinity reskin with 4x supersampled obsidian-gold dials; clickable Circle of 5ths Target-Note Wheel supporting both Force-to-Scale (6 scales: Chromatic/Major/Minor/Dorian/Pentatonic/Blues) and live Target Click Steering; live Detected >>> Locked Pitch Ribbon; draggable 3D Stereo Harmonic Soundstage Orbit; full-height 4-channel Vertical Harmonic & L/R Doubler Console (DBL L, DBL R, +5TH, +9TH) with per-layer bipolar L/R pan, level fader, formant offset, interval cycler & 1-click DUO/WIDE/SOLAR CHOIR/OCTAVE stacks; +3.2 dB Weak-Vocal Body Enhancer; Studio FX Bay toggles; suite-standard Click-to-Type numeric knob/pan/fader entry; and CHROMAVOICE_V4 chunk recall."
     },
     "ChromaWidener": {
       "version": "2.9.1",
