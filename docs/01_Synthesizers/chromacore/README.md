@@ -1,13 +1,13 @@
-# ChromaCore (`v2.9.7`)
+# ChromaCore (`v2.9.8`)
 
 > **32-Voice Hybrid Analog / Wavetable / Resampling Workstation Synth**  
 > Our unified flagship 4-oscillator synthesizer combining Osc 1-3 cubic wavetables, Osc 4 Internal Live Resampler & Time-Stretch engine, a 14-source Right-Click Modulation Matrix, 4-Mode Real Synthesis Visualizer, 2027 4x supersampled dials with Click-to-Type numeric entry, Collapsible 4/8 Macro Deck + Live ADSR Curve, Obsidian Circle-of-5ths Polyphonic HARM SEQ, dual 4-pole ladder and state-variable filters, 8-style FM/Mod oscillator, 3-band multiband distortion, 12-band studio EQ, Upward/Downward Multiband Dynamics, and Magic Fattener.
 
-### 🎛️ Plugin Interface (`v2.9.7`)
+### 🎛️ Plugin Interface (`v2.9.8`)
 
 ![ChromaCore Live Interface](../../assets/ChromaCore_Screen.png)
 
-![ChromaCore v2.9.7 Release Card](../../assets/ChromaCore_v2.9.7_Release_Card.png)
+![ChromaCore v2.9.8 Release Card](../../assets/ChromaCore_v2.9.8_Release_Card.png)
 
 ---
 
@@ -46,6 +46,13 @@ A classic 24dB 4-pole filter is built like a ladder with 4 rungs (stages). Inste
 ---
 
 ## 🗂️ Version & Patch History
+
+- **[`v2.9.8` (2026-11-19) — Concert-Pitch A=440.00 Hz Precision, Eliminated 440x Audio-Rate VCO Drift Ringing, Staggered Ladder DSP & 63 Factory Preset Fixes](./v2.9.8_2026-11-19.md)**
+  - **Eliminated Critical 440x Audio-Rate VCO Thermal Drift FM Bug**: Fixed `vcoDriftPhase` multiplying by `oscBaseInc` (`440.0 / sampleRate`) instead of `invSampleRate`, which had been vibrating every voice's drift and Osc 1 stereo phase twin at `96.8–250.8 Hz` audio rate stepped every 16 samples. VCO thermal drift now glides smoothly at `0.18–0.46 Hz` (`±0.45 cents`) with zero metallic FM sidebands.
+  - **Pure Concert-Pitch Polyphonic Chords (`A = 440.00 Hz`)**: Tightened hardcoded polyphonic voice-card dispersion from `±5.4 cents` (`16.4 cents` peak-to-peak chord spread) down to a genuine hardware-precision `±0.25–0.75 cents`, keeping complex jazz/dark chords (`Cm9`, `Abmaj7`, `Fm9`) crystal pure in tune.
+  - **Staggered 4-Pole Ladder Filter Damping (`FILT_LP24`)**: Replaced identical cascaded double-Q SVF damping (`R^2` nasal honk around `150–200 Hz`) with staggered Butterworth-to-Moog pole damping (`R1 / R2`), eliminating hollow cardboard low-mid ringing while preserving full sub-bass weight and creamy high-resonance squelch.
+  - **25 Out-of-Tune + 38 Hard-Panned Factory Presets Fixed (`88/88` Audited)**: Migrated 25 legacy presets that accidentally placed fine chorus/Reese detune (`0.501–0.505`) on `kParamOsc2Pitch` (`+10c` to `+48c` sharp!) to exact `0 st` coarse pitch + symmetric concert-pitch-centered `Osc1Fine / Osc2Fine` (`±4c` to `±12c`), centered 38 legacy presets accidentally panned 96–100% hard L/R from the old 105-float layout, and fixed `Cyberpunk 2077 Reese Bass` serial `HP24` Filter 2 routing that was choking `65 Hz` sub bass.
+  - **Internal Reverb Anti-Ringing Polish**: Removed the accidental `kParamReverbTrebleAir -> midGainDB` assignment (up to `+18 dB` mid honk) and upgraded `LateReverbTank` to quadrature per-comb LFO phases to eliminate static comb ringing.
 
 - **[`v2.9.7` (2026-11-19) — 2027 4x AA Hardware Skin, 4-Mode Real Visualizer, Collapsible Macros + ADSR, Circle-of-5ths HARM SEQ & Click-to-Type Knobs](./v2.9.7_2026-11-19.md)**
   - **2027 4x Supersampled Anti-Aliased Knobs & Retina Typography**: Dial sprites are pre-rendered at 4x resolution and bicubic-downsampled (0.00 ms runtime hit) with machined socket collars, soft dual-layer LED arcs, and `AntiAliasGridFit` labels (eliminating dark-theme color fringing while activating `ChromaFastText` caching).

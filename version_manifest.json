@@ -1,20 +1,20 @@
 {
   "suite_name": "Chroma Audio Suite",
-  "suite_version": "2026.11.21",
+  "suite_version": "2026.11.22",
   "release_date": "2026-11-19",
-  "notes": "Chroma Audio Suite 2026.11.21: ChromaVoice v4.0.0 Solar Monolith Orbit (complete 1180x680 Solar Gold on Black Infinity reskin with 4x supersampled obsidian-gold dials, clickable Circle of 5ths Live Target-Note Steering + 6 scales, live scrolling Pitch Ribbon, draggable 3D Stereo Harmonic Soundstage Orbit, full-height 4-channel Vertical Harmonic & L/R Doubler Console with scale-true +5/+9/Octave stacks, +3.2 dB Weak-Vocal Body Enhancer, Click-to-Type numeric knobs & CHROMAVOICE_V4 chunk recall); ChromaCore v2.9.7 (2027 4x AA UI, 4-mode visualizer, collapsible 4/8 macros + live ADSR, Circle-of-5ths HARM SEQ); ChromaVerb v3.2.0 (Eclipse Sonar Event Horizon + cascaded Jot studio DSP overhaul); plus live bit-exact plugin audio demos on the portal.",
+  "notes": "Chroma Audio Suite 2026.11.22: ChromaCore v2.9.8 Concert-Pitch & Zero-Ringing DSP Overhaul (fixed 440x audio-rate VCO thermal drift FM buzz, tightened polyphonic chord dispersion for pure A=440.00 Hz Cm9/Abmaj7 tuning, staggered 4-pole ladder damping to eliminate Q^2 hollow 160 Hz ringing, fixed 25 legacy quarter-tone O2Pitch presets to symmetric concert-pitch fine detune, fixed 38 hard-panned legacy presets, fixed Reverb midGainDB boost + quadrature comb modulation, and fixed Cyberpunk Reese serial HP24 sub choke); ChromaVoice v4.0.0 Solar Monolith Orbit; ChromaVerb v3.2.0 Eclipse Sonar.",
   "plugins": {
     "ChromaCore": {
-      "version": "2.9.7",
-      "build": 20261120,
+      "version": "2.9.8",
+      "build": 20261122,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaCoreVST.dll",
-      "notes": "ChromaCoreVST v2.9.7 (2026.11.19): 2027 4x supersampled anti-aliased knobs & calm Retina typography; 4-mode switchable synthesis visualizer (3D WT+MIX, ALL-IN-ONE w/ live Filter curve & stereo vectorscope, 4-OSC+FILT, PHASE MORPH); collapsible 4/8 Macro deck unlocking a live interactive ADSR curve; new Obsidian Circle-of-5ths HARM SEQ 4-voice polyphonic chord & click-and-drag pattern painter; Pilot B cyan LED recessed keybed; suite-standard Click-to-Type numeric knob entry; persistent FX tab workflow bypass (right-click or corner LED); subtle baseline Class-A bare oscillator analog weight; and 12h rate-limited Feedback Shield."
+      "notes": "ChromaCoreVST v2.9.8 (2026.11.19): Fixed critical 440x audio-rate VCO thermal drift FM bug (96.8-250.8 Hz sideband ringing across all voices -> true 0.18-0.46 Hz analog wander); locked polyphonic chords to concert A=440.00 Hz (+/-0.5c dispersion instead of 16c chord spread); upgraded 24 dB ladder filter to staggered Butterworth-to-Moog pole damping eliminating hollow 160 Hz Q^2 honk; migrated 25 legacy quarter-tone (+19c to +48c) Osc2Pitch presets to exact 0 st + symmetric +/-12c fine detune; centered 38 legacy hard-panned presets; fixed internal reverb quadrature modulation & removed +18 dB midGainDB surge; and fixed Cyberpunk Reese Bass sub-choking Filter 2 routing."
     },
     "ChromaCorePro": {
-      "version": "2.9.7",
-      "build": 20261120,
+      "version": "2.9.8",
+      "build": 20261122,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaCoreVST.dll",
-      "notes": "Unified into ChromaCoreVST v2.9.7: Updating automatically merges legacy ChromaCorePro into ChromaCoreVST.dll with 2027 4x AA UI, 4-mode visualizer, collapsible macros + live ADSR, Circle-of-5ths HARM SEQ, click-to-type knobs, and 88 factory presets."
+      "notes": "Unified into ChromaCoreVST v2.9.8: Concert-pitch A=440.00 Hz overhaul, eliminated audio-rate VCO drift ringing, staggered 4-pole ladder damping, fixed 25 out-of-tune + 38 hard-panned legacy presets, plus 2027 4x AA UI, 4-mode visualizer & Circle-of-5ths HARM SEQ."
     },
     "ChromaPulse": {
       "version": "3.3.0",
