@@ -4,6 +4,10 @@
 
 **Harmonic Color. Hardware Soul. Native Speed.** — Pure native 64-bit C++ synthesizers and studio effects built for analog weight, sub-2 ms UI responsiveness, and near-zero idle CPU.
 
+## 🚀 Download All-In-One Windows x64 Installer (Zero Dependencies)
+
+- **[Download `ChromaAudioSuite_Setup_x64.exe` (~9.0 MB)](https://github.com/haidood/chroma-release/raw/main/ChromaAudioSuite_Setup_x64.exe)** — Single self-contained native 64-bit Windows installer holding all 15 VST2 + VST3 plugins, hardware-locked serial activation, automatic legacy cleanup, and `ChromaUpdater.exe`. **Works on a clean Windows 10/11 x64 PC with zero Python, zero PowerShell, zero .NET, and zero VC++ Redistributable required.**
+
 ![ChromaMaster Live Interface](docs/assets/ChromaMaster_Screen.png)
 
 ![ChromaMaster v1.1.0 Release Card](docs/assets/ChromaMaster_v1.1.0_Release_Card.png)
