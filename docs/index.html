@@ -276,10 +276,10 @@ const DATA = [
       {
         "id": "chromacore",
         "name": "ChromaCore",
-        "latest": "v2.9.6",
+        "latest": "v2.9.7",
         "screen_image": "assets/ChromaCore_Screen.png",
         "type": "32-Voice Hybrid Analog / Wavetable / Resampling Workstation Synth",
-        "summary": "Our unified flagship 4-oscillator synthesizer combining Osc 1-3 cubic wavetables, Osc 4 Internal Live Resampler & Time-Stretch engine, a 14-source Right-Click Modulation Matrix, Living Organic Wavetable Interference Visualizer, dual 4-pole ladder and state-variable filters, 8-style FM/Mod oscillator, 16-step Performer & Sequencer, 3-band multiband distortion, 12-band studio EQ, Upward/Downward Multiband Dynamics, and Magic Fattener.",
+        "summary": "Our unified flagship 4-oscillator synthesizer combining Osc 1-3 cubic wavetables, Osc 4 Internal Live Resampler & Time-Stretch engine, a 14-source Right-Click Modulation Matrix, 4-Mode Real Synthesis Visualizer, 2027 4x supersampled dials with Click-to-Type numeric entry, Collapsible 4/8 Macro Deck + Live ADSR Curve, Obsidian Circle-of-5ths Polyphonic HARM SEQ, dual 4-pole ladder and state-variable filters, 8-style FM/Mod oscillator, 3-band multiband distortion, 12-band studio EQ, Upward/Downward Multiband Dynamics, and Magic Fattener.",
         "glossary": [
           {
             "term": "Internal Synth Resampling & Time-Stretching (Osc 4)",
@@ -330,6 +330,58 @@ const DATA = [
           "Legacy ChromaCorePro instances automatically merge into ChromaCoreVST.dll upon clicking Update."
         ],
         "versions": [
+          {
+            "version": "v2.9.7",
+            "date": "2026-11-19",
+            "title": "2027 4x AA Hardware Skin, 4-Mode Real Visualizer, Collapsible Macros + ADSR, Circle-of-5ths HARM SEQ & Click-to-Type Knobs",
+            "card_image": "assets/ChromaCore_v2.9.7_Release_Card.png",
+            "highlights": [
+              "**2027 4x Supersampled Anti-Aliased Knobs & Retina Typography**: Dial sprites are pre-rendered at 4x resolution and bicubic-downsampled (0.00 ms runtime hit) with machined socket collars, soft dual-layer LED arcs, and `AntiAliasGridFit` labels (eliminating dark-theme color fringing while activating `ChromaFastText` caching).",
+              "**4-Mode Real Interactive Top-Center Visualizer**: Switch live via the bottom mode pills (`3D WT+MIX`, `ALL-IN-ONE`, `4-OSC+FILT`, `MORPH`) or by clicking the viewport. Displays real phase-locked wavetable combinations, live Filter 1 cutoff/resonance curves, harmonic FFT, modulation trails, and a lock-free stereo width vectorscope with zero fake animation.",
+              "**Collapsible Macro Deck (`4-SLOT` Default + `[ + 8 ]`) & Live ADSR Curve**: Macro Control starts compact at 1 row of 4 (`M1\u2013M4`) with a `[ + 8 ]` / `[ - 4 ]` header toggle, unlocking a real-time interactive **Amp Envelope ADSR Curve Visualizer** directly above the Attack/Decay/Sustain/Release knobs.",
+              "**Real Obsidian Studio `HARM SEQ` (Circle-of-5ths Polyphonic Sequencer & Pattern Painter)**: Replaces the neon Miami tab with an interactive 12-wedge Circle of 5ths wheel (6 scales, live chord audition, 6 one-click progressions), 5 pattern mode banks (`CHORD PAD`, `MELODIC LEAD`, `PLUCK ARP`, `BASSLINE`, `POLY RHYTHM`), a 16x12 click-and-drag pattern painter, 4-voice polyphonic chords with humanized strum, Chord Quality, Velocity sculpting, Ratchet (`1x\u20134x`), Tie, Slide, Probability, and Euclidean generation.",
+              "**Pilot B Recessed Cyan LED Keybed & Persistent FX Tab Workflow**: Deep recessed metallic keybed overhang with subtle cyan LED accent bar; top FX tabs now persist activation cleanly across tab switches, with **Right-Click** or **Corner LED Dot** instant bypass from any tab.",
+              "**Click-to-Type Keyboard Numeric Entry on Every Knob**: Click any knob to select it, type an integer or decimal (e.g. `5`, `-5`, `1200`, `75`) and press `Enter` to jump straight to exact semitones, Hz, dB, ms, or `%` (`Esc` cancels; Spacebar stays free for DAW transport).",
+              "**Bare Oscillator Class-A Weight & 12h Rate-Limited Feedback Shield**: Enabled subtle baseline transformer core flux and even-harmonic body at 0 dB unity gain (zero extra CPU) so bare oscillators carry full analog weight, plus hardened 12-hour per-machine rate-limited `[FEEDBACK]` telemetry."
+            ],
+            "hotkeys": [
+              [
+                "Click Knob -> Type Number + Enter",
+                "Exact Numeric Value Entry",
+                "Click any knob (e.g. OSC 1 Pitch or Filter 1 Cutoff), type '-5', '5', '1200', or '75', and press Enter to set exact st / Hz / dB / ms / % (Esc cancels)."
+              ],
+              [
+                "Right-Click Top FX Tab / Click LED Dot",
+                "Instant Workflow FX Bypass",
+                "Toggle DISTORT, EQ 12-B, BBD DELAY, HARM SEQ, MB DYN, or REVERB ON/OFF from any tab without losing your Synth view."
+              ],
+              [
+                "Click Visualizer Mode Pill / Viewport",
+                "Switch 4 Live Synth Views",
+                "Cycle between 3D WT+MIX (Pilot A), ALL-IN-ONE (Wave+Mod + FFT/Filter + Stereo), 4-OSC+FILT (2x2 Mini-Oscs + Filter), and PHASE MORPH."
+              ],
+              [
+                "Click [ + 8 ] / [ - 4 ] on Macro Card",
+                "Expand / Collapse Macro Deck",
+                "Toggle between compact 4-Macro + Live ADSR Curve view and full 8-Macro (M1\u2013M8) deck."
+              ],
+              [
+                "HARM SEQ: Click & Drag 16x12 Grid",
+                "Draw Patterns & Chords Live",
+                "Click and drag smoothly across steps to paint scale-locked melodies, arps, basslines, or 4-voice strummed chord pads."
+              ],
+              [
+                "HARM SEQ: Click Circle-of-5ths Wedge",
+                "Set Key & Audition Chord",
+                "Click any Major (outer) or Minor (inner) wedge to switch key, illuminate its diatonic neighborhood, and audition the tonic chord."
+              ],
+              [
+                "Right-Click Any Knob",
+                "14-Source Mod Matrix Link",
+                "Bind LFO 1/2, Envelopes, Velocity, Note, Mod Wheel, Chaos, Random, Performer, or Macros directly to any dial."
+              ]
+            ]
+          },
           {
             "version": "v2.9.6",
             "date": "2026-11-18",
@@ -856,10 +908,10 @@ const DATA = [
       {
         "id": "chromaverb",
         "name": "ChromaVerb",
-        "latest": "v3.1.0",
+        "latest": "v3.2.0",
         "screen_image": "assets/ChromaVerb_Screen.png",
         "type": "Studio Algorithmic Multi-Room FDN Reverb & Shimmer",
-        "summary": "Lush, zero-metallic algorithmic studio reverb powered by an 8x8 unitary Feedback Delay Network, orthogonal stereo taps, and forward octave-up shimmer.",
+        "summary": "Lush, zero-metallic algorithmic studio reverb powered by a 16-line unitary Feedback Delay Network, phase-coherent cascaded Jot damping, 2-stage velvet output diffusion, constant-power dry/wet mix, forward octave-up shimmer, and a 184 FPS Direct2D Eclipse Sonar Event Horizon GPU interface.",
         "glossary": [
           {
             "term": "8x8 Fast Walsh-Hadamard Unitary Matrix (FDN)",
@@ -874,6 +926,36 @@ const DATA = [
           "A host crash reported by a tester after loading ChromaVerb is not yet confirmed by a crash dump; if it recurs, please send %APPDATA%\\ChromaAudio\\CrashReports\\host_shield_log.txt."
         ],
         "versions": [
+          {
+            "version": "v3.2.0",
+            "date": "2026-11-19",
+            "title": "Lush Studio DSP Overhaul, Eclipse Sonar Event Horizon Stereo Wavefronts, 0-100% Knob Clamp & Click-to-Type",
+            "card_image": "assets/ChromaVerb_v3.2.0_Release_Card.png",
+            "highlights": [
+              "**Phase-Coherent Cascaded Jot Damping + 11.5 kHz Air Silk**: Replaced parallel 1-pole band splitting inside the 16-line FDN with cascaded proportional low/high shelves, gentle 11.5 kHz air humidity absorption, and 46 Hz sub-mud control \u2014 eliminating boxy crossover notches for open, silky studio tails.",
+              "**16x Velvet Echo Density & Pitch-Pure Modulation**: Added orthonormal Givens stereo cross-coupling in the input diffuser cascade plus 2-stage modulated velvet output allpasses (`191/317` L, `211/349` R) and recalibrated Character modulation so `0\u201340%` stays glass-pure on pianos/vocals while `50\u2013100%` opens lush vintage chorus.",
+              "**Constant-Power Equal-Loudness Dry/Wet Mix**: Replaced linear mix summing with smooth constant-power crossfading so turning up Mix preserves dry punch while tails bloom smoothly without a `-3 dB` mid-mix dip.",
+              "**Eclipse Sonar Event Horizon GPU UI (184 FPS)**: Features a solar-gold Event Horizon center with bilateral stereo wavefront echoes scaled by Stereo Width, persistent VRAM backdrop caching, and instant Space Skin switching (`Eclipse Sonar`, `Abyssal Sonar`, `Astral Vault`).",
+              "**0\u2013100% Knob Clamp & Signed Drag Wrap Fix**: Fixed unsigned `HIWORD` coordinate wrap when dragging knobs above the window top, clamped `DECAY RATE` and `STEREO WIDTH` cleanly to `0%\u2013100%`, enabled immediate first-digit Click-to-Type entry in Ableton Live (`effEditKeyDown`), and upgraded to the 12h rate-limited Feedback Shield."
+            ],
+            "hotkeys": [
+              [
+                "Click Knob -> Type Number + Enter",
+                "Exact Numeric Value Entry",
+                "Click any dial (Decay, Mix, Width, Pre-Delay, etc.) and immediately type a value + Enter to set exact % or ms."
+              ],
+              [
+                "Click Bottom-Left Space Skin Pill",
+                "Switch 3 GPU Space Skins",
+                "Cycle live between Eclipse Sonar, Abyssal Sonar, and Astral Vault with zero layout shift."
+              ],
+              [
+                "Double-Click / Delete EQ Node",
+                "Sculpt Decay & Post EQ",
+                "Add, drag, or delete interactive Post-EQ bands directly on the 256-bin GPU spectrum."
+              ]
+            ]
+          },
           {
             "version": "v3.1.0",
             "date": "2026-11-18",
@@ -1286,10 +1368,10 @@ const DATA = [
       {
         "id": "chromavoice",
         "name": "ChromaVoice",
-        "latest": "v3.3.0",
+        "latest": "v3.3.1",
         "screen_image": "assets/ChromaVoice_Screen.png",
         "type": "WARP Granular Vocal Pitch, Formant & Harmony Processor",
-        "summary": "Real-time vocal pitch and formant shifter featuring consonant micro-windowing and transient preservation so shifted vocals never sound smeared or robotic (unless you want them to!).",
+        "summary": "Real-time vocal pitch and formant shifter featuring consonant micro-windowing, transient preservation, Circle-of-5ths harmonic layering, and hardened non-ASIO DirectSound/WASAPI glitch-free playback.",
         "glossary": [
           {
             "term": "Formants vs. Pitch (Why Chipmunk Vocals Happen)",
@@ -1301,9 +1383,20 @@ const DATA = [
           }
         ],
         "known_issues": [
-          "None currently open in v3.3.0."
+          "None currently open in v3.3.1."
         ],
         "versions": [
+          {
+            "version": "v3.3.1",
+            "date": "2026-11-19",
+            "title": "WARP Infinite-Loop Fix, Non-ASIO DirectSound/WASAPI Crackle Hardening & Pop-Free Preset Switching",
+            "card_image": "assets/ChromaVoice_v3.3.1_Release_Card.png",
+            "highlights": [
+              "**Eliminated Critical WARP Audio-Thread Infinite Hang**: Fixed an unsigned `size_t` underflow (`writePos - 32`) when `writePos < 32` by introducing O(1) NaN-safe modular `wrapBufferPos()` across every WARP granular lookup and advance.",
+              "**Non-ASIO DirectSound / WASAPI Anti-Crackle Overhaul**: Moved diatonic harmony interval computation, `FastExp2f` pitch ratios, and voice LFO updates to 16-sample control rate (~40% lower 8-voice unison CPU) with smooth per-voice semitone slewing so consumer drivers run cleanly across jittery `64\u2013512` sample blocks.",
+              "**10x Quieter Hot Preset & Silence Transitions**: Triggered smooth 4 ms micro-fades on idle wake and inside `setProfile()` (dropping worst-case hot preset-switch jumps from `1.96` full-scale to `0.22`), added lock-free `audioBusy`/`dspResetting` sample-rate guards, and upgraded to the 12h rate-limited Feedback Shield."
+            ]
+          },
           {
             "version": "v3.3.0",
             "date": "2026-11-18",
@@ -1658,27 +1751,20 @@ function showFeedbackPortal() {
   const c = document.getElementById("content");
   c.innerHTML = `
     <div class="hero-box">
-      <div class="hero-type">DIAGNOSTICS & TELEMETRY HUB</div>
-      <div class="hero-title">1-Click In-Plugin [FEEDBACK] & Bug Report Portal</div>
+      <div class="hero-type">DIAGNOSTICS &amp; TELEMETRY SHIELD</div>
+      <div class="hero-title">1-Click In-Plugin [FEEDBACK] &amp; Protected Diagnostic Relay</div>
       <div class="hero-summary">
-        When you click the <strong>[ FEEDBACK ]</strong> button in the top-right header of any Chroma plugin, it automatically captures your active synth/effect state, EQ curve, and screenshot, and copies a diagnostic report directly to your Clipboard!
+        Clicking <strong>[ FEEDBACK ]</strong> in the top-right header of any Chroma plugin captures your active patch telemetry, Host Shield crash log, and UI snapshot locally and copies a clean report straight to your Windows Clipboard (<code>Ctrl+V</code> ready). Remote private telemetry is hardware rate-limited to <strong>1 ping per 12 hours per machine</strong> with zero public endpoints.
       </div>
     </div>
     <div class="feedback-box">
-      <div style="font-weight:700;margin-bottom:6px;">Paste Your Clipboard Diagnostic Report Here (Ctrl+V):</div>
-      <textarea id="diagBox" class="diag-input" placeholder="Click [FEEDBACK] inside ChromaCore, then press Ctrl+V here (or paste directly into Discord!)..."></textarea>
+      <div style="font-weight:700;margin-bottom:6px;">Local Diagnostic Scratchpad (Paste with Ctrl+V to inspect before sharing):</div>
+      <textarea id="diagBox" class="diag-input" placeholder="Click [FEEDBACK] inside any Chroma plugin, then press Ctrl+V here to inspect your diagnostic report..."></textarea>
       <div style="display:flex;gap:12px;">
-        <button class="hw-btn hw-btn-update" onclick="submitToGitHub()">▲ Open Pre-Filled GitHub Issue</button>
-        <button class="hw-btn" onclick="selectPlugin('chromacore', 'overview')">⬅ Return to Release Notes</button>
+        <button class="hw-btn" onclick="showSuiteOverview()">⬅ Return to Suite Overview</button>
       </div>
     </div>
   `;
-}
-
-function submitToGitHub() {
-  const body = document.getElementById("diagBox").value || "Paste your diagnostic report here";
-  const url = "https://github.com/haidood/chroma-release/issues/new?title=" + encodeURIComponent("[Bug Report] Chroma Audio Suite") + "&body=" + encodeURIComponent(body.substring(0, 1800));
-  window.open(url, "_blank");
 }
 
 function showSuiteOverview() {
@@ -1687,11 +1773,24 @@ function showSuiteOverview() {
   renderSidebar();
   const c = document.getElementById("content");
   const heroPath = (window.location.pathname.includes("/docs/")) ? "assets/ChromaAudio_Suite_Hero.png" : "docs/assets/ChromaAudio_Suite_Hero.png";
-  let gridHtml = `<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-top:16px;">`;
+  const suiteHotkeys = [
+    ["Click Knob -> Type Number + Enter", "Exact Numeric Value Entry", "Type exact integers or decimals (e.g. -5, 5, 1200, 75) directly into selected knobs for instant st, Hz, dB, ms, or % (Esc cancels; Spacebar stays free for DAW play)."],
+    ["Right-Click Top FX Tab / LED Dot", "ChromaCore Workflow FX Bypass", "Toggle DISTORT, EQ 12-B, BBD DELAY, HARM SEQ, MB DYN, or REVERB ON/OFF from any tab without losing focus."],
+    ["Visualizer Mode Pills / Click Scope", "4 Live Synthesis Views", "Switch live between 3D WT+MIX, ALL-IN-ONE (Wave+Mod + Filter FFT + Stereo Vectorscope), 4-OSC+FILT, and PHASE MORPH."],
+    ["[ + 8 ] / [ - 4 ] Macro Header Toggle", "Collapsible Macros + Live ADSR", "Keep Macros compact at 1 row of 4 to reveal the real-time Amp Envelope ADSR curve, or expand to all 8 macros anytime."],
+    ["HARM SEQ: Click &amp; Drag 16x12 Grid", "Circle-of-5ths Pattern Painter", "Click any Circle-of-5ths wedge to set key &amp; audition chords, then click-and-drag across the 16x12 scale grid to draw melodies or 4-voice strummed pads."],
+    ["ChromaVerb Space Skin Pill", "3 Direct2D GPU Space Skins", "Switch live between Eclipse Sonar (bilateral stereo wavefronts), Abyssal Sonar, and Astral Vault at 184 FPS."],
+    ["[ RECOVER ] / [ FEEDBACK ]", "Crash Vault &amp; 12h Shield", "Restore unsaved parameter tweaks in 1 click or capture clipboard diagnostics with 12-hour per-machine anti-spam protection."]
+  ];
+  let hkRows = suiteHotkeys.map(hk => `<tr><td style="font-family:Consolas,monospace;color:var(--ice-cyan);padding:8px 12px;border:1px solid var(--border-gunmetal);white-space:nowrap;">${hk[0]}</td><td style="font-weight:700;padding:8px 12px;border:1px solid var(--border-gunmetal);">${hk[1]}</td><td style="padding:8px 12px;border:1px solid var(--border-gunmetal);color:var(--text-titanium);">${hk[2]}</td></tr>`).join('');
+
+  let gridHtml = `<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(275px,1fr));gap:14px;margin-top:16px;">`;
   for (const cat of DATA) {
     for (const p of cat.plugins) {
+      const thumbPath = p.screen_image ? ((window.location.pathname.includes("/docs/")) ? p.screen_image : ("docs/" + p.screen_image)) : "";
       gridHtml += `
-        <div class="glossary-card" style="cursor:pointer;border-left-color:var(--ice-cyan);" onclick="selectPlugin('${p.id}','overview')">
+        <div class="glossary-card" style="cursor:pointer;border-left-color:var(--ice-cyan);padding:14px;" onclick="selectPlugin('${p.id}','overview')">
+          ${thumbPath ? `<img src="${thumbPath}" alt="${p.name}" style="width:100%;height:118px;object-fit:cover;border-radius:6px;border:1px solid var(--border-gunmetal);margin-bottom:10px;background:#07090e;">` : ''}
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
             <span class="glossary-term" style="margin:0;">${p.name}</span>
             <span class="ver-tag">${p.latest}</span>
@@ -1706,10 +1805,25 @@ function showSuiteOverview() {
   c.innerHTML = `
     <img class="release-card-img" style="margin-top:0;" src="${heroPath}" alt="Chroma Audio Suite Overview">
     <div class="hero-box">
-      <div class="hero-type">OVERVIEW // CHROMA // AUDIO SUITE</div>
+      <div class="hero-type">2026.11.20 RELEASE WAVE // CHROMA // AUDIO SUITE</div>
       <div class="hero-title"><span>Harmonic Color. Hardware Soul. Native Speed.</span></div>
       <div class="hero-summary">
-        "Chroma" comes from <em>khrōma</em> — tonal richness and harmonic color. Explore all 15 synthesizers, studio effects, and mastering processors below to view live interfaces, release cards, and plain-English Tech-to-Music DSP guides.
+        "Chroma" comes from <em>khrōma</em> — tonal richness and harmonic color. Explore all 15 native 64-bit C++ synthesizers, studio effects, and mastering processors below to view live interfaces, release cards, workflow hotkeys, and plain-English Tech-to-Music DSP guides.
+      </div>
+    </div>
+    <div class="section-hdr">⌨️ Suite-Wide Pro Workflow &amp; Hotkeys</div>
+    <div class="version-card" style="margin-bottom:24px;">
+      <div class="version-card-body" style="padding:14px;">
+        <table style="width:100%;border-collapse:collapse;font-size:12.5px;background:#0b0e14;border-radius:6px;overflow:hidden;border:1px solid var(--border-gunmetal);">
+          <thead>
+            <tr style="background:var(--bg-header);color:var(--text-platinum);text-align:left;">
+              <th style="padding:8px 12px;border:1px solid var(--border-gunmetal);">Shortcut / Gesture</th>
+              <th style="padding:8px 12px;border:1px solid var(--border-gunmetal);">Function</th>
+              <th style="padding:8px 12px;border:1px solid var(--border-gunmetal);">How It Works</th>
+            </tr>
+          </thead>
+          <tbody>${hkRows}</tbody>
+        </table>
       </div>
     </div>
     <div class="section-hdr">◆ All 15 Instruments, Effects &amp; Mastering</div>

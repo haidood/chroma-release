@@ -1,13 +1,13 @@
-# ChromaVerb (`v3.1.0`)
+# ChromaVerb (`v3.2.0`)
 
 > **Studio Algorithmic Multi-Room FDN Reverb & Shimmer**  
-> Lush, zero-metallic algorithmic studio reverb powered by an 8x8 unitary Feedback Delay Network, orthogonal stereo taps, and forward octave-up shimmer.
+> Lush, zero-metallic algorithmic studio reverb powered by a 16-line unitary Feedback Delay Network, phase-coherent cascaded Jot damping, 2-stage velvet output diffusion, constant-power dry/wet mix, forward octave-up shimmer, and a 184 FPS Direct2D Eclipse Sonar Event Horizon GPU interface.
 
-### 🎛️ Plugin Interface (`v3.1.0`)
+### 🎛️ Plugin Interface (`v3.2.0`)
 
 ![ChromaVerb Live Interface](../../assets/ChromaVerb_Screen.png)
 
-![ChromaVerb v3.1.0 Release Card](../../assets/ChromaVerb_v3.1.0_Release_Card.png)
+![ChromaVerb v3.2.0 Release Card](../../assets/ChromaVerb_v3.2.0_Release_Card.png)
 
 ---
 
@@ -22,6 +22,22 @@ Shimmer reverb pitches your reverb tail up by +12 semitones (one octave) by slic
 ---
 
 ## 🗂️ Version & Patch History
+
+- **[`v3.2.0` (2026-11-19) — Lush Studio DSP Overhaul, Eclipse Sonar Event Horizon Stereo Wavefronts, 0-100% Knob Clamp & Click-to-Type](./v3.2.0_2026-11-19.md)**
+  - **Phase-Coherent Cascaded Jot Damping + 11.5 kHz Air Silk**: Replaced parallel 1-pole band splitting inside the 16-line FDN with cascaded proportional low/high shelves, gentle 11.5 kHz air humidity absorption, and 46 Hz sub-mud control — eliminating boxy crossover notches for open, silky studio tails.
+  - **16x Velvet Echo Density & Pitch-Pure Modulation**: Added orthonormal Givens stereo cross-coupling in the input diffuser cascade plus 2-stage modulated velvet output allpasses (`191/317` L, `211/349` R) and recalibrated Character modulation so `0–40%` stays glass-pure on pianos/vocals while `50–100%` opens lush vintage chorus.
+  - **Constant-Power Equal-Loudness Dry/Wet Mix**: Replaced linear mix summing with smooth constant-power crossfading so turning up Mix preserves dry punch while tails bloom smoothly without a `-3 dB` mid-mix dip.
+  - **Eclipse Sonar Event Horizon GPU UI (184 FPS)**: Features a solar-gold Event Horizon center with bilateral stereo wavefront echoes scaled by Stereo Width, persistent VRAM backdrop caching, and instant Space Skin switching (`Eclipse Sonar`, `Abyssal Sonar`, `Astral Vault`).
+  - **0–100% Knob Clamp & Signed Drag Wrap Fix**: Fixed unsigned `HIWORD` coordinate wrap when dragging knobs above the window top, clamped `DECAY RATE` and `STEREO WIDTH` cleanly to `0%–100%`, enabled immediate first-digit Click-to-Type entry in Ableton Live (`effEditKeyDown`), and upgraded to the 12h rate-limited Feedback Shield.
+
+  **⌨️ Sequencer Hotkeys & Gestures:**
+
+  | Key / Gesture | Action | Description |
+  |---|---|---|
+  | `Click Knob -> Type Number + Enter` | **Exact Numeric Value Entry** | Click any dial (Decay, Mix, Width, Pre-Delay, etc.) and immediately type a value + Enter to set exact % or ms. |
+  | `Click Bottom-Left Space Skin Pill` | **Switch 3 GPU Space Skins** | Cycle live between Eclipse Sonar, Abyssal Sonar, and Astral Vault with zero layout shift. |
+  | `Double-Click / Delete EQ Node` | **Sculpt Decay & Post EQ** | Add, drag, or delete interactive Post-EQ bands directly on the 256-bin GPU spectrum. |
+
 
 - **[`v3.1.0` (2026-11-18) — Full Direct2D GPU UI (175.5 FPS), 256-Bin Persistence Cloud & Keystroke Crash Fix](./v3.1.0_2026-11-18.md)**
   - **Full Direct2D + DirectWrite Hardware-Accelerated UI**: Powered by `shared/ChromaD2DEngine.h` (**175.5 FPS / 5.7 ms frame time**) with a silky 256-bin spectral persistence cloud and interactive Decay + Post EQ canvas.

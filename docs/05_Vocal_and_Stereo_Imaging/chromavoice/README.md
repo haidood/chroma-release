@@ -1,13 +1,13 @@
-# ChromaVoice (`v3.3.0`)
+# ChromaVoice (`v3.3.1`)
 
 > **WARP Granular Vocal Pitch, Formant & Harmony Processor**  
-> Real-time vocal pitch and formant shifter featuring consonant micro-windowing and transient preservation so shifted vocals never sound smeared or robotic (unless you want them to!).
+> Real-time vocal pitch and formant shifter featuring consonant micro-windowing, transient preservation, Circle-of-5ths harmonic layering, and hardened non-ASIO DirectSound/WASAPI glitch-free playback.
 
-### 🎛️ Plugin Interface (`v3.3.0`)
+### 🎛️ Plugin Interface (`v3.3.1`)
 
 ![ChromaVoice Live Interface](../../assets/ChromaVoice_Screen.png)
 
-![ChromaVoice v3.3.0 Release Card](../../assets/ChromaVoice_v3.3.0_Release_Card.png)
+![ChromaVoice v3.3.1 Release Card](../../assets/ChromaVoice_v3.3.1_Release_Card.png)
 
 ---
 
@@ -22,6 +22,11 @@ Granular pitch shifters smear sharp vocal 'S', 'T', and 'K' sounds across multip
 ---
 
 ## 🗂️ Version & Patch History
+
+- **[`v3.3.1` (2026-11-19) — WARP Infinite-Loop Fix, Non-ASIO DirectSound/WASAPI Crackle Hardening & Pop-Free Preset Switching](./v3.3.1_2026-11-19.md)**
+  - **Eliminated Critical WARP Audio-Thread Infinite Hang**: Fixed an unsigned `size_t` underflow (`writePos - 32`) when `writePos < 32` by introducing O(1) NaN-safe modular `wrapBufferPos()` across every WARP granular lookup and advance.
+  - **Non-ASIO DirectSound / WASAPI Anti-Crackle Overhaul**: Moved diatonic harmony interval computation, `FastExp2f` pitch ratios, and voice LFO updates to 16-sample control rate (~40% lower 8-voice unison CPU) with smooth per-voice semitone slewing so consumer drivers run cleanly across jittery `64–512` sample blocks.
+  - **10x Quieter Hot Preset & Silence Transitions**: Triggered smooth 4 ms micro-fades on idle wake and inside `setProfile()` (dropping worst-case hot preset-switch jumps from `1.96` full-scale to `0.22`), added lock-free `audioBusy`/`dspResetting` sample-rate guards, and upgraded to the 12h rate-limited Feedback Shield.
 
 - **[`v3.3.0` (2026-11-18) — Vocal Presence Sensor, Circle-of-5ths Harmonic Layering & Buffer Crackle Hardening](./v3.3.0_2026-11-18.md)**
   - **Intelligent Vocal Presence Sensor**: Tracks voiced vocal energy in real time to keep harmony and formant layers tight between sung phrases.
@@ -41,7 +46,7 @@ Granular pitch shifters smear sharp vocal 'S', 'T', and 'K' sounds across multip
 
 ## 🛠️ Known Issues & Bug Reporting
 
-- None currently open in v3.3.0.
+- None currently open in v3.3.1.
 
 **Found a bug or weird preset behavior?**  
 Click the **`[ FEEDBACK ]`** button in the top-right header of the plugin! It automatically snapshots your patch, EQ curve, and screenshot, copies a diagnostic summary to your Clipboard (`Ctrl+V` ready for Discord), or opens a pre-filled [GitHub Bug Report](https://github.com/haidood/chroma-release/issues/new).
