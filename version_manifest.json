@@ -1,8 +1,8 @@
 {
   "suite_name": "Chroma Audio Suite",
-  "suite_version": "2026.11.22",
+  "suite_version": "2026.11.23",
   "release_date": "2026-11-19",
-  "notes": "Chroma Audio Suite 2026.11.22: ChromaCore v2.9.8 Concert-Pitch & Zero-Ringing DSP Overhaul (fixed 440x audio-rate VCO thermal drift FM buzz, tightened polyphonic chord dispersion for pure A=440.00 Hz Cm9/Abmaj7 tuning, staggered 4-pole ladder damping to eliminate Q^2 hollow 160 Hz ringing, fixed 25 legacy quarter-tone O2Pitch presets to symmetric concert-pitch fine detune, fixed 38 hard-panned legacy presets, fixed Reverb midGainDB boost + quadrature comb modulation, and fixed Cyberpunk Reese serial HP24 sub choke); ChromaVoice v4.0.0 Solar Monolith Orbit; ChromaVerb v3.2.0 Eclipse Sonar.",
+  "notes": "Chroma Audio Suite 2026.11.23: ChromaVoice v4.0.1 Astral Slate & Glacier Mist (P3 titanium-glacier chassis, two-tone CHROMA/VOICE rustic bronze logo, IV-I-V Circle-of-5ths diatonic halo & dual micro IN/OUT signal meter); ChromaCore v2.9.8 (A=440.00 Hz concert-pitch precision, 440x VCO drift FM fix, staggered 4-pole ladder DSP & 63 factory preset fixes); ChromaVerb v3.2.0 Eclipse Sonar.",
   "plugins": {
     "ChromaCore": {
       "version": "2.9.8",
@@ -71,10 +71,10 @@
       "notes": "ChromaTransientShaper v2.9.0 (Phase 2 update 2026.11.15): Added 32-bit DIB cache, ChromaFastText, dirty-rect clipping, and idle audio bypass (0.03% idle CPU, 0.17% active DSP, 4.21ms live paint, 0.0/s idle repaints), plus 2x ADAA clipper stage and Clipboard [FEEDBACK] diagnostics."
     },
     "ChromaVoice": {
-      "version": "4.0.0",
-      "build": 20261121,
+      "version": "4.0.1",
+      "build": 20261123,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaVoice.dll",
-      "notes": "ChromaVoice v4.0.0 — Solar Monolith Orbit (2026.11.19): Complete 1180x680 Solar Gold on Black Infinity reskin with 4x supersampled obsidian-gold dials; clickable Circle of 5ths Target-Note Wheel supporting both Force-to-Scale (6 scales: Chromatic/Major/Minor/Dorian/Pentatonic/Blues) and live Target Click Steering; live Detected >>> Locked Pitch Ribbon; draggable 3D Stereo Harmonic Soundstage Orbit; full-height 4-channel Vertical Harmonic & L/R Doubler Console (DBL L, DBL R, +5TH, +9TH) with per-layer bipolar L/R pan, level fader, formant offset, interval cycler & 1-click DUO/WIDE/SOLAR CHOIR/OCTAVE stacks; +3.2 dB Weak-Vocal Body Enhancer; Studio FX Bay toggles; suite-standard Click-to-Type numeric knob/pan/fader entry; and CHROMAVOICE_V4 chunk recall."
+      "notes": "ChromaVoice v4.0.1 — Astral Slate & Glacier Mist (2026.11.19): Refined P3 Astral Slate & Glacier Mist hardware finish (cool midnight titanium chassis, glacier ice-cyan doublers/FX/soundstage & restrained champagne-amber strictly on active pitch lock & harmonies); two-tone split CHROMA (platinum-glacier) / VOICE (rustic burnished bronze) wordmark with dual Chroma brand bars; Circle-of-5ths IV-I-V diatonic neighborhood halo; and dual micro IN/OUT signal meter integrated cleanly into the pitch banner."
     },
     "ChromaWidener": {
       "version": "2.9.1",

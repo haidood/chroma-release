@@ -1,13 +1,13 @@
-# ChromaVoice (`v4.0.0`)
+# ChromaVoice (`v4.0.1`)
 
-> **Solar Monolith Orbit Vocal Pitch, Formant & 4-Channel Harmony Engine**  
+> **Astral Slate Vocal Pitch Steering, Formant & 4-Channel Harmony Console**  
 > Real-time vocal pitch steering, formant shaping, and 4-channel L/R harmonic doubler console featuring a clickable Circle of 5ths Target-Note Wheel, Live Scrolling Pitch Ribbon, draggable 3D Stereo Harmonic Soundstage Orbit, +3.2 dB Weak-Vocal Body Enhancer, and non-ASIO DirectSound/WASAPI crackle-free playback.
 
-### 🎛️ Plugin Interface (`v4.0.0`)
+### 🎛️ Plugin Interface (`v4.0.1`)
 
 ![ChromaVoice Live Interface](../../assets/ChromaVoice_Screen.png)
 
-![ChromaVoice v4.0.0 Release Card](../../assets/ChromaVoice_v4.0.0_Release_Card.png)
+![ChromaVoice v4.0.1 Release Card](../../assets/ChromaVoice_v4.0.1_Release_Card.png)
 
 ---
 
@@ -25,6 +25,11 @@ Granular pitch shifters smear sharp vocal 'S', 'T', and 'K' sounds across multip
 ---
 
 ## 🗂️ Version & Patch History
+
+- **[`v4.0.1` (2026-11-19) — Astral Slate & Glacier Mist (P3) Cohesive Hardware Finish, Two-Tone Rustic CHROMA/VOICE Crest & Diatonic Wheel Halo](./v4.0.1_2026-11-19.md)**
+  - **Astral Slate & Glacier Mist Hardware Finish (P3)**: Refined the 1180x680 studio console to a calm midnight obsidian & brushed steel-slate chassis with 4x supersampled machined titanium dials—using cool Glacier Ice-Cyan for doublers (`DBL L/R`), FX toggles, and soundstage satellites while reserving restrained warm Champagne strictly for the locked pitch target, live pitch ribbon, `LEAD` orb, and `+5TH / +9TH` harmony faders.
+  - **Two-Tone Split `CHROMA` `VOICE` Crest & Studio Rack Flair**: Added Chroma Audio's signature dual cyan/bronze brand bars, Platinum-Glacier `CHROMA` + rustic burnished bronze `VOICE` wordmark, and subtle machined chassis corner bolts.
+  - **Circle-of-5ths IV–I–V Diatonic Neighborhood Halo & Micro IN/OUT Signal Bar**: Highlights the active key's harmonic neighborhood right on the wheel and embeds a sleek 2.2px dual IN (glacier) / OUT (champagne) live level strip cleanly inside the hero pitch readout banner.
 
 - **[`v4.0.0` (2026-11-19) — Solar Monolith Orbit 1180x680 Redesign, Clickable Circle of 5ths Target Steering & 4-Channel L/R Harmonic Console](./v4.0.0_2026-11-19.md)**
   - **Solar Monolith Orbit 1180x680 Flagship UI**: Complete ground-up Solar Gold on Black Infinity reskin with 4x supersampled cached obsidian-gold machined dials, subtle cosmic starfield, and Retina `AntiAliasGridFit` typography.
@@ -68,7 +73,7 @@ Granular pitch shifters smear sharp vocal 'S', 'T', and 'K' sounds across multip
 
 ## 🛠️ Known Issues & Bug Reporting
 
-- None currently open in v4.0.0.
+- None currently open in v4.0.1.
 
 **Found a bug or weird preset behavior?**  
 Click the **`[ FEEDBACK ]`** button in the top-right header of the plugin! It automatically snapshots your patch, EQ curve, and screenshot, copies a diagnostic summary to your Clipboard (`Ctrl+V` ready for Discord), or opens a pre-filled [GitHub Bug Report](https://github.com/haidood/chroma-release/issues/new).

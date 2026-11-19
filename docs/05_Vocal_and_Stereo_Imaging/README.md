@@ -2,5 +2,5 @@
 
 | Plugin | Latest Version | Type | Documentation & Release History |
 |---|---|---|---|
-| **ChromaVoice** | `v4.0.0` | Solar Monolith Orbit Vocal Pitch, Formant & 4-Channel Harmony Engine | [Open Folder](./chromavoice/README.md) |
+| **ChromaVoice** | `v4.0.1` | Astral Slate Vocal Pitch Steering, Formant & 4-Channel Harmony Console | [Open Folder](./chromavoice/README.md) |
 | **ChromaWidener** | `v2.9.1` | Phase-Safe Multiband Spatializer & Stereo Widener | [Open Folder](./chromawidener/README.md) |
