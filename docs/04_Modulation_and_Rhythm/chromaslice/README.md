@@ -1,13 +1,13 @@
-# ChromaSlice (`v2.9.0`)
+# ChromaSlice (`v3.0.0`)
 
 > **Rhythmic Chopper, Transient Gate & Noise Suppressor**  
 > Precision rhythmic trance-gate, chopper, and smart transient noise suppressor.
 
-### 🎛️ Plugin Interface (`v2.9.0`)
+### 🎛️ Plugin Interface (`v3.0.0`)
 
 ![ChromaSlice Live Interface](../../assets/ChromaSlice_Screen.png)
 
-![ChromaSlice v2.9.0 Release Card](../../assets/ChromaSlice_v2.9.0_Release_Card.png)
+![ChromaSlice v3.0.0 Release Card](../../assets/ChromaSlice_v3.0.0_Release_Card.png)
 
 ---
 
@@ -19,6 +19,11 @@ Basic noise gates chatter and click when a sound hovers near the threshold. Hyst
 ---
 
 ## 🗂️ Version & Patch History
+
+- **[`v3.0.0` (2026-11-21) — Astral Slate & Glacier Mist (P3) Overhaul, dB-Scaled GR Meter & Rebalanced 2x5 Rhythm Deck](./v3.0.0_2026-11-21.md)**
+  - **Rebalanced Hero Rate & 2x5 Machined Knob Matrix**: Paired Hero `RHYTHM RATE` (with Performer orbit ring) alongside Sync, L<->R Chop & Chop Wet, replacing the cramped 9-knob row with a spacious 2x5 grid exposing `PAN RATE` cleanly.
+  - **dB-Scaled Gain Reduction LED Bar & Clean Performer Steps**: Added `0..-36 dB` scale markings under the 28-LED GR bar, fixed truncated Performer labels (`RISE`/`SMTH`/`WAVE`), and removed stale `© 2026` header clutter.
+  - **Zero Static GDI+ (40 Removed), Throw Physics & SEH HostShield**: Preserved inertial Mouse-Throw physics and draggable `PERF LINK` cables while adding Click-to-Type, CrashVault `[RECOVER]`, `[FEEDBACK]` shield, and safe `SW_HIDE` close.
 
 - **[`v2.9.0` (2026-11-05) — ChromaAnalogSuite Stability Integration & 1-Click Clipboard [FEEDBACK]](./v2.9.0_2026-11-05.md)**
   - **2x Oversampled ADAA Analog Drive Stage**: Adds warm harmonic punch to chopped rhythmic synth and vocal slices.

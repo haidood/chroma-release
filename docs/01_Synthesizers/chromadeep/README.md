@@ -1,13 +1,13 @@
-# ChromaDeep (`v2.9.0`)
+# ChromaDeep (`v3.0.0`)
 
 > **7-Tab Modular Delay & Sub-Bass Synthesizer**  
 > Deep sub-bass, physical resonator, and dub-techno chord synthesizer with a 7-tab modular delay and dual ZDF filter sculpting rack.
 
-### 🎛️ Plugin Interface (`v2.9.0`)
+### 🎛️ Plugin Interface (`v3.0.0`)
 
 ![ChromaDeep Live Interface](../../assets/ChromaDeep_Screen.png)
 
-![ChromaDeep v2.9.0 Release Card](../../assets/ChromaDeep_v2.9.0_Release_Card.png)
+![ChromaDeep v3.0.0 Release Card](../../assets/ChromaDeep_v3.0.0_Release_Card.png)
 
 ---
 
@@ -22,6 +22,11 @@ Low bass waves are huge and slow. If a synth starts a bass note at a random poin
 ---
 
 ## 🗂️ Version & Patch History
+
+- **[`v3.0.0` (2026-11-21) — Astral Slate & Glacier Mist (P3) Redesign, Collapsible 4+4 Macros & Real SEH HostShield](./v3.0.0_2026-11-21.md)**
+  - **Clean 2-Tier Astral Slate Console**: Retired legacy neon bars and stale 2026 header text in favor of calm midnight obsidian cards, 4x SSAA machined titanium dials, and clean `VOICING` / `GLIDE` readouts.
+  - **Collapsible 4+4 Macro Bank (`+4 5-8`)**: Eliminated macro clipping right above the piano keyboard while keeping all 8 performance macros 1 click away.
+  - **Real SEH HostShield, Click-to-Type & CrashVault**: Added SEH `__try/__except` + stack overflow recovery, direct keyboard numeric entry, CrashVault `[RECOVER]`, `[FEEDBACK]` shield, and safe `SW_HIDE` host close.
 
 - **[`v2.9.0` (2026-11-05) — ZDF Tube Ladder Saturation, Analog Stereo Voice Spread & Class-A Transformer Output](./v2.9.0_2026-11-05.md)**
   - **Inter-Stage Tube ZDF 4-Pole Ladder & Anti-Whistle Damping**: Added per-stage tube saturation and input-envelope resonance damping to both stereo ZDF filters.

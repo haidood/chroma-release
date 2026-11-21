@@ -1,13 +1,13 @@
-# ChromaDelay (`v2.9.0`)
+# ChromaDelay (`v3.0.0`)
 
 > **Bouncing Stereo Ping-Pong Tape & BBD Delay**  
 > Multi-character stereo delay modeling classic analog Bucket-Brigade chips, 15 IPS Studio Tape, Oil-Can Echo, Vintage 12-Bit Digital, and Shimmer Cascade.
 
-### 🎛️ Plugin Interface (`v2.9.0`)
+### 🎛️ Plugin Interface (`v3.0.0`)
 
 ![ChromaDelay Live Interface](../../assets/ChromaDelay_Screen.png)
 
-![ChromaDelay v2.9.0 Release Card](../../assets/ChromaDelay_v2.9.0_Release_Card.png)
+![ChromaDelay v3.0.0 Release Card](../../assets/ChromaDelay_v3.0.0_Release_Card.png)
 
 ---
 
@@ -19,6 +19,11 @@ Before digital memory existed, analog pedals passed audio through a chain of tho
 ---
 
 ## 🗂️ Version & Patch History
+
+- **[`v3.0.0` (2026-11-21) — Astral Slate & Glacier Mist (P3) Overhaul, Live Ducking/I/O Meter Well & 67 Static GDI+ Fixes](./v3.0.0_2026-11-21.md)**
+  - **Live Ducking Attenuation & Stereo I/O Meter Well**: Filled the empty right panel and retired solid neon bars with real-time ducking and stereo level telemetry, plus fixed logarithmic `MID FREQ` display (`1.2 kHz`).
+  - **Eliminated All 67 Static GDI+ Teardown Hazards**: Removed every file/function-static GDI+ object for 100% safe `DLL_PROCESS_DETACH` Ableton scanning, paired with 4x SSAA machined dials and 7-zone P3 Acoustic EQ.
+  - **Direct `effEditKeyDown`, SEH HostShield & CrashVault**: Replaced unsafe `SendMessage(WM_KEYDOWN)` with direct Click-to-Type entry, added real SEH fault isolation, `[RECOVER]` session autosave, and safe `SW_HIDE` close.
 
 - **[`v2.9.0` (2026-11-05) — Self-Healing Feedback Loop Biquads & Upgraded Clipboard [FEEDBACK]](./v2.9.0_2026-11-05.md)**
   - **Self-Healing Feedback EQ Biquads**: Added `std::isfinite` state recovery inside the delay feedback loop so aggressive self-oscillating dub throws never blow up or mute the bus.

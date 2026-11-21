@@ -1,13 +1,13 @@
-# ChromaComp (`v2.9.2`)
+# ChromaComp (`v3.0.0`)
 
 > **Analog VCA / Opto Bus & Mastering Compressor with 24-Band EQ**  
 > Dual-stage studio compressor and 20-band parametric equalizer modeling Harmonic Knee Compression, Ultra-Fast FET Peak Limiting, Program-Dependent Optical Leveling, and Master Bus VCA Glue.
 
-### 🎛️ Plugin Interface (`v2.9.2`)
+### 🎛️ Plugin Interface (`v3.0.0`)
 
 ![ChromaComp Live Interface](../../assets/ChromaComp_Screen.png)
 
-![ChromaComp v2.9.2 Release Card](../../assets/ChromaComp_v2.9.2_Release_Card.png)
+![ChromaComp v3.0.0 Release Card](../../assets/ChromaComp_v3.0.0_Release_Card.png)
 
 ---
 
@@ -22,6 +22,11 @@ In v2.9.0 we fixed a sign inversion in the High-Shelf EQ formula so boosting or 
 ---
 
 ## 🗂️ Version & Patch History
+
+- **[`v3.0.0` (2026-11-21) — Astral Slate & Glacier Mist (P3) Overhaul, Zero-Collision EQ Workbench & 4x SSAA Dials](./v3.0.0_2026-11-21.md)**
+  - **Eliminated All 4 Layout Overlaps**: Fixed collisions on `Chroma Dist`, `AUTO GAIN`, EQ toolbar vs acoustic zones, and `-36 dB`, and retired glossy 2010 orange buttons for flat titanium Astral Slate pills.
+  - **4x SSAA Machined Dials + 64-Bit Double-Precision EQ**: Pairs studio hardware visuals (zero static GDI+ objects) with 64-bit `PrecisionBiquad` stability (`63,504/63,504` Ok across `44.1–192 kHz`).
+  - **Click-to-Type, CrashVault & SEH HostShield**: Direct keyboard numeric entry on every dial, 1-click `[RECOVER]` session vault, `[FEEDBACK]` shield, `audioMasterAutomate` DAW sync, and safe `SW_HIDE` close.
 
 - **[`v2.9.2` (2026-11-17) — Double-Precision EQ Biquads Across All 7 Filter Shapes & 44.1–192 kHz](./v2.9.2_2026-11-17.md)**
   - **Plain-English DSP Summary**: Very low boosted shelves and low cuts now land exactly where you set them at 88.2 to 192 kHz sessions; at 44.1 and 48 kHz the sound is unchanged.

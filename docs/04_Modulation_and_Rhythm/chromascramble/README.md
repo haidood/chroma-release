@@ -1,13 +1,13 @@
-# ChromaScramble (`v2.9.0`)
+# ChromaScramble (`v3.0.0`)
 
 > **10-Module MSEG Rhythmic Glitch & Multi-FX Sequencer**  
 > Zero-latency 10-module multi-segment envelope generator (MSEG) for rhythmic time-manipulation, gating, filtering, and glitch articulation.
 
-### 🎛️ Plugin Interface (`v2.9.0`)
+### 🎛️ Plugin Interface (`v3.0.0`)
 
 ![ChromaScramble Live Interface](../../assets/ChromaScramble_Screen.png)
 
-![ChromaScramble v2.9.0 Release Card](../../assets/ChromaScramble_v2.9.0_Release_Card.png)
+![ChromaScramble v3.0.0 Release Card](../../assets/ChromaScramble_v3.0.0_Release_Card.png)
 
 ---
 
@@ -19,6 +19,11 @@ Instead of a simple repeating LFO wave (like a sine or triangle), an MSEG lets y
 ---
 
 ## 🗂️ Version & Patch History
+
+- **[`v3.0.0` (2026-11-21) — Astral Slate & Glacier Mist (P3) Overhaul, Beat-Aligned Waveform Backdrop & 12-Preset Bank](./v3.0.0_2026-11-21.md)**
+  - **Beat-Aligned Live Waveform MSEG Canvas**: Displays a translucent live audio silhouette locked to `1/4`, `1/2`, `3/4`, and `1 BAR` behind every editable curve, plus an expanded 12-preset browser.
+  - **Spacious 10-Module Strip & Unified 4x SSAA Dials**: Non-colliding Glacier LEDs across all 10 tabs (`TIME` through `SCRAM`), single-line transport, and zero static GDI+ teardown hazards.
+  - **Full Curve CrashVault, Click-to-Type & SEH HostShield**: `[RECOVER]` saves both all 65 parameters and all MSEG curves; direct keyboard numeric entry, `[FEEDBACK]` shield, and safe `SW_HIDE` close.
 
 - **[`v2.9.0` (2026-11-10) — Low-Color Hardware Theme, 3D Protruding Titanium Knobs, Bold Typography & [FEEDBACK] Shield](./v2.9.0_2026-11-10.md)**
   - **Low-Color Slate / Ice-Cyan / Warm Amber Hardware Palette**: Replaced bright rainbow lane colors with a cohesive studio-grade titanium slate, glacier blue, and warm amber aesthetic.

@@ -1,13 +1,13 @@
-# ChromaPulse (`v3.3.0`)
+# ChromaPulse (`v3.4.0`)
 
 > **16-Pad Drum & Step-Sequenced Ratchet Rhythm Workstation**  
 > Precision 16-pad drum & rhythm workstation with Per-Pad & Master Parametric EQ, 3D depth-blended step bars, wider smooth ribbon waveforms, residual ADAA headroom, and rapid held-key + Left-Click sequencer note modifiers.
 
-### 🎛️ Plugin Interface (`v3.3.0`)
+### 🎛️ Plugin Interface (`v3.4.0`)
 
 ![ChromaPulse Live Interface](../../assets/ChromaPulse_Screen.png)
 
-![ChromaPulse v3.3.0 Release Card](../../assets/ChromaPulse_v3.3.0_Release_Card.png)
+![ChromaPulse v3.4.0 Release Card](../../assets/ChromaPulse_v3.4.0_Release_Card.png)
 
 ---
 
@@ -28,6 +28,11 @@ Analog drum machines decay like a draining capacitor—fast punch up front follo
 ---
 
 ## 🗂️ Version & Patch History
+
+- **[`v3.4.0` (2026-11-21) — Astral Slate & Glacier Mist (P3) Workstation Redesign, Docked Master Stage & Click-to-Type](./v3.4.0_2026-11-21.md)**
+  - **Clean 2-Tier Header & Dedicated Docked Master Card**: Relocated `MAGIC`, `SWING`, `MASTER` dials and stereo peak meters out of the crowded top ribbon into a dedicated Row-2 Master card with zero overlapping controls.
+  - **Unified 4x SSAA Machined Dials & P3 Acoustic Zones EQ**: Upgraded every Pad Inspector dial, unified all coordinates via `PLayout`, eliminated EQ zone text truncation, and preserved the smart streaming 16-pad WAV auto-slicer.
+  - **Click-to-Type, CrashVault & SEH HostShield**: Direct `effEditKeyDown` numeric knob entry (Spacebar stays free), CrashVault `[RECOVER]` autosave, `[FEEDBACK]` shield, 80%/100% scale toggle, and safe `SW_HIDE` host close.
 
 - **[`v3.3.0` (2026-11-18) — Streaming 16-Pad WAV Auto-Slicer with Click-Free Fades & Section Cycling](./v3.3.0_2026-11-18.md)**
   - **Streaming 16-Pad Auto-Slicer (`LoadAndAutoSliceWav`)**: Drop any breakbeat or full song WAV to stream and auto-slice the loudest 16-second window cleanly across all 16 pads.

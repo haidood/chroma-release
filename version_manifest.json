@@ -1,14 +1,14 @@
 {
   "suite_name": "Chroma Audio Suite",
-  "suite_version": "2026.11.23",
-  "release_date": "2026-11-19",
-  "notes": "Chroma Audio Suite 2026.11.23: ChromaVoice v4.0.1 Astral Slate & Glacier Mist (P3 titanium-glacier chassis, two-tone CHROMA/VOICE rustic bronze logo, IV-I-V Circle-of-5ths diatonic halo & dual micro IN/OUT signal meter); ChromaCore v2.9.8 (A=440.00 Hz concert-pitch precision, 440x VCO drift FM fix, staggered 4-pole ladder DSP & 63 factory preset fixes); ChromaVerb v3.2.0 Eclipse Sonar.",
+  "suite_version": "2026.11.24",
+  "release_date": "2026-11-21",
+  "notes": "Chroma Audio Suite 2026.11.24 — Full 15-Plugin Astral Slate & Glacier Mist (P3) Suite Unification: Overhauled all 11 remaining plugins (ChromaPulse v3.4.0, ChromaX v3.0.0, ChromaDeep v3.0.0, ChromaComp v3.0.0, ChromaDelay v3.0.0, ChromaFhaser v3.0.0, ChromaSlice v3.0.0, ChromaTransientShaper v3.0.0, ChromaWidener v3.0.0, ChromaDesigner v3.0.0, ChromaScramble v3.0.0) to the unified 2027 Astral Slate & Glacier Mist (P3) hardware design, zero-static-GDI+ teardown safety, SEH HostShield, Click-to-Type numeric knob entry, CrashVault session recovery, FeedbackShield, and safe SW_HIDE close parity across all 15 plugins.",
   "plugins": {
     "ChromaCore": {
       "version": "2.9.8",
       "build": 20261122,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaCoreVST.dll",
-      "notes": "ChromaCoreVST v2.9.8 (2026.11.19): Fixed critical 440x audio-rate VCO thermal drift FM bug (96.8-250.8 Hz sideband ringing across all voices -> true 0.18-0.46 Hz analog wander); locked polyphonic chords to concert A=440.00 Hz (+/-0.5c dispersion instead of 16c chord spread); upgraded 24 dB ladder filter to staggered Butterworth-to-Moog pole damping eliminating hollow 160 Hz Q^2 honk; migrated 25 legacy quarter-tone (+19c to +48c) Osc2Pitch presets to exact 0 st + symmetric +/-12c fine detune; centered 38 legacy hard-panned presets; fixed internal reverb quadrature modulation & removed +18 dB midGainDB surge; and fixed Cyberpunk Reese Bass sub-choking Filter 2 routing."
+      "notes": "ChromaCoreVST v2.9.8 (2026.11.21): Concert-pitch A=440.00 Hz overhaul, eliminated audio-rate VCO drift FM ringing, staggered 4-pole ladder damping, 63 legacy preset fixes, plus safe SW_HIDE host close parity."
     },
     "ChromaCorePro": {
       "version": "2.9.8",
@@ -17,58 +17,58 @@
       "notes": "Unified into ChromaCoreVST v2.9.8: Concert-pitch A=440.00 Hz overhaul, eliminated audio-rate VCO drift ringing, staggered 4-pole ladder damping, fixed 25 out-of-tune + 38 hard-panned legacy presets, plus 2027 4x AA UI, 4-mode visualizer & Circle-of-5ths HARM SEQ."
     },
     "ChromaPulse": {
-      "version": "3.3.0",
-      "build": 20261119,
+      "version": "3.4.0",
+      "build": 20261124,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaPulse.dll",
-      "notes": "ChromaPulse v3.3.0 (2026.11.18): Added streaming WAV auto-slicer into all 16 drum pads with 2 ms anti-click fades, automatic Choke Group 1 assignment, automatic loudest 16-second window detection for long audio files, and a [NEXT SEC >] section cycle control."
+      "notes": "ChromaPulse v3.4.0 (2026.11.21): Full 2027 Astral Slate & Glacier Mist (P3) workstation overhaul; relocated Master Stage knobs (MAGIC/SWING/MASTER) cleanly out of the top header into a dedicated docked card; unified 4x SSAA machined titanium dials, P3 acoustic mixing zones EQ with zero text clipping, Click-to-Type numeric knob entry, CrashVault [RECOVER], FeedbackShield, safe SW_HIDE close, and smart 16-pad WAV auto-slicer."
     },
     "ChromaDeep": {
-      "version": "2.9.0",
-      "build": 20261110,
+      "version": "3.0.0",
+      "build": 20261121,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaDeep.dll",
-      "notes": "ChromaDeep v2.9.0 (Phase 2 update 2026.11.15): Cached AdditiveEngine partial amplitude table & trig rotation recurrence (bit-exact max_sample_diff=0), 32-bit DIB deck/wave caches, ChromaFastText, GetUpdateRgn culling (0.86ms live paint, 0.0/s idle), tail-aware idle bypass (0.02% idle CPU), ZDF 4-Pole Tube Ladder, and analog per-voice stereo spread."
+      "notes": "ChromaDeep v3.0.0 (2026.11.21): Full 2027 Astral Slate & Glacier Mist (P3) redesign; clean 2-tier header, collapsible 4+4 macro bank eliminating keyboard clipping, unified 4x SSAA machined dials, SEH HostShield, Click-to-Type numeric entry, CrashVault [RECOVER], FeedbackShield, and safe SW_HIDE close."
     },
     "ChromaX": {
-      "version": "2.9.0",
-      "build": 20261110,
+      "version": "3.0.0",
+      "build": 20261121,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaX.dll",
-      "notes": "ChromaX v2.9.0 (Phase 2 update 2026.11.15): Added 32-bit DIB backbuffer, ChromaFastText, clip culling, eased meters, and tail-aware idle bypass (0.13% idle CPU, 3.05ms live paint, 0.0/s idle repaints), plus analog polyphonic stereo voice panning, VCO thermal drift, inter-stage tube ladder filters, and Class-A AnalogConsoleStage output."
+      "notes": "ChromaX v3.0.0 (2026.11.21): Full 2027 Astral Slate & Glacier Mist (P3) synthesizer overhaul; collapsible 8+8 macro strip, eliminated all 5 OSC/Filter/Performer label collisions, dedicated Filter frequency axis strip, docked Performer MOD TARGET, SEH HostShield, Click-to-Type numeric entry, CrashVault [RECOVER], FeedbackShield, and safe SW_HIDE close."
     },
     "ChromaComp": {
-      "version": "2.9.2",
-      "build": 20261117,
+      "version": "3.0.0",
+      "build": 20261121,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaComp.dll",
-      "notes": "ChromaComp v2.9.2 (2026.11.17): Upgraded PrecisionBiquad coefficients, filter state, design math, and magnitude display to double precision with 1e-8 unit-circle sanitization (63,504/63,504 designs Ok, 0 nudged across 44.1–192 kHz); very low boosted shelves and low cuts now land exactly where set at 88.2–192 kHz."
+      "notes": "ChromaComp v3.0.0 (2026.11.21): Full 2027 Astral Slate & Glacier Mist (P3) overhaul; replaced legacy glossy buttons, eliminated all 4 header/meter/EQ overlaps, unified 4x SSAA dials + double-precision 64-bit EQ across 44.1-192 kHz, SEH HostShield, Click-to-Type numeric entry, CrashVault [RECOVER], FeedbackShield, and safe SW_HIDE close."
     },
     "ChromaVerb": {
       "version": "3.2.0",
       "build": 20261120,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaVerb.dll",
-      "notes": "ChromaVerb v3.2.0 (2026.11.19): Lush studio acoustic DSP overhaul (phase-coherent cascaded Jot damping + 11.5 kHz air-silk absorption, cross-coupled stereo input diffusion + 2-stage velvet output diffusers for 16x echo density, pitch-pure Character modulation curve, constant-power equal-loudness dry/wet mix); Eclipse Sonar Event Horizon stereo wavefront GPU UI (184 FPS, switchable Eclipse/Sonar/Vault space skins); fixed signed knob drag wrap & clamped Decay/Width to clean 0-100%; instant click-to-type numeric knob entry in Ableton; and 12h rate-limited Feedback Shield."
+      "notes": "ChromaVerb v3.2.0 (2026.11.21): Lush studio acoustic DSP overhaul (phase-coherent Jot damping + 11.5 kHz air-silk absorption, 16x velvet diffusion, equal-loudness mix), Eclipse Sonar 184 FPS Direct2D GPU UI, click-to-type knob entry, 12h rate-limited Feedback Shield, and safe SW_HIDE close parity."
     },
     "ChromaDelay": {
-      "version": "2.9.0",
-      "build": 20261110,
+      "version": "3.0.0",
+      "build": 20261121,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaDelay.dll",
-      "notes": "ChromaDelay v2.9.0 (Phase 2 update 2026.11.15): Added 32-bit DIB cache, ChromaFastText, dirty-rect clipping, and idle audio bypass (0.13% idle CPU, 1.87ms live paint, 0.0/s idle repaints), plus NaN/Inf self-healing and Jury pole stability across BBD, Tape, Oil-Can, Digital, and Shimmer engines."
+      "notes": "ChromaDelay v3.0.0 (2026.11.21): Full 2027 Astral Slate & Glacier Mist (P3) overhaul; eliminated all 67 static GDI+ teardown hazards, added live Ducking Attenuation + Stereo I/O meter well, fixed logarithmic MID FREQ readout, 7-zone P3 acoustic EQ backdrop, SEH HostShield, direct effEditKeyDown Click-to-Type, CrashVault [RECOVER], FeedbackShield, and safe SW_HIDE close."
     },
     "ChromaFhaser": {
-      "version": "2.9.2",
-      "build": 20261117,
+      "version": "3.0.0",
+      "build": 20261121,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaFhaser.dll",
-      "notes": "ChromaFhaser v2.9.2 (2026.11.17): Upgraded 24-band EQ Biquad coefficients, state, design math, and magnitude readout to double precision (54,432/54,432 designs Ok, 0 nudged across 44.1–192 kHz); very low boosted shelves and low cuts now land accurately at 88.2–192 kHz."
+      "notes": "ChromaFhaser v3.0.0 (2026.11.21): Full 2027 Astral Slate & Glacier Mist (P3) overhaul; removed duplicate version badge, fixed EQ LFO clipping, docked flanking IN/OUT trims cleanly, added live Phase & Mod Orbit radar beside Hero Dry/Wet, eliminated all 24 static GDI+ objects, SEH HostShield, Click-to-Type, CrashVault [RECOVER], FeedbackShield, and safe SW_HIDE close."
     },
     "ChromaSlice": {
-      "version": "2.9.0",
-      "build": 20261105,
+      "version": "3.0.0",
+      "build": 20261124,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaSlice.dll",
-      "notes": "ChromaSlice v2.9.0 (Phase 2 update 2026.11.15): Added 32-bit DIB cache, ChromaFastText, dirty-rect clipping, and idle audio bypass (0.03% idle CPU, 3.52ms live paint, 0.0/s idle repaints), plus 2x ADAA analog warmth and Clipboard [FEEDBACK] diagnostics."
+      "notes": "ChromaSlice v3.0.0 (2026.11.21): Full 2027 Astral Slate & Glacier Mist (P3) overhaul; clean header with 24-preset dropdown & inertial THROW toggle, Gain Reduction LED bar with dB scale ticks (0..-36 dB), non-truncating 16-step Performer labels & drag-cable routing, rebalanced Hero RHYTHM RATE + 2x5 knob grid, zero static GDI+ objects, SEH HostShield, Click-to-Type, CrashVault [RECOVER], FeedbackShield, and safe SW_HIDE close."
     },
     "ChromaTransientShaper": {
-      "version": "2.9.0",
-      "build": 20261105,
+      "version": "3.0.0",
+      "build": 20261121,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaTransientShaper.dll",
-      "notes": "ChromaTransientShaper v2.9.0 (Phase 2 update 2026.11.15): Added 32-bit DIB cache, ChromaFastText, dirty-rect clipping, and idle audio bypass (0.03% idle CPU, 0.17% active DSP, 4.21ms live paint, 0.0/s idle repaints), plus 2x ADAA clipper stage and Clipboard [FEEDBACK] diagnostics."
+      "notes": "ChromaTransientShaper v3.0.0 (2026.11.21): Full 2027 Astral Slate & Glacier Mist (P3) overhaul; strictly clipped Eclipse Monolith Sweet/Bitter dial, balanced 2x2 knob deck + Hero Sustain + live Surge/Gain delta well, dual-trace transient scope, eliminated all 34 static GDI+ objects, SEH HostShield, Click-to-Type, CrashVault [RECOVER], FeedbackShield, and safe SW_HIDE close."
     },
     "ChromaVoice": {
       "version": "4.0.1",
@@ -77,28 +77,28 @@
       "notes": "ChromaVoice v4.0.1 — Astral Slate & Glacier Mist (2026.11.19): Refined P3 Astral Slate & Glacier Mist hardware finish (cool midnight titanium chassis, glacier ice-cyan doublers/FX/soundstage & restrained champagne-amber strictly on active pitch lock & harmonies); two-tone split CHROMA (platinum-glacier) / VOICE (rustic burnished bronze) wordmark with dual Chroma brand bars; Circle-of-5ths IV-I-V diatonic neighborhood halo; and dual micro IN/OUT signal meter integrated cleanly into the pitch banner."
     },
     "ChromaWidener": {
-      "version": "2.9.1",
-      "build": 20261117,
+      "version": "3.0.0",
+      "build": 20261121,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaWidener.dll",
-      "notes": "ChromaWidener v2.9.1 (2026.11.17): Eliminated all 30 static GDI+ objects to prevent DLL_PROCESS_DETACH loader-lock teardown crashes on device_remove; added 250ms time-bounded effSetSampleRate guard with deferred resume; and updated LifeGuard/module-pinned shields."
+      "notes": "ChromaWidener v3.0.0 (2026.11.21): Full 2027 Astral Slate & Glacier Mist (P3) overhaul; exposed hidden DSP controls (Sub-Bass Mono Maker 20-300 Hz, Master Dry/Wet, per-band Solo/Mute, and live Phase Correlation meter -1.0..+1.0), fixed Output fader scale overlap, preserved 250ms safe sample-rate guard, zero static GDI+ objects, SEH HostShield, Click-to-Type, CrashVault [RECOVER], FeedbackShield, and safe SW_HIDE close."
     },
     "ChromaDesigner": {
-      "version": "2.9.0",
-      "build": 20261105,
+      "version": "3.0.0",
+      "build": 20261121,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaDesigner.dll",
-      "notes": "ChromaDesigner v2.9.0 (Phase 2 update 2026.11.15): Added 32-bit DIB cache, ChromaFastText, dirty-rect clipping, and idle audio bypass (0.03% idle CPU, 0.35% active DSP, 0.29ms live paint, 0.0/s idle repaints), plus Dual 500-Series D.E.T. rack UI and 2x ADAA console bus stage."
+      "notes": "ChromaDesigner v3.0.0 (2026.11.21): Full 2027 Astral Slate & Glacier Mist (P3) overhaul; added 24-preset header browser, fixed knob ticks piercing titles, sanitized +0.0 dB readouts, replaced redundant POWER button with live D.E.T. Envelope Response diagram & dual Attack/Sustain CV meters, SEH HostShield, Click-to-Type, CrashVault [RECOVER], FeedbackShield, and safe SW_HIDE close."
     },
     "ChromaScramble": {
-      "version": "2.9.0",
-      "build": 20261110,
+      "version": "3.0.0",
+      "build": 20261124,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaScramble.dll",
-      "notes": "ChromaScramble v2.9.0 (Phase 2 update 2026.11.15): Added 32-bit DIB curve cache, ChromaFastText, GetUpdateRgn culling, and tail-aware idle bypass (0.02% idle CPU, 2.8ms full repaint, 0.0/s idle repaints), plus Low-Color Hardware Theme, 3D protruding titanium knobs, 10-module MSEG engine, and 2x ADAA warmth."
+      "notes": "ChromaScramble v3.0.0 (2026.11.21): Full 2027 Astral Slate & Glacier Mist (P3) overhaul; 12-preset browser, spacious 10-module MSEG tab strip with clean LEDs, beat-aligned live waveform backdrop behind curves, unified 4x SSAA machined dials across all 10 tabs, zero static GDI+ objects, SEH HostShield, Click-to-Type, CrashVault [RECOVER], FeedbackShield, and safe SW_HIDE close."
     },
     "ChromaMaster": {
       "version": "1.3.0",
       "build": 20261119,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaMaster.dll",
-      "notes": "ChromaMaster v1.3.0 (2026.11.18): Overhauled maximizer limiter (-24.9 dB intermodulation reduction on heavy bass, -20% CPU); added maximizer ADSR envelope, 5-band moveable parametric EQ with docked EQ/SPACE panel and mono-safe stereo space delay; upgraded to cached Direct2D GPU spectrum & batched 3D waterfall renderer plus LTCG build optimization."
+      "notes": "ChromaMaster v1.3.0 (2026.11.21): Overhauled maximizer limiter (-24.9 dB IM reduction, -20% CPU), ADSR envelope, 5-band moveable parametric EQ + mono-safe space delay, Direct2D GPU spectrum & 3D waterfall, plus Click-to-Type numeric knob entry and safe SW_HIDE close parity."
     }
   }
 }

@@ -1,13 +1,13 @@
-# ChromaTransientShaper (`v2.9.0`)
+# ChromaTransientShaper (`v3.0.0`)
 
 > **Differential Envelope Transient Designer**  
 > Level-independent transient shaper that lets you boost or tame drum attack snap and room sustain regardless of how loud or quiet the incoming hit is.
 
-### 🎛️ Plugin Interface (`v2.9.0`)
+### 🎛️ Plugin Interface (`v3.0.0`)
 
 ![ChromaTransientShaper Live Interface](../../assets/ChromaTransientShaper_Screen.png)
 
-![ChromaTransientShaper v2.9.0 Release Card](../../assets/ChromaTransientShaper_v2.9.0_Release_Card.png)
+![ChromaTransientShaper v3.0.0 Release Card](../../assets/ChromaTransientShaper_v3.0.0_Release_Card.png)
 
 ---
 
@@ -19,6 +19,11 @@ Instead of using a fixed volume threshold (which misses quiet ghost notes on a s
 ---
 
 ## 🗂️ Version & Patch History
+
+- **[`v3.0.0` (2026-11-21) — Astral Slate & Glacier Mist (P3) Redesign, Clipped Eclipse Dial & 34 Static GDI+ Fixes](./v3.0.0_2026-11-21.md)**
+  - **Strictly Clipped Eclipse Monolith & Balanced 2x2 Right Deck**: Clipped the Sweet/Bitter monolith dial cleanly inside its card, paired with a balanced 2x2 knob grid, Hero Sustain dial, dual-trace scope, and live Surge/Gain delta well.
+  - **Eliminated All 34 Static GDI+ Objects**: Zero loader-lock teardown hazards on host plugin removal, upgraded to per-instance 4x SSAA machined titanium dials.
+  - **Click-to-Type, CrashVault & SEH HostShield**: Direct `effEditKeyDown` numeric entry, `[RECOVER]` session autosave, `[FEEDBACK]` shield, `audioMasterAutomate` sync, and safe `SW_HIDE` close.
 
 - **[`v2.9.0` (2026-11-05) — ChromaAnalogSuite Stability Integration & 1-Click Clipboard [FEEDBACK]](./v2.9.0_2026-11-05.md)**
   - **2x Oversampled ADAA Analog Clipper Stage**: Lets you boost drum Attack snap cleanly while smoothly rounding off peak overshoots into warm analog punch.

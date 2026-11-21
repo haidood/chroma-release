@@ -1,13 +1,13 @@
-# ChromaWidener (`v2.9.1`)
+# ChromaWidener (`v3.0.0`)
 
 > **Phase-Safe Multiband Spatializer & Stereo Widener**  
 > Expands stereo width across mid and high frequencies while keeping sub-bass anchored and 100% mono-compatible.
 
-### 🎛️ Plugin Interface (`v2.9.1`)
+### 🎛️ Plugin Interface (`v3.0.0`)
 
 ![ChromaWidener Live Interface](../../assets/ChromaWidener_Screen.png)
 
-![ChromaWidener v2.9.1 Release Card](../../assets/ChromaWidener_v2.9.1_Release_Card.png)
+![ChromaWidener v3.0.0 Release Card](../../assets/ChromaWidener_v3.0.0_Release_Card.png)
 
 ---
 
@@ -19,6 +19,11 @@ If you widen a track by simply flipping the phase of one speaker, it sounds supe
 ---
 
 ## 🗂️ Version & Patch History
+
+- **[`v3.0.0` (2026-11-21) — Astral Slate & Glacier Mist (P3) Imager, Exposed Sub-Bass Mono Maker & Live Phase Correlation](./v3.0.0_2026-11-21.md)**
+  - **Exposed Hidden Mastering Stereo Controls**: Brought Sub-Bass Mono Maker (`20–300 Hz`), Master Dry/Wet, per-band Solo/Mute (`S`/`M`), and a live `-1.0..+1.0` Phase Correlation meter onto the front panel.
+  - **Fixed Output Fader Overlap & Upgraded Header**: Eliminated Output fader thumb/scale collisions, replaced the hot-pink BUG button with `[FEEDBACK]`, and unified all controls on 4x SSAA machined titanium dials.
+  - **250ms Sample-Rate Guard, Click-to-Type & SEH HostShield**: Preserves v2.9.1 zero-static-GDI+ teardown safety and time-bounded sample-rate guard, plus Click-to-Type, CrashVault `[RECOVER]`, and safe `SW_HIDE` close.
 
 - **[`v2.9.1` (2026-11-17) — Eliminated 30 Static GDI+ Unload Objects & Added 250ms Sample-Rate Guard](./v2.9.1_2026-11-17.md)**
   - **Eliminated All 30 Static GDI+ Objects on Unload**: Replaced every static `Gdiplus::Font`, `StringFormat`, `SolidBrush`, `Pen`, and `LinearGradientBrush` with stack objects so `FreeLibrary` (`device_remove`) never runs GDI+ destructors inside `DllMain(DLL_PROCESS_DETACH)` under the Windows loader lock.

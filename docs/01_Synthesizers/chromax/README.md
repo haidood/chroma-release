@@ -1,13 +1,13 @@
-# ChromaX (`v2.9.0`)
+# ChromaX (`v3.0.0`)
 
 > **Flagship Synthesizer with 3D Keycaps & LED Jewels**  
 > High-headroom polyphonic synthesizer featuring tactile 3D hardware keycaps, analog stereo voice spread, inter-stage tube ladder filtering, and studio multi-effects.
 
-### 🎛️ Plugin Interface (`v2.9.0`)
+### 🎛️ Plugin Interface (`v3.0.0`)
 
 ![ChromaX Live Interface](../../assets/ChromaX_Screen.png)
 
-![ChromaX v2.9.0 Release Card](../../assets/ChromaX_v2.9.0_Release_Card.png)
+![ChromaX v3.0.0 Release Card](../../assets/ChromaX_v3.0.0_Release_Card.png)
 
 ---
 
@@ -25,6 +25,11 @@ When you play a 6-note chord, 6 oscillators add together and can easily clip you
 ---
 
 ## 🗂️ Version & Patch History
+
+- **[`v3.0.0` (2026-11-21) — Astral Slate & Glacier Mist (P3) Redesign, Collapsible 8+8 Macros & Zero Label Collisions](./v3.0.0_2026-11-21.md)**
+  - **Unified 2027 Astral Slate & Glacier Mist (P3) Chassis**: Deep midnight obsidian finish, 4x supersampled machined titanium dials, and zero by-value static GDI+ objects for 100% safe DAW plugin removal.
+  - **All 5 Layout Collisions Eliminated**: Added a dedicated frequency axis strip beneath the Filter curve, docked Performer `MOD TARGET` inside the Performer header, and introduced a clean collapsible 8+8 macro bank (`+8 M9-16`).
+  - **Click-to-Type, CrashVault & SEH HostShield**: Click any knob to type exact Hz/semitones/%, 1-click `[RECOVER]` session autosave, 12h rate-limited `[FEEDBACK]` shield, `audioMasterAutomate` DAW undo sync, and safe `SW_HIDE` host close.
 
 - **[`v2.9.0` (2026-11-05) — Analog Poly Stereo Spread, VCO Thermal Drift, Tube Ladder Stages & Class-A Output](./v2.9.0_2026-11-05.md)**
   - **Analog Polyphonic Stereo Voice Panning & VCO Drift**: Every voice in a chord now occupies its own natural stereo pan position with subtle organic analog pitch drift.

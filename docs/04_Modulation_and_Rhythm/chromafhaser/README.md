@@ -1,13 +1,13 @@
-# ChromaFhaser (`v2.9.2`)
+# ChromaFhaser (`v3.0.0`)
 
 > **40-Stage Dual Harmonic Phase Processor**  
 > Deep analog-modeled phaser with up to 40 all-pass stages, thru-zero flanger, 3D waterfall spectrum display, and 24-band parametric EQ sculpting.
 
-### 🎛️ Plugin Interface (`v2.9.2`)
+### 🎛️ Plugin Interface (`v3.0.0`)
 
 ![ChromaFhaser Live Interface](../../assets/ChromaFhaser_Screen.png)
 
-![ChromaFhaser v2.9.2 Release Card](../../assets/ChromaFhaser_v2.9.2_Release_Card.png)
+![ChromaFhaser v3.0.0 Release Card](../../assets/ChromaFhaser_v3.0.0_Release_Card.png)
 
 ---
 
@@ -19,6 +19,11 @@ A phaser doesn't delay the whole sound like a flanger; instead, it pushes specif
 ---
 
 ## 🗂️ Version & Patch History
+
+- **[`v3.0.0` (2026-11-21) — Astral Slate & Glacier Mist (P3) Overhaul, Phase/Mod Orbit Radar & 24 Static GDI+ Fixes](./v3.0.0_2026-11-21.md)**
+  - **Live Phase & Mod Orbit Radar + Clean Flanking Trims**: Added a real-time Phase & Modulation Orbit display beside the Hero Dry/Wet dial, docked IN/OUT trims cleanly, removed duplicate version badge, and fixed EQ LFO clipping.
+  - **Eliminated All 24 Static GDI+ Hazards + 64-Bit EQ**: Zero `DLL_PROCESS_DETACH` teardown risk while preserving 54,432/54,432 double-precision 24-band EQ stability across `44.1–192 kHz`.
+  - **Click-to-Type, CrashVault & SEH HostShield**: Direct `effEditKeyDown` numeric entry, `[RECOVER]` autosave, `[FEEDBACK]` shield, `audioMasterAutomate` sync, and safe `SW_HIDE` close.
 
 - **[`v2.9.2` (2026-11-17) — Double-Precision 24-Band EQ Biquads Across 44.1–192 kHz](./v2.9.2_2026-11-17.md)**
   - **Plain-English DSP Summary**: Very low boosted shelves and low cuts now land exactly where you set them at 88.2 to 192 kHz sessions; at 44.1 and 48 kHz the sound is unchanged.
