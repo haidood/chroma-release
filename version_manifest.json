@@ -1,8 +1,8 @@
 {
   "suite_name": "Chroma Audio Suite",
-  "suite_version": "2026.11.24",
-  "release_date": "2026-11-21",
-  "notes": "Chroma Audio Suite 2026.11.24 — Full 15-Plugin Astral Slate & Glacier Mist (P3) Suite Unification: Overhauled all 11 remaining plugins (ChromaPulse v3.4.0, ChromaX v3.0.0, ChromaDeep v3.0.0, ChromaComp v3.0.0, ChromaDelay v3.0.0, ChromaFhaser v3.0.0, ChromaSlice v3.0.0, ChromaTransientShaper v3.0.0, ChromaWidener v3.0.0, ChromaDesigner v3.0.0, ChromaScramble v3.0.0) to the unified 2027 Astral Slate & Glacier Mist (P3) hardware design, zero-static-GDI+ teardown safety, SEH HostShield, Click-to-Type numeric knob entry, CrashVault session recovery, FeedbackShield, and safe SW_HIDE close parity across all 15 plugins.",
+  "suite_version": "2026.11.25",
+  "release_date": "2026-11-22",
+  "notes": "Chroma Audio Suite 2026.11.25 — ChromaVoice v4.1.0 Hard Auto-Tune (T-Pain) & Smart Vocal +-48 st Pitch Shifter: Added dedicated non-destructive T-PAIN Hard Auto-Tune knob (0.18 ms zero-click quantized step lock, 128-sample turbo pitch tracking, vibrato crush, pure-wet focus & musical OTT polish + T-Pain Hard Auto-Tune factory preset) and a bipolar +-48 semitone Smart Vocal PITCH knob powered by a new True Phase-Locked Dual-Head PSOLA engine (0.0c accuracy across 8 octaves, 24 dB/oct anti-aliasing pre-filter for +48 st / 16x shifts, real-time unvoiced consonant/sibilance preservation, and automatic vocal-tract formant & sub-rumble compensation).",
   "plugins": {
     "ChromaCore": {
       "version": "2.9.8",
@@ -71,10 +71,10 @@
       "notes": "ChromaTransientShaper v3.0.0 (2026.11.21): Full 2027 Astral Slate & Glacier Mist (P3) overhaul; strictly clipped Eclipse Monolith Sweet/Bitter dial, balanced 2x2 knob deck + Hero Sustain + live Surge/Gain delta well, dual-trace transient scope, eliminated all 34 static GDI+ objects, SEH HostShield, Click-to-Type, CrashVault [RECOVER], FeedbackShield, and safe SW_HIDE close."
     },
     "ChromaVoice": {
-      "version": "4.0.1",
-      "build": 20261123,
+      "version": "4.1.0",
+      "build": 20261125,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaVoice.dll",
-      "notes": "ChromaVoice v4.0.1 — Astral Slate & Glacier Mist (2026.11.19): Refined P3 Astral Slate & Glacier Mist hardware finish (cool midnight titanium chassis, glacier ice-cyan doublers/FX/soundstage & restrained champagne-amber strictly on active pitch lock & harmonies); two-tone split CHROMA (platinum-glacier) / VOICE (rustic burnished bronze) wordmark with dual Chroma brand bars; Circle-of-5ths IV-I-V diatonic neighborhood halo; and dual micro IN/OUT signal meter integrated cleanly into the pitch banner."
+      "notes": "ChromaVoice v4.1.0 — T-Pain Hard Auto-Tune & Smart Vocal +-48 st Pitch Shifter (2026.11.22): Added dedicated non-destructive T-PAIN knob (0.18 ms quantized step-lock, 128-sample turbo pitch hop, vibrato flattening, pure-wet anti-chorus focus, musical OTT vocal polish & T-Pain Hard Auto-Tune factory preset) plus a bipolar PITCH knob (-48.0 to +48.0 st, exact 1-semitone scroll & Click-to-Type entry) backed by a new True Phase-Locked Dual-Head PSOLA engine (0.0c accuracy across 8 octaves, 4th-order Butterworth anti-aliasing for +48 st / 16x upshifts, 80% real-time unvoiced consonant/sibilance preservation, and automatic vocal-tract formant preservation), integrated cleanly into a balanced 3x2 Left Dock core knob grid."
     },
     "ChromaWidener": {
       "version": "3.0.0",

@@ -1,30 +1,38 @@
-# ChromaVoice (`v4.0.1`)
+# ChromaVoice (`v4.1.0`)
 
-> **Astral Slate Vocal Pitch Steering, Formant & 4-Channel Harmony Console**  
-> Real-time vocal pitch steering, formant shaping, and 4-channel L/R harmonic doubler console featuring a clickable Circle of 5ths Target-Note Wheel, Live Scrolling Pitch Ribbon, draggable 3D Stereo Harmonic Soundstage Orbit, +3.2 dB Weak-Vocal Body Enhancer, and non-ASIO DirectSound/WASAPI crackle-free playback.
+> **Astral Slate Vocal Pitch Steering, T-Pain Hard Auto-Tune, Smart +-48 st Pitch & 4-Channel Harmony Console**  
+> Real-time vocal pitch steering, dedicated T-Pain Hard Auto-Tune, Smart +-48 semitone True Phase-Locked PSOLA pitch shifting, formant shaping, and 4-channel L/R harmonic doubler console featuring a clickable Circle of 5ths Target-Note Wheel, Live Scrolling Pitch Ribbon, draggable 3D Stereo Harmonic Soundstage Orbit, and +3.2 dB Weak-Vocal Body Enhancer.
 
-### 🎛️ Plugin Interface (`v4.0.1`)
+### 🎛️ Plugin Interface (`v4.1.0`)
 
 ![ChromaVoice Live Interface](../../assets/ChromaVoice_Screen.png)
 
-![ChromaVoice v4.0.1 Release Card](../../assets/ChromaVoice_v4.0.1_Release_Card.png)
+![ChromaVoice v4.1.0 Release Card](../../assets/ChromaVoice_v4.1.0_Release_Card.png)
 
 ---
 
 ## 📚 Tech-to-Music Translator (How It Actually Works in Plain English)
 
+### 🔹 True Phase-Locked PSOLA (Why Ordinary Pitch Shifters Sound Phasy or Out of Tune)
+Most real-time pitch shifters crossfade two delay taps spaced a fixed number of milliseconds apart. Whenever that spacing isn't an exact multiple of the singer's vocal pitch wave, the two taps partially cancel each other out—causing metallic hollowness and pushing the perceived pitch off-key. ChromaVoice v4.1.0 locks the two read heads to exact whole-wave multiples of the singer's real-time pitch period (re-latching strictly when each Hann window hits zero), delivering dead-on 0.0-cent accuracy across a full 8-octave (-48 to +48 semitone) range with zero clicks and zero comb filtering.
+
 ### 🔹 Formants vs. Pitch (Why Chipmunk Vocals Happen)
-When you sing a higher note, your vocal cords vibrate faster (Pitch), rapid-fire, but the size of your throat and mouth stays the same (Formants). Simple pitch shifters shrink the whole recording, making the singer's throat sound 3 inches long (the 'chipmunk' effect). Formant shifting lets you change the note while keeping the singer's natural chest and throat size intact—or morph a male vocal into a female or giant vocal at the same pitch!
+When you sing a higher note, your vocal cords vibrate faster (Pitch), rapid-fire, but the size of your throat and mouth stays the same (Formants). Simple pitch shifters shrink the whole recording, making the singer's throat sound 3 inches long (the 'chipmunk' effect). ChromaVoice's Smart +-48 st Pitch knob automatically counter-preserves your vocal tract warmth and clarity—and lets you sculpt Formant manually on top!
 
-### 🔹 Circle-of-5ths Live Target Steering & Scale-True Harmonies
-Traditional pitch correction only pulls you toward the closest note. With Target Click Live on the Circle of 5ths wheel, clicking any note immediately steers a sung voice onto that exact target note—while all four harmony and stereo doubler layers (+5TH, +9TH, DBL L, DBL R) stay mathematically locked in tune with your chosen scale.
+### 🔹 Unvoiced Consonant Preservation (Keeping 'S', 'T', and 'K' Crisp)
+When you pitch a vocal down 2 octaves (-24 st), sung vowels turn into deep cinematic bass—but ordinary shifters also pitch sharp 'S', 'T', and 'K' sounds down into muddy lisping static. ChromaVoice detects unvoiced consonants in real time and passes clean articulation around the shifter so every syllable stays crisp and intelligible.
 
-### 🔹 Consonant Micro-Windowing (Transient Preservation)
-Granular pitch shifters smear sharp vocal 'S', 'T', and 'K' sounds across multiple grains, making vocals sound lispy or blurry. ChromaVoice detects sharp consonants in real time and automatically shrinks the grain window so every 'T' and 'K' stays crisp and upfront.
+### 🔹 Circle-of-5ths Live Target Steering & T-Pain Hard Auto-Tune
+Dialing up the T-PAIN knob crushes retune transition time to 0.18 ms, doubles pitch-tracking refresh speed, flattens vibrato cleanly onto exact scale steps, and focuses dry/wet to 100% pure quantized lock—while leaving your RETUNE and DRY/WET knob positions untouched when you dial it back down.
 
 ---
 
 ## 🗂️ Version & Patch History
+
+- **[`v4.1.0` (2026-11-22) — Dedicated T-Pain Hard Auto-Tune Knob, Smart +-48 st Vocal Pitch Shifter & True Phase-Locked Dual-Head PSOLA](./v4.1.0_2026-11-22.md)**
+  - **Dedicated `T-PAIN` Hard Auto-Tune Knob (`0–100%`) + Factory Preset**: Non-destructive instant vocal quantization crushing retune slew down to `0.18 ms`, engaging `128-sample` (`~2.6 ms`) turbo NCCF pitch tracking, crushing vibrato to `+0.4c` accuracy, pulling dry/wet focus to 100% pure quantized signal (zero untuned bleed chorusing), and blending musical OTT vocal polish—all without overwriting your `RETUNE` or `DRY/WET` knob settings. Includes a 1-click **`T-Pain Hard Auto-Tune`** preset.
+  - **Smart Vocal `PITCH` Knob (`-48.0` to `+48.0 st`) with True Phase-Locked Dual-Head PSOLA**: Full 8-octave (`0.0625x` to `16.0x`) vocal pitch shifting powered by zero-crossing `T0`-locked read heads (`0.0c` accuracy at `-24/-12/+12 st`, `±1.6c` up to `+48 st`), a dynamic 24 dB/oct Butterworth anti-aliasing pre-filter (`+49.1 dB` signal-to-foldback at `+48 st`), automatic vocal-tract formant preservation & sub-rumble tightness, and real-time unvoiced consonant/sibilance preservation (`80.4%` crisp HF articulation retained at `-24 st`).
+  - **Balanced 3x2 Left Dock Layout & Enhanced Workflow**: Upgraded the Left Dock knob bay cleanly to a 3x2 grid (`T-PAIN`, `PITCH`, `FORMANT` / `RETUNE`, `HUMANIZE`, `AUTO-LEVEL`) with Champagne focal glow on active `T-PAIN` & `PITCH`, exact `1.0 st` mousewheel stepping (`0.1 st` with Shift), Click-to-Type numeric entry (`-12`, `+24`, `-48` + Enter), live `T-PAIN` / `SMART SHIFT` Hero Banner telemetry, and `WM_PRINTCLIENT` off-screen rendering support.
 
 - **[`v4.0.1` (2026-11-19) — Astral Slate & Glacier Mist (P3) Cohesive Hardware Finish, Two-Tone Rustic CHROMA/VOICE Crest & Diatonic Wheel Halo](./v4.0.1_2026-11-19.md)**
   - **Astral Slate & Glacier Mist Hardware Finish (P3)**: Refined the 1180x680 studio console to a calm midnight obsidian & brushed steel-slate chassis with 4x supersampled machined titanium dials—using cool Glacier Ice-Cyan for doublers (`DBL L/R`), FX toggles, and soundstage satellites while reserving restrained warm Champagne strictly for the locked pitch target, live pitch ribbon, `LEAD` orb, and `+5TH / +9TH` harmony faders.
@@ -73,7 +81,7 @@ Granular pitch shifters smear sharp vocal 'S', 'T', and 'K' sounds across multip
 
 ## 🛠️ Known Issues & Bug Reporting
 
-- None currently open in v4.0.1.
+- None currently open in v4.1.0.
 
 **Found a bug or weird preset behavior?**  
 Click the **`[ FEEDBACK ]`** button in the top-right header of the plugin! It automatically snapshots your patch, EQ curve, and screenshot, copies a diagnostic summary to your Clipboard (`Ctrl+V` ready for Discord), or opens a pre-filled [GitHub Bug Report](https://github.com/haidood/chroma-release/issues/new).

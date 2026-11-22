@@ -1491,28 +1491,43 @@ const DATA = [
       {
         "id": "chromavoice",
         "name": "ChromaVoice",
-        "latest": "v4.0.1",
+        "latest": "v4.1.0",
         "screen_image": "assets/ChromaVoice_Screen.png",
-        "type": "Astral Slate Vocal Pitch Steering, Formant & 4-Channel Harmony Console",
-        "summary": "Real-time vocal pitch steering, formant shaping, and 4-channel L/R harmonic doubler console featuring a clickable Circle of 5ths Target-Note Wheel, Live Scrolling Pitch Ribbon, draggable 3D Stereo Harmonic Soundstage Orbit, +3.2 dB Weak-Vocal Body Enhancer, and non-ASIO DirectSound/WASAPI crackle-free playback.",
+        "type": "Astral Slate Vocal Pitch Steering, T-Pain Hard Auto-Tune, Smart +-48 st Pitch & 4-Channel Harmony Console",
+        "summary": "Real-time vocal pitch steering, dedicated T-Pain Hard Auto-Tune, Smart +-48 semitone True Phase-Locked PSOLA pitch shifting, formant shaping, and 4-channel L/R harmonic doubler console featuring a clickable Circle of 5ths Target-Note Wheel, Live Scrolling Pitch Ribbon, draggable 3D Stereo Harmonic Soundstage Orbit, and +3.2 dB Weak-Vocal Body Enhancer.",
         "glossary": [
           {
+            "term": "True Phase-Locked PSOLA (Why Ordinary Pitch Shifters Sound Phasy or Out of Tune)",
+            "simple": "Most real-time pitch shifters crossfade two delay taps spaced a fixed number of milliseconds apart. Whenever that spacing isn't an exact multiple of the singer's vocal pitch wave, the two taps partially cancel each other out\u2014causing metallic hollowness and pushing the perceived pitch off-key. ChromaVoice v4.1.0 locks the two read heads to exact whole-wave multiples of the singer's real-time pitch period (re-latching strictly when each Hann window hits zero), delivering dead-on 0.0-cent accuracy across a full 8-octave (-48 to +48 semitone) range with zero clicks and zero comb filtering."
+          },
+          {
             "term": "Formants vs. Pitch (Why Chipmunk Vocals Happen)",
-            "simple": "When you sing a higher note, your vocal cords vibrate faster (Pitch), rapid-fire, but the size of your throat and mouth stays the same (Formants). Simple pitch shifters shrink the whole recording, making the singer's throat sound 3 inches long (the 'chipmunk' effect). Formant shifting lets you change the note while keeping the singer's natural chest and throat size intact\u2014or morph a male vocal into a female or giant vocal at the same pitch!"
+            "simple": "When you sing a higher note, your vocal cords vibrate faster (Pitch), rapid-fire, but the size of your throat and mouth stays the same (Formants). Simple pitch shifters shrink the whole recording, making the singer's throat sound 3 inches long (the 'chipmunk' effect). ChromaVoice's Smart +-48 st Pitch knob automatically counter-preserves your vocal tract warmth and clarity\u2014and lets you sculpt Formant manually on top!"
           },
           {
-            "term": "Circle-of-5ths Live Target Steering & Scale-True Harmonies",
-            "simple": "Traditional pitch correction only pulls you toward the closest note. With Target Click Live on the Circle of 5ths wheel, clicking any note immediately steers a sung voice onto that exact target note\u2014while all four harmony and stereo doubler layers (+5TH, +9TH, DBL L, DBL R) stay mathematically locked in tune with your chosen scale."
+            "term": "Unvoiced Consonant Preservation (Keeping 'S', 'T', and 'K' Crisp)",
+            "simple": "When you pitch a vocal down 2 octaves (-24 st), sung vowels turn into deep cinematic bass\u2014but ordinary shifters also pitch sharp 'S', 'T', and 'K' sounds down into muddy lisping static. ChromaVoice detects unvoiced consonants in real time and passes clean articulation around the shifter so every syllable stays crisp and intelligible."
           },
           {
-            "term": "Consonant Micro-Windowing (Transient Preservation)",
-            "simple": "Granular pitch shifters smear sharp vocal 'S', 'T', and 'K' sounds across multiple grains, making vocals sound lispy or blurry. ChromaVoice detects sharp consonants in real time and automatically shrinks the grain window so every 'T' and 'K' stays crisp and upfront."
+            "term": "Circle-of-5ths Live Target Steering & T-Pain Hard Auto-Tune",
+            "simple": "Dialing up the T-PAIN knob crushes retune transition time to 0.18 ms, doubles pitch-tracking refresh speed, flattens vibrato cleanly onto exact scale steps, and focuses dry/wet to 100% pure quantized lock\u2014while leaving your RETUNE and DRY/WET knob positions untouched when you dial it back down."
           }
         ],
         "known_issues": [
-          "None currently open in v4.0.1."
+          "None currently open in v4.1.0."
         ],
         "versions": [
+          {
+            "version": "v4.1.0",
+            "date": "2026-11-22",
+            "title": "Dedicated T-Pain Hard Auto-Tune Knob, Smart +-48 st Vocal Pitch Shifter & True Phase-Locked Dual-Head PSOLA",
+            "card_image": "assets/ChromaVoice_v4.1.0_Release_Card.png",
+            "highlights": [
+              "**Dedicated `T-PAIN` Hard Auto-Tune Knob (`0\u2013100%`) + Factory Preset**: Non-destructive instant vocal quantization crushing retune slew down to `0.18 ms`, engaging `128-sample` (`~2.6 ms`) turbo NCCF pitch tracking, crushing vibrato to `+0.4c` accuracy, pulling dry/wet focus to 100% pure quantized signal (zero untuned bleed chorusing), and blending musical OTT vocal polish\u2014all without overwriting your `RETUNE` or `DRY/WET` knob settings. Includes a 1-click **`T-Pain Hard Auto-Tune`** preset.",
+              "**Smart Vocal `PITCH` Knob (`-48.0` to `+48.0 st`) with True Phase-Locked Dual-Head PSOLA**: Full 8-octave (`0.0625x` to `16.0x`) vocal pitch shifting powered by zero-crossing `T0`-locked read heads (`0.0c` accuracy at `-24/-12/+12 st`, `\u00b11.6c` up to `+48 st`), a dynamic 24 dB/oct Butterworth anti-aliasing pre-filter (`+49.1 dB` signal-to-foldback at `+48 st`), automatic vocal-tract formant preservation & sub-rumble tightness, and real-time unvoiced consonant/sibilance preservation (`80.4%` crisp HF articulation retained at `-24 st`).",
+              "**Balanced 3x2 Left Dock Layout & Enhanced Workflow**: Upgraded the Left Dock knob bay cleanly to a 3x2 grid (`T-PAIN`, `PITCH`, `FORMANT` / `RETUNE`, `HUMANIZE`, `AUTO-LEVEL`) with Champagne focal glow on active `T-PAIN` & `PITCH`, exact `1.0 st` mousewheel stepping (`0.1 st` with Shift), Click-to-Type numeric entry (`-12`, `+24`, `-48` + Enter), live `T-PAIN` / `SMART SHIFT` Hero Banner telemetry, and `WM_PRINTCLIENT` off-screen rendering support."
+            ]
+          },
           {
             "version": "v4.0.1",
             "date": "2026-11-19",
