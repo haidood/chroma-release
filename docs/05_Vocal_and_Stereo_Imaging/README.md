@@ -2,5 +2,5 @@
 
 | Plugin | Latest Version | Type | Documentation & Release History |
 |---|---|---|---|
-| **ChromaVoice** | `v4.1.0` | Astral Slate Vocal Pitch Steering, T-Pain Hard Auto-Tune, Smart +-48 st Pitch & 4-Channel Harmony Console | [Open Folder](./chromavoice/README.md) |
+| **ChromaVoice** | `v4.2.0` | Astral Slate Vocal Pitch Steering, Classic Auto-Tune 5 T-Pain, Live MIDI Steering & Smart +-48 st Console | [Open Folder](./chromavoice/README.md) |
 | **ChromaWidener** | `v3.0.0` | Phase-Safe Multiband Spatializer & Stereo Widener | [Open Folder](./chromawidener/README.md) |

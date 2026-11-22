@@ -1,33 +1,38 @@
-# ChromaVoice (`v4.1.0`)
+# ChromaVoice (`v4.2.0`)
 
-> **Astral Slate Vocal Pitch Steering, T-Pain Hard Auto-Tune, Smart +-48 st Pitch & 4-Channel Harmony Console**  
-> Real-time vocal pitch steering, dedicated T-Pain Hard Auto-Tune, Smart +-48 semitone True Phase-Locked PSOLA pitch shifting, formant shaping, and 4-channel L/R harmonic doubler console featuring a clickable Circle of 5ths Target-Note Wheel, Live Scrolling Pitch Ribbon, draggable 3D Stereo Harmonic Soundstage Orbit, and +3.2 dB Weak-Vocal Body Enhancer.
+> **Astral Slate Vocal Pitch Steering, Classic Auto-Tune 5 T-Pain, Live MIDI Steering & Smart +-48 st Console**  
+> Real-time vocal pitch steering, authentic Classic Auto-Tune 5 T-Pain Hard Auto-Tune (with toggleable CLASSIC vs OTT mode), toggleable Live MIDI Target & Polyphonic Chord Steering, Smart +-48 semitone True Phase-Locked PSOLA pitch shifting, Right-Click Circle-of-5ths custom scale-note exclusion, and a 4-channel L/R harmonic doubler console.
 
-### 🎛️ Plugin Interface (`v4.1.0`)
+### 🎛️ Plugin Interface (`v4.2.0`)
 
 ![ChromaVoice Live Interface](../../assets/ChromaVoice_Screen.png)
 
-![ChromaVoice v4.1.0 Release Card](../../assets/ChromaVoice_v4.1.0_Release_Card.png)
+![ChromaVoice v4.2.0 Release Card](../../assets/ChromaVoice_v4.2.0_Release_Card.png)
 
 ---
 
 ## 📚 Tech-to-Music Translator (How It Actually Works in Plain English)
 
-### 🔹 True Phase-Locked PSOLA (Why Ordinary Pitch Shifters Sound Phasy or Out of Tune)
-Most real-time pitch shifters crossfade two delay taps spaced a fixed number of milliseconds apart. Whenever that spacing isn't an exact multiple of the singer's vocal pitch wave, the two taps partially cancel each other out—causing metallic hollowness and pushing the perceived pitch off-key. ChromaVoice v4.1.0 locks the two read heads to exact whole-wave multiples of the singer's real-time pitch period (re-latching strictly when each Hann window hits zero), delivering dead-on 0.0-cent accuracy across a full 8-octave (-48 to +48 semitone) range with zero clicks and zero comb filtering.
+### 🔹 Classic Auto-Tune 5 Single-Period Snap vs. Generic Pitch Correction
+Generic pitch shifters average pitch over 15–20 ms of older audio and crossfade wide grains, which softens rapid vocal runs. ChromaVoice v4.2.0 analyzes the newest live 4.6 ms edge through a dedicated 75–920 Hz vocal sidechain filter and tightens grains down to a single pitch period (~5.5 ms) when T-PAIN is cranked—recreating that unmistakable glassy 2007 Auto-Tune 5 step-lock chirp without forced OTT pumping.
 
-### 🔹 Formants vs. Pitch (Why Chipmunk Vocals Happen)
-When you sing a higher note, your vocal cords vibrate faster (Pitch), rapid-fire, but the size of your throat and mouth stays the same (Formants). Simple pitch shifters shrink the whole recording, making the singer's throat sound 3 inches long (the 'chipmunk' effect). ChromaVoice's Smart +-48 st Pitch knob automatically counter-preserves your vocal tract warmth and clarity—and lets you sculpt Formant manually on top!
+### 🔹 Toggleable Live MIDI Target & Chord Steering (Play Your Voice Like a Synth)
+When MIDI LIVE is toggled OFF, ChromaVoice follows your Circle-of-5ths scale or clicked target note and ignores MIDI completely. Toggle MIDI LIVE ON and route any MIDI keyboard or clip into ChromaVoice: your lead vocal snaps instantly to every MIDI note & pitch-wheel bend you play, and holding a 3-note chord automatically steers HARM 1 and HARM 2 to sing your exact live chord harmonies!
+
+### 🔹 True Phase-Locked PSOLA (Why Ordinary Pitch Shifters Sound Phasy or Out of Tune)
+Most real-time pitch shifters crossfade two delay taps spaced a fixed number of milliseconds apart. Whenever that spacing isn't an exact multiple of the singer's vocal pitch wave, the two taps partially cancel each other out—causing metallic hollowness and pushing the perceived pitch off-key. ChromaVoice locks the two read heads to exact whole-wave multiples of the singer's real-time pitch period (re-latching strictly when each Hann window hits zero), delivering dead-on 0.0-cent accuracy across a full 8-octave (-48 to +48 semitone) range with zero clicks and zero comb filtering.
 
 ### 🔹 Unvoiced Consonant Preservation (Keeping 'S', 'T', and 'K' Crisp)
 When you pitch a vocal down 2 octaves (-24 st), sung vowels turn into deep cinematic bass—but ordinary shifters also pitch sharp 'S', 'T', and 'K' sounds down into muddy lisping static. ChromaVoice detects unvoiced consonants in real time and passes clean articulation around the shifter so every syllable stays crisp and intelligible.
 
-### 🔹 Circle-of-5ths Live Target Steering & T-Pain Hard Auto-Tune
-Dialing up the T-PAIN knob crushes retune transition time to 0.18 ms, doubles pitch-tracking refresh speed, flattens vibrato cleanly onto exact scale steps, and focuses dry/wet to 100% pure quantized lock—while leaving your RETUNE and DRY/WET knob positions untouched when you dial it back down.
-
 ---
 
 ## 🗂️ Version & Patch History
+
+- **[`v4.2.0` (2026-11-22) — Classic Auto-Tune 5 T-Pain Engine, Toggleable Live MIDI Target & Chord Steering, Classic/OTT Toggle & Custom Scale-Note Bypass](./v4.2.0_2026-11-22.md)**
+  - **Ultra-Low-Latency Classic Auto-Tune 5 Engine**: Re-anchored the SSE2 YIN/NCCF pitch detector to the newest live write-head edge (`112-sample` turbo template, cutting tracking lag ~4x to `3–5 ms`), added a dedicated `75–920 Hz` vocal sidechain bandpass so bright harmonics never cause octave-up glitches, tightened T-Pain grains to classic `1 × T0` (`~5.5 ms`) single-period crossfades for the iconic glassy Auto-Tune 5 chirp, and introduced velocity-aware `±14c` boundary hysteresis (zero sustained midpoint buzz, instant hair-trigger scoop flips).
+  - **Toggleable `MIDI LIVE` Target & Polyphonic Chord Steering**: Added a dedicated `MIDI LIVE` toggle right beside `SCALE` and `CLICK LIVE` plus lock-free VST2 `effProcessEvents` MIDI handling—strictly ignored when toggled OFF, and when ON steers your lead vocal straight to exact played MIDI notes (`+0.7c` accuracy) + `±2.0 st` live MIDI Pitch Wheel bends (`+0.0c`), while holding 2–3 MIDI keys automatically steers `HARM 1` & `HARM 2` to your live chord notes with glowing Circle-of-5ths chord beacons.
+  - **`T-PAIN: CLASSIC` vs `OTT` Toggle, Major Pentatonic (`MPNT`) & Right-Click Note Exclusion**: Decoupled heavy OTT compression into a 1-click `T-PAIN: CLASSIC / OTT` toggle (pure transparent Auto-Tune 5 by default), added `MPNT` (Major Pentatonic) to the 6-scale strip, and enabled Right-Clicking any Circle-of-5ths wedge to exclude passing notes for wider, more dramatic T-Pain leaps (Right-click center medallion to reset). All v4.2 states persist seamlessly in backward-compatible `CHROMAVOICE_V4` chunks.
 
 - **[`v4.1.0` (2026-11-22) — Dedicated T-Pain Hard Auto-Tune Knob, Smart +-48 st Vocal Pitch Shifter & True Phase-Locked Dual-Head PSOLA](./v4.1.0_2026-11-22.md)**
   - **Dedicated `T-PAIN` Hard Auto-Tune Knob (`0–100%`) + Factory Preset**: Non-destructive instant vocal quantization crushing retune slew down to `0.18 ms`, engaging `128-sample` (`~2.6 ms`) turbo NCCF pitch tracking, crushing vibrato to `+0.4c` accuracy, pulling dry/wet focus to 100% pure quantized signal (zero untuned bleed chorusing), and blending musical OTT vocal polish—all without overwriting your `RETUNE` or `DRY/WET` knob settings. Includes a 1-click **`T-Pain Hard Auto-Tune`** preset.
@@ -81,7 +86,7 @@ Dialing up the T-PAIN knob crushes retune transition time to 0.18 ms, doubles pi
 
 ## 🛠️ Known Issues & Bug Reporting
 
-- None currently open in v4.1.0.
+- None currently open in v4.2.0.
 
 **Found a bug or weird preset behavior?**  
 Click the **`[ FEEDBACK ]`** button in the top-right header of the plugin! It automatically snapshots your patch, EQ curve, and screenshot, copies a diagnostic summary to your Clipboard (`Ctrl+V` ready for Discord), or opens a pre-filled [GitHub Bug Report](https://github.com/haidood/chroma-release/issues/new).
