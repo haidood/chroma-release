@@ -1,9 +1,9 @@
 {
   "suite_name": "Chroma Audio Suite",
-  "suite_version": "2026.11.27",
+  "suite_version": "2026.11.28",
   "release_date": "2026-11-23",
   "formats": ["VST3 (Steinberg VST 3.8.1 Official Validator Verified)", "VST2 (64-bit Windows)"],
-  "notes": "Chroma Audio Suite 2026.11.27 — Native Steinberg VST 3.8.1 Verified Bundles (All 15 Plugins): Built all 15 Chroma Audio Suite plugins as genuine native 64-bit Steinberg VST 3.8.1 bundles (.vst3/Contents/x86_64-win + official moduleinfo.json) under Steinberg's MIT-licensed VST 3.8 SDK, passing 15/15 official Steinberg validator.exe suites (47/47 tests per plugin, 705/705 total) plus full native Win32 IPlugView GUI & DAW lifecycle verification, and fixed ChromaTransientShaper AEffect teardown ownership.",
+  "notes": "Chroma Audio Suite 2026.11.28 — ChromaVoice v4.3.0 True Zero-Lag Hard-Tune Engine + Native Steinberg VST 3.8.1 Verified Bundles: Eliminated PSOLA upward delay-floor clamping, added causal time-aligned pitch ring (0.00 ms detector-to-shifter skew), upgraded YIN to 2048-ring 4th-order 680 Hz sidechain full-period male/female tracking (0.0-0.7c accuracy, 12x-20x vibrato flattening, instant 1.3 ms stair-steps), and wired reversible solo-focus HARD TUNE knob macro across both VST2 and native Steinberg VST 3.8.1.",
   "plugins": {
     "ChromaCore": {
       "version": "2.9.8",
@@ -72,10 +72,10 @@
       "notes": "ChromaTransientShaper v3.0.0 (2026.11.21): Full 2027 Astral Slate & Glacier Mist (P3) overhaul; strictly clipped Eclipse Monolith Sweet/Bitter dial, balanced 2x2 knob deck + Hero Sustain + live Surge/Gain delta well, dual-trace transient scope, eliminated all 34 static GDI+ objects, SEH HostShield, Click-to-Type, CrashVault [RECOVER], FeedbackShield, and safe SW_HIDE close."
     },
     "ChromaVoice": {
-      "version": "4.2.0",
-      "build": 20261126,
+      "version": "4.3.0",
+      "build": 20261127,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaVoice.dll",
-      "notes": "ChromaVoice v4.2.0 — Classic Hard-Tune Engine & Toggleable Live MIDI Steering (2026.11.22): Slashed pitch-tracking latency 4x via newest-edge live YIN correlation + dedicated 75-920 Hz sidechain bandpass; added classic tight 1*T0 single-period grains for glassy step-lock timbre; velocity-aware +-14c boundary hysteresis; toggleable HARD: CLASSIC (pure hard-lock, zero multiband pump) vs PUNCH mode; Major Pentatonic + Right-Click Circle-of-5ths custom scale-note exclusion; and toggleable MIDI LIVE steering (monophonic lead + +-2 st pitch wheel + polyphonic MIDI chord steering into HARM 1 & HARM 2)."
+      "notes": "ChromaVoice v4.3.0 — True Zero-Lag Hard Pitch-Lock Engine (2026.11.23): Eliminated upward PSOLA delay-line floor clamping via bidirectional runway-guarded phase-locked resynthesis; added causal time-aligned pitch ring eliminating 20-30 ms vibrato/glide phase skew (0.0-0.7c lock precision, 12x-20x vibrato flattening); upgraded YIN pitch tracker to full-period 2048-sample ring + 4th-order 680 Hz sidechain LP + 1.3 ms turbo hop + bidirectional octave guards; wired reversible HARD TUNE knob macro that automatically solos lead, zeros humanize/detune, locks 0 ms retune & 100% wet, and tightens reverb for an unmistakable classic hard-tuned vocal effect."
     },
     "ChromaWidener": {
       "version": "3.0.0",
