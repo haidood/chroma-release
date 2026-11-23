@@ -2,7 +2,7 @@
   "suite_name": "Chroma Audio Suite",
   "suite_version": "2026.11.26",
   "release_date": "2026-11-22",
-  "notes": "Chroma Audio Suite 2026.11.26 — ChromaVoice v4.2.0 Classic Auto-Tune 5 Engine & Toggleable Live MIDI Target Steering: Upgraded T-Pain Hard Auto-Tune with newest-edge ~3-5 ms low-latency YIN pitch tracking, a dedicated 75-920 Hz vocal sidechain bandpass, classic 1*T0 single-period PSOLA grains, velocity-aware boundary hysteresis (zero midpoint chatter, hair-trigger scoops), toggleable CLASSIC (pure Auto-Tune 5) vs OTT mode, Major Pentatonic + Right-Click custom scale-note mute on the Circle of 5ths, and toggleable MIDI LIVE target steering (monophonic MIDI lead + live pitch wheel + polyphonic 3-note MIDI chord harmonies).",
+  "notes": "Chroma Audio Suite 2026.11.26 — ChromaVoice v4.2.0 Classic Hard-Tune Engine & Toggleable Live MIDI Target Steering: Upgraded Hard Pitch-Lock with newest-edge ~3-5 ms low-latency YIN pitch tracking, a dedicated 75-920 Hz vocal sidechain bandpass, classic 1*T0 single-period PSOLA grains, velocity-aware boundary hysteresis (zero midpoint chatter, hair-trigger scoops), toggleable CLASSIC (pure hard-lock) vs PUNCH (multiband) mode, Major Pentatonic + Right-Click custom scale-note mute on the Circle of 5ths, and toggleable MIDI LIVE target steering (monophonic MIDI lead + live pitch wheel + polyphonic 3-note MIDI chord harmonies).",
   "plugins": {
     "ChromaCore": {
       "version": "2.9.8",
@@ -74,7 +74,7 @@
       "version": "4.2.0",
       "build": 20261126,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaVoice.dll",
-      "notes": "ChromaVoice v4.2.0 — Classic Auto-Tune 5 T-Pain Engine & Toggleable Live MIDI Steering (2026.11.22): Slashed pitch-tracking latency 4x via newest-edge live YIN correlation + dedicated 75-920 Hz sidechain bandpass; added Auto-Tune 5 tight 1*T0 single-period grains for authentic glassy step-lock timbre; velocity-aware +-14c boundary hysteresis; toggleable T-PAIN: CLASSIC (pure Auto-Tune 5, zero OTT pump) vs OTT mode; Major Pentatonic + Right-Click Circle-of-5ths custom scale-note exclusion; and toggleable MIDI LIVE steering (monophonic lead + +-2 st pitch wheel + polyphonic MIDI chord steering into HARM 1 & HARM 2)."
+      "notes": "ChromaVoice v4.2.0 — Classic Hard-Tune Engine & Toggleable Live MIDI Steering (2026.11.22): Slashed pitch-tracking latency 4x via newest-edge live YIN correlation + dedicated 75-920 Hz sidechain bandpass; added classic tight 1*T0 single-period grains for glassy step-lock timbre; velocity-aware +-14c boundary hysteresis; toggleable HARD: CLASSIC (pure hard-lock, zero multiband pump) vs PUNCH mode; Major Pentatonic + Right-Click Circle-of-5ths custom scale-note exclusion; and toggleable MIDI LIVE steering (monophonic lead + +-2 st pitch wheel + polyphonic MIDI chord steering into HARM 1 & HARM 2)."
     },
     "ChromaWidener": {
       "version": "3.0.0",

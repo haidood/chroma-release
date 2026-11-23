@@ -338,7 +338,7 @@ const DATA = [
             "highlights": [
               "**Eliminated Critical 440x Audio-Rate VCO Thermal Drift FM Bug**: Fixed `vcoDriftPhase` multiplying by `oscBaseInc` (`440.0 / sampleRate`) instead of `invSampleRate`, which had been vibrating every voice's drift and Osc 1 stereo phase twin at `96.8\u2013250.8 Hz` audio rate stepped every 16 samples. VCO thermal drift now glides smoothly at `0.18\u20130.46 Hz` (`\u00b10.45 cents`) with zero metallic FM sidebands.",
               "**Pure Concert-Pitch Polyphonic Chords (`A = 440.00 Hz`)**: Tightened hardcoded polyphonic voice-card dispersion from `\u00b15.4 cents` (`16.4 cents` peak-to-peak chord spread) down to a genuine hardware-precision `\u00b10.25\u20130.75 cents`, keeping complex jazz/dark chords (`Cm9`, `Abmaj7`, `Fm9`) crystal pure in tune.",
-              "**Staggered 4-Pole Ladder Filter Damping (`FILT_LP24`)**: Replaced identical cascaded double-Q SVF damping (`R^2` nasal honk around `150\u2013200 Hz`) with staggered Butterworth-to-Moog pole damping (`R1 / R2`), eliminating hollow cardboard low-mid ringing while preserving full sub-bass weight and creamy high-resonance squelch.",
+              "**Staggered 4-Pole Ladder Filter Damping (`FILT_LP24`)**: Replaced identical cascaded double-Q SVF damping (`R^2` nasal honk around `150\u2013200 Hz`) with staggered Butterworth-to-Ladder pole damping (`R1 / R2`), eliminating hollow cardboard low-mid ringing while preserving full sub-bass weight and creamy high-resonance squelch.",
               "**25 Out-of-Tune + 38 Hard-Panned Factory Presets Fixed (`88/88` Audited)**: Migrated 25 legacy presets that accidentally placed fine chorus/Reese detune (`0.501\u20130.505`) on `kParamOsc2Pitch` (`+10c` to `+48c` sharp!) to exact `0 st` coarse pitch + symmetric concert-pitch-centered `Osc1Fine / Osc2Fine` (`\u00b14c` to `\u00b112c`), centered 38 legacy presets accidentally panned 96\u2013100% hard L/R from the old 105-float layout, and fixed `Cyberpunk 2077 Reese Bass` serial `HP24` Filter 2 routing that was choking `65 Hz` sub bass.",
               "**Internal Reverb Anti-Ringing Polish**: Removed the accidental `kParamReverbTrebleAir -> midGainDB` assignment (up to `+18 dB` mid honk) and upgraded `LateReverbTank` to quadrature per-comb LFO phases to eliminate static comb ringing."
             ]
@@ -1493,12 +1493,12 @@ const DATA = [
         "name": "ChromaVoice",
         "latest": "v4.2.0",
         "screen_image": "assets/ChromaVoice_Screen.png",
-        "type": "Astral Slate Vocal Pitch Steering, Classic Auto-Tune 5 T-Pain, Live MIDI Steering & Smart +-48 st Console",
-        "summary": "Real-time vocal pitch steering, authentic Classic Auto-Tune 5 T-Pain Hard Auto-Tune (with toggleable CLASSIC vs OTT mode), toggleable Live MIDI Target & Polyphonic Chord Steering, Smart +-48 semitone True Phase-Locked PSOLA pitch shifting, Right-Click Circle-of-5ths custom scale-note exclusion, and a 4-channel L/R harmonic doubler console.",
+        "type": "Astral Slate Vocal Pitch Steering, Classic Hard-Tune, Live MIDI Steering & Smart +-48 st Console",
+        "summary": "Real-time vocal pitch steering, authentic Classic Hard Pitch-Lock Engine (with toggleable CLASSIC vs PUNCH mode), toggleable Live MIDI Target & Polyphonic Chord Steering, Smart +-48 semitone True Phase-Locked PSOLA pitch shifting, Right-Click Circle-of-5ths custom scale-note exclusion, and a 4-channel L/R harmonic doubler console.",
         "glossary": [
           {
-            "term": "Classic Auto-Tune 5 Single-Period Snap vs. Generic Pitch Correction",
-            "simple": "Generic pitch shifters average pitch over 15\u201320 ms of older audio and crossfade wide grains, which softens rapid vocal runs. ChromaVoice v4.2.0 analyzes the newest live 4.6 ms edge through a dedicated 75\u2013920 Hz vocal sidechain filter and tightens grains down to a single pitch period (~5.5 ms) when T-PAIN is cranked\u2014recreating that unmistakable glassy 2007 Auto-Tune 5 step-lock chirp without forced OTT pumping."
+            "term": "Classic Single-Period Hard-Tune vs. Generic Pitch Correction",
+            "simple": "Generic pitch shifters average pitch over 15\u201320 ms of older audio and crossfade wide grains, which softens rapid vocal runs. ChromaVoice v4.2.0 analyzes the newest live 4.6 ms edge through a dedicated 75\u2013920 Hz vocal sidechain filter and tightens grains down to a single pitch period (~5.5 ms) when HARD TUNE is cranked\u2014recreating that unmistakable glassy classic step-lock chirp without forced multiband pumping."
           },
           {
             "term": "Toggleable Live MIDI Target & Chord Steering (Play Your Voice Like a Synth)",
@@ -1520,23 +1520,23 @@ const DATA = [
           {
             "version": "v4.2.0",
             "date": "2026-11-22",
-            "title": "Classic Auto-Tune 5 T-Pain Engine, Toggleable Live MIDI Target & Chord Steering, Classic/OTT Toggle & Custom Scale-Note Bypass",
+            "title": "Classic Hard-Tune Engine, Toggleable Live MIDI Target & Chord Steering, Classic/Punch Toggle & Custom Scale-Note Bypass",
             "card_image": "assets/ChromaVoice_v4.2.0_Release_Card.png",
             "highlights": [
-              "**Ultra-Low-Latency Classic Auto-Tune 5 Engine**: Re-anchored the SSE2 YIN/NCCF pitch detector to the newest live write-head edge (`112-sample` turbo template, cutting tracking lag ~4x to `3\u20135 ms`), added a dedicated `75\u2013920 Hz` vocal sidechain bandpass so bright harmonics never cause octave-up glitches, tightened T-Pain grains to classic `1 \u00d7 T0` (`~5.5 ms`) single-period crossfades for the iconic glassy Auto-Tune 5 chirp, and introduced velocity-aware `\u00b114c` boundary hysteresis (zero sustained midpoint buzz, instant hair-trigger scoop flips).",
+              "**Ultra-Low-Latency Classic Hard-Tune Engine**: Re-anchored the SSE2 YIN/NCCF pitch detector to the newest live write-head edge (`112-sample` turbo template, cutting tracking lag ~4x to `3\u20135 ms`), added a dedicated `75\u2013920 Hz` vocal sidechain bandpass so bright harmonics never cause octave-up glitches, tightened hard-tune grains to classic `1 \u00d7 T0` (`~5.5 ms`) single-period crossfades for an iconic glassy step-lock chirp, and introduced velocity-aware `\u00b114c` boundary hysteresis (zero sustained midpoint buzz, instant hair-trigger scoop flips).",
               "**Toggleable `MIDI LIVE` Target & Polyphonic Chord Steering**: Added a dedicated `MIDI LIVE` toggle right beside `SCALE` and `CLICK LIVE` plus lock-free VST2 `effProcessEvents` MIDI handling\u2014strictly ignored when toggled OFF, and when ON steers your lead vocal straight to exact played MIDI notes (`+0.7c` accuracy) + `\u00b12.0 st` live MIDI Pitch Wheel bends (`+0.0c`), while holding 2\u20133 MIDI keys automatically steers `HARM 1` & `HARM 2` to your live chord notes with glowing Circle-of-5ths chord beacons.",
-              "**`T-PAIN: CLASSIC` vs `OTT` Toggle, Major Pentatonic (`MPNT`) & Right-Click Note Exclusion**: Decoupled heavy OTT compression into a 1-click `T-PAIN: CLASSIC / OTT` toggle (pure transparent Auto-Tune 5 by default), added `MPNT` (Major Pentatonic) to the 6-scale strip, and enabled Right-Clicking any Circle-of-5ths wedge to exclude passing notes for wider, more dramatic T-Pain leaps (Right-click center medallion to reset). All v4.2 states persist seamlessly in backward-compatible `CHROMAVOICE_V4` chunks."
+              "**`HARD: CLASSIC` vs `PUNCH` Toggle, Major Pentatonic (`MPNT`) & Right-Click Note Exclusion**: Decoupled multiband punch compression into a 1-click `HARD: CLASSIC / PUNCH` toggle (pure transparent pitch-lock by default), added `MPNT` (Major Pentatonic) to the 6-scale strip, and enabled Right-Clicking any Circle-of-5ths wedge to exclude passing notes for wider, more dramatic hard-tune leaps (Right-click center medallion to reset). All v4.2 states persist seamlessly in backward-compatible `CHROMAVOICE_V4` chunks."
             ]
           },
           {
             "version": "v4.1.0",
             "date": "2026-11-22",
-            "title": "Dedicated T-Pain Hard Auto-Tune Knob, Smart +-48 st Vocal Pitch Shifter & True Phase-Locked Dual-Head PSOLA",
+            "title": "Dedicated Hard Pitch-Lock Knob, Smart +-48 st Vocal Pitch Shifter & True Phase-Locked Dual-Head PSOLA",
             "card_image": "assets/ChromaVoice_v4.1.0_Release_Card.png",
             "highlights": [
-              "**Dedicated `T-PAIN` Hard Auto-Tune Knob (`0\u2013100%`) + Factory Preset**: Non-destructive instant vocal quantization crushing retune slew down to `0.18 ms`, engaging `128-sample` (`~2.6 ms`) turbo NCCF pitch tracking, crushing vibrato to `+0.4c` accuracy, pulling dry/wet focus to 100% pure quantized signal (zero untuned bleed chorusing), and blending musical OTT vocal polish\u2014all without overwriting your `RETUNE` or `DRY/WET` knob settings. Includes a 1-click **`T-Pain Hard Auto-Tune`** preset.",
+              "**Dedicated `HARD TUNE` Quantized Pitch-Lock Knob (`0\u2013100%`) + Factory Preset**: Non-destructive instant vocal quantization crushing retune slew down to `0.18 ms`, engaging `128-sample` (`~2.6 ms`) turbo NCCF pitch tracking, crushing vibrato to `+0.4c` accuracy, pulling dry/wet focus to 100% pure quantized signal (zero untuned bleed chorusing), and blending musical multiband vocal polish\u2014all without overwriting your `RETUNE` or `DRY/WET` knob settings. Includes a 1-click **`Classic Hard Auto-Lock`** preset.",
               "**Smart Vocal `PITCH` Knob (`-48.0` to `+48.0 st`) with True Phase-Locked Dual-Head PSOLA**: Full 8-octave (`0.0625x` to `16.0x`) vocal pitch shifting powered by zero-crossing `T0`-locked read heads (`0.0c` accuracy at `-24/-12/+12 st`, `\u00b11.6c` up to `+48 st`), a dynamic 24 dB/oct Butterworth anti-aliasing pre-filter (`+49.1 dB` signal-to-foldback at `+48 st`), automatic vocal-tract formant preservation & sub-rumble tightness, and real-time unvoiced consonant/sibilance preservation (`80.4%` crisp HF articulation retained at `-24 st`).",
-              "**Balanced 3x2 Left Dock Layout & Enhanced Workflow**: Upgraded the Left Dock knob bay cleanly to a 3x2 grid (`T-PAIN`, `PITCH`, `FORMANT` / `RETUNE`, `HUMANIZE`, `AUTO-LEVEL`) with Champagne focal glow on active `T-PAIN` & `PITCH`, exact `1.0 st` mousewheel stepping (`0.1 st` with Shift), Click-to-Type numeric entry (`-12`, `+24`, `-48` + Enter), live `T-PAIN` / `SMART SHIFT` Hero Banner telemetry, and `WM_PRINTCLIENT` off-screen rendering support."
+              "**Balanced 3x2 Left Dock Layout & Enhanced Workflow**: Upgraded the Left Dock knob bay cleanly to a 3x2 grid (`HARD TUNE`, `PITCH`, `FORMANT` / `RETUNE`, `HUMANIZE`, `AUTO-LEVEL`) with Champagne focal glow on active `HARD TUNE` & `PITCH`, exact `1.0 st` mousewheel stepping (`0.1 st` with Shift), Click-to-Type numeric entry (`-12`, `+24`, `-48` + Enter), live `HARD TUNE` / `SMART SHIFT` Hero Banner telemetry, and `WM_PRINTCLIENT` off-screen rendering support."
             ]
           },
           {
