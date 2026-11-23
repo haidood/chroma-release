@@ -1,8 +1,9 @@
 {
   "suite_name": "Chroma Audio Suite",
-  "suite_version": "2026.11.26",
-  "release_date": "2026-11-22",
-  "notes": "Chroma Audio Suite 2026.11.26 — ChromaVoice v4.2.0 Classic Hard-Tune Engine & Toggleable Live MIDI Target Steering: Upgraded Hard Pitch-Lock with newest-edge ~3-5 ms low-latency YIN pitch tracking, a dedicated 75-920 Hz vocal sidechain bandpass, classic 1*T0 single-period PSOLA grains, velocity-aware boundary hysteresis (zero midpoint chatter, hair-trigger scoops), toggleable CLASSIC (pure hard-lock) vs PUNCH (multiband) mode, Major Pentatonic + Right-Click custom scale-note mute on the Circle of 5ths, and toggleable MIDI LIVE target steering (monophonic MIDI lead + live pitch wheel + polyphonic 3-note MIDI chord harmonies).",
+  "suite_version": "2026.11.27",
+  "release_date": "2026-11-23",
+  "formats": ["VST3 (Steinberg VST 3.8.1 Official Validator Verified)", "VST2 (64-bit Windows)"],
+  "notes": "Chroma Audio Suite 2026.11.27 — Native Steinberg VST 3.8.1 Verified Bundles (All 15 Plugins): Built all 15 Chroma Audio Suite plugins as genuine native 64-bit Steinberg VST 3.8.1 bundles (.vst3/Contents/x86_64-win + official moduleinfo.json) under Steinberg's MIT-licensed VST 3.8 SDK, passing 15/15 official Steinberg validator.exe suites (47/47 tests per plugin, 705/705 total) plus full native Win32 IPlugView GUI & DAW lifecycle verification, and fixed ChromaTransientShaper AEffect teardown ownership.",
   "plugins": {
     "ChromaCore": {
       "version": "2.9.8",

@@ -1,0 +1,32 @@
+{
+  "Name": "",
+  "Version": "3.0.0",
+  "Factory Info": {
+    "Vendor": "Chroma Audio",
+    "URL": "https://haidood.github.io/chroma-release/",
+    "E-Mail": "mailto:support@chromaaudio.com",
+    "Flags": {
+      "Unicode": true,
+      "Classes Discardable": false,
+      "Component Non Discardable": false,
+    },
+  },
+  "Classes": [
+    {
+      "CID": "43485233434852585653543333303135",
+      "Category": "Audio Module Class",
+      "Name": "ChromaX",
+      "Vendor": "Chroma Audio",
+      "Version": "3.0.0",
+      "SDKVersion": "VST 3.8.1",
+      "Sub Categories": [
+        "Instrument",
+        "Synth",
+      ],
+      "Class Flags": 0,
+      "Cardinality": 2147483647,
+      "Snapshots": [
+      ],
+    },
+  ],
+}

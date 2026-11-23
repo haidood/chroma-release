@@ -271,9 +271,22 @@ function Download-WithRetry([string]$url, [string]$dest, [bool]$optional = $fals
 $selTotal = $selectedIndices.Count
 for ($idx = 0; $idx -lt $selTotal; $idx++) {
     $p = $plugins[$selectedIndices[$idx]].bin
-    Write-Host ("[{0,2}/{1}] Syncing {2}..." -f ($idx + 1), $selTotal, $p) -ForegroundColor White
+    Write-Host ("[{0,2}/{1}] Syncing {2} (VST2 + Native VST3 Bundle)..." -f ($idx + 1), $selTotal, $p) -ForegroundColor White
     Download-WithRetry "$RepoRawBase/${p}.dll?t=$CacheBust" (Join-Path $vst2Dir "${p}.dll") $false | Out-Null
-    Download-WithRetry "$RepoRawBase/${p}.vst3?t=$CacheBust" (Join-Path $vst3Dir "${p}.vst3") $false | Out-Null
+
+    # Install genuine Steinberg VST 3.8 bundle directory (<Plugin>.vst3/Contents/x86_64-win/<Plugin>.vst3 + moduleinfo.json)
+    $bundleRoot = Join-Path $vst3Dir "${p}.vst3"
+    if (Test-Path -Path $bundleRoot -PathType Leaf) {
+        Remove-Item -Path $bundleRoot -Force -ErrorAction SilentlyContinue
+    }
+    $bundleBinDir = Join-Path $bundleRoot 'Contents\x86_64-win'
+    $bundleResDir = Join-Path $bundleRoot 'Contents\Resources'
+    New-Item -ItemType Directory -Force -Path $bundleBinDir | Out-Null
+    New-Item -ItemType Directory -Force -Path $bundleResDir | Out-Null
+    Download-WithRetry "$RepoRawBase/${p}.vst3?t=$CacheBust" (Join-Path $bundleBinDir "${p}.vst3") $false | Out-Null
+    try {
+        $wc.DownloadFile("$RepoRawBase/vst3_moduleinfo/${p}.moduleinfo.json?t=$CacheBust", (Join-Path $bundleResDir 'moduleinfo.json'))
+    } catch { }
 }
 foreach ($sup in $supportDlls) {
     Write-Host "  [+] Runtime: $sup" -ForegroundColor Gray
