@@ -1,0 +1,32 @@
+{
+  "Name": "",
+  "Version": "3.0.0",
+  "Factory Info": {
+    "Vendor": "Chroma Audio",
+    "URL": "https://haidood.github.io/chroma-release/",
+    "E-Mail": "mailto:support@chromaaudio.com",
+    "Flags": {
+      "Unicode": true,
+      "Classes Discardable": false,
+      "Component Non Discardable": false,
+    },
+  },
+  "Classes": [
+    {
+      "CID": "4348523344454C415653543333303036",
+      "Category": "Audio Module Class",
+      "Name": "ChromaDelay",
+      "Vendor": "Chroma Audio",
+      "Version": "3.0.0",
+      "SDKVersion": "VST 3.8.1",
+      "Sub Categories": [
+        "Fx",
+        "Delay",
+      ],
+      "Class Flags": 0,
+      "Cardinality": 2147483647,
+      "Snapshots": [
+      ],
+    },
+  ],
+}

@@ -1,0 +1,32 @@
+{
+  "Name": "",
+  "Version": "2.9.8",
+  "Factory Info": {
+    "Vendor": "Chroma Audio",
+    "URL": "https://haidood.github.io/chroma-release/",
+    "E-Mail": "mailto:support@chromaaudio.com",
+    "Flags": {
+      "Unicode": true,
+      "Classes Discardable": false,
+      "Component Non Discardable": false,
+    },
+  },
+  "Classes": [
+    {
+      "CID": "43485233434F52455653543333303031",
+      "Category": "Audio Module Class",
+      "Name": "ChromaCore",
+      "Vendor": "Chroma Audio",
+      "Version": "2.9.8",
+      "SDKVersion": "VST 3.8.1",
+      "Sub Categories": [
+        "Instrument",
+        "Synth",
+      ],
+      "Class Flags": 0,
+      "Cardinality": 2147483647,
+      "Snapshots": [
+      ],
+    },
+  ],
+}

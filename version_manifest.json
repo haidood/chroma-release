@@ -3,7 +3,7 @@
   "suite_version": "2026.11.28",
   "release_date": "2026-11-24",
   "formats": ["VST3 (Steinberg VST 3.8.1 Official Validator Verified)", "VST2 (64-bit Windows)"],
-  "notes": "Chroma Audio Suite 2026.11.28 — 15/15 Native Steinberg VST 3.8.1 Certified (705/705 validator tests) + VST2: ChromaVoice v4.3.0 True Zero-Lag Hard-Tune Engine (bidirectional runway PSOLA, causal 0.00 ms pitch ring, 2048-ring 680 Hz YIN, reversible solo-focus HARD TUNE macro), fixed VST3 Steinberg::VirtualKeyCodes keyboard/hotkey forwarding, Polar.sh commercial licensing + offline CHRM-PRO keys + 14-day free trial, and suite-wide Click-to-Type hotkeys.",
+  "notes": "Chroma Audio Suite 2026.11.28 — 15/15 Native Steinberg VST 3.8.1 Certified (705/705 validator tests) + VST2: ChromaVoice v4.3.1 Zero-Crackle Live DSP & LIVE 5ms Low-Latency Mode (6x faster coarse-to-fine + local-track YIN pitch detector, zero-crackle room-noise ALM protection + -60/-66 dBFS vocal gate, sample-rate-invariant smoothing, dynamic PDC initialDelay/kLatencyChanged reporting), fixed VST3 Steinberg::VirtualKeyCodes keyboard/hotkey forwarding, Polar.sh commercial licensing + offline CHRM-PRO keys + 14-day free trial, and suite-wide Click-to-Type hotkeys.",
   "plugins": {
     "ChromaCore": {
       "version": "2.9.8",
@@ -72,10 +72,10 @@
       "notes": "ChromaTransientShaper v3.0.0 (2026.11.21): Full 2027 Astral Slate & Glacier Mist (P3) overhaul; strictly clipped Eclipse Monolith Sweet/Bitter dial, balanced 2x2 knob deck + Hero Sustain + live Surge/Gain delta well, dual-trace transient scope, eliminated all 34 static GDI+ objects, SEH HostShield, Click-to-Type, CrashVault [RECOVER], FeedbackShield, and safe SW_HIDE close."
     },
     "ChromaVoice": {
-      "version": "4.3.0",
-      "build": 20261127,
+      "version": "4.3.1",
+      "build": 20261128,
       "url": "https://raw.githubusercontent.com/haidood/chroma-release/main/precompiled/ChromaVoice.dll",
-      "notes": "ChromaVoice v4.3.0 — True Zero-Lag Hard Pitch-Lock Engine (2026.11.23): Eliminated upward PSOLA delay-line floor clamping via bidirectional runway-guarded phase-locked resynthesis; added causal time-aligned pitch ring eliminating 20-30 ms vibrato/glide phase skew (0.0-0.7c lock precision, 12x-20x vibrato flattening); upgraded YIN pitch tracker to full-period 2048-sample ring + 4th-order 680 Hz sidechain LP + 1.3 ms turbo hop + bidirectional octave guards; wired reversible HARD TUNE knob macro that automatically solos lead, zeros humanize/detune, locks 0 ms retune & 100% wet, and tightens reverb for an unmistakable classic hard-tuned vocal effect."
+      "notes": "ChromaVoice v4.3.1 — Zero-Crackle Live DSP & 1-Click LIVE 5ms Low-Latency Engine (2026.11.24): Upgraded live YIN pitch detector with pre-allocated memory, power-of-2 bitmasking, fast local-neighborhood tracking + coarse-to-fine stride-2 search (~5-7x faster, cuts 32/64-sample DAW buffer spikes); eliminated live-mic crackle from Auto Level Match (ALM) boosting room noise via smooth -44..-34 dBFS floor attenuation, 80 ms RMS stabilization, -60/-66 dBFS vocal gate, and sample-rate-invariant pitch/rate slew; added 1-click LIVE: 5ms vs STUDIO HQ toggle (~5.5 ms internal delay vs ~28-33 ms) with full DAW PDC latency reporting (VST2 audioMasterIOChanged + VST3 kLatencyChanged) and CHROMAVOICE_V4 chunk persistence."
     },
     "ChromaWidener": {
       "version": "3.0.0",

@@ -1,0 +1,32 @@
+{
+  "Name": "",
+  "Version": "3.4.0",
+  "Factory Info": {
+    "Vendor": "Chroma Audio",
+    "URL": "https://haidood.github.io/chroma-release/",
+    "E-Mail": "mailto:support@chromaaudio.com",
+    "Flags": {
+      "Unicode": true,
+      "Classes Discardable": false,
+      "Component Non Discardable": false,
+    },
+  },
+  "Classes": [
+    {
+      "CID": "4348523350554C535653543333303130",
+      "Category": "Audio Module Class",
+      "Name": "ChromaPulse",
+      "Vendor": "Chroma Audio",
+      "Version": "3.4.0",
+      "SDKVersion": "VST 3.8.1",
+      "Sub Categories": [
+        "Instrument",
+        "Drum",
+      ],
+      "Class Flags": 0,
+      "Cardinality": 2147483647,
+      "Snapshots": [
+      ],
+    },
+  ],
+}

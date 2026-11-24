@@ -51,7 +51,8 @@ Every plugin across the suite now ships with **32-bit DIB offscreen caches**, **
 | **Click Knob → Type Number + Enter** | All 15 Plugins (VST3 & VST2) | Enter exact `st`, `Hz`, `dB`, `ms`, or `%` (`Esc` cancels, `Bksp` edits, `Spacebar` stays free for DAW transport) |
 | **Double-Click / Right-Click Knob** | All 15 Plugins | Reset dial or slider cleanly back to factory default |
 | **Shift + Mouse Drag / Wheel** | Precision Tweaks | Ultra-fine parameter control (`0.1 st` Pitch on ChromaVoice, `0.1 dB` trim on ChromaMaster) |
-| **Right-Click Wedge / Center** | ChromaVoice v4.3.0 | Exclude passing notes from Circle-of-5ths scale (or reset all notes) |
+| **Click `[ LIVE: 5ms ]` / `[ STUDIO HQ ]`** | ChromaVoice v4.3.1 | Toggle 5ms low-latency live monitoring vs full phase-locked Studio HQ (with DAW PDC update) |
+| **Right-Click Wedge / Center** | ChromaVoice v4.3.1 | Exclude passing notes from Circle-of-5ths scale (or reset all notes) |
 | **`F1` / `Tab` (`1-4, Q-R, A-F, Z-V`)** | ChromaPulse v3.4.0 | Toggle in-plugin hotkey cheat sheet (`F1`) or 4x4 live keyboard pad drumming (`Tab`, `Shift` = soft velocity) |
 | **`2–8` / `R` / `T` / `M` / `A` / `G` + Click, `Ctrl+Z`** | ChromaPulse v3.4.0 | Ratchet splits (`2x–8x`), Reverse, Triplet, Mute, Accent, Ghost note modifiers & Undo |
 
@@ -90,7 +91,7 @@ Every plugin across the suite now ships with **32-bit DIB offscreen caches**, **
 ### 📁 [Vocal & Stereo Field](docs/05_Vocal_and_Stereo_Imaging/README.md)
 | Plugin | Latest Build | UI Screen | Description | Release Notes & Guide |
 |---|---|---|---|---|
-| **[ChromaVoice](docs/05_Vocal_and_Stereo_Imaging/chromavoice/README.md)** | `v4.3.0` | [Screen](docs/assets/ChromaVoice_Screen.png) | Astral Slate Zero-Lag Hard-Tune, Live MIDI Chord Steering & Smart +-48 st Console | [Overview & Glossary](docs/05_Vocal_and_Stereo_Imaging/chromavoice/README.md) ([`v4.3.0`](docs/05_Vocal_and_Stereo_Imaging/chromavoice/v4.3.0_2026-11-24.md) • [`v4.2.0`](docs/05_Vocal_and_Stereo_Imaging/chromavoice/v4.2.0_2026-11-22.md) • [`v4.1.0`](docs/05_Vocal_and_Stereo_Imaging/chromavoice/v4.1.0_2026-11-22.md)) |
+| **[ChromaVoice](docs/05_Vocal_and_Stereo_Imaging/chromavoice/README.md)** | `v4.3.1` | [Screen](docs/assets/ChromaVoice_Screen.png) | Astral Slate Zero-Crackle Live DSP, 5ms Live Tracking, Zero-Lag Hard-Tune & Harmonies | [Overview & Glossary](docs/05_Vocal_and_Stereo_Imaging/chromavoice/README.md) ([`v4.3.1`](docs/05_Vocal_and_Stereo_Imaging/chromavoice/v4.3.1_2026-11-24.md) • [`v4.3.0`](docs/05_Vocal_and_Stereo_Imaging/chromavoice/v4.3.0_2026-11-24.md) • [`v4.2.0`](docs/05_Vocal_and_Stereo_Imaging/chromavoice/v4.2.0_2026-11-22.md)) |
 | **[ChromaWidener](docs/05_Vocal_and_Stereo_Imaging/chromawidener/README.md)** | `v3.0.0` | [Screen](docs/assets/ChromaWidener_Screen.png) | Phase-Safe Multiband Spatializer & Stereo Widener | [Overview & Glossary](docs/05_Vocal_and_Stereo_Imaging/chromawidener/README.md) ([`v3.0.0`](docs/05_Vocal_and_Stereo_Imaging/chromawidener/v3.0.0_2026-11-21.md) • [`v2.9.1`](docs/05_Vocal_and_Stereo_Imaging/chromawidener/v2.9.1_2026-11-17.md) • [`v2.9.0`](docs/05_Vocal_and_Stereo_Imaging/chromawidener/v2.9.0_2026-11-05.md)) |
 
 ### 📁 [Mastering](docs/06_Mastering/README.md)
