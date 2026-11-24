@@ -255,8 +255,9 @@
       <div class="suite-badge">RELEASE HUB & PLAIN-ENGLISH DSP GUIDE</div>
     </div>
     <div class="ribbon-actions">
+      <button class="hw-btn" style="border-color:var(--ice-cyan);color:var(--ice-cyan);" onclick="showHotkeysPortal()">⌨️ ALL HOTKEYS &amp; SHORTCUTS</button>
       <button class="hw-btn" onclick="showFeedbackPortal()">[ FEEDBACK / PASTE BUG REPORT ]</button>
-      <a class="hw-btn hw-btn-update" href="https://github.com/haidood/chroma-release" target="_blank">▲ GITHUB REPO & BINARIES</a>
+      <a class="hw-btn hw-btn-update" href="https://github.com/haidood/chroma-release" target="_blank">▲ GITHUB REPO &amp; BINARIES</a>
     </div>
   </div>
 
@@ -341,6 +342,48 @@ const DATA = [
               "**Staggered 4-Pole Ladder Filter Damping (`FILT_LP24`)**: Replaced identical cascaded double-Q SVF damping (`R^2` nasal honk around `150\u2013200 Hz`) with staggered Butterworth-to-Ladder pole damping (`R1 / R2`), eliminating hollow cardboard low-mid ringing while preserving full sub-bass weight and creamy high-resonance squelch.",
               "**25 Out-of-Tune + 38 Hard-Panned Factory Presets Fixed (`88/88` Audited)**: Migrated 25 legacy presets that accidentally placed fine chorus/Reese detune (`0.501\u20130.505`) on `kParamOsc2Pitch` (`+10c` to `+48c` sharp!) to exact `0 st` coarse pitch + symmetric concert-pitch-centered `Osc1Fine / Osc2Fine` (`\u00b14c` to `\u00b112c`), centered 38 legacy presets accidentally panned 96\u2013100% hard L/R from the old 105-float layout, and fixed `Cyberpunk 2077 Reese Bass` serial `HP24` Filter 2 routing that was choking `65 Hz` sub bass.",
               "**Internal Reverb Anti-Ringing Polish**: Removed the accidental `kParamReverbTrebleAir -> midGainDB` assignment (up to `+18 dB` mid honk) and upgraded `LateReverbTank` to quadrature per-comb LFO phases to eliminate static comb ringing."
+            ],
+            "hotkeys": [
+              [
+                "Click Knob -> Type Number + Enter",
+                "Exact Numeric Value Entry",
+                "Click any knob (e.g. OSC 1 Pitch or Filter 1 Cutoff), type '-5', '5', '1200', or '75', and press Enter to set exact st / Hz / dB / ms / % (Esc cancels; Spacebar stays free)."
+              ],
+              [
+                "Right-Click Top FX Tab / Click LED Dot",
+                "Instant Workflow FX Bypass",
+                "Toggle DISTORT, EQ 12-B, BBD DELAY, HARM SEQ, MB DYN, or REVERB ON/OFF from any tab without losing your Synth view."
+              ],
+              [
+                "Click Visualizer Mode Pill / Viewport",
+                "Switch 4 Live Synth Views",
+                "Cycle between 3D WT+MIX (Pilot A), ALL-IN-ONE (Wave+Mod + FFT/Filter + Stereo), 4-OSC+FILT (2x2 Mini-Oscs + Filter), and PHASE MORPH."
+              ],
+              [
+                "Click [ + 8 ] / [ - 4 ] on Macro Card",
+                "Expand / Collapse Macro Deck",
+                "Toggle between compact 4-Macro + Live ADSR Curve view and full 8-Macro (M1\u2013M8) deck."
+              ],
+              [
+                "HARM SEQ: Click & Drag 16x12 Grid",
+                "Draw Patterns & Chords Live",
+                "Click and drag smoothly across steps to paint scale-locked melodies, arps, basslines, or 4-voice strummed chord pads."
+              ],
+              [
+                "HARM SEQ: Click Circle-of-5ths Wedge",
+                "Set Key & Audition Chord",
+                "Click any Major (outer) or Minor (inner) wedge to switch key, illuminate its diatonic neighborhood, and audition the tonic chord."
+              ],
+              [
+                "Right-Click Any Knob",
+                "14-Source Mod Matrix Link",
+                "Bind LFO 1/2, Envelopes, Velocity, Note, Mod Wheel, Chaos, Random, Performer, or Macros directly to any dial."
+              ],
+              [
+                "Double-Click / Right-Click Knob",
+                "Reset Parameter to Default",
+                "Snaps the selected dial cleanly back to its calibrated factory default."
+              ]
             ]
           },
           {
@@ -640,6 +683,48 @@ const DATA = [
               "**Clean 2-Tier Header & Dedicated Docked Master Card**: Relocated `MAGIC`, `SWING`, `MASTER` dials and stereo peak meters out of the crowded top ribbon into a dedicated Row-2 Master card with zero overlapping controls.",
               "**Unified 4x SSAA Machined Dials & P3 Acoustic Zones EQ**: Upgraded every Pad Inspector dial, unified all coordinates via `PLayout`, eliminated EQ zone text truncation, and preserved the smart streaming 16-pad WAV auto-slicer.",
               "**Click-to-Type, CrashVault & SEH HostShield**: Direct `effEditKeyDown` numeric knob entry (Spacebar stays free), CrashVault `[RECOVER]` autosave, `[FEEDBACK]` shield, 80%/100% scale toggle, and safe `SW_HIDE` host close."
+            ],
+            "hotkeys": [
+              [
+                "F1",
+                "Toggle Hotkey Quick-Help Overlay",
+                "Opens or dismisses the built-in ChromaPulse hotkey & pad-play cheat sheet right inside the plugin (`Esc` closes)."
+              ],
+              [
+                "Tab",
+                "Toggle 4x4 Keyboard Pad Play Mode",
+                "Switches the 4x4 block (`1-4 / Q-R / A-F / Z-V`) between playing Pads 1\u201316 live (`Shift` = 45% soft velocity) and step modifier mode."
+              ],
+              [
+                "2 / 3 / 4 / 5 / 6 / 7 / 8 + Left Click",
+                "Subdivide / Ratchet Step",
+                "Splits any clicked sequencer step into 2x..8x rolls (`3x`/`6x` triplet/sextuplet, `5x`/`7x` odd tuplets). `1 + Click` resets to `1x`; `0 + Click` resets all step modifiers."
+              ],
+              [
+                "R / T / M / A / G + Left Click",
+                "Reverse / Triplet / Mute / Accent / Ghost",
+                "`R` (or `Alt+Click`) Reverse, `T` Triplet pocket, `M` (or `Shift+Click`) Mute step, `A` Accent (`100%/72%`), `G` Ghost (`35%`)."
+              ],
+              [
+                "Q / E + Left Click",
+                "Quantize / Micro-Timing Nudge",
+                "`Q + Click` quantizes step timing back to the grid; `E + Click` adds subtle humanized pitch/pan/pocket variation."
+              ],
+              [
+                "X (over step)  |  Up / Down  |  PgUp / PgDn / Home",
+                "Quick Navigation & Step Toggle",
+                "`X` toggles the hovered step; `Up/Down` switches active pad; `PgUp/PgDn/Home` cycles 4 bar pages."
+              ],
+              [
+                "[ / ]  |  Ctrl+Z  |  Ctrl+C / Ctrl+V  |  D  |  Spacebar",
+                "Pattern Editing & Transport",
+                "Rotate bar left/right (`[ / ]`), Undo (`Ctrl+Z`), Copy/Paste bar (`Ctrl+C/V`), Duplicate (`D`), Clear (`Del/Bksp`), Audition (`Spacebar`)."
+              ],
+              [
+                "Click Knob -> Type Number + Enter",
+                "Exact Numeric Value Entry",
+                "Type exact dB, ms, Hz, or % values directly into selected Pad Inspector or Master knobs (`Esc` cancels)."
+              ]
             ]
           },
           {
@@ -1491,14 +1576,14 @@ const DATA = [
       {
         "id": "chromavoice",
         "name": "ChromaVoice",
-        "latest": "v4.2.0",
+        "latest": "v4.3.0",
         "screen_image": "assets/ChromaVoice_Screen.png",
-        "type": "Astral Slate Vocal Pitch Steering, Classic Hard-Tune, Live MIDI Steering & Smart +-48 st Console",
-        "summary": "Real-time vocal pitch steering, authentic Classic Hard Pitch-Lock Engine (with toggleable CLASSIC vs PUNCH mode), toggleable Live MIDI Target & Polyphonic Chord Steering, Smart +-48 semitone True Phase-Locked PSOLA pitch shifting, Right-Click Circle-of-5ths custom scale-note exclusion, and a 4-channel L/R harmonic doubler console.",
+        "type": "Astral Slate Zero-Lag Hard-Tune, Live MIDI Chord Steering & Smart +-48 st Console",
+        "summary": "True zero-lag Hard Pitch-Lock vocal tuning engine (bidirectional runway-guarded PSOLA, causal 0.00 ms pitch ring, 2048-ring 680 Hz YIN, reversible solo-focus HARD TUNE macro), toggleable Live MIDI Target & Polyphonic Chord Steering, Smart +-48 semitone shifting, Right-Click Circle-of-5ths note exclusion, Native Steinberg VST 3.8.1 + VST2, and a 4-channel L/R harmonic doubler console.",
         "glossary": [
           {
-            "term": "Classic Single-Period Hard-Tune vs. Generic Pitch Correction",
-            "simple": "Generic pitch shifters average pitch over 15\u201320 ms of older audio and crossfade wide grains, which softens rapid vocal runs. ChromaVoice v4.2.0 analyzes the newest live 4.6 ms edge through a dedicated 75\u2013920 Hz vocal sidechain filter and tightens grains down to a single pitch period (~5.5 ms) when HARD TUNE is cranked\u2014recreating that unmistakable glassy classic step-lock chirp without forced multiband pumping."
+            "term": "True Zero-Lag Bidirectional Hard Pitch-Lock vs. Generic Pitch Correction",
+            "simple": "Generic pitch shifters average pitch over 15\u201320 ms of older audio and clamp upward PSOLA grain delays, softening rapid vocal leaps. ChromaVoice v4.3.0 tracks a full-period 2048-sample ring via 4th-order 680 Hz sidechain YIN at 1.3 ms turbo hops with a 0.00 ms causal time-aligned pitch ring and bidirectional runway-guarded grains\u2014snapping every syllable in real time with 0.1\u20131.6c lock and 12x\u201320x vibrato flattening."
           },
           {
             "term": "Toggleable Live MIDI Target & Chord Steering (Play Your Voice Like a Synth)",
@@ -1514,9 +1599,58 @@ const DATA = [
           }
         ],
         "known_issues": [
-          "None currently open in v4.2.0."
+          "None currently open in v4.3.0."
         ],
         "versions": [
+          {
+            "version": "v4.3.0",
+            "date": "2026-11-24",
+            "title": "True Zero-Lag Hard Pitch-Lock Engine, Causal 0.00 ms Pitch Ring, 2048-Ring 680 Hz YIN & Native VST 3.8.1",
+            "card_image": "assets/ChromaVoice_v4.3.0_Release_Card.png",
+            "highlights": [
+              "**Eliminated Upward PSOLA Delay-Floor Clamp (Bidirectional Runway Guard)**: Replaced fixed base-delay subtraction with dynamic bidirectional runway management so sharp upward vocal leaps lock instantly without delay-floor smearing.",
+              "**Causal Time-Aligned Pitch Ring (`mPitchMidiRing`, `0.00 ms` Detector-to-Shifter Skew)**: Aligned live audio buffer writes with historical pitch targets so vibrato valleys and rapid runs stay dead phase-locked (`0.1\u20131.6c` accuracy, `12x\u201320x` vibrato flattening).",
+              "**Full-Period 2048-Ring 680 Hz Sidechain YIN + 1.3 ms Turbo Hop + Octave Guards**: Covers full male/female vocal fundamentals with 4th-order sidechain low-pass filtering and bidirectional octave-error prevention (`1.3 ms` stair-step agility).",
+              "**Reversible Solo-Focus `HARD TUNE` Macro + Native Steinberg VST 3.8.1 (`47/47`)**: Turning up `HARD TUNE` temporarily solos lead, zeros humanize/detune, sets 0 ms retune & 100% wet, and tightens space\u2014turning back down restores your doubler/harmony stack intact. Ships alongside native Steinberg VST 3.8.1 (`47/47` PASS), Polar.sh licensing & 14-day free trial."
+            ],
+            "hotkeys": [
+              [
+                "Click Circle-of-5ths Wedge",
+                "Lock Key / Steer Target Note",
+                "Left-click sets Key & Scale in Force Scale mode, or steers sung notes onto that pitch in `CLICK LIVE` mode."
+              ],
+              [
+                "Right-Click Wedge  |  Right-Click Center",
+                "Exclude / Reset Scale Notes",
+                "Right-click any wedge to exclude individual passing notes for wider hard-tune leaps; right-click the center medallion to re-enable all notes."
+              ],
+              [
+                "Click Knob/Pan/Fader -> Type + Enter",
+                "Exact Numeric Value Entry",
+                "Type exact `st`, `ms`, `Hz`, `pan`, or `%` directly on any control (`Esc` cancels, `Backspace` edits, `Spacebar` stays free for DAW transport)."
+              ],
+              [
+                "Mouse Wheel  |  Shift + Mouse Wheel",
+                "Coarse (1.0 st) / Fine (0.1 st) Adjust",
+                "Scroll `1.0 st` steps on Pitch or standard increments; hold `Shift` while scrolling for ultra-fine `0.1` precision."
+              ],
+              [
+                "Drag 3D Soundstage Orbs",
+                "Visual L/R Pan & Level",
+                "Drag `DBL L`, `DBL R`, `+5TH`, or `+9TH` orbs in 2D space to sculpt stereo width and balance synced to the vertical console."
+              ],
+              [
+                "Click / Right-Click Interval Pill",
+                "Cycle Scale-True Interval",
+                "Step forward/backward across 9 scale-true doubler & harmony intervals (`UNI`, `-OCT`, `+3RD`, `+5TH`, `+7TH`, `+9TH`, `+OCT`)."
+              ],
+              [
+                "Double-Click / Right-Click Knob",
+                "Reset to Studio Default",
+                "Instantly snaps any knob, pan dial, or fader back to its calibrated default."
+              ]
+            ]
+          },
           {
             "version": "v4.2.0",
             "date": "2026-11-22",
@@ -1738,6 +1872,33 @@ const DATA = [
               "**Maximizer Limiter Overhaul (-24.9 dB IM Reduction, -20% CPU)**: Eliminated bass intermodulation chop under heavy limiting while adding a full **Maximizer ADSR Envelope** (`Attack`, `Decay`, `Sustain`, `Release`).",
               "**Moveable 5-Band Parametric EQ & Mono-Safe Space Panel**: Added draggable frequency, gain, and Q controls across all 5 bands with a docked `EQ/SPACE` panel and a mono-compatible stereo space delay (`7.45e-09` mono-sum invariance).",
               "**Cached Direct2D GPU Spectrum & Batched 3D Waterfall**: Upgraded spectrum rendering to `shared/ChromaD2DEngine.h` with cached gradient brush, FNV-cached 64-point EQ curve, batched `ID2D1PathGeometry` traces, and IEEE-754-safe `/Oi /Ot /GL /LTCG` optimization."
+            ],
+            "hotkeys": [
+              [
+                "Click Knob -> Type Number + Enter",
+                "Exact Numeric Value Entry",
+                "Click any mastering dial (Threshold, Ceiling, Space Mix, EQ Gain/Freq), type exact dB/Hz/% and press Enter (`Esc` cancels)."
+              ],
+              [
+                "Drag / Double-Click EQ Node",
+                "5-Band Moveable Parametric EQ",
+                "Double-click on the GPU spectrum to toggle/add bands, drag Freq/Gain freely, and scroll wheel to sculpt Q bandwidth."
+              ],
+              [
+                "Shift + Drag / Fine Wheel",
+                "0.1 dB Precision Mastering Trim",
+                "Hold `Shift` while dragging knobs or faders for razor-fine mastering ceiling and output trim adjustments."
+              ],
+              [
+                "Click [ LIN <-> MIN ] / Chain Slots",
+                "Zero-PDC Toggle & 6-Slot Flow",
+                "Audition Linear-Phase Kaiser FIR vs. Minimum-Phase live without PDC jumps, or reorder the 6 mastering modules cleanly."
+              ],
+              [
+                "Double-Click / Right-Click Knob",
+                "Reset to Unity / Default",
+                "Instantly resets any knob or fader back to its mastering default."
+              ]
             ]
           },
           {
@@ -1817,6 +1978,10 @@ function renderSidebar() {
       <div class="plugin-row ${activePluginId === 'suite_overview' ? 'active' : ''}" onclick="showSuiteOverview()">
         <span>◆ Chroma // Audio Overview</span>
         <span class="ver-tag">SUITE</span>
+      </div>
+      <div class="plugin-row ${activePluginId === 'hotkeys_portal' ? 'active' : ''}" onclick="showHotkeysPortal()">
+        <span>⌨️ All Hotkeys &amp; Gestures</span>
+        <span class="ver-tag">KEYS</span>
       </div>
     </div>
   `;
@@ -1906,6 +2071,24 @@ function selectPlugin(pid, subView) {
     }
     html += `</div>`;
 
+    html += `<div class="section-hdr">⌨️ ${p.name} Hotkeys &amp; Universal Suite Controls</div>`;
+    const latestHotkeys = (p.versions.length > 0 && p.versions[0].hotkeys) ? p.versions[0].hotkeys : [];
+    const univHotkeys = [
+      ["Click Knob -> Type Number + Enter", "Exact Numeric Value Entry", "Click any dial/fader, type an integer or decimal (e.g. -5, 1200, 75), press Enter to commit (Esc cancels, Spacebar stays free for DAW transport). Works across VST3 & VST2."],
+      ["Double-Click / Right-Click Knob", "Reset to Factory Default", "Instantly snaps any dial or slider cleanly back to its calibrated default."],
+      ["Shift + Drag / Mouse Wheel", "Fine Parameter Control", "Adjust parameters in micro-increments (0.1 st / 0.1 dB on supported dials)."],
+      ["Yellow Header Dot •  |  Green Dot •", "Compact Scale (80%/100%) / Bypass", "Yellow toggles 80%/100% UI scale cleanly inside DAW MDI windows; Green toggles plugin bypass."],
+      ["[ RECOVER ]  |  [ FEEDBACK ]", "CrashVault & Diagnostic Shield", "1-click restore from CrashVault session backup, or copy 12h rate-limited diagnostic snapshot to Clipboard (Ctrl+V)."]
+    ];
+    html += `<div class="version-card"><div class="version-card-body" style="padding:14px;">`;
+    if (latestHotkeys.length > 0) {
+      html += `<div style="font-size:13px;font-weight:700;color:var(--ice-cyan);margin-bottom:8px;">Plugin-Specific Hotkeys &amp; Gestures (${p.latest})</div>`;
+      html += renderHotkeyTable(latestHotkeys, "Key / Gesture", "Action", "Description");
+      html += `<div style="font-size:13px;font-weight:700;color:var(--text-titanium);margin:14px 0 8px 0;">Universal Controls (Active on All 15 Plugins)</div>`;
+    }
+    html += renderHotkeyTable(univHotkeys, "Shortcut / Gesture", "Function", "Behavior");
+    html += `</div></div>`;
+
     html += `<div class="section-hdr">🗂️ All Release Notes & Version History</div>`;
     for (const v of p.versions) {
       html += renderVersionBlock(p, v, false);
@@ -1925,6 +2108,22 @@ function selectPlugin(pid, subView) {
 
   c.innerHTML = html;
   c.scrollTop = 0;
+}
+
+function renderHotkeyTable(rows, h1, h2, h3) {
+  const trs = rows.map(hk => `<tr><td style="font-family:Consolas,monospace;color:var(--ice-cyan);padding:7px 12px;border:1px solid var(--border-gunmetal);">${hk[0]}</td><td style="font-weight:700;padding:7px 12px;border:1px solid var(--border-gunmetal);">${hk[1]}</td><td style="padding:7px 12px;border:1px solid var(--border-gunmetal);color:var(--text-titanium);">${formatMarkdownBold(hk[2])}</td></tr>`).join('');
+  return `
+    <table style="width:100%;border-collapse:collapse;font-size:12.5px;background:#0d1015;border-radius:6px;overflow:hidden;border:1px solid var(--border-gunmetal);">
+      <thead>
+        <tr style="background:var(--bg-header);color:var(--text-platinum);text-align:left;">
+          <th style="padding:8px 12px;border:1px solid var(--border-gunmetal);">${h1}</th>
+          <th style="padding:8px 12px;border:1px solid var(--border-gunmetal);">${h2}</th>
+          <th style="padding:8px 12px;border:1px solid var(--border-gunmetal);">${h3}</th>
+        </tr>
+      </thead>
+      <tbody>${trs}</tbody>
+    </table>
+  `;
 }
 
 function renderVersionBlock(p, v, showCardImg) {
@@ -1948,23 +2147,71 @@ function renderVersionBlock(p, v, showCardImg) {
         <ul>${items}</ul>
         ${ v.hotkeys && v.hotkeys.length > 0 ? `
           <div style="margin-top:16px;">
-            <div style="font-size:13.5px;font-weight:700;color:var(--text-platinum);margin-bottom:8px;">⌨️ Sequencer Hotkeys &amp; Gestures Quick Reference:</div>
-            <table style="width:100%;border-collapse:collapse;font-size:12.5px;background:#0d1015;border-radius:6px;overflow:hidden;border:1px solid var(--border-gunmetal);">
-              <thead>
-                <tr style="background:var(--bg-header);color:var(--text-platinum);text-align:left;">
-                  <th style="padding:8px 12px;border:1px solid var(--border-gunmetal);">Key / Gesture</th>
-                  <th style="padding:8px 12px;border:1px solid var(--border-gunmetal);">Action</th>
-                  <th style="padding:8px 12px;border:1px solid var(--border-gunmetal);">Description</th>
-                </tr>
-              </thead>
-              <tbody>
-                ${v.hotkeys.map(hk => `<tr><td style="font-family:Consolas,monospace;color:var(--ice-cyan);padding:7px 12px;border:1px solid var(--border-gunmetal);">${hk[0]}</td><td style="font-weight:700;padding:7px 12px;border:1px solid var(--border-gunmetal);">${hk[1]}</td><td style="padding:7px 12px;border:1px solid var(--border-gunmetal);color:var(--text-titanium);">${hk[2]}</td></tr>`).join('')}
-              </tbody>
-            </table>
+            <div style="font-size:13.5px;font-weight:700;color:var(--text-platinum);margin-bottom:8px;">⌨️ Hotkeys &amp; Gestures Quick Reference:</div>
+            ${renderHotkeyTable(v.hotkeys, "Key / Gesture", "Action", "Description")}
           </div>` : '' }
       </div>
     </div>
   `;
+}
+
+function showHotkeysPortal() {
+  activePluginId = "hotkeys_portal";
+  activeSubView = "overview";
+  renderSidebar();
+  const c = document.getElementById("content");
+  const universalRows = [
+    ["Click Knob -> Type Number + Enter", "Exact Numeric Value Entry", "Type integers or decimals (e.g. -5, 1200, 75.5) into any selected dial or fader across VST3 & VST2 (`Esc` cancels, `Bksp` edits)."],
+    ["Spacebar", "DAW Transport Passthrough", "Always passes straight through to your host DAW Play/Stop (never trapped while typing parameters, except ChromaPulse standalone audition)."],
+    ["Double-Click / Right-Click Knob", "Reset to Factory Default", "Instantly restores the calibrated factory setting for that parameter."],
+    ["Shift + Mouse Drag / Wheel", "Precision Fine Control", "Adjust parameters in high-resolution steps (e.g. `0.1 st` Pitch on ChromaVoice, `0.1 dB` on ChromaMaster)."],
+    ["Yellow • Dot  /  Green • Dot", "80%/100% Scale  /  Bypass", "Yellow toggles 80%/100% compact UI scale (MDI-safe); Green toggles clean hardware bypass."],
+    ["[ RECOVER ]  /  [ FEEDBACK ]", "CrashVault & Diagnostics", "Restores your latest session snapshot or copies formatted telemetry & HostShield logs to Clipboard (`Ctrl+V`)."]
+  ];
+  const voiceRows = [
+    ["Click Circle-of-5ths Wedge", "Lock Key / Target Note", "Locks scale root in Force Scale mode or steers vocals directly in `CLICK LIVE` mode."],
+    ["Right-Click Wedge  /  Center", "Exclude Passing Note / Reset", "Excludes individual passing notes for dramatic hard-tune leaps; right-click center medallion resets all."],
+    ["HARD TUNE Macro (0–100%)", "Reversible Solo Hard-Lock", "Automatically solos lead, zeros humanize/detune & retune lag; turning back to 0% restores harmonies intact."],
+    ["MIDI LIVE Toggle + Notes/Chord", "Live Vocal Melodies & Chords", "Single keys steer lead vocal pitch (`±2 st` pitch wheel); holding 2–3 keys steers `HARM 1` & `HARM 2` harmonies."],
+    ["Drag 3D Soundstage Orbs", "Visual L/R Pan & Blend", "Drag `DBL L`, `DBL R`, `+5TH`, and `+9TH` orbs freely in stereo field, synced live with console faders."]
+  ];
+  const pulseRows = [
+    ["F1  (Esc to close)", "In-Plugin Hotkey Overlay", "Opens ChromaPulse's built-in interactive shortcut & pad-play cheat sheet."],
+    ["Tab  (1-4 / Q-R / A-F / Z-V)", "4x4 Keyboard Pad Play Mode", "Play Pads 1–16 directly on your computer keyboard (`Shift` = 45% soft hit). Press `Tab` again to edit steps."],
+    ["2 / 3 / 4 / 5 / 6 / 7 / 8 + Click", "Ratchet Step Splits (2x–8x)", "Subdivide any clicked step into fast rolls, triplets (`3x`/`6x`), or odd tuplets (`5x`/`7x`). `1 + Click` / `0 + Click` resets."],
+    ["R / T / M / A / G / Q / E + Click", "Per-Step Groove Modifiers", "`R` Reverse, `T` Triplet, `M` Mute, `A` Accent, `G` Ghost, `Q` Quantize, `E` Micro-Variation."],
+    ["X  |  Up/Down  |  PgUp/PgDn/Home", "Quick Navigate & Step Flip", "Toggle hovered step (`X`), switch pads (`Up/Down`), cycle 4 bars (`PgUp/PgDn/Home`)."],
+    ["[ / ]  |  Ctrl+Z  |  Ctrl+C/V  |  D  |  Del", "Bar Pattern Operations", "Rotate steps (`[ / ]`), Undo (`Ctrl+Z`), Copy/Paste bar (`Ctrl+C/V`), Duplicate (`D`), Clear (`Del/Bksp`)."]
+  ];
+  const coreAndMixRows = [
+    ["ChromaCore: Right-Click FX Tab / Dot", "Instant Workflow FX Bypass", "Toggle `DISTORT`, `EQ 12-B`, `BBD DELAY`, `HARM SEQ`, `MB DYN`, or `REVERB` from any view."],
+    ["ChromaCore: Click [ + 8 ] / [ - 4 ]", "Macro Deck + Live ADSR View", "Collapse macros to 1 row to reveal the live Amp Envelope ADSR curve, or expand all 8 macros."],
+    ["ChromaCore: Drag HARM SEQ 16x12 Grid", "Live Scale Pattern Painter", "Paint melodies, arps, basslines, or 4-voice chord pads synced to Circle-of-5ths wedges."],
+    ["ChromaCore: Right-Click Any Knob", "14-Source Mod Matrix Bind", "Route LFOs, Envelopes, Velocity, Chaos, or Macros directly to any synth parameter."],
+    ["ChromaMaster: Double-Click / Wheel EQ", "5-Band Moveable EQ Canvas", "Create, drag, or wheel-Q 5 parametric bands live over the 3D/2D Direct2D FFT spectrum."],
+    ["ChromaVerb: Space Skin / EQ Nodes", "3 GPU Skins + Decay EQ", "Cycle `Eclipse Sonar`, `Abyssal Sonar`, and `Astral Vault`; double-click/Delete Post-EQ nodes."]
+  ];
+  c.innerHTML = `
+    <div class="hero-box">
+      <div class="hero-type">2026.11.28 COMPLETE WORKFLOW GUIDE // ALL 15 PLUGINS (VST3 + VST2)</div>
+      <div class="hero-title">⌨️ Master Hotkeys, Mouse Gestures &amp; Shortcuts</div>
+      <div class="hero-summary">
+        Every keyboard shortcut, Click-to-Type numeric entry gesture, sequencer modifier, and Circle-of-5ths control across Chroma Audio Suite v2026.11.28 — verified across both Native Steinberg VST 3.8.1 and VST2 builds.
+      </div>
+    </div>
+    <div class="section-hdr">◆ Universal Hotkeys (Active Across All 15 Plugins)</div>
+    <div class="version-card"><div class="version-card-body" style="padding:14px;">${renderHotkeyTable(universalRows, "Shortcut / Gesture", "Action", "How It Works")}</div></div>
+    <div class="section-hdr">🎤 ChromaVoice v4.3.0 (Zero-Lag Hard-Tune &amp; Harmonies)</div>
+    <div class="version-card"><div class="version-card-body" style="padding:14px;">${renderHotkeyTable(voiceRows, "Control / Gesture", "Action", "How It Works")}</div></div>
+    <div class="section-hdr">🥁 ChromaPulse v3.4.0 (16-Pad Drum &amp; Sequencer Hotkeys)</div>
+    <div class="version-card"><div class="version-card-body" style="padding:14px;">${renderHotkeyTable(pulseRows, "Key / Gesture", "Action", "How It Works")}</div></div>
+    <div class="section-hdr">🎹 ChromaCore v2.9.8, ChromaMaster v1.3.0 &amp; ChromaVerb v3.2.0</div>
+    <div class="version-card"><div class="version-card-body" style="padding:14px;">${renderHotkeyTable(coreAndMixRows, "Shortcut / Gesture", "Module / Plugin", "How It Works")}</div></div>
+    <div style="margin-top:18px;">
+      <button class="hw-btn" onclick="showSuiteOverview()">⬅ Return to Suite Overview</button>
+    </div>
+  `;
+  c.scrollTop = 0;
 }
 
 function showFeedbackPortal() {
@@ -2044,14 +2291,14 @@ function showSuiteOverview() {
   const c = document.getElementById("content");
   const heroPath = (window.location.pathname.includes("/docs/")) ? "assets/ChromaAudio_Suite_Hero.png" : "docs/assets/ChromaAudio_Suite_Hero.png";
   const suiteHotkeys = [
-    ["Click Knob -> Type Number + Enter", "Exact Numeric Value Entry", "Type exact integers or decimals (e.g. -5, 5, 1200, 75) directly into selected knobs, pans, or faders for instant st, Hz, dB, ms, or % (Esc cancels; Spacebar stays free)."],
-    ["ChromaVoice Circle of 5ths + Orbs", "Live Target Steering & 3D Pan", "Click any Circle-of-5ths wedge to lock scale or steer sung notes directly in Target Click Live mode; drag 3D Soundstage orbs to sculpt L/R doubler & +5/+9 layers."],
+    ["Click Knob -> Type Number + Enter", "Exact Numeric Value Entry (VST3+VST2)", "Type integers or decimals (e.g. -5, 5, 1200, 75) directly into any dial or fader (`Esc` cancels; `Spacebar` stays free for DAW transport)."],
+    ["Double-Click / Right-Click Knob", "Reset to Factory Default", "Instantly snaps any dial, pan knob, or slider cleanly back to its factory default across all 15 plugins."],
+    ["Shift + Mouse Drag / Wheel", "Precision Fine Control", "Adjust parameters in ultra-fine steps (`0.1 st` Pitch on ChromaVoice, `0.1 dB` trim on ChromaMaster)."],
+    ["ChromaVoice Circle of 5ths + Orbs", "Target Steering, Exclusion & 3D Pan", "Left-click wedge to set key / target; Right-click wedge to exclude passing notes (Right-click center resets); drag 3D orbs for L/R doubler & +5/+9 layers."],
+    ["ChromaPulse F1 / Tab / 2-8+Click", "Pad Play, Ratchets & Pattern Keys", "`F1` opens hotkey sheet; `Tab` turns `1-4/Q-R/A-F/Z-V` into a 4x4 drum pad kit; `2-8` / `R` / `T` / `M` / `A` / `G` + Click edits step rolls; `Ctrl+Z` undoes."],
     ["Right-Click Top FX Tab / LED Dot", "ChromaCore Workflow FX Bypass", "Toggle DISTORT, EQ 12-B, BBD DELAY, HARM SEQ, MB DYN, or REVERB ON/OFF from any tab without losing focus."],
-    ["Visualizer Mode Pills / Click Scope", "4 Live Synthesis Views", "Switch live between 3D WT+MIX, ALL-IN-ONE (Wave+Mod + Filter FFT + Stereo Vectorscope), 4-OSC+FILT, and PHASE MORPH."],
-    ["[ + 8 ] / [ - 4 ] Macro Header Toggle", "Collapsible Macros + Live ADSR", "Keep Macros compact at 1 row of 4 to reveal the real-time Amp Envelope ADSR curve, or expand to all 8 macros anytime."],
-    ["HARM SEQ: Click &amp; Drag 16x12 Grid", "Circle-of-5ths Pattern Painter", "Click any Circle-of-5ths wedge to set key &amp; audition chords, then click-and-drag across the 16x12 scale grid to draw melodies or 4-voice strummed pads."],
-    ["ChromaVerb Space Skin Pill", "3 Direct2D GPU Space Skins", "Switch live between Eclipse Sonar (bilateral stereo wavefronts), Abyssal Sonar, and Astral Vault at 184 FPS."],
-    ["[ RECOVER ] / [ FEEDBACK ]", "Crash Vault &amp; 12h Shield", "Restore unsaved parameter tweaks in 1 click or capture clipboard diagnostics with 12-hour per-machine anti-spam protection."]
+    ["[ + 8 ] / [ - 4 ]  &  HARM SEQ Grid", "Collapsible Macros + Pattern Painter", "Reveal the live Amp ADSR curve above envelopes, or click-drag the 16x12 Circle-of-5ths HARM SEQ grid live."],
+    ["Yellow Scale •  /  Green Bypass •", "80%/100% UI Scale & Bypass", "Clean non-destructive UI scaling inside DAWs (`SW_HIDE` close safe) plus glitch-free bypass, `[ RECOVER ]` CrashVault & 12h `[ FEEDBACK ]`."]
   ];
   let hkRows = suiteHotkeys.map(hk => `<tr><td style="font-family:Consolas,monospace;color:var(--ice-cyan);padding:8px 12px;border:1px solid var(--border-gunmetal);white-space:nowrap;">${hk[0]}</td><td style="font-weight:700;padding:8px 12px;border:1px solid var(--border-gunmetal);">${hk[1]}</td><td style="padding:8px 12px;border:1px solid var(--border-gunmetal);color:var(--text-titanium);">${hk[2]}</td></tr>`).join('');
 
@@ -2076,14 +2323,17 @@ function showSuiteOverview() {
   c.innerHTML = `
     <img class="release-card-img" style="margin-top:0;" src="${heroPath}" alt="Chroma Audio Suite Overview">
     <div class="hero-box">
-      <div class="hero-type">2026.11.24 RELEASE WAVE // CHROMA // AUDIO SUITE</div>
+      <div class="hero-type">SUITE v2026.11.28 RELEASE WAVE // 15/15 STEINBERG VST 3.8.1 CERTIFIED + VST2</div>
       <div class="hero-title"><span>Harmonic Color. Hardware Soul. Native Speed.</span></div>
       <div class="hero-summary">
-        "Chroma" comes from <em>khrōma</em> — tonal richness and harmonic color. Listen to genuine bit-exact stereo audio rendered straight from our compiled C++ VST2 plugins below, and explore all 15 synthesizers, studio effects, and mastering processors.
+        "Chroma" comes from <em>khrōma</em> — tonal richness and harmonic color. All 15 plugins ship with <strong>official Steinberg VST 3.8.1 validation (705/705 tests passed)</strong> + 64-bit VST2, <strong>ChromaVoice v4.3.0 True Zero-Lag Hard-Tune</strong>, fixed VST3 keyboard/hotkey passthrough, and built-in <strong>14-day free trials</strong> &amp; <strong>Polar.sh perpetual licensing</strong>.
       </div>
     </div>
     ${renderAudioDemoDeck(AUDIO_DEMOS, "🎧 Listen Live — 100% Real Compiled Plugin Audio Demos (No Fake Synths)")}
-    <div class="section-hdr">⌨️ Suite-Wide Pro Workflow &amp; Hotkeys</div>
+    <div class="section-hdr" style="justify-content:space-between;">
+      <span>⌨️ Suite-Wide Pro Workflow &amp; Hotkeys</span>
+      <button class="hw-btn" style="padding:4px 10px;font-size:11.5px;border-color:var(--ice-cyan);color:var(--ice-cyan);" onclick="showHotkeysPortal()">Open Full 15-Plugin Hotkeys Reference →</button>
+    </div>
     <div class="version-card" style="margin-bottom:24px;">
       <div class="version-card-body" style="padding:14px;">
         <table style="width:100%;border-collapse:collapse;font-size:12.5px;background:#0b0e14;border-radius:6px;overflow:hidden;border:1px solid var(--border-gunmetal);">

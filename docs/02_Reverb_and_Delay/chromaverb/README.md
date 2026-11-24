@@ -30,7 +30,7 @@ Shimmer reverb pitches your reverb tail up by +12 semitones (one octave) by slic
   - **Eclipse Sonar Event Horizon GPU UI (184 FPS)**: Features a solar-gold Event Horizon center with bilateral stereo wavefront echoes scaled by Stereo Width, persistent VRAM backdrop caching, and instant Space Skin switching (`Eclipse Sonar`, `Abyssal Sonar`, `Astral Vault`).
   - **0–100% Knob Clamp & Signed Drag Wrap Fix**: Fixed unsigned `HIWORD` coordinate wrap when dragging knobs above the window top, clamped `DECAY RATE` and `STEREO WIDTH` cleanly to `0%–100%`, enabled immediate first-digit Click-to-Type entry in Ableton Live (`effEditKeyDown`), and upgraded to the 12h rate-limited Feedback Shield.
 
-  **⌨️ Sequencer Hotkeys & Gestures:**
+  **⌨️ Hotkeys & Gestures Quick Reference:**
 
   | Key / Gesture | Action | Description |
   |---|---|---|

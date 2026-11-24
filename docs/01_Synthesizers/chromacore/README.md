@@ -54,6 +54,20 @@ A classic 24dB 4-pole filter is built like a ladder with 4 rungs (stages). Inste
   - **25 Out-of-Tune + 38 Hard-Panned Factory Presets Fixed (`88/88` Audited)**: Migrated 25 legacy presets that accidentally placed fine chorus/Reese detune (`0.501–0.505`) on `kParamOsc2Pitch` (`+10c` to `+48c` sharp!) to exact `0 st` coarse pitch + symmetric concert-pitch-centered `Osc1Fine / Osc2Fine` (`±4c` to `±12c`), centered 38 legacy presets accidentally panned 96–100% hard L/R from the old 105-float layout, and fixed `Cyberpunk 2077 Reese Bass` serial `HP24` Filter 2 routing that was choking `65 Hz` sub bass.
   - **Internal Reverb Anti-Ringing Polish**: Removed the accidental `kParamReverbTrebleAir -> midGainDB` assignment (up to `+18 dB` mid honk) and upgraded `LateReverbTank` to quadrature per-comb LFO phases to eliminate static comb ringing.
 
+  **⌨️ Hotkeys & Gestures Quick Reference:**
+
+  | Key / Gesture | Action | Description |
+  |---|---|---|
+  | `Click Knob -> Type Number + Enter` | **Exact Numeric Value Entry** | Click any knob (e.g. OSC 1 Pitch or Filter 1 Cutoff), type '-5', '5', '1200', or '75', and press Enter to set exact st / Hz / dB / ms / % (Esc cancels; Spacebar stays free). |
+  | `Right-Click Top FX Tab / Click LED Dot` | **Instant Workflow FX Bypass** | Toggle DISTORT, EQ 12-B, BBD DELAY, HARM SEQ, MB DYN, or REVERB ON/OFF from any tab without losing your Synth view. |
+  | `Click Visualizer Mode Pill / Viewport` | **Switch 4 Live Synth Views** | Cycle between 3D WT+MIX (Pilot A), ALL-IN-ONE (Wave+Mod + FFT/Filter + Stereo), 4-OSC+FILT (2x2 Mini-Oscs + Filter), and PHASE MORPH. |
+  | `Click [ + 8 ] / [ - 4 ] on Macro Card` | **Expand / Collapse Macro Deck** | Toggle between compact 4-Macro + Live ADSR Curve view and full 8-Macro (M1–M8) deck. |
+  | `HARM SEQ: Click & Drag 16x12 Grid` | **Draw Patterns & Chords Live** | Click and drag smoothly across steps to paint scale-locked melodies, arps, basslines, or 4-voice strummed chord pads. |
+  | `HARM SEQ: Click Circle-of-5ths Wedge` | **Set Key & Audition Chord** | Click any Major (outer) or Minor (inner) wedge to switch key, illuminate its diatonic neighborhood, and audition the tonic chord. |
+  | `Right-Click Any Knob` | **14-Source Mod Matrix Link** | Bind LFO 1/2, Envelopes, Velocity, Note, Mod Wheel, Chaos, Random, Performer, or Macros directly to any dial. |
+  | `Double-Click / Right-Click Knob` | **Reset Parameter to Default** | Snaps the selected dial cleanly back to its calibrated factory default. |
+
+
 - **[`v2.9.7` (2026-11-19) — 2027 4x AA Hardware Skin, 4-Mode Real Visualizer, Collapsible Macros + ADSR, Circle-of-5ths HARM SEQ & Click-to-Type Knobs](./v2.9.7_2026-11-19.md)**
   - **2027 4x Supersampled Anti-Aliased Knobs & Retina Typography**: Dial sprites are pre-rendered at 4x resolution and bicubic-downsampled (0.00 ms runtime hit) with machined socket collars, soft dual-layer LED arcs, and `AntiAliasGridFit` labels (eliminating dark-theme color fringing while activating `ChromaFastText` caching).
   - **4-Mode Real Interactive Top-Center Visualizer**: Switch live via the bottom mode pills (`3D WT+MIX`, `ALL-IN-ONE`, `4-OSC+FILT`, `MORPH`) or by clicking the viewport. Displays real phase-locked wavetable combinations, live Filter 1 cutoff/resonance curves, harmonic FFT, modulation trails, and a lock-free stereo width vectorscope with zero fake animation.
@@ -63,7 +77,7 @@ A classic 24dB 4-pole filter is built like a ladder with 4 rungs (stages). Inste
   - **Click-to-Type Keyboard Numeric Entry on Every Knob**: Click any knob to select it, type an integer or decimal (e.g. `5`, `-5`, `1200`, `75`) and press `Enter` to jump straight to exact semitones, Hz, dB, ms, or `%` (`Esc` cancels; Spacebar stays free for DAW transport).
   - **Bare Oscillator Class-A Weight & 12h Rate-Limited Feedback Shield**: Enabled subtle baseline transformer core flux and even-harmonic body at 0 dB unity gain (zero extra CPU) so bare oscillators carry full analog weight, plus hardened 12-hour per-machine rate-limited `[FEEDBACK]` telemetry.
 
-  **⌨️ Sequencer Hotkeys & Gestures:**
+  **⌨️ Hotkeys & Gestures Quick Reference:**
 
   | Key / Gesture | Action | Description |
   |---|---|---|

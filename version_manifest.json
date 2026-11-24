@@ -1,9 +1,9 @@
 {
   "suite_name": "Chroma Audio Suite",
   "suite_version": "2026.11.28",
-  "release_date": "2026-11-23",
+  "release_date": "2026-11-24",
   "formats": ["VST3 (Steinberg VST 3.8.1 Official Validator Verified)", "VST2 (64-bit Windows)"],
-  "notes": "Chroma Audio Suite 2026.11.28 — ChromaVoice v4.3.0 True Zero-Lag Hard-Tune Engine + Native Steinberg VST 3.8.1 Verified Bundles: Eliminated PSOLA upward delay-floor clamping, added causal time-aligned pitch ring (0.00 ms detector-to-shifter skew), upgraded YIN to 2048-ring 4th-order 680 Hz sidechain full-period male/female tracking (0.0-0.7c accuracy, 12x-20x vibrato flattening, instant 1.3 ms stair-steps), and wired reversible solo-focus HARD TUNE knob macro across both VST2 and native Steinberg VST 3.8.1.",
+  "notes": "Chroma Audio Suite 2026.11.28 — 15/15 Native Steinberg VST 3.8.1 Certified (705/705 validator tests) + VST2: ChromaVoice v4.3.0 True Zero-Lag Hard-Tune Engine (bidirectional runway PSOLA, causal 0.00 ms pitch ring, 2048-ring 680 Hz YIN, reversible solo-focus HARD TUNE macro), fixed VST3 Steinberg::VirtualKeyCodes keyboard/hotkey forwarding, Polar.sh commercial licensing + offline CHRM-PRO keys + 14-day free trial, and suite-wide Click-to-Type hotkeys.",
   "plugins": {
     "ChromaCore": {
       "version": "2.9.8",

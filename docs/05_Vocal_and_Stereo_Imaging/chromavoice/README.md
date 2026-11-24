@@ -1,20 +1,20 @@
-# ChromaVoice (`v4.2.0`)
+# ChromaVoice (`v4.3.0`)
 
-> **Astral Slate Vocal Pitch Steering, Classic Hard-Tune, Live MIDI Steering & Smart +-48 st Console**  
-> Real-time vocal pitch steering, authentic Classic Hard Pitch-Lock Engine (with toggleable CLASSIC vs PUNCH mode), toggleable Live MIDI Target & Polyphonic Chord Steering, Smart +-48 semitone True Phase-Locked PSOLA pitch shifting, Right-Click Circle-of-5ths custom scale-note exclusion, and a 4-channel L/R harmonic doubler console.
+> **Astral Slate Zero-Lag Hard-Tune, Live MIDI Chord Steering & Smart +-48 st Console**  
+> True zero-lag Hard Pitch-Lock vocal tuning engine (bidirectional runway-guarded PSOLA, causal 0.00 ms pitch ring, 2048-ring 680 Hz YIN, reversible solo-focus HARD TUNE macro), toggleable Live MIDI Target & Polyphonic Chord Steering, Smart +-48 semitone shifting, Right-Click Circle-of-5ths note exclusion, Native Steinberg VST 3.8.1 + VST2, and a 4-channel L/R harmonic doubler console.
 
-### 🎛️ Plugin Interface (`v4.2.0`)
+### 🎛️ Plugin Interface (`v4.3.0`)
 
 ![ChromaVoice Live Interface](../../assets/ChromaVoice_Screen.png)
 
-![ChromaVoice v4.2.0 Release Card](../../assets/ChromaVoice_v4.2.0_Release_Card.png)
+![ChromaVoice v4.3.0 Release Card](../../assets/ChromaVoice_v4.3.0_Release_Card.png)
 
 ---
 
 ## 📚 Tech-to-Music Translator (How It Actually Works in Plain English)
 
-### 🔹 Classic Single-Period Hard-Tune vs. Generic Pitch Correction
-Generic pitch shifters average pitch over 15–20 ms of older audio and crossfade wide grains, which softens rapid vocal runs. ChromaVoice v4.2.0 analyzes the newest live 4.6 ms edge through a dedicated 75–920 Hz vocal sidechain filter and tightens grains down to a single pitch period (~5.5 ms) when HARD TUNE is cranked—recreating that unmistakable glassy classic step-lock chirp without forced multiband pumping.
+### 🔹 True Zero-Lag Bidirectional Hard Pitch-Lock vs. Generic Pitch Correction
+Generic pitch shifters average pitch over 15–20 ms of older audio and clamp upward PSOLA grain delays, softening rapid vocal leaps. ChromaVoice v4.3.0 tracks a full-period 2048-sample ring via 4th-order 680 Hz sidechain YIN at 1.3 ms turbo hops with a 0.00 ms causal time-aligned pitch ring and bidirectional runway-guarded grains—snapping every syllable in real time with 0.1–1.6c lock and 12x–20x vibrato flattening.
 
 ### 🔹 Toggleable Live MIDI Target & Chord Steering (Play Your Voice Like a Synth)
 When MIDI LIVE is toggled OFF, ChromaVoice follows your Circle-of-5ths scale or clicked target note and ignores MIDI completely. Toggle MIDI LIVE ON and route any MIDI keyboard or clip into ChromaVoice: your lead vocal snaps instantly to every MIDI note & pitch-wheel bend you play, and holding a 3-note chord automatically steers HARM 1 and HARM 2 to sing your exact live chord harmonies!
@@ -28,6 +28,25 @@ When you pitch a vocal down 2 octaves (-24 st), sung vowels turn into deep cinem
 ---
 
 ## 🗂️ Version & Patch History
+
+- **[`v4.3.0` (2026-11-24) — True Zero-Lag Hard Pitch-Lock Engine, Causal 0.00 ms Pitch Ring, 2048-Ring 680 Hz YIN & Native VST 3.8.1](./v4.3.0_2026-11-24.md)**
+  - **Eliminated Upward PSOLA Delay-Floor Clamp (Bidirectional Runway Guard)**: Replaced fixed base-delay subtraction with dynamic bidirectional runway management so sharp upward vocal leaps lock instantly without delay-floor smearing.
+  - **Causal Time-Aligned Pitch Ring (`mPitchMidiRing`, `0.00 ms` Detector-to-Shifter Skew)**: Aligned live audio buffer writes with historical pitch targets so vibrato valleys and rapid runs stay dead phase-locked (`0.1–1.6c` accuracy, `12x–20x` vibrato flattening).
+  - **Full-Period 2048-Ring 680 Hz Sidechain YIN + 1.3 ms Turbo Hop + Octave Guards**: Covers full male/female vocal fundamentals with 4th-order sidechain low-pass filtering and bidirectional octave-error prevention (`1.3 ms` stair-step agility).
+  - **Reversible Solo-Focus `HARD TUNE` Macro + Native Steinberg VST 3.8.1 (`47/47`)**: Turning up `HARD TUNE` temporarily solos lead, zeros humanize/detune, sets 0 ms retune & 100% wet, and tightens space—turning back down restores your doubler/harmony stack intact. Ships alongside native Steinberg VST 3.8.1 (`47/47` PASS), Polar.sh licensing & 14-day free trial.
+
+  **⌨️ Hotkeys & Gestures Quick Reference:**
+
+  | Key / Gesture | Action | Description |
+  |---|---|---|
+  | `Click Circle-of-5ths Wedge` | **Lock Key / Steer Target Note** | Left-click sets Key & Scale in Force Scale mode, or steers sung notes onto that pitch in `CLICK LIVE` mode. |
+  | `Right-Click Wedge  |  Right-Click Center` | **Exclude / Reset Scale Notes** | Right-click any wedge to exclude individual passing notes for wider hard-tune leaps; right-click the center medallion to re-enable all notes. |
+  | `Click Knob/Pan/Fader -> Type + Enter` | **Exact Numeric Value Entry** | Type exact `st`, `ms`, `Hz`, `pan`, or `%` directly on any control (`Esc` cancels, `Backspace` edits, `Spacebar` stays free for DAW transport). |
+  | `Mouse Wheel  |  Shift + Mouse Wheel` | **Coarse (1.0 st) / Fine (0.1 st) Adjust** | Scroll `1.0 st` steps on Pitch or standard increments; hold `Shift` while scrolling for ultra-fine `0.1` precision. |
+  | `Drag 3D Soundstage Orbs` | **Visual L/R Pan & Level** | Drag `DBL L`, `DBL R`, `+5TH`, or `+9TH` orbs in 2D space to sculpt stereo width and balance synced to the vertical console. |
+  | `Click / Right-Click Interval Pill` | **Cycle Scale-True Interval** | Step forward/backward across 9 scale-true doubler & harmony intervals (`UNI`, `-OCT`, `+3RD`, `+5TH`, `+7TH`, `+9TH`, `+OCT`). |
+  | `Double-Click / Right-Click Knob` | **Reset to Studio Default** | Instantly snaps any knob, pan dial, or fader back to its calibrated default. |
+
 
 - **[`v4.2.0` (2026-11-22) — Classic Hard-Tune Engine, Toggleable Live MIDI Target & Chord Steering, Classic/Punch Toggle & Custom Scale-Note Bypass](./v4.2.0_2026-11-22.md)**
   - **Ultra-Low-Latency Classic Hard-Tune Engine**: Re-anchored the SSE2 YIN/NCCF pitch detector to the newest live write-head edge (`112-sample` turbo template, cutting tracking lag ~4x to `3–5 ms`), added a dedicated `75–920 Hz` vocal sidechain bandpass so bright harmonics never cause octave-up glitches, tightened hard-tune grains to classic `1 × T0` (`~5.5 ms`) single-period crossfades for an iconic glassy step-lock chirp, and introduced velocity-aware `±14c` boundary hysteresis (zero sustained midpoint buzz, instant hair-trigger scoop flips).
@@ -52,7 +71,7 @@ When you pitch a vocal down 2 octaves (-24 st), sung vowels turn into deep cinem
   - **Full-Height 4-Channel Vertical Harmonic & L/R Doubler Console**: Dedicated studio strips for `DBL L`, `DBL R`, `HARM 1`, and `HARM 2` with scale-true interval cyclers (`UNI -8c/+8c`, `-OCT`, `SUB-5`, `+3RD`, `+5TH`, `+7TH`, `+9TH`, `+OCT`), rotary bipolar L/R pan knobs, machined vertical faders, formant offsets, `ON/OFF` toggles, and 1-click `DUO`, `WIDE DBL`, `+5 / +9`, and `OCTAVE` stack presets.
   - **+3.2 dB Weak-Vocal Body Enhancer, Studio FX Bay & Click-to-Type Knobs**: Instant 1-click vocal chest/body lift, 6 Studio FX toggles (`ALM`, `DE-ESS`, `COMP`, `VOC EQ`, `SPACE`, `WARP`), suite-standard Click-to-Type numeric entry on every knob, pan dial, and fader (`Spacebar` stays free), and full `CHROMAVOICE_V4` state chunk & CrashVault recall.
 
-  **⌨️ Sequencer Hotkeys & Gestures:**
+  **⌨️ Hotkeys & Gestures Quick Reference:**
 
   | Key / Gesture | Action | Description |
   |---|---|---|
@@ -86,7 +105,7 @@ When you pitch a vocal down 2 octaves (-24 st), sung vowels turn into deep cinem
 
 ## 🛠️ Known Issues & Bug Reporting
 
-- None currently open in v4.2.0.
+- None currently open in v4.3.0.
 
 **Found a bug or weird preset behavior?**  
 Click the **`[ FEEDBACK ]`** button in the top-right header of the plugin! It automatically snapshots your patch, EQ curve, and screenshot, copies a diagnostic summary to your Clipboard (`Ctrl+V` ready for Discord), or opens a pre-filled [GitHub Bug Report](https://github.com/haidood/chroma-release/issues/new).

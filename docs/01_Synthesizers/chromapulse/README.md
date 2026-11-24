@@ -34,6 +34,20 @@ Analog drum machines decay like a draining capacitor—fast punch up front follo
   - **Unified 4x SSAA Machined Dials & P3 Acoustic Zones EQ**: Upgraded every Pad Inspector dial, unified all coordinates via `PLayout`, eliminated EQ zone text truncation, and preserved the smart streaming 16-pad WAV auto-slicer.
   - **Click-to-Type, CrashVault & SEH HostShield**: Direct `effEditKeyDown` numeric knob entry (Spacebar stays free), CrashVault `[RECOVER]` autosave, `[FEEDBACK]` shield, 80%/100% scale toggle, and safe `SW_HIDE` host close.
 
+  **⌨️ Hotkeys & Gestures Quick Reference:**
+
+  | Key / Gesture | Action | Description |
+  |---|---|---|
+  | `F1` | **Toggle Hotkey Quick-Help Overlay** | Opens or dismisses the built-in ChromaPulse hotkey & pad-play cheat sheet right inside the plugin (`Esc` closes). |
+  | `Tab` | **Toggle 4x4 Keyboard Pad Play Mode** | Switches the 4x4 block (`1-4 / Q-R / A-F / Z-V`) between playing Pads 1–16 live (`Shift` = 45% soft velocity) and step modifier mode. |
+  | `2 / 3 / 4 / 5 / 6 / 7 / 8 + Left Click` | **Subdivide / Ratchet Step** | Splits any clicked sequencer step into 2x..8x rolls (`3x`/`6x` triplet/sextuplet, `5x`/`7x` odd tuplets). `1 + Click` resets to `1x`; `0 + Click` resets all step modifiers. |
+  | `R / T / M / A / G + Left Click` | **Reverse / Triplet / Mute / Accent / Ghost** | `R` (or `Alt+Click`) Reverse, `T` Triplet pocket, `M` (or `Shift+Click`) Mute step, `A` Accent (`100%/72%`), `G` Ghost (`35%`). |
+  | `Q / E + Left Click` | **Quantize / Micro-Timing Nudge** | `Q + Click` quantizes step timing back to the grid; `E + Click` adds subtle humanized pitch/pan/pocket variation. |
+  | `X (over step)  |  Up / Down  |  PgUp / PgDn / Home` | **Quick Navigation & Step Toggle** | `X` toggles the hovered step; `Up/Down` switches active pad; `PgUp/PgDn/Home` cycles 4 bar pages. |
+  | `[ / ]  |  Ctrl+Z  |  Ctrl+C / Ctrl+V  |  D  |  Spacebar` | **Pattern Editing & Transport** | Rotate bar left/right (`[ / ]`), Undo (`Ctrl+Z`), Copy/Paste bar (`Ctrl+C/V`), Duplicate (`D`), Clear (`Del/Bksp`), Audition (`Spacebar`). |
+  | `Click Knob -> Type Number + Enter` | **Exact Numeric Value Entry** | Type exact dB, ms, Hz, or % values directly into selected Pad Inspector or Master knobs (`Esc` cancels). |
+
+
 - **[`v3.3.0` (2026-11-18) — Streaming 16-Pad WAV Auto-Slicer with Click-Free Fades & Section Cycling](./v3.3.0_2026-11-18.md)**
   - **Streaming 16-Pad Auto-Slicer (`LoadAndAutoSliceWav`)**: Drop any breakbeat or full song WAV to stream and auto-slice the loudest 16-second window cleanly across all 16 pads.
   - **2 ms Anti-Click Fades & Automatic Choke Group 1**: Every slice receives smooth 2 ms onset/tail fades and automatic Choke Group 1 assignment so chops play cleanly right away.
@@ -52,7 +66,7 @@ Analog drum machines decay like a draining capacitor—fast punch up front follo
   - **Residual-Only ADAA Audio Fidelity**: Replaced the ceiling clipper with zero-latency residual-only 1st-order ADAA (`0.000 dB` flat linear top end across all sample rates) and upgraded Magic Drive to `ChromaMagicMaster` with NaN-safe RMS loudness trim and true Jury-stabilized RBJ shelf slopes.
   - **Full Held-Key + Left-Click Note Modulation Workflow**: Hold modifier keys while Left-Clicking any programmed sequencer step to instantaneously split notes (`2..8`), reverse (`R`), shift into triplet pocket (`T`), accent (`A`), ghost (`G`), mute (`M`), quantize (`Q`), vary pitch/pan (`E`), or reset (`0`).
 
-  **⌨️ Sequencer Hotkeys & Gestures:**
+  **⌨️ Hotkeys & Gestures Quick Reference:**
 
   | Key / Gesture | Action | Description |
   |---|---|---|
@@ -90,7 +104,7 @@ Analog drum machines decay like a draining capacitor—fast punch up front follo
   - **Duo-Tone Gunmetal & Matte Hardware UI**: Upgraded aesthetics to brushed gunmetal and matte obsidian with amber LED indicators and native 60 FPS UI preview capture.
   - **Full Keyboard & Mouse Hotkey Engine**: Rapid studio workflow for sequencing, ratcheting, muting, shifting, and duplicating drum patterns.
 
-  **⌨️ Sequencer Hotkeys & Gestures:**
+  **⌨️ Hotkeys & Gestures Quick Reference:**
 
   | Key / Gesture | Action | Description |
   |---|---|---|

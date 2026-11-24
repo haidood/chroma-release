@@ -31,6 +31,17 @@ Standard limiters miss intersample peaks that clip between digital samples once 
   - **Moveable 5-Band Parametric EQ & Mono-Safe Space Panel**: Added draggable frequency, gain, and Q controls across all 5 bands with a docked `EQ/SPACE` panel and a mono-compatible stereo space delay (`7.45e-09` mono-sum invariance).
   - **Cached Direct2D GPU Spectrum & Batched 3D Waterfall**: Upgraded spectrum rendering to `shared/ChromaD2DEngine.h` with cached gradient brush, FNV-cached 64-point EQ curve, batched `ID2D1PathGeometry` traces, and IEEE-754-safe `/Oi /Ot /GL /LTCG` optimization.
 
+  **⌨️ Hotkeys & Gestures Quick Reference:**
+
+  | Key / Gesture | Action | Description |
+  |---|---|---|
+  | `Click Knob -> Type Number + Enter` | **Exact Numeric Value Entry** | Click any mastering dial (Threshold, Ceiling, Space Mix, EQ Gain/Freq), type exact dB/Hz/% and press Enter (`Esc` cancels). |
+  | `Drag / Double-Click EQ Node` | **5-Band Moveable Parametric EQ** | Double-click on the GPU spectrum to toggle/add bands, drag Freq/Gain freely, and scroll wheel to sculpt Q bandwidth. |
+  | `Shift + Drag / Fine Wheel` | **0.1 dB Precision Mastering Trim** | Hold `Shift` while dragging knobs or faders for razor-fine mastering ceiling and output trim adjustments. |
+  | `Click [ LIN <-> MIN ] / Chain Slots` | **Zero-PDC Toggle & 6-Slot Flow** | Audition Linear-Phase Kaiser FIR vs. Minimum-Phase live without PDC jumps, or reorder the 6 mastering modules cleanly. |
+  | `Double-Click / Right-Click Knob` | **Reset to Unity / Default** | Instantly resets any knob or fader back to its mastering default. |
+
+
 - **[`v1.2.0` (2026-11-17) — Categorized 2-Pane Preset Browser & 64 Purpose-Built Mastering / Mix-Bus Presets](./v1.2.0_2026-11-17.md)**
   - **8 Categorized Banks (64 Studio Presets)**: Added a 2-pane Cosmic Obsidian dropdown browser organized into `MASTER`, `WHOLE MIX`, `DRUMS`, `VOCALS`, `SYNTHS`, `BASS`, `SPACE & WIDTH`, and `MID SCOOPS` (8 purpose-built presets each) with a live bottom `ENGINEER'S NOTE` bar explaining the exact mastering theory behind every preset.
   - **Real Mix-Bus & Mastering Theory**: Mix-bus presets default to `32F` (dither off) so bus inserts never add noise; Drum & Bass presets use Minimum-Phase EQ (zero kick/snare pre-ringing); Streaming Clean sets a strict `-1.0 dBTP` True Peak ceiling; and dedicated presets cover Passive Sub-Dip, Warm/Bright Tilts, Mix Widen/Tighten, Tight Low / Wide High, 340Hz Mud Cut, 2.4kHz Harshness Scoop, Vocal-Pocket Carve, Deep V-Shape, and Anti-Scoop Mid Forward.
