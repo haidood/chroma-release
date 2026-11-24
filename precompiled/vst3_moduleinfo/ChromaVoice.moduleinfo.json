@@ -1,6 +1,6 @@
 {
   "Name": "",
-  "Version": "4.3.0",
+  "Version": "4.3.1",
   "Factory Info": {
     "Vendor": "Chroma Audio",
     "URL": "https://haidood.github.io/chroma-release/",
@@ -17,7 +17,7 @@
       "Category": "Audio Module Class",
       "Name": "ChromaVoice",
       "Vendor": "Chroma Audio",
-      "Version": "4.3.0",
+      "Version": "4.3.1",
       "SDKVersion": "VST 3.8.1",
       "Sub Categories": [
         "Fx",
