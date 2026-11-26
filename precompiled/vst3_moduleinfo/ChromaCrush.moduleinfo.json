@@ -1,0 +1,32 @@
+{
+  "Name": "",
+  "Version": "1.0.0",
+  "Factory Info": {
+    "Vendor": "Chroma Audio",
+    "URL": "https://haidood.github.io/chroma-release/",
+    "E-Mail": "mailto:support@chromaaudio.com",
+    "Flags": {
+      "Unicode": true,
+      "Classes Discardable": false,
+      "Component Non Discardable": false,
+    },
+  },
+  "Classes": [
+    {
+      "CID": "43485233435255535653543333303136",
+      "Category": "Audio Module Class",
+      "Name": "ChromaCrush",
+      "Vendor": "Chroma Audio",
+      "Version": "1.0.0",
+      "SDKVersion": "VST 3.8.1",
+      "Sub Categories": [
+        "Fx",
+        "Distortion",
+      ],
+      "Class Flags": 0,
+      "Cardinality": 2147483647,
+      "Snapshots": [
+      ],
+    },
+  ],
+}
